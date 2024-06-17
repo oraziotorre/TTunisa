@@ -31,11 +31,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package model;
 
-/**
- * @author Mattia De Rosa
- *
- */
-
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 
@@ -46,14 +41,20 @@ import java.util.TimeZone;
 
 public class ConPool {
 	private static DataSource datasource;
+	static String ip = "localhost";
+	static String port = "3306";
+	static String db = "ttunisa";
+	static String username = "root";
+	static String password = "mysq";
 
 	public static Connection getConnection() throws SQLException {
+
 		if (datasource == null) {
 			PoolProperties p = new PoolProperties();
-			p.setUrl("jdbc:mysql://localhost:3306/ttunisa?serverTimezone=" + TimeZone.getDefault().getID());
+			p.setUrl("jdbc:mysql://"+ip+":"+port+"/"+db+"?serverTimezone=" + TimeZone.getDefault().getID());
 			p.setDriverClassName("com.mysql.cj.jdbc.Driver");
-			p.setUsername("root");
-			p.setPassword("mysq");
+			p.setUsername(username);
+			p.setPassword(password);
 			p.setMaxActive(100);
 			p.setInitialSize(10);
 			p.setMinIdle(10);
