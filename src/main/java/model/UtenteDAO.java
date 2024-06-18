@@ -15,10 +15,11 @@ public class UtenteDAO extends HttpServlet {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Utente utente = new Utente();
-                utente.setEmail(rs.getString(5));
-                utente.setPassword(rs.getString(6));
                 utente.setNome(rs.getString(2));
                 utente.setCognome(rs.getString(3));
+                utente.setSaldo(rs.getDouble(4));
+                utente.setEmail(rs.getString(5));
+                utente.setPassword(rs.getString(6));
                 utente.setAmministratore(rs.getBoolean(7));
                 u.add(utente);
             }
@@ -31,16 +32,17 @@ public class UtenteDAO extends HttpServlet {
     public static Utente doLogin(String email, String password) {
         Utente utente = new Utente();
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Utente WHERE email = ? AND password = SHA1(?)");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM Utente WHERE email = ? AND pass = ?");
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                utente.setEmail(rs.getString(1));
-                utente.setPassword(rs.getString(2));
-                utente.setNome(rs.getString(3));
-                utente.setCognome(rs.getString(4));
-                utente.setAmministratore(rs.getBoolean(13));
+                utente.setNome(rs.getString(2));
+                utente.setCognome(rs.getString(3));
+                utente.setSaldo(rs.getDouble(4));
+                utente.setEmail(rs.getString(5));
+                utente.setPassword(rs.getString(6));
+                utente.setAmministratore(rs.getBoolean(7));
                 return utente;
             }
             return null;
