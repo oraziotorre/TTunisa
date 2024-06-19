@@ -10,20 +10,52 @@
 <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+    *{
+        box-sizing: border-box;
+    }
     .login-page {
-        width: 360px;
-        padding: 8% 0 0;
+        width:100%;
+        padding: 0;
         margin: auto;
     }
+
+    ul {
+        list-style-type: none;
+        margin: 0 auto 100px;
+        padding: 0;
+        overflow: hidden;
+        background: #003A82;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px 20px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: grey;
+    }
+
+    .active {
+        background-color: #2B2D42;
+    }
+
     .form {
         position: relative;
         z-index: 1;
         background: #FFFFFF;
-        max-width: 360px;
-        margin: 0 auto 100px;
-        padding: 45px;
+        max-width: 31.25em;
+        margin: 0 auto 6.25em;
+        padding: 2.8125em;
         text-align: center;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
         border-radius: 12px;
     }
     .form input {
@@ -34,7 +66,6 @@
         border: 0;
         margin: 0 0 15px;
         padding: 15px;
-        box-sizing: border-box;
         font-size: 14px;
         border-radius: 8px;
     }
@@ -43,6 +74,7 @@
         background: rgba(128, 128, 128, 0.46);
         border-radius: 6px;
         padding: 3px;
+
     }
 
     .form button{
@@ -65,9 +97,27 @@
         font-weight: bold;
     }
 
+    .info {
+        position: fixed;
+        z-index: 1;
+        background: #003A82;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 40px 30px 10px;
+        text-align: center;
+    }
+
+    .info .info-message{
+        color:white;
+        font-size: 1em;
+    }
+
     body {
-        background-color: rgb(128, 128, 128); /* fallback for old browsers */
+        background: #FFFFFF;
         font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
     }
 </style>
 </head>
@@ -89,6 +139,12 @@
 </form>
 -->
 <div class="login-page">
+    <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
     <div class="form">
        <!-- <form class="register-form">
             <input type="text" placeholder="name"/>
@@ -106,7 +162,11 @@
             <p class="message">Non registrato? <a href="#">Crea un account</a></p>
         </form>
      </div>
+    <div class = "info">
+        <p class="info-message"> Supporta il nostro sviluppo semplicemendente dandoci 30 :)</p>
+    </div>
 </div>
+
 
 <script>function confermaParametri() {
     var email = document.getElementById('email').value;
