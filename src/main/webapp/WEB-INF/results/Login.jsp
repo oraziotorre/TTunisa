@@ -43,12 +43,10 @@
         background: rgba(128, 128, 128, 0.46);
         border-radius: 6px;
         padding: 3px;
-        border: 3px black;
     }
 
     .form button{
         border-radius: 6px;
-        border: 3px black;
         padding: 3px;
     }
 
