@@ -7,119 +7,107 @@
         if (request.getAttribute("parametri") != null) {
             x = "Email o password errati!";
         }%>
-<style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-    *{
-        box-sizing: border-box;
-    }
-    .login-page {
-        width:100%;
-        padding: 0;
-        margin: auto;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    ul {
-        list-style-type: none;
-        margin: 0 auto 100px;
-        padding: 0;
-        overflow: hidden;
-        background: #003A82;
-    }
+        .login-page {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
 
-    li {
-        float: left;
-    }
+        ul {
+            list-style-type: none;
+            margin: 0 auto 100px;
+            padding: 0;
+            overflow: hidden;
+            background: #003A82;
+        }
 
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 16px 20px;
-        text-decoration: none;
-    }
+        li {
+            float: left;
+        }
 
-    li a:hover:not(.active) {
-        background-color: grey;
-    }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
 
-    .active {
-        background-color: #2B2D42;
-    }
+        li a:hover:not(.active) {
+            background-color: grey;
+        }
 
-    .form {
-        position: relative;
-        z-index: 1;
-        background: #FFFFFF;
-        max-width: 31.25em;
-        margin: 0 auto 6.25em;
-        padding: 2.8125em;
-        text-align: center;
-        box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-        border-radius: 12px;
-    }
-    .form input {
-        font-family: "Roboto", sans-serif;
-        outline: 0;
-        background: #f2f2f2;
-        width: 100%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 15px;
-        font-size: 14px;
-        border-radius: 8px;
-    }
+        .active {
+            background-color: #2B2D42;
+        }
 
-    .form button:hover,.form button:active,.form button:focus {
-        background: rgba(128, 128, 128, 0.46);
-        border-radius: 6px;
-        padding: 3px;
+        .form {
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 31.25em;
+            margin: 0 auto 6.25em;
+            padding: 2.8125em;
+            text-align: center;
+            box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            border-radius: 12px;
+        }
 
-    }
+        .form input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 8px;
+        }
 
-    .form button{
-        border-radius: 6px;
-        padding: 3px;
-    }
+        .form button:hover, .form button:active, .form button:focus {
+            background: rgba(128, 128, 128, 0.46);
+            border-radius: 6px;
+            padding: 3px;
 
-    .form .message {
-        margin: 15px 0 0;
-        color: #b3b3b3;
-        font-size: 12px;
-    }
-    .form .message a {
-        color: blue;
-        text-decoration: none;
-    }
+        }
 
-    .form label{
-        color: #1a1a1a;
-        font-weight: bold;
-    }
+        .form button {
+            border-radius: 6px;
+            padding: 3px;
+        }
 
-    .info {
-        position: fixed;
-        z-index: 1;
-        background: #003A82;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 40px 30px 10px;
-        text-align: center;
-    }
+        .form .message {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
 
-    .info .info-message{
-        color:white;
-        font-size: 1em;
-    }
+        .form .message a {
+            color: blue;
+            text-decoration: none;
+        }
 
-    body {
-        background: #FFFFFF;
-        font-family: "Roboto", sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-</style>
+        .form label {
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+
+        body {
+            background: #FFFFFF;
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -132,12 +120,13 @@
         <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
         <button onclick="confermaParametri()" type="submit" id="subit" class="cart">Login</button>
     </div>-->
-   <!-- <p style="color: red; text-align: center"><%=x%>
+<!-- <p style="color: red; text-align: center"><%=x%>
     </p>
 <button type="submit" class="cart"><a style="text-decoration: none; color: white; text-underline: none" href="Registrazione">Registrati</a></button>
     <br>
 </form>
 -->
+<%@ include file="header.jsp" %>
 <div class="login-page">
     <ul>
         <li><a class="active" href="#home">Home</a></li>
@@ -146,13 +135,13 @@
         <li><a href="#about">About</a></li>
     </ul>
     <div class="form">
-       <!-- <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
-            <button>create</button>
-            <p class="message">Already registered? <a href="#">Sign In</a></p>
-        </form> -->
+        <!-- <form class="register-form">
+             <input type="text" placeholder="name"/>
+             <input type="password" placeholder="password"/>
+             <input type="text" placeholder="email address"/>
+             <button>create</button>
+             <p class="message">Already registered? <a href="#">Sign In</a></p>
+         </form> -->
         <form class="login-form" method="post" action="LoginServlet">
             <label for="email">Inserisci l'email</label><br>
             <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
@@ -161,10 +150,8 @@
             <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Login</button>
             <p class="message">Non registrato? <a href="#">Crea un account</a></p>
         </form>
-     </div>
-    <div class = "info">
-        <p class="info-message"> Supporta il nostro sviluppo semplicemendente dandoci 30 :)</p>
     </div>
+
 </div>
 
 
@@ -193,5 +180,6 @@
     }
     return true;
 }</script>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

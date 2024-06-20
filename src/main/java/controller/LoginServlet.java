@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
         else if(request.getParameter("action").equals("logout"))
         {
             session.invalidate();
-            RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Login");
             dispatcher.forward(request, response);
         }
 

@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html lang="it">
+<%--
+  Created by IntelliJ IDEA.
+  User: UTENTE
+  Date: 20/06/2024
+  Time: 21:23
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +39,7 @@
         }
 
         .logo img {
-            width: 50px;
+            width: 300px;
             height: auto;
             margin-right: 10px;
         }
@@ -77,32 +84,39 @@
             margin-right: 20px;
         }
 
-        .cart-icon img {
-            width: 30px;
-            height: auto;
+
+        .cart-icon {
+            background: #058c42;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            border: 2px solid black;
+            display: block;
+            left: 30%;
+            right: 30%;
         }
+
     </style>
 </head>
 <body>
 <header>
     <div class="header">
         <div class="logo">
-            <img src="logo.png" alt="TT Saturn Logo">
-            <span>TT saturn</span>
+            <img src="images/logo.png" alt="TT Saturn Logo">
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Cerca prodotti">
         </div>
         <div class="user-options">
             <a class= "login-access" href="Login.jsp">
-                <img src="logo.png" alt="TT Unisa">
+                <img src="images/user.png" alt="TT Unisa">
             </a>
             <a href="#test"> <!-- non contare questo -->
                 <img src="test" alt="Italian Flag" class="flag-icon">
             </a>
             <div class="cart-icon">
                 <a href="#carrello">
-                    <img src="src/main/webapp/images/Carrello.png" alt="Cart">
+                    <img src="images/cart.png" alt="TT Unisa">
                 </a>
 
             </div>
