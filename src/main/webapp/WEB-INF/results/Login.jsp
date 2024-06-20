@@ -1,113 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="torre-durante_pj\src\main\webapp\css\login.css">
+    <link rel="stylesheet" href="css\login.css">
     <title>Utente</title>
     <% String x = " ";
         if (request.getAttribute("parametri") != null) {
             x = "Email o password errati!";
         }%>
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .login-page {
-            width: 100%;
-            padding: 0;
-            margin: auto;
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0 auto 100px;
-            padding: 0;
-            overflow: hidden;
-            background: #003A82;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 16px 20px;
-            text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-            background-color: grey;
-        }
-
-        .active {
-            background-color: #2B2D42;
-        }
-
-        .form {
-            position: relative;
-            z-index: 1;
-            background: #FFFFFF;
-            max-width: 31.25em;
-            margin: 0 auto 6.25em;
-            padding: 2.8125em;
-            text-align: center;
-            box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-            border-radius: 12px;
-        }
-
-        .form input {
-            font-family: "Roboto", sans-serif;
-            outline: 0;
-            background: #f2f2f2;
-            width: 100%;
-            border: 0;
-            margin: 0 0 15px;
-            padding: 15px;
-            font-size: 14px;
-            border-radius: 8px;
-        }
-
-        .form button:hover, .form button:active, .form button:focus {
-            background: rgba(128, 128, 128, 0.46);
-            border-radius: 6px;
-            padding: 3px;
-
-        }
-
-        .form button {
-            border-radius: 6px;
-            padding: 3px;
-        }
-
-        .form .message {
-            margin: 15px 0 0;
-            color: #b3b3b3;
-            font-size: 12px;
-        }
-
-        .form .message a {
-            color: blue;
-            text-decoration: none;
-        }
-
-        .form label {
-            color: #1a1a1a;
-            font-weight: bold;
-        }
-
-
-        body {
-            background: #FFFFFF;
-            font-family: "Roboto", sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
 </head>
 <body>
 
