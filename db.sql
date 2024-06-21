@@ -32,27 +32,18 @@ CREATE TABLE prodotto (
 
 -- Creazione della tabella "categoria"
 CREATE TABLE categoria(
-    tipo VARCHAR(25) PRIMARY KEY NOT NULL
+    tipo VARCHAR(25) PRIMARY KEY
 );
 
 -- Creazione della tabella "ordine"
 CREATE TABLE ordine(
-    utente_ID INT,
+    ordine_ID INT AUTO_INCREMENT PRIMARY KEY,
     prezzo_tot DOUBLE NOT NULL,
     data_ordine DATE NOT NULL,
     cap VARCHAR(5) NOT NULL,
     indirizzo VARCHAR(25) NOT NULL,
-    FOREIGN KEY(utente_ID) REFERENCES utente(utente_ID),
-    PRIMARY KEY(utente_ID)
-);
--- Creazione della tabella "carrello"
-CREATE TABLE carrello(
-    quantita_carrello INT NOT NULL,
     utente_ID INT,
-    prodotto_ID INT,
-    FOREIGN KEY (utente_ID) REFERENCES utente(utente_ID),
-    FOREIGN KEY (prodotto_ID) REFERENCES prodotto(prodotto_ID),
-    PRIMARY KEY(utente_ID, prodotto_ID)
+    FOREIGN KEY(utente_ID) REFERENCES utente(utente_ID),
 );
 
 -- Creazione della tabella di associazione tra prodotto e ordine
