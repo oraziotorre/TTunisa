@@ -22,13 +22,20 @@ li {
     float: left;
 }
 
+
 li a {
     display: block;
     color: white;
     text-align: center;
     padding: 16px 20px;
     text-decoration: none;
+    border-left: #f2f2f2 0.1em solid ;
 }
+
+li .active{
+    border-left: none;
+}
+
 
 li a:hover:not(.active) {
     background-color: grey;
@@ -64,14 +71,22 @@ li a:hover:not(.active) {
 
 .form button:hover, .form button:active, .form button:focus {
     background: rgba(128, 128, 128, 0.46);
-    border-radius: 6px;
-    padding: 3px;
 
 }
 
 .form button {
-    border-radius: 6px;
-    padding: 3px;
+        background-color: #0056b3;
+        border: black 0.2em;
+        color: white;
+        padding: 1em 2em;
+        border-radius: 1em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+
 }
 
 .form .message {

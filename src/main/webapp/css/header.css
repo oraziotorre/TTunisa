@@ -36,7 +36,7 @@ body {
 
 .search-bar {
     flex-grow: 1;
-    margin: 0 20px;
+    margin: 0 10px;
     text-align: center;
 }
 
@@ -75,7 +75,6 @@ body {
     width: 2em;
     height: 2em;
     margin-right: 0.5em; /* Spazio tra l'immagine e il testo */
-
 }
 
 .login-access:hover img {
@@ -87,7 +86,7 @@ body {
 }
 
 .cart-icon {
-    position: relative;
+    position: relative; /* Necessario per posizionare il numero assolutamente all'interno */
     width: 3em;
     height: 3em;
     background-color: #003A82;
@@ -96,8 +95,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-left: 4em;
-
+    margin-right: 2em;
 }
 
 .cart-icon img {
@@ -105,8 +103,12 @@ body {
     height: 2em;
     border: none;
     cursor: pointer;
+    float: left;
 }
+
 
 .cart-icon:hover {
     background-color: #0056b3; /* Colore di sfondo quando si passa sopra */
 }
+
+
