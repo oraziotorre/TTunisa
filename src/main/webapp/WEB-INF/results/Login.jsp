@@ -26,13 +26,9 @@
 </form>
 -->
 <%@ include file="header.jsp" %>
+
 <div class="login-page">
-    <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
-    </ul>
+    <%@include file="nav.jsp"%>
     <div class="form">
         <!-- <form class="register-form">
              <input type="text" placeholder="name"/>
