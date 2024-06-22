@@ -50,7 +50,7 @@ body {
 
 .user-options {
     display: flex;
-    align-items: center;
+    align-items: baseline;
 }
 
 .login-container {
@@ -101,7 +101,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-left: 0.5em;
+
 }
 
 .cart-icon img {
@@ -110,6 +110,7 @@ body {
     border: none;
     cursor: pointer;
     float: left;
+    margin-left: 3em;
 }
 
 
