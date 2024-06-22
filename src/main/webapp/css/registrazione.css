@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Nasconde l'overflow orizzontale */
+}
+
 .login-page {
     width: 100%;
     padding: 0;
@@ -14,12 +22,12 @@
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 31.25em;
-    margin: 0 auto 4.5em;
-    padding: 2.8125em;
+    max-width: 31.25em; /* 500px */
+    margin: 0 auto 3em;
+    padding: 2.8125em; /* 45px */
     text-align: center;
     box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 0.75em;
+    border-radius: 0.75em; /* 12px */
 }
 
 .form input {
@@ -31,12 +39,11 @@
     margin: 0 0 1em;
     padding: 1em;
     font-size: 0.9em;
-    border-radius: 0.5em;
+    border-radius: 0.5em; /* 8px */
 }
 
 .form button:hover, .form button:active, .form button:focus {
     background: rgba(128, 128, 128, 0.46);
-
 }
 
 .form button {
@@ -51,7 +58,6 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-
 }
 
 .form .message {
@@ -68,12 +74,4 @@
 .form label {
     color: #1a1a1a;
     font-weight: bold;
-}
-
-
-body {
-    background: #FFFFFF;
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
 }

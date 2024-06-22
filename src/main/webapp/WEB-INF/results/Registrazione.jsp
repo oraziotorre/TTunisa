@@ -32,7 +32,6 @@
             <p class="message">Sei già registrato? <a href="Login.js"p>Accedi</a></p>
         </form>
     </div>
-    <%@ include file="footer.jsp" %>
 </div>
 
 

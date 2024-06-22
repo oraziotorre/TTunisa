@@ -108,6 +108,7 @@ body {
 .cart-icon img {
     width: 2em;
     height: 2em;
+    filter: invert(1); /* Cambia da nero in bianco */
 }
 
 .cart-icon:hover {
@@ -116,12 +117,13 @@ body {
 
 /* Per un numero di articoli nel carrello */
 .cart-icon::after {
-    content: attr(data-count);
+    content: "2";
     position: absolute;
     top: -0.5em;
     right: -0.5em;
     background-color: red;
     color: white;
+    font-weight: bold;
     width: 1.5em;
     height: 1.5em;
     border-radius: 50%;
