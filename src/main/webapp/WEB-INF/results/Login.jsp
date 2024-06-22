@@ -28,7 +28,7 @@
 <%@ include file="header.jsp" %>
 
 <div class="login-page">
-    <%@ include file="nav.jsp"%>
+    <%@ include file="nav.jsp" %>
     <div class="form">
         <!-- <form class="register-form">
              <input type="text" placeholder="name"/>
@@ -38,15 +38,14 @@
              <p class="message">Already registered? <a href="#">Sign In</a></p>
          </form> -->
         <form class="login-form" method="post" action="LoginServlet">
-            <label for="email">Inserisci l'email</label><br>
+            <label for="email">Indirizzo email</label><br>
             <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
-            <label for="password"><b>Inserisci la password</b></label><br>
+            <label for="password"><b>Password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Login</button>
-            <p class="message">Non registrato? <a href="Registrazione.jsp">Crea un account</a></p>
+            <p class="message">Non registrato? <a href="RegistrationServlet">Crea un account</a></p>
         </form>
     </div>
-    <%@ include file="footer.jsp" %>
 </div>
 
 

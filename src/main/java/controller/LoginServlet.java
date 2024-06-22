@@ -21,35 +21,26 @@ public class LoginServlet extends HttpServlet {
         String parametri;
         HttpSession session = request.getSession();
         Utente u = UtenteDAO.doLogin(request.getParameter("Email"), request.getParameter("Password"));
-        if(request.getParameter("action")==null)
-        {
+        if (request.getParameter("action") == null) {
             if (u == null) {
                 parametri = "Email o password errati!";
                 request.setAttribute("parametri", parametri);
                 RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
                 rs.include(request, response);
-            } else if (u != null && !u.isAmministratore()) {
-                session.setAttribute("Utente", u);
-                RequestDispatcher ds = request.getRequestDispatcher("HomePage");
-                ds.forward(request, response);
-            } else if (u != null && u.isAmministratore()) {
-                session.setAttribute("Amministratore", u);
-                RequestDispatcher ds = request.getRequestDispatcher("HomeServletAmministratore");
-                ds.forward(request, response);
+            } else if (request.getParameter("action").equals("registration")) {
+                session.invalidate();
+                RequestDispatcher dispatcher = request.getRequestDispatcher("Registration");
+                dispatcher.forward(request, response);
+            } else if (request.getParameter("action").equals("logout")) {
+                session.invalidate();
+                RequestDispatcher dispatcher = request.getRequestDispatcher("Login");
+                dispatcher.forward(request, response);
             }
         }
-        else if(request.getParameter("action").equals("logout"))
-        {
-            session.invalidate();
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Login");
-            dispatcher.forward(request, response);
-        }
-
-
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req,resp);
+        doPost(req, resp);
     }
 }

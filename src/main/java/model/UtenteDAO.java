@@ -1,4 +1,5 @@
 package model;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class UtenteDAO extends HttpServlet {
 
     public static ArrayList<Utente> doRetriveUtente() {
-        ArrayList<Utente> u =new ArrayList<Utente>();
+        ArrayList<Utente> u = new ArrayList<Utente>();
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM Utente");
             ResultSet rs = ps.executeQuery();
@@ -32,7 +33,7 @@ public class UtenteDAO extends HttpServlet {
     public static Utente doLogin(String email, String password) {
         Utente utente = new Utente();
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Utente WHERE email = ? AND pass = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email = ? AND pass = ?");
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
@@ -51,5 +52,37 @@ public class UtenteDAO extends HttpServlet {
         }
     }
 
+
+    public static void doRegistration(Utente utente) {
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO utente (nome, cognome, email, pass, saldo, amministratore) VALUES (?, ?, ?, ?, ?, ?)");
+            ps.setString(1, utente.getNome());
+            ps.setString(2, utente.getCognome());
+            ps.setString(3, utente.getEmail());
+            ps.setString(4, utente.getPassword());
+            ps.setDouble(5, utente.getSaldo());
+            ps.setBoolean(6, utente.isAmministratore());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean isNewEmail(String email) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT email FROM utente WHERE email=?");
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return true;
+    }
 
 }

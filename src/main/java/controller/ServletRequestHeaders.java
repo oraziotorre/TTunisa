@@ -1,18 +1,22 @@
 package controller;
+
 import java.io.IOException;
 import java.util.ArrayList;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.Utente;
 import model.UtenteDAO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
+
 import model.ConPool;
 import model.HeadersBean;
 
@@ -22,10 +26,10 @@ public class ServletRequestHeaders extends HttpServlet {
 
 
         ////////////////////////////////////////////////////
-        ArrayList<Utente> riepilogoUtente= UtenteDAO.doRetriveUtente();
-        request.setAttribute("riepilogoUtente",riepilogoUtente);
-        RequestDispatcher ds=request.getRequestDispatcher("/WEB-INF/results/VisualizzaUtenti.jsp");
-        ds.forward(request,response);
+        ArrayList<Utente> riepilogoUtente = UtenteDAO.doRetriveUtente();
+        request.setAttribute("riepilogoUtente", riepilogoUtente);
+        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/VisualizzaUtenti.jsp");
+        ds.forward(request, response);
 
         /*// 1. Estrai tutti i nomi degli header dalla richiesta
         List<String> headerNames = Collections.list(request.getHeaderNames());
@@ -49,7 +53,6 @@ public class ServletRequestHeaders extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/showHeaders.jsp");
         dispatcher.forward(request, response);*/
     }
-
 
 
 }

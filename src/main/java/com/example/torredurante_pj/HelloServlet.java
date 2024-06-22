@@ -2,6 +2,7 @@ package com.example.torredurante_pj;
 
 import java.lang.*;
 import java.io.*;
+
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -20,7 +21,7 @@ public class HelloServlet extends HttpServlet {
         String prova = request.getParameter("prova");
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1> "+prova+"</h1>");
+        out.println("<h1> " + prova + "</h1>");
         out.println(message);
         out.println("</body></html>");
     }

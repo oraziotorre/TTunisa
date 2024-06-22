@@ -28,9 +28,13 @@ public class Utente {
         return cognome;
     }
 
-    public Double getSaldo() {return saldo; }
+    public Double getSaldo() {
+        return saldo;
+    }
 
-    public void setSaldo(Double saldo) {this.saldo = saldo; }
+    public void setSaldo(Double saldo) {
+        this.saldo = saldo;
+    }
 
     public boolean isAmministratore() {
         return amministratore;

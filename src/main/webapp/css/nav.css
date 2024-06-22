@@ -18,10 +18,10 @@ li a {
     text-align: center;
     padding: 1em 1.25em;
     text-decoration: none;
-    border-left: #f2f2f2 0.1em solid ;
+    border-left: #f2f2f2 0.1em solid;
 }
 
-li .active{
+li .active {
     border-left: none;
 }
 
