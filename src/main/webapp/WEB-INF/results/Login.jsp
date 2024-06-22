@@ -43,7 +43,7 @@
             <label for="password"><b>Inserisci la password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Login</button>
-            <p class="message">Non registrato? <a href="results\Registrazione.jsp">Crea un account</a></p>
+            <p class="message">Non registrato? <a href="Registrazione.jsp">Crea un account</a></p>
         </form>
     </div>
     <%@ include file="footer.jsp" %>
