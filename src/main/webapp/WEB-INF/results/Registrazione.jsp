@@ -26,10 +26,10 @@
             <input type="text" placeholder="Inserisci Cognome" name="cognome" id="cognome" required><br>
             <label for="email"><b>Inserisci l'Email</b></label><br>
             <input type="email" placeholder="Inserisci Email" name="email" id="email" required><br>
-            <label for="password"><b>Inserisci Password</b></label><br>
+            <label for="password"><b>Inserisci la password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Login</button>
-            <p class="message">Sei già registrato? <a href="Login.jsp"p>Accedi</a></p>
+            <p class="message">Sei già registrato? <a href="Login.js"p>Accedi</a></p>
         </form>
     </div>
     <%@ include file="footer.jsp" %>
