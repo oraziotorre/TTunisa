@@ -29,11 +29,11 @@ public class LoginServlet extends HttpServlet {
                 rs.include(request, response);
             } else if (request.getParameter("action").equals("registration")) {
                 session.invalidate();
-                RequestDispatcher dispatcher = request.getRequestDispatcher("Registration");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("registration");
                 dispatcher.forward(request, response);
             } else if (request.getParameter("action").equals("logout")) {
                 session.invalidate();
-                RequestDispatcher dispatcher = request.getRequestDispatcher("Login");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("login");
                 dispatcher.forward(request, response);
             }
         }

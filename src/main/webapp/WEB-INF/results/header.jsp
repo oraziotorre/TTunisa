@@ -10,7 +10,9 @@
 <header>
     <div class="header">
         <div class="logo">
-            <img src="images\logo.png" alt="TT Saturn Logo">
+            <a href="home">
+                <img src="images/logo.png" alt="TT Saturn Logo">
+            </a>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Cerca prodotti">
