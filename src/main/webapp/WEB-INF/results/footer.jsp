@@ -27,7 +27,7 @@
             justify-content: space-around;
             background-color: #003A82; /* Colore di sfondo del footer */
             padding: 1.2em;
-            margin-top:18em;
+            margin-top: auto;
         }
 
         .column {

@@ -19,6 +19,7 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
+            overflow-y: auto;
         }
 
         .homepage {
@@ -26,37 +27,31 @@
             justify-content: center; /* Centra il contenuto orizzontalmente */
             align-items: center; /* Centra il contenuto verticalmente */
             padding: 1.4em;
-            border-radius: 0.5em;
-            box-shadow: 0 0 0.7em rgba(0, 0, 0, 0.1);
         }
 
-        .immagine {
-            text-align: center; /* Allinea il testo al centro */
-        }
 
         .immagine img{
-            max-width: 100%; /* Massima larghezza dell'immagine */
-            max-height: 100%; /* Massima altezza dell'immagine */
+           width: 30em;
+            height: 24em;
         }
 
         .pulsante {
             text-align: center;
-            margin-top: 20px; /* Spazio sopra il pulsante */
+            margin-top: 1.5em; /* Spazio sopra il pulsante */
         }
 
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 0.8em 0.2em;
+            font-size: 3em;
             cursor: pointer;
-            background-color: #007bff;
-            color: white;
+            background-color: #f0f0f0;
+            color: black;
             border: none;
-            border-radius: 4px;
             transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        button:hover, button:visited {
+            background-color: darkgray;
         }
     </style>
 </head>
@@ -64,13 +59,17 @@
 <%@ include file="header.jsp" %>
 <%@ include file="nav.jsp" %>
 <div class="homepage">
+    <div class="pulsante">
+        <button onclick="cambiaImmagine()"><</button>
+    </div>
     <div class="immagine">
         <img src="images\cart.png" alt="carrello" id="immagine_grande">
     </div>
     <div class="pulsante">
-        <button onclick="cambiaImmagine()">Cambia Immagine</button>
+        <button onclick="cambiaImmagine()">></button>
     </div>
 </div>
+<%@include file="footer.jsp"%>
 
 <script>
     function cambiaImmagine() {
