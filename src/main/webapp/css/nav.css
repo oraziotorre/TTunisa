@@ -5,6 +5,8 @@ ul {
     padding: 0;
     overflow: hidden;
     background: #003A82;
+    position: sticky;
+    top:0;
 }
 
 li {
