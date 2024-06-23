@@ -12,7 +12,7 @@ import model.UtenteDAO;
 
 import java.io.IOException;
 
-@WebServlet("/RegistrationServlet")
+@WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
     @Override

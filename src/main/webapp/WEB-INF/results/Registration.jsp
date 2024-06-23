@@ -29,7 +29,7 @@
             <label for="password"><b>Password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Registrati</button>
-            <p class="message">Sei già registrato? <a href="LoginServlet">Accedi</a></p>
+            <p class="message">Sei già registrato? <a href="login">Accedi</a></p>
         </form>
     </div>
 </div>

@@ -17,7 +17,7 @@
         </div>
         <div class="user-options">
             <div class="login-container">
-                <a class="login-access" href="results\Login.jsp">
+                <a class="login-access" href="login">
                     <img src="images\user-icon2.png" alt="Login">
                     <span>Accedi</span>
                 </a>
