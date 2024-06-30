@@ -9,19 +9,17 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-
+            background-color: white;
         }
 
         .product-page {
             width: 80%; /* Larghezza massima della pagina */
             padding: 1.8em;
             background-color: white;
-            margin: 0 auto;
             display: flex;
-            justify-content: center;
-            align-items:center;
             flex-direction: column; /* Disposizione dei figli in colonna */
             gap: 20px; /* Spazio tra i figli */
+            margin: 0 auto 20px;
         }
 
         .infos {
@@ -34,38 +32,42 @@
         .product-container {
             display: flex;
             gap: 20px; /* Spazio tra l'immagine e le informazioni */
-            align-items: flex-start; /* Allinea gli elementi alla partenza dell'asse trasversale */
+            align-items: center; /* Allinea gli elementi alla partenza dell'asse trasversale */
+            margin: 0 auto;
         }
 
         .product-image {
+            flex: 0 0 auto; /* Non flettere, non crescere, larghezza automatica */
             text-align: center;
+
         }
 
         .product-image img {
             max-width: 100%; /* Larghezza massima dell'immagine */
             height: auto;
+
             border: #0056b3 2px solid;
             padding: 0.5em; /* Padding intorno all'immagine */
         }
 
         .product-details {
             flex: 1 1 auto; /* Flessione, crescita, larghezza automatica */
-            padding: 10px;
+            padding: 10px; /* Padding per le informazioni del prodotto */
             background-color: white;
             border-radius: 8px;
         }
 
         .product-details h1 {
-            font-size: 24px;
+            font-size: 48px;
             margin-bottom: 10px;
         }
 
         .price {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .prezzo {
-            font-size: 20px;
+            font-size: 40px;
             color: #000;
         }
 
@@ -82,9 +84,9 @@
         }
 
         button {
-            padding: 15px 30px;
+            padding: 22.5px 45px;
             background-color: #007bff;
-            font-size: 18px;
+            font-size: 24px;
             color: white;
             font-family: "Roboto", sans-serif;
             border: none;
@@ -130,5 +132,6 @@
         </div>
     </div>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
