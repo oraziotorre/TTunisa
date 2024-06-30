@@ -1,8 +1,3 @@
-
-body{
-
-}
-
 ul {
     list-style-type: none;
     margin: 0 auto 4.5em;
@@ -10,13 +5,14 @@ ul {
     overflow: hidden;
     background: #003A82;
     position: sticky;
-    top:0;
+    top: 0;
+    display: flex; /* Flexbox per il layout */
+    z-index: 100; /* Il menu rimanga sopra il contenuto */
 }
 
 li {
-    float: left;
+    display: flex; /* Flexbox per il layout dei singoli elementi */
 }
-
 
 li a {
     display: block;
@@ -30,7 +26,6 @@ li a {
 li .active {
     border-left: none;
 }
-
 
 li a:hover:not(.active) {
     background-color: grey;

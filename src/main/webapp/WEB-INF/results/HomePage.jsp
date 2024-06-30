@@ -14,7 +14,6 @@ To change this template use File | Settings | File Templates.
             box-sizing: border-box;
         }
 
-        /* Stili di base per il layout */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -34,7 +33,8 @@ To change this template use File | Settings | File Templates.
         .immagine img {
             width: 30em;
             height: 24em;
-            transition: opacity 0.5s ease; /* Aggiungi questa linea per la transizione */
+            transition: opacity 0.5s ease; /*Linea per la transizione */
+            z-index: 0;
         }
 
         .pulsante {
@@ -73,6 +73,7 @@ To change this template use File | Settings | File Templates.
             background-color: #003A82;
             padding:0.4em;
             color: white;
+            width: 100%;
         }
 
         .lista {
@@ -226,14 +227,14 @@ To change this template use File | Settings | File Templates.
 <%@include file="footer.jsp"%>
 
 <script>
-    let inTransition = false; // Variabile di stato per gestire la transizione
+    let inTransition = false; // Variabile per gestire la transizione
 
     function cambiaImmagine() {
         if (inTransition) return; // Evita di eseguire se è già in transizione
-        inTransition = true; // Imposta la transizione in corso
+        inTransition = true;
 
         let immagine = document.getElementById('immagine_grande');
-        immagine.style.opacity = 0; // Imposta opacità a 0 per iniziare la dissolvenza
+        immagine.style.opacity = 0; // Imposta opacità a 0 per farlo scomparire
 
         // Cambia immagine dopo la durata della transizione (500ms)
         setTimeout(() => {
@@ -246,11 +247,13 @@ To change this template use File | Settings | File Templates.
             }
 
             immagine.style.opacity = 1; // Riporta opacità a 1 per far apparire la nuova immagine
+            document.querySelector("ul").style.zIndex='1000';
             inTransition = false; // Transizione completata
-        }, 500); // La durata qui deve corrispondere alla durata della transizione CSS
+
+        }, 500);
     }
 
-    // Imposta l'intervallo per cambiare immagine automaticamente ogni 3 secondi
+    //  l'intervallo cambia immagine automaticamente ogni 3 secondi
     setInterval(cambiaImmagine, 3000);
 
 </script>
