@@ -146,7 +146,7 @@ To change this template use File | Settings | File Templates.
             <button onclick="cambiaImmagine()"><</button>
         </div>
         <div class="immagine">
-            <img src="images\\cart.png" alt="carrello" id="immagine_grande">
+            <img src="images\\home1.jpg" alt="carrello" id="immagine_grande">
         </div>
         <div class="pulsante">
             <button onclick="cambiaImmagine()">></button>
@@ -240,10 +240,10 @@ To change this template use File | Settings | File Templates.
         setTimeout(() => {
             let immagineAttuale = immagine.src;
 
-            if (immagineAttuale.endsWith('cart.png')) {
+            if (immagineAttuale.endsWith('home1.jpg')) {
                 immagine.src = 'images\\logo.png';
             } else {
-                immagine.src = 'images\\cart.png';
+                immagine.src = 'images\\home1.jpg';
             }
 
             immagine.style.opacity = 1; // Riporta opacità a 1 per far apparire la nuova immagine
