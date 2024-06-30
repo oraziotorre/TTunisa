@@ -9,133 +9,7 @@ To change this template use File | Settings | File Templates.
 <html>
 <head>
     <title>home</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            overflow-y: auto;
-        }
-
-        .image-big {
-            display: flex;
-            justify-content: center; /* Centra il contenuto orizzontalmente */
-            align-items: center; /* Centra il contenuto verticalmente */
-            padding: 1.4em;
-            z-index: -1;
-            margin: 2em;
-        }
-
-        .immagine img {
-            width: 30em;
-            height: 24em;
-            transition: opacity 0.5s ease; /*Linea per la transizione */
-            z-index: 0;
-        }
-
-        .pulsante {
-            text-align: center;
-            margin-top: 1.5em; /* Spazio sopra il pulsante */
-        }
-
-        button {
-            padding: 0.8em 0.2em;
-            font-size: 3em;
-            cursor: pointer;
-            background-color: #f0f0f0;
-            color: black;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover, button:visited {
-            background-color: darkgray;
-        }
-
-        .catalogo {
-            margin-top: 3em;
-            display: flex;
-            flex-direction: column; /* Imposta il layout a colonna */
-            align-items: center;
-            padding: 1em;
-            width: 100%;
-        }
-
-        .catalogo h1 {
-            margin-bottom: 1em; /* Spazio inferiore tra h1 e oggetti */
-            text-align: center;
-            font-size: 30px;
-            font-family: "Roboto", sans-serif;
-            background-color: #003A82;
-            padding:0.4em;
-            color: white;
-            width: 100%;
-        }
-
-        .lista {
-            display: flex;
-            flex-wrap: wrap; /* Imposta il layout a riga e avvolgi gli oggetti */
-            align-items: center; /* Centra gli oggetti verticalmente */
-            justify-content: space-around;
-            padding: 1em;
-            margin-bottom: 6em;
-        }
-
-        .oggetto {
-            text-align: center;
-            padding: 1em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Aggiungi una transizione */
-            margin-bottom: 1em; /* Spazio inferiore tra oggetti */
-            width: 20%; /* Dimensioni relative per il layout responsive */
-        }
-
-        .oggetto img {
-            width: 10em;
-            height: 10em;
-            margin-bottom: 0.5em;
-            border-bottom: grey solid 1px;
-        }
-
-        .oggetto strong {
-            color: #003A82;
-        }
-
-        .oggetto:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: rgba(128, 128, 128, 0.1); /* Cambia lo sfondo */
-        }
-
-        .oggetto:hover strong {
-            color: #0056b3;
-        }
-
-        .oggetto img:hover {
-            opacity: 0.8;
-        }
-
-        .oggetto button {
-            background-color: transparent;
-            border: 2px solid #CA0000;
-            color: #CA0000;
-            padding: 0.5em 1em;
-            margin-top: 0.5em;
-            font-size: 1em;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            cursor: pointer;
-            width: 75%;
-            border-radius: 5%;
-        }
-
-        .oggetto button:hover {
-            background-color: #CA0000;
-            color: white;
-            border-color: #E4112A;
-        }
-    </style>
+    <link href="css/homepage.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -157,7 +31,9 @@ To change this template use File | Settings | File Templates.
     <h1>OGGETTI PIU' VENDUTI</h1>
     <div class="lista">
         <div class="oggetto">
-            <img src="images\\cart.png" alt="Oggetto 1">
+            <a href="Product.jsp">
+                <img src="images\\cart.png" alt="Oggetto 1">
+            </a>
             <p>Oggetto 1</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
@@ -226,36 +102,6 @@ To change this template use File | Settings | File Templates.
 </div>
 <%@include file="footer.jsp"%>
 
-<script>
-    let inTransition = false; // Variabile per gestire la transizione
-
-    function cambiaImmagine() {
-        if (inTransition) return; // Evita di eseguire se è già in transizione
-        inTransition = true;
-
-        let immagine = document.getElementById('immagine_grande');
-        immagine.style.opacity = 0; // Imposta opacità a 0 per farlo scomparire
-
-        // Cambia immagine dopo la durata della transizione (500ms)
-        setTimeout(() => {
-            let immagineAttuale = immagine.src;
-
-            if (immagineAttuale.endsWith('home1.jpg')) {
-                immagine.src = 'images\\logo.png';
-            } else {
-                immagine.src = 'images\\home1.jpg';
-            }
-
-            immagine.style.opacity = 1; // Riporta opacità a 1 per far apparire la nuova immagine
-            document.querySelector("ul").style.zIndex='1000';
-            inTransition = false; // Transizione completata
-
-        }, 500);
-    }
-
-    //  l'intervallo cambia immagine automaticamente ogni 3 secondi
-    setInterval(cambiaImmagine, 3000);
-
-</script>
+<script src="js/homepage.js"> </script>
 </body>
 </html>
