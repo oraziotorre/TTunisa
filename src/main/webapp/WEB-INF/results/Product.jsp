@@ -19,7 +19,7 @@
             display: flex;
             flex-direction: column; /* Disposizione dei figli in colonna */
             gap: 20px; /* Spazio tra i figli */
-            margin: 0 auto 20px;
+            margin: 0 10em 0 15em;
         }
 
         .infos {
@@ -39,13 +39,13 @@
         .product-image {
             flex: 0 0 auto; /* Non flettere, non crescere, larghezza automatica */
             text-align: center;
-
+            margin-right: 2em;
         }
 
         .product-image img {
             max-width: 100%; /* Larghezza massima dell'immagine */
             height: auto;
-
+            width: auto;
             border: #0056b3 2px solid;
             padding: 0.5em; /* Padding intorno all'immagine */
         }
