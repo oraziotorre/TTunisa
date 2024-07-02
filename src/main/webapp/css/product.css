@@ -1,0 +1,99 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.product-page {
+    width: 80%; /* Larghezza massima della pagina */
+    padding: 1.8rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column; /* Disposizione dei figli in colonna */
+    margin: 0 10rem 0 15rem;
+}
+
+.infos {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #666;
+    text-align: center; /* Centra il testo */
+}
+
+.product-container {
+    display: flex;
+    align-items: center; /* Allinea gli elementi alla partenza dell'asse trasversale */
+    margin: 0 auto;
+}
+
+.product-image {
+    text-align: center;
+    margin-right: 2rem;
+}
+
+.product-image img {
+    max-width: 100%; /* Larghezza massima dell'immagine */
+    height: auto;
+    width: auto;
+    border: #0056b3 0.1rem solid;
+    padding: 0.5rem; /* Padding intorno all'immagine */
+}
+
+.product-details {
+    padding: 0.7rem; /* Padding per le informazioni del prodotto */
+    background-color: white;
+}
+
+.product-details h1 {
+    font-size: 3rem;
+    margin-bottom: 0.7rem;
+}
+
+.price {
+    margin-bottom: 2.5rem;
+}
+
+.prezzo {
+    font-size: 2.5rem;
+    color: #000;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 40%; /* Larghezza dell'input */
+    padding: 0.5rem;
+    margin-bottom: 1.3rem; /* Spazio inferiore per l'input */
+}
+
+button {
+    padding: 1rem 2rem;
+    background-color: #007bff;
+    font-size: 1.5rem;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1.3rem; /* Spazio inferiore per il bottone */
+    align-self: center; /* Centra il bottone */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 0; /* Rimuove il margine superiore per il paragrafo */
+    /* Allinea il testo */
+}
