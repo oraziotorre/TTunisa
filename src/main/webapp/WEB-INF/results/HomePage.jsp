@@ -20,7 +20,7 @@ To change this template use File | Settings | File Templates.
             <button onclick="cambiaImmagine()"><</button>
         </div>
         <div class="immagine">
-            <img src="images\\home1.jpg" alt="carrello" id="immagine_grande">
+            <img src="images\\homeimg1.jpg" alt="carrello" id="immagine_grande">
         </div>
         <div class="pulsante">
             <button onclick="cambiaImmagine()">></button>

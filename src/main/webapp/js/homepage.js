@@ -13,7 +13,7 @@
     let immagineAttuale = immagine.src;
 
     if (immagineAttuale.endsWith('home1.jpg')) {
-    immagine.src = 'images\\logo.png';
+    immagine.src = 'images\\homeimg1.png';
 } else {
     immagine.src = 'images\\home1.jpg';
 }

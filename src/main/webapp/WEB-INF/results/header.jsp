@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="cart-icon">
-                <a href="#carrello">
+                <a href="cart">
                     <img src="images\cart.png" alt="Carrello">
                 </a>
             </div>
