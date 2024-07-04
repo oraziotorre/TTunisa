@@ -1,6 +1,8 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -14,15 +16,12 @@ body {
     display: flex;
     justify-content: center; /* Centra il contenuto orizzontalmente */
     align-items: center; /* Centra il contenuto verticalmente */
-    padding: 1.4em;
     z-index: -1;
-    margin: 2em;
-    margin-top: 4.5em;
 }
 
 .immagine img {
-    width: 50em;
-    height: 32em;
+    width: 85em;
+    height:40em;
     transition: opacity 0.5s ease; /*Linea per la transizione */
     z-index: 0;
 }
@@ -47,11 +46,11 @@ button:hover, button:visited {
 }
 
 .catalogo {
-    margin-top: 3em;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column; /* Imposta il layout a colonna */
     align-items: center;
-    padding: 1em;
     width: 100%;
 }
 
