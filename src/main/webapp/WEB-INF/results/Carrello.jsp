@@ -105,12 +105,13 @@
         .cart_pieno_check{
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-start;
             width: 30%;
             max-width: 30%;
             height: auto;
             margin-top: 0;
+            top: 0;
         }
 
         .cart_pieno_check h3{
@@ -219,6 +220,8 @@
 </div>
 -->
 
+
+<!-- bisogna fare un if per vedere se almeno un item ci sta -->
 <div class="cart_pieno">
     <div class="cart_pieno_items">
         <h3>Il mio carrello</h3>
