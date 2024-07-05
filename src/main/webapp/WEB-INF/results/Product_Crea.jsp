@@ -7,60 +7,60 @@
     <link href="css/product_crea_modifica.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div class="tag">
-        <h2>PAGINA CREAZIONE</h2>
-    </div>
-    <!-- vabbè qui memorizziamo e creiamo un nuovo oggetto molto facilmente -->
-    <form action="#qualcosa che fai tu Orazio" method="post">
-        <div class="container">
+<div class="tag">
+    <h2>PAGINA CREAZIONE</h2>
+</div>
+<!-- vabbè qui memorizziamo e creiamo un nuovo oggetto molto facilmente -->
+<form action="#qualcosa che fai tu Orazio" method="post">
+    <div class="container">
 
-            <div class="summary">
-                <div class="row">
-                    <div class="detail">
-                        <label>Nome Prodotto</label>
-                        <input type="text" placeholder="Inserire Prodotto">
-                    </div>
-                    <div class="detail">
-                        <label>Prezzo Prodotto</label>
-                        <input type="number" placeholder="Inserire Prezzo">
-                    </div>
+        <div class="summary">
+            <div class="row">
+                <div class="detail">
+                    <label>Nome Prodotto</label>
+                    <input type="text" placeholder="Inserire Prodotto">
                 </div>
                 <div class="detail">
-                    <label>Quantita'</label>
-                    <input type="number" min="1" max="99" placeholder="Inserire Quantità">
-                </div>
-                <div class="detail">
-                    <label>Descrizione</label>
-                    <textarea cols="30" rows="5" placeholder="Inserire Descrizione"></textarea>
+                    <label>Prezzo Prodotto</label>
+                    <input type="number" placeholder="Inserire Prezzo">
                 </div>
             </div>
-            <div class="immagine">
-                <img src="images/cart.png" alt="Prodotto" id="previewImage">
-                <label>Cambia Immagine</label>
-                <input type="text" id="imageSelect" value="images/cart.png">
+            <div class="detail">
+                <label>Quantita'</label>
+                <input type="number" min="1" max="99" placeholder="Inserire Quantità">
             </div>
-
+            <div class="detail">
+                <label>Descrizione</label>
+                <textarea cols="30" rows="5" placeholder="Inserire Descrizione"></textarea>
+            </div>
         </div>
-    </form>
+        <div class="immagine">
+            <img src="images/cart.png" alt="Prodotto" id="previewImage">
+            <label>Cambia Immagine</label>
+            <input type="text" id="imageSelect" value="images/cart.png">
+        </div>
 
-    <script>
-        function updateImage() {
-            var imageUrl = document.getElementById('imageSelect').value;
-            var previewImage = document.getElementById('previewImage');
+    </div>
+</form>
 
-            if (imageUrl.trim() === '') {
-                previewImage.src = 'images/cart.png'; // Immagine predefinita
-                previewImage.alt = 'Inserisci un URL per visualizzare l\'immagine'; // Testo alternativo
-            } else {
-                previewImage.src = imageUrl;
-                previewImage.alt = 'Immagine del prodotto';
-            }
+<script>
+    function updateImage() {
+        var imageUrl = document.getElementById('imageSelect').value;
+        var previewImage = document.getElementById('previewImage');
+
+        if (imageUrl.trim() === '') {
+            previewImage.src = 'images/cart.png'; // Immagine predefinita
+            previewImage.alt = 'Inserisci un URL per visualizzare l\'immagine'; // Testo alternativo
+        } else {
+            previewImage.src = imageUrl;
+            previewImage.alt = 'Immagine del prodotto';
         }
+    }
 
-        window.onload = function() {
-            document.getElementById('imageSelect').addEventListener('input', updateImage);
-        }
-    </script>
+    window.onload = function () {
+        document.getElementById('imageSelect').addEventListener('input', updateImage);
+    }
+</script>
 
 </body>
 </html>

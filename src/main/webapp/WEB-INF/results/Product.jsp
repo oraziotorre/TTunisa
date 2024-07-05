@@ -7,8 +7,8 @@
     <link href="css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%@include file="header.jsp"%>
-<%@include file="nav.jsp"%>
+<%@include file="header.jsp" %>
+<%@include file="nav.jsp" %>
 <div class="product-page">
     <div class="infos">
         <p>Pagina prodotto / Caratteristiche del prodotto</p>
@@ -28,7 +28,8 @@
             <br>
             <!-- Qui quando aggiungiamo dobbiamo fare ajax e ricordare di modificare il carrello e il numero in alto a destra -->
             <button id="add-to-cart">Aggiungi al carrello</button>
-            <p>Descrizione Futura Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique, turpis vel hendrerit viverra, justo metus dignissim turpis, et ultrices tellus magna vel mi.</p>
+            <p>Descrizione Futura Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique, turpis vel
+                hendrerit viverra, justo metus dignissim turpis, et ultrices tellus magna vel mi.</p>
         </div>
     </div>
 </div>

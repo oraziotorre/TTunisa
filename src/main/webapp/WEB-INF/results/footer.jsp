@@ -11,7 +11,7 @@
     <title>Footer</title>
     <link rel="stylesheet" href="css\footer.css">
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
 
@@ -45,14 +45,14 @@
             font-size: 0.8em;
         }
 
-        .column h2{
+        .column h2 {
             margin: 0.5em 0;
             line-height: 0.8em;
             font-size: 1.2em;
         }
 
-        .column img{
-            width:1em ;
+        .column img {
+            width: 1em;
             height: 1em;
             background-color: #003A82;
         }
@@ -60,22 +60,22 @@
 </head>
 <body>
 <div class="info">
-        <div class="column">
-            <p>PingMaster di Francesco Durante/Orazio Torre</p>
-            <p><strong>Indirizzo Negozio:</strong> Via Novara 81041 - Pannarano (BE)</p>
-            <p>Inviare i resi a questo indirizzo, NON alla sede amministrativa</p>
-            <p>----------------------------------------------</p>
-            <p><strong>Indirizzo Sede Amministrativa:</strong> Via Beluno 81040 - PizzoCalabro (CA)</p>
-            <p><strong>Partita IVA: 04884700289</strong></p>
-        </div>
-        <div class="column">
-            <h2>I Nostri Contatti</h2>
-            <p><img src="images\phone.png"> Contattaci al seguente numero: <strong>3278456901</strong></p>
-            <p><img src="images\email.png"> Contattaci a questa email: <strong>francytorre@gmail.com</strong></p>
-        </div>
-        <div class="column">
-            <p>Perfavore dateci 30</p>
-        </div>
+    <div class="column">
+        <p>PingMaster di Francesco Durante/Orazio Torre</p>
+        <p><strong>Indirizzo Negozio:</strong> Via Novara 81041 - Pannarano (BE)</p>
+        <p>Inviare i resi a questo indirizzo, NON alla sede amministrativa</p>
+        <p>----------------------------------------------</p>
+        <p><strong>Indirizzo Sede Amministrativa:</strong> Via Beluno 81040 - PizzoCalabro (CA)</p>
+        <p><strong>Partita IVA: 04884700289</strong></p>
+    </div>
+    <div class="column">
+        <h2>I Nostri Contatti</h2>
+        <p><img src="images\phone.png"> Contattaci al seguente numero: <strong>3278456901</strong></p>
+        <p><img src="images\email.png"> Contattaci a questa email: <strong>francytorre@gmail.com</strong></p>
+    </div>
+    <div class="column">
+        <p>Perfavore dateci 30</p>
+    </div>
 </div>
 </body>
 </html>

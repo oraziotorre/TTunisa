@@ -9,19 +9,19 @@ body {
     background-color: white;
 }
 
-.tag{
+.tag {
     width: 90%;
     max-width: 90%;
     height: auto;
     margin: 5em auto 1em;
 }
 
-.tag h2{
+.tag h2 {
     text-align: left;
     padding: 0.5em;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -29,12 +29,12 @@ body {
     width: 90%;
     max-width: 90%;
     height: auto;
-    margin:  0.5em auto 5em;
+    margin: 0.5em auto 5em;
     border-top: black dashed 2px;
     border-bottom: black dashed 2px;
 }
 
-.summary{
+.summary {
     width: 50%;
     max-width: 50%;
     margin: auto;
@@ -46,30 +46,30 @@ body {
     justify-content: space-around;
 }
 
-.detail{
+.detail {
     display: flex;
     flex-direction: column;
     padding: 0.3em;
-    margin:0.5em;
+    margin: 0.5em;
     font-family: "Roboto", sans-serif;
     font-size: 1em;
 }
 
-.detail label{
-    padding:0.5em;
+.detail label {
+    padding: 0.5em;
     font-size: 1em;
     font-family: "Roboto", sans-serif;
     font-style: italic;
     color: #CA0000;
 }
 
-.detail input{
+.detail input {
     padding: 0.2em;
     font-family: Arial, sans-serif;
 
 }
 
-.detail textarea{
+.detail textarea {
     padding: 0.2em;
     font-family: Arial, sans-serif;
 }
@@ -90,7 +90,7 @@ body {
 }
 
 
-.immagine{
+.immagine {
     width: 50%;
     max-width: 50%;
     margin: auto;
@@ -100,7 +100,7 @@ body {
     justify-content: center;
 }
 
-.immagine img{
+.immagine img {
     width: 50%;
     height: 50%;
     max-width: 40%;

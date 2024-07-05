@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     background: #FFFFFF;
@@ -22,7 +22,7 @@ body{
     z-index: 1;
     background: #FFFFFF;
     max-width: 31.25em;
-    margin: 0 auto 4.25em;
+    margin: 10em auto 4.25em;
     padding: 2.8125em;
     text-align: center;
     box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);

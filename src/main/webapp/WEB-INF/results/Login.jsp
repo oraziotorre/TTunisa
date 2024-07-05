@@ -37,7 +37,7 @@
              <button>create</button>
              <p class="message">Already registered? <a href="#">Sign In</a></p>
          </form> -->
-        <form class="login-form" method="post" action="LoginServlet">
+        <form class="login-form" method="post" action="login">
             <label for="email">Indirizzo email</label><br>
             <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
             <label for="password"><b>Password</b></label><br>

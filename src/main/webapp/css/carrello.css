@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.cart_vuoto{
+.cart_vuoto {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
     height: auto;
 }
 
-.cart_vuoto h3{
+.cart_vuoto h3 {
     font-family: "Roboto", sans-serif;
     font-size: 1.3em;
     font-style: italic;
@@ -29,7 +29,7 @@ body {
     margin-left: 0.5em;
 }
 
-.cart_items_vuoto{
+.cart_items_vuoto {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,14 +39,14 @@ body {
     border-top: #0056b3 1px solid;
 }
 
-.cart_items_vuoto p{
+.cart_items_vuoto p {
     font-size: 2em;
     color: black;
     text-align: center;
     font-family: "Roboto", sans-serif;
 }
 
-.cart_items_vuoto a{
+.cart_items_vuoto a {
     font-size: 1em;
     color: black;
     text-align: center;
@@ -55,15 +55,15 @@ body {
     transition: color 0.3s ease;
 }
 
-.cart_items_vuoto a:hover{
+.cart_items_vuoto a:hover {
     color: #0056b3;
 }
 
-.cart_items_vuoto a:active{
+.cart_items_vuoto a:active {
     color: #0056b3;
 }
 
-.cart_pieno{
+.cart_pieno {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -73,7 +73,7 @@ body {
     height: auto;
 }
 
-.cart_pieno_items{
+.cart_pieno_items {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,7 +85,7 @@ body {
 
 }
 
-.cart_pieno_items h3{
+.cart_pieno_items h3 {
     font-family: "Roboto", sans-serif;
     font-size: 1.3em;
     font-style: italic;
@@ -95,7 +95,7 @@ body {
     margin-left: 0.5em;
 }
 
-.cart_pieno_check{
+.cart_pieno_check {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -107,7 +107,7 @@ body {
     top: 0;
 }
 
-.cart_pieno_check h3{
+.cart_pieno_check h3 {
     font-family: "Roboto", sans-serif;
     font-size: 1.3em;
     font-style: italic;
@@ -126,7 +126,7 @@ body {
     border-bottom: #0056b3 1px solid;
 }
 
-.product:first-of-type{
+.product:first-of-type {
     border-top: #0056b3 1px solid;
 }
 
@@ -192,7 +192,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.checkout-button button:hover{
+.checkout-button button:hover {
     background-color: #0056b3;
 }
 

@@ -17,13 +17,11 @@ body {
     justify-content: center; /* Centra il contenuto orizzontalmente */
     align-items: center; /* Centra il contenuto verticalmente */
     z-index: -1;
-    margin-top:4em;
-    margin-bottom:4em;
 }
 
 .immagine img {
     width: 85em;
-    height:40em;
+    height: 40em;
     transition: opacity 0.5s ease; /*Linea per la transizione */
     z-index: 0;
 }
@@ -62,7 +60,7 @@ button:hover, button:visited {
     font-size: 30px;
     font-family: "Roboto", sans-serif;
     background-color: #003A82;
-    padding:0.4em;
+    padding: 0.4em;
     color: white;
     width: 100%;
 }

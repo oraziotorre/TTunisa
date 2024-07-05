@@ -3,6 +3,7 @@ package model;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -31,6 +32,8 @@ public class UtenteDAO extends HttpServlet {
     }
 
     public static Utente doLogin(String email, String password) {
+        if (email == null || password == null)
+            return null;
         Utente utente = new Utente();
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email = ? AND pass = ?");
@@ -60,7 +63,7 @@ public class UtenteDAO extends HttpServlet {
             ps.setString(1, utente.getNome());
             ps.setString(2, utente.getCognome());
             ps.setString(3, utente.getEmail());
-            ps.setString(4, utente.getPassword());
+            ps.setString(4, toHash(utente.getPassword()));
             ps.setDouble(5, utente.getSaldo());
             ps.setBoolean(6, utente.isAmministratore());
 
@@ -84,5 +87,21 @@ public class UtenteDAO extends HttpServlet {
         }
         return true;
     }
+
+    private static String toHash(String password) {
+        String hashString = null;
+        try {
+            java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
+            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            hashString = "";
+            for (int i = 0; i < hash.length; i++) {
+                hashString += Integer.toHexString((hash[i] & 0xFF) | 0x100).substring(1, 3);
+            }
+        } catch (java.security.NoSuchAlgorithmException e) {
+            System.out.println(e);
+        }
+        return hashString;
+    }
+
 
 }

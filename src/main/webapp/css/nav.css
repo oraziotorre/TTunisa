@@ -18,7 +18,6 @@ ul {
     display: flex; /* Flexbox per il layout */
     z-index: 100; /* Il menu rimanga sopra il contenuto */
     margin: auto;
-    margin-bottom: 3em;
 }
 
 li {

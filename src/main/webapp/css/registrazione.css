@@ -23,7 +23,7 @@ body {
     z-index: 1;
     background: #FFFFFF;
     max-width: 31.25em; /* 500px */
-    margin: 0 auto 3em;
+    margin: 5em auto 3em;
     padding: 2.8125em; /* 45px */
     text-align: center;
     box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);

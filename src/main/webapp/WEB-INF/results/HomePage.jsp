@@ -102,8 +102,8 @@ To change this template use File | Settings | File Templates.
     </div>
 
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 
-<script src="js/homepage.js"> </script>
+<script src="js/homepage.js"></script>
 </body>
 </html>

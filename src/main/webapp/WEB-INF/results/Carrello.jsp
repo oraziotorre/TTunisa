@@ -7,8 +7,8 @@
     <link href="css/carrello.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%@include file="header.jsp"%>
-<%@include file="nav.jsp"%>
+<%@include file="header.jsp" %>
+<%@include file="nav.jsp" %>
 
 <!-- Carrello nel caso sia vuoto devi fare un if se è vuoto si fa quello scritto sotto altrimenti no
 <div class="cart_vuoto">

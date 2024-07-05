@@ -1,5 +1,5 @@
 function confermaParametri() {
-    var email = document.getElementById('email').value;
+    /*var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var resultEmail = emailRGX.test(email);
@@ -21,5 +21,5 @@ function confermaParametri() {
         alert("La password non rispecchia il formato corretto.Riprovare");
         return false;
     }
-    return true;
+    return true;*/
 }
