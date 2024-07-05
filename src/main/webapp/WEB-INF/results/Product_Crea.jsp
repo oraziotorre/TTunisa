@@ -31,28 +31,35 @@
                 </div>
                 <div class="detail">
                     <label>Descrizione</label>
-                    <textarea cols="30" rows="5" placeholder="Inserire Descrizione">
-                        </textarea>
+                    <textarea cols="30" rows="5" placeholder="Inserire Descrizione"></textarea>
                 </div>
             </div>
             <div class="immagine">
-                <img src="images/cart-png" alt="Prodotto" id="previewImage">
+                <img src="images/cart.png" alt="Prodotto" id="previewImage">
                 <label>Cambia Immagine</label>
-                <select id="imageSelect">
-                    <option value="images/racchetta_table_tennis_test.jpg">Racchetta</option>
-                    <option value="images/table_tennis_test.jpg">Tavolo</option>
-                    <option value="images/cart.png">Carrello</option>
-                </select>
+                <input type="text" id="imageSelect" value="images/cart.png">
             </div>
 
         </div>
     </form>
 
     <script>
-        document.getElementById('imageSelect').addEventListener('change', function(event) {
-            const selectedValue = event.target.value;
-            document.getElementById('previewImage').src = selectedValue;
-        });
+        function updateImage() {
+            var imageUrl = document.getElementById('imageSelect').value;
+            var previewImage = document.getElementById('previewImage');
+
+            if (imageUrl.trim() === '') {
+                previewImage.src = 'images/cart.png'; // Immagine predefinita
+                previewImage.alt = 'Inserisci un URL per visualizzare l\'immagine'; // Testo alternativo
+            } else {
+                previewImage.src = imageUrl;
+                previewImage.alt = 'Immagine del prodotto';
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('imageSelect').addEventListener('input', updateImage);
+        }
     </script>
 
 </body>
