@@ -75,7 +75,7 @@
             justify-content: flex-start;
             align-items: center;
             padding: 1em;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid #0056b3;
         }
 
         .prodotto img {
@@ -137,7 +137,7 @@
         <h1>Products</h1>
         <div class="bottoni">
             <button onclick="redirectTo('')">+ Aggiungi Prodotto</button>
-            <button onclick="redirectTo(' ')">Home Page</button>
+            <button onclick="redirectTo('')">Home Page</button>
         </div>
     </div>
     <div class="filtro">
