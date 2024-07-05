@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Navigation</title>
-    <link href="css\nav.css" rel="stylesheet">
+    <link href="css/nav.css" rel="stylesheet">
 </head>
 <body>
 <ul>
@@ -12,6 +12,10 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#ciao">Ciao</a></li>
+    <li class="spacer"></li> <!-- Spazio per spingere i tasti a destra -->
+    <!-- Fare un if per verificare che sia amministratore se si lo mostro altrimenti no -->
+    <li class="red-button"><a href="#extra1">Prodotti</a></li>
+    <li class="red-button"><a href="#extra2">Utenti</a></li>
 </ul>
 </body>
 </html>

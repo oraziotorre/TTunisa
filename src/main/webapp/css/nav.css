@@ -1,9 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
 ul {
     list-style-type: none;
     margin: 0 auto 0;
     padding: 0;
     overflow: hidden;
-    background: #003A82;
     position: sticky;
     top: 0;
     display: flex; /* Flexbox per il layout */
@@ -21,10 +30,7 @@ li a {
     padding: 1em 1.25em;
     text-decoration: none;
     border-left: #f2f2f2 0.1em solid;
-}
-
-li .active {
-    border-left: none;
+    background-color: #003A82;
 }
 
 li a:hover:not(.active) {
@@ -33,4 +39,26 @@ li a:hover:not(.active) {
 
 .active {
     background-color: #2B2D42;
+    border-left: none;
+}
+
+/* Stili specifici per i pulsanti rossi */
+.red-button {
+    background-color: red;
+}
+
+.red-button a {
+    background-color: red !important; /* Forza l'uso del background rosso */
+    border-left: none !important; /* Rimuove il bordo sinistro */
+    color: white !important; /* Colore del testo bianco */
+}
+
+.red-button a:hover {
+    background-color: darkred !important; /* Colore di sfondo rosso scuro al passaggio del mouse */
+}
+
+/* Spaziatore per spingere i pulsanti a destra */
+.spacer {
+    flex-grow: 1;
+    border-left: none;
 }

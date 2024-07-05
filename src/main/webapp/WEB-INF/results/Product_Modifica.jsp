@@ -67,6 +67,5 @@
         document.getElementById('imageSelect').addEventListener('input', updateImage);
     }
 </script>
-
 </body>
 </html>
