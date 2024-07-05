@@ -15,7 +15,7 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Product_Database.jsp");
         dispatcher.forward(request, response);
     }
 
