@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.tag{
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+    margin: 5em auto 1em;
+}
+
+.tag h2{
+    text-align: left;
+    padding: 0.5em;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+    margin:  0.5em auto 5em;
+    border-top: black dashed 2px;
+    border-bottom: black dashed 2px;
+}
+
+.summary{
+    width: 50%;
+    max-width: 50%;
+    margin: auto;
+    margin-left: 2em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    padding: 0.3em;
+    margin:0.5em;
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+}
+
+.detail label{
+    padding:0.5em;
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    color: #CA0000;
+}
+
+.detail input{
+    padding: 0.2em;
+    font-family: Arial, sans-serif;
+
+}
+
+.detail textarea{
+    padding: 0.2em;
+    font-family: Arial, sans-serif;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.row .detail {
+    flex: 1;
+    margin-right: 1em;
+}
+
+.row .detail:last-child {
+    margin-right: 0;
+}
+
+
+.immagine{
+    width: 50%;
+    max-width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.immagine img{
+    width: 50%;
+    height: 50%;
+    max-width: 40%;
+    max-height: 40%;
+    margin: auto;
+    text-align: center;
+    padding: 1em;
+}
+
