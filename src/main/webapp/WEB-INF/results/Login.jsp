@@ -26,9 +26,9 @@
 </form>
 -->
 <%@ include file="header.jsp" %>
-
+<%@ include file="nav.jsp" %>
 <div class="login-page">
-    <%@ include file="nav.jsp" %>
+
     <div class="form">
         <!-- <form class="register-form">
              <input type="text" placeholder="name"/>

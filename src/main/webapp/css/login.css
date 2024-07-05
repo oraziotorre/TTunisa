@@ -7,13 +7,14 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    background: #FFFFFF;
+    font-family: "Roboto", sans-serif;
 }
 
 .login-page {
     width: 100%;
     padding: 0;
-    margin: 4em auto 4em;
+    margin: 0 auto 0;
 }
 
 .form {
@@ -76,10 +77,3 @@ body{
     font-weight: bold;
 }
 
-
-body {
-    background: #FFFFFF;
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
-}

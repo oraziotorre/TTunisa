@@ -1,16 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css\login.css">
+    <link rel="stylesheet" href="css\registrazione.css">
     <title>Registrazione</title>
 
 </head>
 <body>
 
 <%@ include file="header.jsp" %>
-
+<%@ include file="nav.jsp" %>
 <div class="login-page">
-    <%@ include file="nav.jsp" %>
+
     <div class="form">
         <!-- <form class="register-form">
              <input type="text" placeholder="name"/>
