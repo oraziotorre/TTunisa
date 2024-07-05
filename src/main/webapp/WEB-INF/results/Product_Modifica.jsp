@@ -8,6 +8,7 @@
 
 </head>
 <body> <!-- Bisogna inserire i parametri vecchi nel placeholder -->
+<!-- Qui modifichiamo e scegliamo poi noi una serie di immagini tra queste quali mettere e per ciascuna ci salviamo anche css/nome_immagine -->
     <div class="tag">
         <h2>PAGINA MODIFICA</h2>
     </div>

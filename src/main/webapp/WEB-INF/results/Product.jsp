@@ -26,6 +26,7 @@
             <label for="quantity">Quantita'</label>
             <input type="number" id="quantity" min="1" max="99" value="1">
             <br>
+            <!-- Qui quando aggiungiamo dobbiamo fare ajax e ricordare di modificare il carrello e il numero in alto a destra -->
             <button id="add-to-cart">Aggiungi al carrello</button>
             <p>Descrizione Futura Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique, turpis vel hendrerit viverra, justo metus dignissim turpis, et ultrices tellus magna vel mi.</p>
         </div>

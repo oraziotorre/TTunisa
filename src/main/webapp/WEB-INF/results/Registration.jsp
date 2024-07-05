@@ -19,6 +19,8 @@
              <button>create</button>
              <p class="message">Already registered? <a href="#">Sign In</a></p>
          </form> -->
+
+        <!-- Memorizziamo un nuovo utente molto semplicemente -->
         <form class="register-form" method="post" action="#">
             <label for="nome">Nome</label><br>
             <input type="text" placeholder="Inserisci Nome" name="Nome" id="nome" required><br>

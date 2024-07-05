@@ -30,6 +30,7 @@ To change this template use File | Settings | File Templates.
 <div class="catalogo">
     <h1>OGGETTI PIU' VENDUTI</h1>
     <div class="lista">
+        <!-- dopo scegliamo noi gli items dopo qui e per ciascuno aggiungiamo un link che porta a quella pagina -->
         <div class="oggetto">
             <a href="Product.jsp">
                 <img src="images\\cart.png" alt="Oggetto 1">
@@ -66,6 +67,7 @@ To change this template use File | Settings | File Templates.
 
 
     <h1>IN OFFERTA</h1>
+    <!-- Stessa cosa qui aggiungiamo noi i più venduti -->
     <div class="lista">
         <div class="oggetto">
             <img src="images\\cart.png" alt="Oggetto 5">

@@ -10,6 +10,7 @@
     <div class="tag">
         <h2>PAGINA CREAZIONE</h2>
     </div>
+    <!-- vabbè qui memorizziamo e creiamo un nuovo oggetto molto facilmente -->
     <form action="#qualcosa che fai tu Orazio" method="post">
         <div class="container">
 

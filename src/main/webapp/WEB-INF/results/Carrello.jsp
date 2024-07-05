@@ -10,7 +10,7 @@
 <%@include file="header.jsp"%>
 <%@include file="nav.jsp"%>
 
-<!-- Carrello nel caso sia vuoto
+<!-- Carrello nel caso sia vuoto devi fare un if se è vuoto si fa quello scritto sotto altrimenti no
 <div class="cart_vuoto">
     <h3>Il mio carrello</h3>
     <div class="cart_items_vuoto">
@@ -56,6 +56,9 @@
             <p>Iva <span>Prezzo Iva</span></p>
             <p>Totale <span>Prezzo Totale</span></p>
         </div>
+
+        <!-- Qui bisogna fare una funzione e vedere se la somma totale è maggiore del nostro conto corrente se si quando si preme
+        checkout si da un errore -->
         <div class="checkout-button">
             <button>Checkout</button>
         </div>
