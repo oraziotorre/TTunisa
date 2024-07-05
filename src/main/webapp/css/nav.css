@@ -15,6 +15,7 @@ ul {
     overflow: hidden;
     position: sticky;
     top: 0;
+    background-color: #003A82;
     display: flex; /* Flexbox per il layout */
     z-index: 100; /* Il menu rimanga sopra il contenuto */
 }
@@ -48,13 +49,13 @@ li a:hover:not(.active) {
 }
 
 .red-button a {
-    background-color: red !important; /* Forza l'uso del background rosso */
-    border-left: none !important; /* Rimuove il bordo sinistro */
-    color: white !important; /* Colore del testo bianco */
+    background-color: red !important; /* forza background rosso */
+    border-left: none !important; /* rimuove il bordo sinistro */
+    color: white;
 }
 
 .red-button a:hover {
-    background-color: darkred !important; /* Colore di sfondo rosso scuro al passaggio del mouse */
+    background-color: darkred !important;
 }
 
 /* Spaziatore per spingere i pulsanti a destra */
