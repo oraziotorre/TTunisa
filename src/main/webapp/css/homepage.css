@@ -9,26 +9,36 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
+    padding: 0;
     overflow-y: auto;
 }
 
 .image-big {
     display: flex;
-    justify-content: center; /* Centra il contenuto orizzontalmente */
-    align-items: center; /* Centra il contenuto verticalmente */
-    z-index: -1;
+    justify-content: space-between; /* Spazia i contenuti orizzontalmente */
+    align-items: center; /* Centra i contenuti verticalmente */
+    width: 100%;
+    height: 100vh; /* Imposta l'altezza a tutta la viewport */
+}
+
+.immagine {
+    flex: 1; /* Fa in modo che l'immagine occupi tutto lo spazio disponibile */
+    display: flex;
+    justify-content: center; /* Centra l'immagine orizzontalmente */
+    align-items: center; /* Centra l'immagine verticalmente */
+    height: 100%;
 }
 
 .immagine img {
-    width: 85em;
-    height: 40em;
-    transition: opacity 0.5s ease; /*Linea per la transizione */
-    z-index: 0;
+    max-width: 100%;
+    max-height: 100%; /* Assicura che l'immagine non ecceda la viewport */
+    transition: opacity 0.5s ease;
 }
 
 .pulsante {
-    text-align: center;
-    margin-top: 1.5em; /* Spazio sopra il pulsante */
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 button {

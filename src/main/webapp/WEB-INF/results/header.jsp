@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css\header.css">
 </head>
 <body>
-<header>
     <div class="header">
         <div class="logo">
             <a href="home">
@@ -25,17 +24,15 @@
                     if(utente!=null){
                 %>
                 <div class="dropdown">
-                    <!------AGGIUSTARE CSS QUI------->
-                    <a class="login-access">
+                    <a class="login-dropdown">
                         <img src="images/user-icon2.png" alt="Utente">
                         <span><%= utente.getNome()+" "+utente.getCognome()%></span>
-                        <i class="fa fa-caret-down"></i>
                     </a>
-                    <div class="dropdown-menu">
-                        <a href="#profile">Profilo</a>
-                        <a href="login?action=logout">Logout</a>
+                    <div class="dropdown-content">
+                        <a href="#profilo">Profilo</a>
+                        <a href="#ordini">Ordini</a>
+                        <a href="#logout">Logout</a>
                     </div>
-                    <!------------------------------->
                 </div>
                 <% } else { %>
                 <a class="login-access" href="login">
@@ -51,6 +48,5 @@
             </div>
         </div>
     </div>
-</header>
 </body>
 </html>

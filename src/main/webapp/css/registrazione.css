@@ -22,12 +22,12 @@ body {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 31.25em; /* 500px */
-    margin: 5em auto 3em;
-    padding: 2.8125em; /* 45px */
+    max-width: 80%; /* 500px */
+    margin: 4em auto 3em;
+    padding: 2.8em; /* 45px */
     text-align: center;
-    box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 0.75em; /* 12px */
+    box-shadow: 0 0 1.25em 0 rgba(0, 0, 0, 0.2), 0 0.3px 0.3px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 2%; /* 12px */
 }
 
 .form input {
@@ -55,8 +55,8 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 1em;
+    margin: 0.4em 0.2em;
     cursor: pointer;
 }
 
