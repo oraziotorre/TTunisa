@@ -6,16 +6,15 @@
     <title>Ripielogo utenti</title>
 
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
 
-        body{
+        body {
             margin: 0;
             padding: 0;
             font-family: "Roboto", sans-serif;
         }
-
 
         .utenti {
             font-family: Arial, Helvetica, sans-serif;
@@ -38,7 +37,7 @@
             color: white;
         }
 
-         button {
+        button {
             padding: 1em 2em;
             border: none;
             background-color: #007bff;
@@ -62,39 +61,34 @@
             justify-content: center;
         }
 
-        .admin-buttons .check {
+        .admin-buttons .toggle {
             padding: 0.5em;
             border-radius: 10%;
-            width: 3em;
+            width: 4em;
             height: 2em;
             color: white;
-            background-color: green;
             font-size: 1em;
             font-family: "Roboto", sans-serif;
         }
 
-        .admin-buttons .uncheck {
-            padding: 0.5em;
-            border-radius: 10%;
-            width: 3em;
-            height: 2em;
-            color: white;
+        .admin-buttons .toggle.admin {
             background-color: red;
-            font-size: 1em;
-            font-family: "Roboto", sans-serif;
         }
 
-        .admin-buttons .check:hover{
-            background-color: darkgreen;
+        .admin-buttons .toggle.non-admin {
+            background-color: green;
         }
 
-        .admin-buttons .uncheck:hover{
+        .admin-buttons .toggle.admin:hover {
             background-color: #CA0000;
         }
 
+        .admin-buttons .toggle.non-admin:hover {
+            background-color: darkgreen;
+        }
     </style>
 </head>
-<% ArrayList<Utente> listaUtenti = (ArrayList<Utente>) request.getAttribute("listaUtenti");%>
+<% ArrayList<Utente> listaUtenti = (ArrayList<Utente>) request.getAttribute("listaUtenti"); %>
 <body>
 <div class="container">
     <button onclick="redirectTo('home')">Home Page</button>
@@ -108,24 +102,20 @@
         </tr>
         <% for (Utente ut : listaUtenti) { %>
         <tr>
-            <td><%=ut.getNome()%>
-            </td>
-            <td><%=ut.getCognome()%>
-            </td>
-            <td><%=ut.getEmail()%>
-            </td>
-            <td><%=ut.isAmministratore()%>
-            </td>
+            <td><%= ut.getNome() %></td>
+            <td><%= ut.getCognome() %></td>
+            <td><%= ut.getEmail() %></td>
+            <td><%= ut.isAmministratore() %></td>
             <td>
                 <div class="admin-buttons">
-                    <button class="check" onclick="funziona per aggiungere admin" >Si
-                    </button>
-                    <button class="uncheck" onclick="funzione per rimuovere admin" value="No">No
+                    <button class="toggle <%= ut.isAmministratore() ? "admin" : "non-admin" %>"
+                            onclick="toggleAdminStatus(this, '<%= ut.getEmail() %>')">
+                        <%= ut.isAmministratore() ? "No" : "Si" %>
                     </button>
                 </div>
             </td>
         </tr>
-        <%}%>
+        <% } %>
     </table>
 </div>
 
@@ -134,17 +124,24 @@
         window.location.href = url;
     }
 
-    /* Chiesta a chatGpt questa del delete
-        function deleteProduct(button) {
-            // Conferma prima di cancellare
-            if (confirm("Sei sicuro di voler cancellare questo prodotto?")) {
-                // Trova il contenitore del prodotto e rimuovilo
-                var product = button.closest('.product');
-                product.remove();
-            }
-        }
+    function toggleAdminStatus(button, email) {
+        const isAdmin = button.classList.contains('admin');
+        const newStatus = !isAdmin;
 
-     */
+        // Example of server request simulation
+        // Make an actual server request here
+        console.log("Toggle admin status for email: " + email + " to " + newStatus);
+
+        if (isAdmin) {
+            button.classList.remove('admin');
+            button.classList.add('non-admin');
+            button.textContent = 'Si';
+        } else {
+            button.classList.remove('non-admin');
+            button.classList.add('admin');
+            button.textContent = 'No';
+        }
+    }
 </script>
 </body>
 </html>

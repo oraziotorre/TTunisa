@@ -37,47 +37,58 @@
             padding: 2em;
         }
 
+        .nome_ricerca{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .nome_ricerca p{
+            font-size: 2em;
+            color: black;
+            font-weight: bold;
+            font-family: "Roboto", sans-serif;
+        }
+
         .product-search{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 2em;
+            margin: 2em 2em 0 2em ;
             padding: 2em;
             cursor: pointer;
             width: 20%;
             height: auto;
-            border: 1px solid black;
         }
 
         .product-search img{
-            height: 2em;
-            width: 2em;
+            height: 12em;
+            width: 12em;
             padding: 1em;
             transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
         }
 
+
         .product-search .nome{
-            text-decoration-line: none;
+            text-decoration: none;
             color: black;
             font-size: 1em;
             font-family: "Roboto", sans-serif;
         }
 
-        .product-search p{
-            text-decoration: none;
-            color: black;
+        .product-search .prezzo{
             font-size: 1.2em;
-            font-family: "Roboto", sans-serif;
+            font-weight: bold;
         }
 
         .product-search:hover img{
-            width: 2.2em;
-            height: 2.2em;
+            width: 15em;
+            height: 15em;
             opacity: 0.6;
         }
 
-        .product-search:hover span{
+        .product-search:hover .nome{
             text-decoration: underline solid black;
         }
 
@@ -86,53 +97,68 @@
 <body>
 <%@include file="header.jsp" %>
 <%@include file="nav.jsp" %>
-<img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
 <div class="container">
-    <!-- ciclo for per ciascun item che ha un riscontro -->
+    <div class="nome_ricerca">
+        <p>Nome Ricerca</p>
+    </div>
+    <!-- ciclo for per ciascun item che ha un riscontro questo scritto sotto sono solo esempi -->
     <div class="product-search">
         <a href="#pagina del prodotto">
             <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-            <p class="nome">Nome del Prodotto</p>
         </a>
-        <p>$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src=images/imageNA.png" alt="Non Disponibile"><br>
-            <span>Nome del Prodotto</span>
-        </a>
+        <p class="nome">Nome del Prodotto</p>
         <p class="prezzo">$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
             <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-            <span>Nome del Prodotto</span>
         </a>
-        <p>$ Prezzo Prodotto</p>
+        <p class="nome">Nome del Prodotto</p>
+        <p class="prezzo">$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}/images/cart.png" alt="Non Disponibile"><br>
-            <span>Nome del Prodotto</span>
+            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
         </a>
-        <p>$ Prezzo Prodotto</p>
+        <p class="nome">Nome del Prodotto</p>
+        <p class="prezzo">$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}/images/cart.png" alt="Non Disponibile"><br>
-            <span>Nome del Prodotto</span>
+            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
         </a>
-        <p>$ Prezzo Prodotto</p>
+        <p class="nome">Nome del Prodotto</p>
+        <p class="prezzo">$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}/images/cart.png" alt="Non Disponibile"><br>
-            <span>Nome del Prodotto</span>
+            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
         </a>
-        <p>$ Prezzo Prodotto</p>
+        <p class="nome">Nome del Prodotto</p>
+        <p class="prezzo">$ Prezzo Prodotto</p>
+    </div>
+    <div class="product-search">
+        <a href="#pagina del prodotto">
+            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+        </a>
+        <p class="nome">Nome del Prodotto</p>
+        <p class="prezzo">$ Prezzo Prodotto</p>
+    </div>
+    <div class="product-search">
+        <a href="#pagina del prodotto">
+            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+        </a>
+        <p class="nome">Nome del Prodotto</p>
+        <p class="prezzo">$ Prezzo Prodotto</p>
+    </div>
+    <div class="product-search">
+        <a href="#pagina del prodotto">
+            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+        </a>
+        <p class="nome">Nome del Prodotto</p>
+        <p class="prezzo">$ Prezzo Prodotto</p>
     </div>
 </div>
-
 <%@include file="footer.jsp"%>
 </body>
 </html>
