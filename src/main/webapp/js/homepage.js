@@ -1,5 +1,5 @@
 let inTransition = false;
-const immagini = ['images/homeimg1.jpg', 'images/homeimg2.jpg'];
+const immagini = ['images/homeimg1.jpg', 'images/homeimg2.jpg', 'images/homeimg3.jpg'];
 let indiceImmagine = 0;
 
 function cambiaImmagine() {
@@ -17,4 +17,4 @@ function cambiaImmagine() {
     }, 500);
 }
 
-setInterval(cambiaImmagine, 3000);
+setInterval(cambiaImmagine, 5000);

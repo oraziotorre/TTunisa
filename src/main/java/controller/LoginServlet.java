@@ -28,15 +28,15 @@ public class LoginServlet extends HttpServlet {
             } else if (!u.isAmministratore()) {
                 session.setAttribute("Utente", u); // Salva l'oggetto Utente nella sessione
                 request.getSession();
-                response.sendRedirect(request.getContextPath() + "/home");
+                response.sendRedirect(request.getContextPath());
             } else if (u.isAmministratore()) {
-                session.setAttribute("Amministratore", u); // Salva l'oggetto Utente amministratore nella sessione
-                response.sendRedirect(request.getContextPath() + "/home");
+                session.setAttribute("Utente", u); // Salva l'oggetto Utente amministratore nella sessione
+                session.setAttribute("admin", true);
+                response.sendRedirect(request.getContextPath());
             }
         } else if (request.getParameter("action").equals("logout")) {
             session.invalidate();
-            RequestDispatcher ds = request.getRequestDispatcher("home");
-            ds.forward(request, response);
+            response.sendRedirect(request.getContextPath());
         }
     }
 
