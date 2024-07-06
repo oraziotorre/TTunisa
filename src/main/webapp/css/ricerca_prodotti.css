@@ -1,0 +1,79 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin: 2em auto 0;
+    padding: 2em;
+}
+
+.nome_ricerca{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.nome_ricerca p{
+    font-size: 2em;
+    color: black;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+}
+
+.product-search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 2em 0 2em ;
+    padding: 2em;
+    cursor: pointer;
+    width: 20%;
+    height: auto;
+}
+
+.product-search img{
+    height: 12em;
+    width: 12em;
+    padding: 1em;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.product-search .nome{
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    padding-bottom: 0;
+    margin-bottom: 0.05em; /* riduce il margine inferiore */
+}
+
+.product-search .prezzo{
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.product-search:hover img{
+    transform: scale(1.25);
+    opacity: 0.6;
+}
+
+.product-search:hover .nome{
+    text-decoration: underline solid black;
+}
+
