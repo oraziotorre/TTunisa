@@ -13,8 +13,8 @@
     <div class="header">
         <h1>Products</h1>
         <div class="bottoni">
-            <button onclick="redirectTo('')">+ Aggiungi Prodotto</button>
-            <button onclick="redirectTo('')">Home Page</button>
+            <button onclick="redirectTo('admin/product-managment')">+ Aggiungi Prodotto</button>
+            <button onclick="redirectTo(request.getContextPath())">Home Page</button>
         </div>
     </div>
     <div class="filtro">
@@ -29,7 +29,7 @@
                 <p class="stock">Quantita' : #Numero </p>
             </div>
             <p class="prezzo">Prezzo Oggetto: Prezzo</p>
-            <button onclick="redirectTo('results/Product_Modifica.jsp')" class="modifica">Modifica</button>
+            <button onclick="redirectTo('admin/product-managment')" class="modifica">Modifica</button>
             <button onclick="deleteProduct(this)" class="cancella">Cancella</button>
         </div>
     </div>

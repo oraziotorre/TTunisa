@@ -35,7 +35,11 @@
                     <div class="dropdown-content">
                         <a href="#profilo">Profilo</a>
                         <a href="#ordini">Ordini</a>
-                        <a href="#logout">Logout</a>
+                        <% if(session!=null && session.getAttribute("admin")!=null){%>
+                        <a href="#extra1">Gestione Prodotti</a>
+                        <a href="#extra2">Gestione Utenti</a>
+                        <%}%>
+                        <a href="login?action=logout">Logout</a>
                     </div>
                 </div>
                 <% } else { %>
