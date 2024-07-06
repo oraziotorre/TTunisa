@@ -15,7 +15,7 @@
     </div>
     <div class="product-container">
         <div class="product-image">
-            <img src="images/imageNotAvaible.png" alt="Product Image">
+            <img src="images/ImageNotAvailable.png" alt="Product Image">
         </div>
         <div class="product-details">
             <h1>Prodotto Da Inserire</h1>

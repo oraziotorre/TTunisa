@@ -17,29 +17,40 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Utente u = new Utente();
-        u.setNome(request.getParameter("Nome"));
-        u.setCognome(request.getParameter("Cognome"));
-        u.setSaldo(1000.0);
-        u.setEmail(request.getParameter("Email"));
-        u.setPassword(request.getParameter("Password"));
-        u.setAmministratore(false);
-        if (request.getParameter("Nome") == null ||
-                request.getParameter("Cognome") == null ||
-                request.getParameter("Email") == null ||
-                request.getParameter("Password") == null) {
+        String nome = request.getParameter("Nome");
+        String cognome = request.getParameter("Cognome");
+        String email = request.getParameter("Email");
+        String password = request.getParameter("Password");
+
+        // Verifica se i parametri richiesti sono nulli o vuoti
+        if (nome == null || nome.isEmpty() ||
+                cognome == null || cognome.isEmpty() ||
+                email == null || email.isEmpty() ||
+                password == null || password.isEmpty()) {
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Registration.jsp");
             dispatcher.forward(request, response);
+            return;
         }
+
+        // Crea un nuovo oggetto Utente
+        Utente u = new Utente();
+        u.setNome(nome);
+        u.setCognome(cognome);
+        u.setSaldo(1000.00); // Imposta un saldo iniziale
+        u.setEmail(email);
+        u.setPassword(password);
+        u.setAmministratore(false); // Suppongo che l'utente non sia un amministratore
+        // Verifica se l'email è già presente nel database
         if (!UtenteDAO.isNewEmail(u.getEmail())) {
             request.setAttribute("controllo", "Email già presente");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Registration.jsp");
             dispatcher.forward(request, response);
         } else {
             UtenteDAO.doRegistration(u);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/login");
         }
+
     }
 
     @Override

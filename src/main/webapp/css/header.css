@@ -83,7 +83,7 @@ body {
     cursor: pointer;
 }
 
-.utente-info{
+.utente-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -200,11 +200,11 @@ body {
     display: block;
 }
 
-.dropdown:hover span{
+.dropdown:hover span {
     color: #0056b3;
 }
 
-.dropdown:hover img{
+.dropdown:hover img {
     background-color: #0056b3;
 }
 
@@ -232,7 +232,7 @@ body {
     color: limegreen;
 }
 
-.dropdown:hover .utente-saldo{
+.dropdown:hover .utente-saldo {
     color: limegreen; /*Il colore rimane verde */
 }
 

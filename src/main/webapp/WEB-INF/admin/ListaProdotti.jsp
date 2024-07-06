@@ -1,3 +1,5 @@
+<%@ page import="model.Prodotto" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +8,7 @@
     <title>Prodotti Database</title>
     <link href="css/product_database.css" type="text/css" rel="stylesheet">
 </head>
-
-<!-- Nei campi redirect vuoti servono le servlet fai tu sei puoi Orazio -->
+<% ArrayList<Prodotto> listaProdotti = (ArrayList<Prodotto>) request.getAttribute("listaProdotti");%>
 <body>
 <div class="container">
     <div class="header">
@@ -21,17 +22,21 @@
         <input type="text" placeholder="Product name">
     </div>
     <div class="prodotto-list">
-        <!-- ciclo for per tutti gli items nel database -->
+        <% for (Prodotto p : listaProdotti) { %>
         <div class="prodotto">
-            <img src="images/cart.png" alt="Sample Product">
+            <img src=<%=p.getImg()%> alt="Product">
             <div class="info-prodotto">
-                <p class="nome-prodotto">Nome Prodotto</p>
-                <p class="stock">Quantita' : #Numero </p>
+                <p class="nome-prodotto"><%=p.getNome()%>
+                </p>
+                <p class="stock">Quantita' : <%=p.getQuantita()%>
+                </p>
             </div>
-            <p class="prezzo">Prezzo Oggetto: Prezzo</p>
+            <p class="prezzo">Prezzo Oggetto: <%=p.getPrezzo()%>
+            </p>
             <button onclick="redirectTo('admin/product-managment')" class="modifica">Modifica</button>
             <button onclick="deleteProduct(this)" class="cancella">Cancella</button>
         </div>
+        <%}%>
     </div>
 </div>
 

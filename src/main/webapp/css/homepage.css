@@ -19,8 +19,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 80%;
-    height: 80vh;
+    width: 70%;
+    height: 70vh;
     position: relative;
 }
 
@@ -74,7 +74,6 @@ button {
 }
 
 
-
 .catalogo {
     display: flex;
     flex-direction: column;
@@ -105,7 +104,7 @@ button {
 .oggetto {
     text-align: center;
     padding: 1em;
-    transition:  box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     margin-bottom: 1em;
     width: 20%;
 }

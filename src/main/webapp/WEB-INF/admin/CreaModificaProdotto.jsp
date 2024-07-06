@@ -4,42 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creazione/Modifica Prodotto</title>
-    <link href="/css/product_crea_modifica.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/product_crea_modifica.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class="tag">
     <h2>PAGINA CREAZIONE/MODIFICA PRODOTTO</h2>
 </div>
-<!-- vabbè qui memorizziamo e creiamo un nuovo oggetto molto facilmente -->
-<form action="#qualcosa che fai tu Orazio" method="post">
+<form action="#" method="post">
     <div class="container">
 
         <div class="summary">
             <div class="row">
                 <div class="detail">
-                    <label>Nome Prodotto</label>
-                    <input type="text" placeholder="Inserire Prodotto">
+                    <label for="nome">Nome Prodotto</label>
+                    <input type="text" placeholder="Inserire Prodotto" name="Nome" id="nome" required>
                 </div>
                 <div class="detail">
-                    <label>Prezzo Prodotto</label>
-                    <input type="number" placeholder="Inserire Prezzo">
+                    <label for="prezzo">Prezzo Prodotto</label>
+                    <input type="number" placeholder="Inserire Prezzo" name="Prezzo" id="prezzo" required>
                 </div>
             </div>
             <div class="detail">
-                <label>Quantita'</label>
-                <input type="number" min="1" max="99" placeholder="Inserire Quantità">
+                <label for="quantita">Quantità</label>
+                <input type="number" min="1" max="99" placeholder="Inserire Quantità" name="Quantita" id="quantita"
+                       required>
             </div>
             <div class="detail">
-                <label>Descrizione</label>
-                <textarea cols="30" rows="5" placeholder="Inserire Descrizione"></textarea>
+                <label for="sconto">Sconto</label>
+                <input type="number" min="0" max="100" placeholder="Inserire Sconto" name="Sconto" id="sconto" required>
+            </div>
+            <div class="detail">
+                <label for="descrizione">Descrizione</label>
+                <textarea cols="30" rows="5" placeholder="Inserire Descrizione" name="Descrizione" id="descrizione"
+                          required></textarea>
             </div>
         </div>
         <div class="immagine">
-            <img src="images/imageNotAvaible.png" alt="Prodotto" id="previewImage">
-            <label>Cambia Immagine</label>
-            <input type="text" id="imageSelect" value="images/imageNotAvaible.png">
+            <img src="${pageContext.request.contextPath}/images/imageNotAvailable.png" alt="Prodotto" id="previewImage">
+            <label for="imageSelect">Cambia Immagine</label>
+            <input type="text" id="imageSelect" value="${pageContext.request.contextPath}/images/imageNotAvailable.png"
+                   name="Img" required>
         </div>
-
+        <button type="submit" id="submit" class="prod">Inserisci</button>
     </div>
 </form>
 
@@ -49,7 +55,7 @@
         var previewImage = document.getElementById('previewImage');
 
         if (imageUrl.trim() === '') {
-            previewImage.src = 'images/imageNotAvaible.png'; // Immagine predefinita
+            previewImage.src = '${pageContext.request.contextPath}/images/ImageNotAvailable.png'; // Immagine predefinita
             previewImage.alt = 'Inserisci un URL per visualizzare l\'immagine'; // Testo alternativo
         } else {
             previewImage.src = imageUrl;
@@ -57,9 +63,15 @@
         }
     }
 
-    window.onload = function () {
-        document.getElementById('imageSelect').addEventListener('input', updateImage);
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+        var imageSelect = document.getElementById('imageSelect');
+        var previewImage = document.getElementById('previewImage');
+
+        imageSelect.addEventListener('input', updateImage);
+
+        // Esegui updateImage() una volta all'inizio per impostare l'immagine iniziale
+        updateImage();
+    });
 </script>
 
 </body>

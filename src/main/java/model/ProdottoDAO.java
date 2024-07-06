@@ -38,9 +38,9 @@ public class ProdottoDAO {
         ArrayList<Prodotto> p = new ArrayList<Prodotto>();
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT p.prodotto_ID, p.nome, p.descrizione, p.prezzo, p.quantita, p.sconto, p.img" +
-                                                            "FROM cat_prod cp " +
-                                                            "JOIN prodotto p ON cp.prodotto_ID = p.prodotto_ID " +
-                                                            "WHERE cp.cat_Tipo = ?");
+                    "FROM cat_prod cp " +
+                    "JOIN prodotto p ON cp.prodotto_ID = p.prodotto_ID " +
+                    "WHERE cp.cat_Tipo = ?");
             ps.setString(1, tipo);
 
             ResultSet rs = ps.executeQuery();

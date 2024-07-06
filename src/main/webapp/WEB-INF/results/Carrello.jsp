@@ -28,21 +28,21 @@
 
         <!-- Qua ci va un ciclo for in futuro per prelevare ciascun oggetto -->
         <div class="product">
-            <img src="images/imageNotAvaible.png" alt="Tibhar Scarpe Falcon">
+            <img src="images/ImageNotAvailable.png" alt="Tibhar Scarpe Falcon">
             <div class="product-details">
                 <p>Info Prodotto</p>
                 <p>Prezzo <span>Prezzo in euro</span></p>
             </div>
         </div>
         <div class="product">
-            <img src="images/imageNotAvaible.png" alt="Tibhar Scarpe Falcon">
+            <img src="images/ImageNotAvailable.png" alt="Tibhar Scarpe Falcon">
             <div class="product-details">
                 <p>Info Prodotto</p>
                 <p>Prezzo <span>Prezzo in euro</span></p>
             </div>
         </div>
         <div class="product">
-            <img src="images/imageNotAvaible.png" alt="Tibhar Scarpe Falcon">
+            <img src="images/ImageNotAvailable.png" alt="Tibhar Scarpe Falcon">
             <div class="product-details">
                 <p>Info Prodotto</p>
                 <p>Prezzo <span>Prezzo in euro</span></p>

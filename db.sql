@@ -27,12 +27,12 @@ VALUES (1, 'Francesco', 'Durante', 10000, 'francesco@gmail.com', '1234', TRUE),
 CREATE TABLE prodotto
 (
     prodotto_ID       INT AUTO_INCREMENT PRIMARY KEY,
-    nome_prodotto     VARCHAR(100) NOT NULL,
+    nome             VARCHAR(100) NOT NULL,
     descrizione       VARCHAR(300) NOT NULL,
-    prezzo_prodotto DOUBLE NOT NULL,
-    quantita_prodotto int,
-    sconto            INT CHECK (sconto >= 0 AND sconto <= 100)
-    img               VARCHAR(100) NOT NULL,
+    prezzo           DOUBLE NOT NULL,
+    quantita             int,
+    sconto            INT CHECK (sconto >= 0 AND sconto <= 100),
+	img 			VARCHAR(100)  NOT NULL
 );
 
 -- Creazione della tabella "categoria"
@@ -46,11 +46,11 @@ CREATE TABLE ordine
 (
     ordine_ID   INT AUTO_INCREMENT PRIMARY KEY,
     prezzo_tot DOUBLE NOT NULL,
-    data_ordine DATE        NOT NULL,
+    data         DATE        NOT NULL,
     cap         VARCHAR(5)  NOT NULL,
     indirizzo   VARCHAR(25) NOT NULL,
     utente_ID   INT,
-    FOREIGN KEY (utente_ID) REFERENCES utente (utente_ID),
+    FOREIGN KEY (utente_ID) REFERENCES utente (utente_ID)
 );
 
 -- Creazione della tabella di associazione tra prodotto e ordine
@@ -60,7 +60,7 @@ CREATE TABLE ordine_prod
     prodotto_ID     INT,
     quantita_ordine INT NOT NULL,
     FOREIGN KEY (prodotto_ID) REFERENCES prodotto (prodotto_id),
-    FOREIGN KEY (ordine_ID) REFERENCES ordine (utente_ID),
+    FOREIGN KEY (ordine_ID) REFERENCES ordine (ordine_ID),
     PRIMARY KEY (ordine_ID, prodotto_ID)
 );
 
