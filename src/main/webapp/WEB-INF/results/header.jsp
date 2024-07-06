@@ -26,7 +26,11 @@
                 <div class="dropdown">
                     <a class="login-dropdown">
                         <img src="images/user-icon2.png" alt="Utente">
-                        <span><%= utente.getNome()+" "+utente.getCognome()%></span>
+                        <div class="utente-info">
+                            <span class="utente-nome"><%= utente.getNome() + " " + utente.getCognome()%></span>
+                            <span class="utente-saldo">Saldo: <%= utente.getSaldo()%></span>
+                        </div>
+
                     </a>
                     <div class="dropdown-content">
                         <a href="#profilo">Profilo</a>

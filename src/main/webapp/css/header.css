@@ -84,6 +84,23 @@ body {
     cursor: pointer;
 }
 
+.utente-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.utente-nome {
+    margin-right: 0.5em;
+}
+
+.utente-saldo {
+    font-size: 0.8em;
+    color: #666;
+}
+
 .login-access:hover img {
     background-color: #0056b3;
 }
@@ -160,7 +177,6 @@ body {
 }
 
 
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -203,4 +219,21 @@ body {
 
 .dropdown:focus-within .dropdown-content {
     display: block;
+}
+
+.login-dropdown {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+    text-decoration: none;
+    color: rgb(128, 128, 128);
+}
+
+.utente-nome {
+    margin-right: 0.5em;
+}
+
+.utente-saldo {
+    font-size: 0.8em;
+    color: #666;
 }
