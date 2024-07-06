@@ -66,31 +66,33 @@
             height: 12em;
             width: 12em;
             padding: 1em;
-            transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
-
 
         .product-search .nome{
             text-decoration: none;
             color: black;
             font-size: 1em;
             font-family: "Roboto", sans-serif;
+            padding-bottom: 0;
+            margin-bottom: 0.05em; /* riduce il margine inferiore */
         }
 
         .product-search .prezzo{
+            margin-top: 0;
             font-size: 1.2em;
             font-weight: bold;
         }
 
         .product-search:hover img{
-            width: 15em;
-            height: 15em;
+            transform: scale(1.25);
             opacity: 0.6;
         }
 
         .product-search:hover .nome{
             text-decoration: underline solid black;
         }
+
 
     </style>
 </head>
