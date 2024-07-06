@@ -45,8 +45,7 @@ body {
     padding: 0.7em;
     font-size: 1em;
     border: 0.2em solid #ccc;
-    border-radius: 0.25em;
-    margin-right: 1.5em;
+    border-radius: 0.25em
 }
 
 .user-options {
@@ -99,7 +98,7 @@ body {
 
 .utente-saldo {
     font-size: 0.8em;
-    color: #666;
+    color: limegreen;
 }
 
 .login-access:hover img {
@@ -229,11 +228,13 @@ body {
     color: rgb(128, 128, 128);
 }
 
-.utente-nome {
-    margin-right: 0.5em;
+.login-dropdown:hover .utente-saldo {
+    color: limegreen;
 }
 
-.utente-saldo {
-    font-size: 0.8em;
-    color: #666;
+.dropdown:hover .utente-saldo{
+    color: limegreen; /*Il colore rimane verde */
 }
+
+
+
