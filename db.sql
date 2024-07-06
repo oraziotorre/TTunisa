@@ -32,6 +32,7 @@ CREATE TABLE prodotto
     prezzo_prodotto DOUBLE NOT NULL,
     quantita_prodotto int,
     sconto            INT CHECK (sconto >= 0 AND sconto <= 100)
+    img               VARCHAR(100) NOT NULL,
 );
 
 -- Creazione della tabella "categoria"

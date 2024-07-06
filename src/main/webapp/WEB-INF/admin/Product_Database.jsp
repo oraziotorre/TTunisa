@@ -6,7 +6,7 @@
     <title>Prodotti Database</title>
     <style>
 
-        *{
+        * {
             box-sizing: border-box;
         }
 
@@ -44,7 +44,7 @@
             cursor: pointer;
             border-radius: 4%;
             transition: background-color 0.3s ease;
-            margin:1em;
+            margin: 1em;
         }
 
         button:hover {
@@ -63,7 +63,6 @@
             border: 1px solid #ccc;
             border-radius: 4%;
         }
-
 
 
         .prodotto-list {
@@ -100,7 +99,7 @@
             margin-right: 2em;
         }
 
-        .modifica{
+        .modifica {
             padding: 0.5em 1em;
             border: none;
             background-color: #007bff;
@@ -108,21 +107,21 @@
             cursor: pointer;
             border-radius: 2%;
             transition: background-color 0.3s ease;
-            margin:1em;
+            margin: 1em;
         }
 
         .modifica:hover {
             background-color: #5a6268;
         }
 
-        .cancella{
+        .cancella {
             padding: 0.5em 1em;
             border: none;
             background-color: #666666;
             color: white;
             cursor: pointer;
             border-radius: 2%;
-            margin:1em;
+            margin: 1em;
         }
 
 
@@ -162,17 +161,18 @@
     function redirectTo(url) {
         window.location.href = url;
     }
-/* Chiesta a chatGpt questa del delete
-    function deleteProduct(button) {
-        // Conferma prima di cancellare
-        if (confirm("Sei sicuro di voler cancellare questo prodotto?")) {
-            // Trova il contenitore del prodotto e rimuovilo
-            var product = button.closest('.product');
-            product.remove();
-        }
-    }
 
- */
+    /* Chiesta a chatGpt questa del delete
+        function deleteProduct(button) {
+            // Conferma prima di cancellare
+            if (confirm("Sei sicuro di voler cancellare questo prodotto?")) {
+                // Trova il contenitore del prodotto e rimuovilo
+                var product = button.closest('.product');
+                product.remove();
+            }
+        }
+
+     */
 </script>
 </body>
 </html>
