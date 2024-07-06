@@ -19,7 +19,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     height: 80vh;
     position: relative;
 }
@@ -36,6 +36,8 @@ body {
 .immagine img {
     max-width: 100%;
     max-height: 100%;
+    width: 80vw;
+    height: 60vw;
     transition: opacity 0.5s ease;
 }
 
@@ -71,9 +73,7 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover, button:visited {
-    background-color: grey;
-}
+
 
 .catalogo {
     display: flex;
@@ -122,7 +122,7 @@ button:hover, button:visited {
 }
 
 .oggetto:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.1);
     background-color: rgba(128, 128, 128, 0.1);
 }
 

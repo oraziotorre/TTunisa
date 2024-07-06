@@ -17,7 +17,7 @@ ul {
     background-color: #003A82;
     display: flex; /* Flexbox per il layout */
     z-index: 100; /* Il menu rimanga sopra il contenuto */
-    margin: auto;
+    margin: 0 auto 0;
 }
 
 li {
