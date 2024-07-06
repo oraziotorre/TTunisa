@@ -35,10 +35,8 @@
             </p>
             <p class="stock">Sconto: <%=p.getSconto()%>%
             </p>
-            <button onclick="redirectTo('admin/product-management')" class="modifica">Modifica</button>
-            <button onclick= deleteProduct(<%=p.getID()%>) class="cancella">
-                Cancella
-            </button>
+            <button onclick=modifyProduct(<%=p.getID()%>) class="modifica">Modifica</button>
+            <button onclick=deleteProduct(<%=p.getID()%>) class="cancella">Cancella</button>
         </div>
         <%}%>
     </div>
@@ -48,13 +46,19 @@
 <script>
 
     function deleteProduct(id) {
-    // Assuming 'id' is already properly formatted or encoded
-    var url = 'admin/product-management?action=delete&ID=' + encodeURIComponent(id);
-    redirectTo(url)
+        // Assuming 'id' is already properly formatted or encoded
+        var url = 'admin/product-management?action=delete&ID=' + encodeURIComponent(id);
+        redirectTo(url)
+    }
+
+    function modifyProduct(id) {
+        // Assuming 'id' is already properly formatted or encoded
+        var url = 'admin/product-management?action=modify&ID=' + encodeURIComponent(id);
+        redirectTo(url)
     }
 
     function redirectTo(url) {
-        if(url==null)
+        if (url == null)
             url = "${pageContext.request.contextPath}/"
         window.location.href = url;
     }

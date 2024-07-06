@@ -90,6 +90,30 @@ public class ProdottoDAO {
 
     }
 
+    public static Prodotto findProduct(int ID) {
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE prodotto_ID = ?");
+            ps.setString(1, String.valueOf(ID));
+
+            ResultSet rs = ps.executeQuery();
+
+            Prodotto prodotto = new Prodotto();
+            while (rs.next()) {
+                prodotto.setID(rs.getInt(1));
+                prodotto.setNome(rs.getString(2));
+                prodotto.setDescrizione(rs.getString(3));
+                prodotto.setPrezzo(rs.getDouble(4));
+                prodotto.setQuantita(rs.getInt(5));
+                prodotto.setSconto(rs.getInt(6));
+                prodotto.setImg(rs.getString(7));
+            }
+            return prodotto;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     public static void addProdotto(Prodotto prodotto) {
 
@@ -112,7 +136,7 @@ public class ProdottoDAO {
     public static void deleteProdotto(int prodotto_ID) {
 
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE prodotto_ID=?");
+            PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE prodotto_ID = ?");
             ps.setInt(1, prodotto_ID);
             int rowsDeleted = ps.executeUpdate();
 
@@ -128,5 +152,29 @@ public class ProdottoDAO {
 
     }
 
+    public static void modifyProdotto(Prodotto prodotto) {
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("UPDATE prodotto SET nome = ?, descrizione = ?, prezzo = ?, quantita = ?, sconto = ?, img = ? WHERE prodotto_ID = ?");
+            ps.setString(1, prodotto.getNome());
+            ps.setString(2, prodotto.getDescrizione());
+            ps.setDouble(3, prodotto.getPrezzo());
+            ps.setInt(4, prodotto.getQuantita());
+            ps.setInt(5, prodotto.getSconto());
+            ps.setString(6, prodotto.getImg());
+            ps.setInt(7, prodotto.getID());
+            int rowsDeleted = ps.executeUpdate();
+
+            if (rowsDeleted == 0) {
+                throw new RuntimeException("Failed to update product with ID: " + prodotto.getID() + ". Product not found.");
+            }
+
+            //con.commit(); // Nel caso in cui non è impostato l'autocommit
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

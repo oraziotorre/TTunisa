@@ -22,7 +22,7 @@ public class ListaAdminServlet extends HttpServlet {
             throws ServletException, IOException {
 
         if (request.getParameter("action") == null) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/HomePage.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
             dispatcher.forward(request, response);
         } else {
             if (request.getParameter("action").equals("prodotti")) {

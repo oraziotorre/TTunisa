@@ -14,18 +14,18 @@
     <link href="css/ricerca_prodotti.css" rel="stylesheet" type="text/css">
 
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
 
-        body{
+        body {
             padding: 0;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: white;
         }
 
-        .container{
+        .container {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -37,39 +37,39 @@
             padding: 2em;
         }
 
-        .nome_ricerca{
+        .nome_ricerca {
             display: block;
             width: 100%;
             height: auto;
         }
 
-        .nome_ricerca p{
+        .nome_ricerca p {
             font-size: 2em;
             color: black;
             font-weight: bold;
             font-family: "Roboto", sans-serif;
         }
 
-        .product-search{
+        .product-search {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 2em 2em 0 2em ;
+            margin: 2em 2em 0 2em;
             padding: 2em;
             cursor: pointer;
             width: 20%;
             height: auto;
         }
 
-        .product-search img{
+        .product-search img {
             height: 12em;
             width: 12em;
             padding: 1em;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        .product-search .nome{
+        .product-search .nome {
             text-decoration: none;
             color: black;
             font-size: 1em;
@@ -78,18 +78,18 @@
             margin-bottom: 0.05em; /* riduce il margine inferiore */
         }
 
-        .product-search .prezzo{
+        .product-search .prezzo {
             margin-top: 0;
             font-size: 1.2em;
             font-weight: bold;
         }
 
-        .product-search:hover img{
+        .product-search:hover img {
             transform: scale(1.25);
             opacity: 0.6;
         }
 
-        .product-search:hover .nome{
+        .product-search:hover .nome {
             text-decoration: underline solid black;
         }
 
@@ -161,6 +161,6 @@
         <p class="prezzo">$ Prezzo Prodotto</p>
     </div>
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 </body>
 </html>
