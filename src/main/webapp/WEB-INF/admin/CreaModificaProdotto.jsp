@@ -9,7 +9,6 @@
 <body>
 
 <button class="back" onclick="goBack()">Ritorna Indietro</button>
-<!-- Questo se si preme sul bottone di aggiungere
 <div class="tag">
     <h2>PAGINA CREAZIONE PRODOTTO</h2>
 </div>
@@ -23,8 +22,8 @@
                     <input type="text" placeholder="Nome Prodotto " name="Nome" id="nome" required>
                 </div>
                 <div class="detail">
-                    <label for="prezzo">Prezzo Prodotto</label>
-                    <input type="number" placeholder="Prezzo " name="Prezzo" id="prezzo" required>
+                    <label for="prezzo">Prezzo</label>
+                    <input type="number" placeholder="Prezzo $" name="Prezzo" id="prezzo" step="0.01" required>
                 </div>
             </div>
             <div class="row">
@@ -55,9 +54,9 @@
         </div>
     </div>
 </form>
- -->
 
-<!-- Questo se si preme invece quello di modifica -->
+
+<!-- Questo se si preme invece quello di modifica
 <div class="tag">
     <h2>PAGINA MODIFICA PRODOTTO</h2>
 </div>
@@ -83,21 +82,22 @@
                 </div>
                 <div class="detail">
                     <label for="sconto">Sconto</label>
-                    <input type="number" min="0" max="100" placeholder="Sconto Vecchio" name="Sconto" id="sconto" required>
+                    <input type="number" min="0" max="100" placeholder="Sconto Vecchio" name="Sconto" id="sconto"
+                           required>
                 </div>
             </div>
-                <div class="detail">
+            <div class="detail">
                 <label for="descrizione">Descrizione</label>
                 <textarea cols="30" rows="5" placeholder="Descrizione Vecchia" name="Descrizione" id="descrizione"
                           required></textarea>
-                </div>
-                <div class="detail">
-                    <button type="submit" id="submit" class="prod">Inserisci</button>
-                </div>
+            </div>
+            <div class="detail">
+                <button type="submit" id="submit" class="prod">Inserisci</button>
+            </div>
 
         </div>
         <div class="immagine">
-            <!-- Qua ci va l'immagine vecchia -->
+
             <img src="${pageContext.request.contextPath}/images/imageNA.png" alt="Prodotto" id="previewImage">
             <label for="imageSelect">Cambia Immagine</label>
             <input type="text" id="imageSelect" value="${pageContext.request.contextPath}/images/imageNA.png"
@@ -105,12 +105,13 @@
         </div>
     </div>
 </form>
-
+-->
 <script>
 
-    function goBack(){
+    function goBack() {
         window.history.back();
     }
+
     function updateImage() {
         var imageUrl = document.getElementById('imageSelect').value;
         var previewImage = document.getElementById('previewImage');

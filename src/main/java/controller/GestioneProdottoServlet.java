@@ -12,51 +12,64 @@ import model.ProdottoDAO;
 import java.io.IOException;
 import java.security.ProtectionDomain;
 
-@WebServlet("/admin/product-managment")
+@WebServlet("/admin/product-management")
 public class GestioneProdottoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nome = request.getParameter("Nome");
-        String descrizione = request.getParameter("Descrizione");
-        String quantitaStr = request.getParameter("Quantita");
-        String prezzoStr = request.getParameter("Prezzo");
-        String scontoStr = request.getParameter("Sconto");
-        String img = request.getParameter("Img");
+        String action = request.getParameter("action");
 
-        // Verifica se tutti i parametri necessari sono presenti e non sono vuoti
-        if (nome == null || nome.isEmpty() ||
-                descrizione == null || descrizione.isEmpty() ||
-                quantitaStr == null || quantitaStr.isEmpty() ||
-                prezzoStr == null || prezzoStr.isEmpty() ||
-                scontoStr == null || scontoStr.isEmpty() ||
-                img == null || img.isEmpty()) {
+        if (action == null) {
+            //CREAZIONE NUOVO PRODOTTO
+            String nome = request.getParameter("Nome");
+            String descrizione = request.getParameter("Descrizione");
+            String quantitaStr = request.getParameter("Quantita");
+            String prezzoStr = request.getParameter("Prezzo");
+            String scontoStr = request.getParameter("Sconto");
+            String img = request.getParameter("Img");
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/CreaModificaProdotto.jsp");
-            dispatcher.forward(request, response);
-        } else {
+            if (nome == null || nome.isEmpty() ||
+                    descrizione == null || descrizione.isEmpty() ||
+                    quantitaStr == null || quantitaStr.isEmpty() ||
+                    prezzoStr == null || prezzoStr.isEmpty() ||
+                    scontoStr == null || scontoStr.isEmpty() ||
+                    img == null || img.isEmpty()) {
 
-            // Conversione dei parametri
-            int quantita = Integer.parseInt(quantitaStr);
-            double prezzo = Double.parseDouble(prezzoStr);
-            int sconto = Integer.parseInt(scontoStr);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/CreaModificaProdotto.jsp");
+                dispatcher.forward(request, response);
+            } else {
 
-            // Creazione dell'oggetto Prodotto e salvataggio nel database
-            Prodotto p = new Prodotto();
-            p.setNome(nome);
-            p.setPrezzo(prezzo);
-            p.setQuantita(quantita);
-            p.setDescrizione(descrizione);
-            p.setSconto(sconto);
-            p.setImg(img);
+                int quantita = Integer.parseInt(quantitaStr);
+                double prezzo = Double.parseDouble(prezzoStr);
+                int sconto = Integer.parseInt(scontoStr);
 
-            // Utilizzo del DAO per aggiungere il prodotto
-            ProdottoDAO.addProdotto(p);
+                Prodotto p = new Prodotto();
+                p.setNome(nome);
+                p.setPrezzo(prezzo);
+                p.setQuantita(quantita);
+                p.setDescrizione(descrizione);
+                p.setSconto(sconto);
+                p.setImg(img);
 
-            // Redirect alla pagina dei prodotti dopo l'aggiunta
-            response.sendRedirect(request.getContextPath() + "/admin?action=prodotti");
+                ProdottoDAO.addProdotto(p);
+
+                // Redirect alla pagina dei prodotti dopo l'aggiunta
+                response.sendRedirect(request.getContextPath() + "/admin?action=prodotti");
+            }}
+        else{
+
+            if (action.equals("modify")) {
+                //MODIFICA PRODOTTO
+                    //ProdottoDAO.modifyProdotto();
+                }
+            else if (action.equals("delete")){
+                //CANCELLA PRODOTTO
+                int ID= Integer.parseInt(request.getParameter("ID"));
+                ProdottoDAO.deleteProdotto(ID);
+                response.sendRedirect(request.getContextPath() + "/admin?action=prodotti");
+            }
         }
     }
 

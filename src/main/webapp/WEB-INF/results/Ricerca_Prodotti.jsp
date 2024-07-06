@@ -14,18 +14,18 @@
     <link href="css/ricerca_prodotti.css" rel="stylesheet" type="text/css">
 
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
 
-        body{
+        body {
             padding: 0;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: white;
         }
 
-        .container{
+        .container {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -37,58 +37,47 @@
             padding: 2em;
         }
 
-        .nome_ricerca{
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .nome_ricerca p{
-            font-size: 2em;
-            color: black;
-            font-weight: bold;
-            font-family: "Roboto", sans-serif;
-        }
-
-        .product-search{
+        .product-search {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 2em 2em 0 2em ;
+            margin: 2em;
             padding: 2em;
             cursor: pointer;
             width: 20%;
             height: auto;
+            border: 1px solid black;
         }
 
-        .product-search img{
-            height: 12em;
-            width: 12em;
+        .product-search img {
+            height: 2em;
+            width: 2em;
             padding: 1em;
             transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
         }
 
-
-        .product-search .nome{
-            text-decoration: none;
+        .product-search .nome {
+            text-decoration-line: none;
             color: black;
             font-size: 1em;
             font-family: "Roboto", sans-serif;
         }
 
-        .product-search .prezzo{
+        .product-search p {
+            text-decoration: none;
+            color: black;
             font-size: 1.2em;
-            font-weight: bold;
+            font-family: "Roboto", sans-serif;
         }
 
-        .product-search:hover img{
-            width: 15em;
-            height: 15em;
+        .product-search:hover img {
+            width: 2.2em;
+            height: 2.2em;
             opacity: 0.6;
         }
 
-        .product-search:hover .nome{
+        .product-search:hover span {
             text-decoration: underline solid black;
         }
 
@@ -97,68 +86,53 @@
 <body>
 <%@include file="header.jsp" %>
 <%@include file="nav.jsp" %>
+<img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
 <div class="container">
-    <div class="nome_ricerca">
-        <p>Nome Ricerca</p>
-    </div>
-    <!-- ciclo for per ciascun item che ha un riscontro questo scritto sotto sono solo esempi -->
+    <!-- ciclo for per ciascun item che ha un riscontro -->
     <div class="product-search">
         <a href="#pagina del prodotto">
             <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+            <p class="nome">Nome del Prodotto</p>
         </a>
-        <p class="nome">Nome del Prodotto</p>
+        <p>$ Prezzo Prodotto</p>
+    </div>
+    <div class="product-search">
+        <a href="#pagina del prodotto">
+            <img src=images/imageNA.png" alt="Non Disponibile"><br>
+            <span>Nome del Prodotto</span>
+        </a>
         <p class="prezzo">$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
             <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+            <span>Nome del Prodotto</span>
         </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
+        <p>$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+            <img src="${pageContext.request.contextPath}/images/cart.png" alt="Non Disponibile"><br>
+            <span>Nome del Prodotto</span>
         </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
+        <p>$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+            <img src="${pageContext.request.contextPath}/images/cart.png" alt="Non Disponibile"><br>
+            <span>Nome del Prodotto</span>
         </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
+        <p>$ Prezzo Prodotto</p>
     </div>
     <div class="product-search">
         <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+            <img src="${pageContext.request.contextPath}/images/cart.png" alt="Non Disponibile"><br>
+            <span>Nome del Prodotto</span>
         </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
+        <p>$ Prezzo Prodotto</p>
     </div>
 </div>
-<%@include file="footer.jsp"%>
+
+<%@include file="footer.jsp" %>
 </body>
 </html>

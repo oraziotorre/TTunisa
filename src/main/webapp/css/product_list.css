@@ -89,6 +89,7 @@ button:hover {
 }
 
 .prezzo {
+    font-weight: bold;
     margin-right: 2em;
 }
 

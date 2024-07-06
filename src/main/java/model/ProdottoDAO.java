@@ -18,6 +18,7 @@ public class ProdottoDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Prodotto prodotto = new Prodotto();
+                prodotto.setID(rs.getInt(1));
                 prodotto.setNome(rs.getString(2));
                 prodotto.setDescrizione(rs.getString(3));
                 prodotto.setPrezzo(rs.getDouble(4));
@@ -46,6 +47,7 @@ public class ProdottoDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Prodotto prodotto = new Prodotto();
+                prodotto.setID(rs.getInt(1));
                 prodotto.setNome(rs.getString(2));
                 prodotto.setDescrizione(rs.getString(3));
                 prodotto.setPrezzo(rs.getDouble(4));
@@ -72,6 +74,7 @@ public class ProdottoDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Prodotto prodotto = new Prodotto();
+                prodotto.setID(rs.getInt(1));
                 prodotto.setNome(rs.getString(2));
                 prodotto.setDescrizione(rs.getString(3));
                 prodotto.setPrezzo(rs.getDouble(4));
@@ -106,18 +109,19 @@ public class ProdottoDAO {
 
     }
 
-    public static void modifyProdotto(Prodotto prodotto) {
+    public static void deleteProdotto(int prodotto_ID) {
 
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("INSERT INTO prodotto (nome, descrizione, prezzo, quantita, sconto, img) VALUES (?, ?, ?, ?, ?, ?)");
-            ps.setString(1, prodotto.getNome());
-            ps.setString(2, prodotto.getDescrizione());
-            ps.setDouble(3, prodotto.getPrezzo());
-            ps.setInt(4, prodotto.getQuantita());
-            ps.setInt(5, prodotto.getSconto());
-            ps.setString(6, prodotto.getImg());
+            PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE prodotto_ID=?");
+            ps.setInt(1, prodotto_ID);
+            int rowsDeleted = ps.executeUpdate();
 
-            ps.executeUpdate();
+            if (rowsDeleted == 0) {
+                throw new RuntimeException("Failed to delete product with ID: " + prodotto_ID + ". Product not found.");
+            }
+
+            //con.commit(); // Nel caso in cui non è impostato l'autocommit
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -12,7 +12,7 @@ CREATE TABLE utente
     utente_id      INT AUTO_INCREMENT PRIMARY KEY,
     nome           VARCHAR(25) NOT NULL,
     cognome        VARCHAR(25) NOT NULL,
-    saldo DOUBLE NOT NULL,
+    saldo DECIMAL(10, 2) NOT NULL,
     email          VARCHAR(25) NOT NULL,
     pass           VARCHAR(30) NOT NULL,
     amministratore BOOLEAN     NOT NULL
@@ -26,13 +26,13 @@ VALUES (1, 'Francesco', 'Durante', 10000, 'francesco@gmail.com', '1234', TRUE),
 -- Creazione della tabella "prodotto"
 CREATE TABLE prodotto
 (
-    prodotto_ID       INT AUTO_INCREMENT PRIMARY KEY,
-    nome             VARCHAR(100) NOT NULL,
-    descrizione       VARCHAR(300) NOT NULL,
-    prezzo           DOUBLE NOT NULL,
-    quantita             int,
-    sconto            INT CHECK (sconto >= 0 AND sconto <= 100),
-	img 			VARCHAR(100)  NOT NULL
+    prodotto_ID INT AUTO_INCREMENT PRIMARY KEY,
+    nome        VARCHAR(100) NOT NULL,
+    descrizione VARCHAR(300) NOT NULL,
+    prezzo DECIMAL(10, 2) NOT NULL,
+    quantita    int,
+    sconto      INT CHECK (sconto >= 0 AND sconto <= 100),
+    img         VARCHAR(1000) NOT NULL
 );
 
 -- Creazione della tabella "categoria"
@@ -44,12 +44,12 @@ CREATE TABLE categoria
 -- Creazione della tabella "ordine"
 CREATE TABLE ordine
 (
-    ordine_ID   INT AUTO_INCREMENT PRIMARY KEY,
-    prezzo_tot DOUBLE NOT NULL,
-    data         DATE        NOT NULL,
-    cap         VARCHAR(5)  NOT NULL,
-    indirizzo   VARCHAR(25) NOT NULL,
-    utente_ID   INT,
+    ordine_ID INT AUTO_INCREMENT PRIMARY KEY,
+    prezzo_tot DECIMAL(10, 2) NOT NULL,
+    data      DATE        NOT NULL,
+    cap       VARCHAR(5)  NOT NULL,
+    indirizzo VARCHAR(25) NOT NULL,
+    utente_ID INT,
     FOREIGN KEY (utente_ID) REFERENCES utente (utente_ID)
 );
 

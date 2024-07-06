@@ -102,10 +102,14 @@
         </tr>
         <% for (Utente ut : listaUtenti) { %>
         <tr>
-            <td><%= ut.getNome() %></td>
-            <td><%= ut.getCognome() %></td>
-            <td><%= ut.getEmail() %></td>
-            <td><%= ut.isAmministratore() %></td>
+            <td><%= ut.getNome() %>
+            </td>
+            <td><%= ut.getCognome() %>
+            </td>
+            <td><%= ut.getEmail() %>
+            </td>
+            <td><%= ut.isAmministratore() %>
+            </td>
             <td>
                 <div class="admin-buttons">
                     <button class="toggle <%= ut.isAmministratore() ? "admin" : "non-admin" %>"
