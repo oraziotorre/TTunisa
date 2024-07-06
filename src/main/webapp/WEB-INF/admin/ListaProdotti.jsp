@@ -12,14 +12,14 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>Products</h1>
+        <h1>Prodotti</h1>
         <div class="bottoni">
             <button onclick="redirectTo('admin/product-managment')">+ Aggiungi Prodotto</button>
             <button onclick="redirectTo(request.getContextPath())">Home Page</button>
         </div>
     </div>
     <div class="filtro">
-        <input type="text" placeholder="Product name">
+        <input type="text" placeholder="Nome Proddoti">
     </div>
     <div class="prodotto-list">
         <% for (Prodotto p : listaProdotti) { %>

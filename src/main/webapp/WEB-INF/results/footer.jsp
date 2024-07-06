@@ -10,53 +10,6 @@
 <head>
     <title>Footer</title>
     <link rel="stylesheet" href="css\footer.css">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .info {
-            display: flex;
-            justify-content: space-around;
-            background-color: #003A82; /* Colore di sfondo del footer */
-            padding: 1.2em;
-            margin-top: auto;
-        }
-
-        .column {
-            flex: 1;
-            padding: 1.2em;
-            color: white; /* Colore del testo */
-            text-align: center; /* Centra il testo */
-        }
-
-        /* Facoltativo: Stili aggiuntivi per una migliore presentazione */
-
-        .column p {
-            margin: 0.5em 0;
-            line-height: 0.8em;
-            font-size: 0.8em;
-        }
-
-        .column h2 {
-            margin: 0.5em 0;
-            line-height: 0.8em;
-            font-size: 1.2em;
-        }
-
-        .column img {
-            width: 1em;
-            height: 1em;
-            background-color: #003A82;
-        }
-    </style>
 </head>
 <body>
 <div class="info">

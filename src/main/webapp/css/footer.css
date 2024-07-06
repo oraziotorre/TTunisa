@@ -9,26 +9,41 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 .info {
     display: flex;
     justify-content: space-around;
-    background-color: red; /* Colore di sfondo del footer */
-    padding: 20px;
+    background-color: #003A82; /* Colore di sfondo del footer */
+    padding: 0.8em;
+    margin: 4em auto 0;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
 }
+
 
 .column {
     flex: 1;
-    padding: 20px;
-    color: white; /* Colore del testo */
-    text-align: center; /* Centra il testo */
+    padding: 1.2em;
+    color: white;
+    text-align: center;
 }
 
-/* Facoltativo: Stili aggiuntivi per una migliore presentazione */
-.column h2 {
-    margin-top: 0;
-    font-size: 1.5em;
-}
 
 .column p {
     margin: 0.5em 0;
+    line-height: 0.8em;
+    font-size: 0.8em;
+}
+
+.column h2 {
+    margin: 0.5em 0;
+    line-height: 0.8em;
+    font-size: 1.2em;
+}
+
+.column img {
+    width: 1em;
+    height: 1em;
+    background-color: #003A82;
 }
