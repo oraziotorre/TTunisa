@@ -9,6 +9,19 @@ body {
     background-color: white;
 }
 
+.back{
+    padding: 0.6em;
+    margin:2em 0 0.5em 4em;
+    background-color: #5a6268;
+    color: white;
+    border: black solid 1px;
+    text-align: center;
+}
+
+.back:hover{
+    background-color: #666666;
+}
+
 .tag {
     width: 90%;
     max-width: 90%;
