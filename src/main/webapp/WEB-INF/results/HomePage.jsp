@@ -33,32 +33,32 @@ To change this template use File | Settings | File Templates.
         <!-- dopo scegliamo noi gli items dopo qui e per ciascuno aggiungiamo un link che porta a quella pagina -->
         <div class="oggetto">
             <a href="Product.jsp">
-                <img src="images\\ImageNotAvailable.png" alt="Oggetto 1">
+                <img src="images\\imageNA.png" alt="Oggetto 1">
             </a>
             <p>Oggetto 1</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 2">
+            <img src="images\\imageNA.png" alt="Oggetto 2">
             <p>Oggetto 2</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 3">
+            <img src="images/imageNA.png" alt="Oggetto 3">
             <p>Oggetto 3</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 4">
+            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Oggetto 4">
             <p>Oggetto 4</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 5">
+            <img src="images\\imageNA.png" alt="Oggetto 5">
             <p>Oggetto 5</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
@@ -70,31 +70,31 @@ To change this template use File | Settings | File Templates.
     <!-- Stessa cosa qui aggiungiamo noi i più venduti -->
     <div class="lista">
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 5">
+            <img src="images\\imageNA.png" alt="Oggetto 5">
             <p>Oggetto 5</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 6">
+            <img src="images\\imageNA.png" alt="Oggetto 6">
             <p>Oggetto 6</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 7">
+            <img src="images\\imageNA.png" alt="Oggetto 7">
             <p>Oggetto 7</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 8">
+            <img src="images\\imageNA.png" alt="Oggetto 8">
             <p>Oggetto 8</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>
         </div>
         <div class="oggetto">
-            <img src="images\\ImageNotAvailable.png" alt="Oggetto 9">
+            <img src="images\\imageNA.png" alt="Oggetto 9">
             <p>Oggetto 9</p>
             <strong>Prezzo 100$</strong>
             <button>Aggiungi al carrello</button>

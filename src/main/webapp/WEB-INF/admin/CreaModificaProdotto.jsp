@@ -40,9 +40,9 @@
             </div>
         </div>
         <div class="immagine">
-            <img src="${pageContext.request.contextPath}/images/imageNotAvailable.png" alt="Prodotto" id="previewImage">
+            <img src="${pageContext.request.contextPath}/images/imageNA.png" alt="Prodotto" id="previewImage">
             <label for="imageSelect">Cambia Immagine</label>
-            <input type="text" id="imageSelect" value="${pageContext.request.contextPath}/images/imageNotAvailable.png"
+            <input type="text" id="imageSelect" value="${pageContext.request.contextPath}/images/imageNA.png"
                    name="Img" required>
         </div>
         <button type="submit" id="submit" class="prod">Inserisci</button>
@@ -55,7 +55,7 @@
         var previewImage = document.getElementById('previewImage');
 
         if (imageUrl.trim() === '') {
-            previewImage.src = '${pageContext.request.contextPath}/images/ImageNotAvailable.png'; // Immagine predefinita
+            previewImage.src = '${pageContext.request.contextPath}/images/imageNA.png'; // Immagine predefinita
             previewImage.alt = 'Inserisci un URL per visualizzare l\'immagine'; // Testo alternativo
         } else {
             previewImage.src = imageUrl;

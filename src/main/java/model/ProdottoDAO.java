@@ -87,7 +87,26 @@ public class ProdottoDAO {
 
     }
 
+
     public static void addProdotto(Prodotto prodotto) {
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO prodotto (nome, descrizione, prezzo, quantita, sconto, img) VALUES (?, ?, ?, ?, ?, ?)");
+            ps.setString(1, prodotto.getNome());
+            ps.setString(2, prodotto.getDescrizione());
+            ps.setDouble(3, prodotto.getPrezzo());
+            ps.setInt(4, prodotto.getQuantita());
+            ps.setInt(5, prodotto.getSconto());
+            ps.setString(6, prodotto.getImg());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static void modifyProdotto(Prodotto prodotto) {
 
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("INSERT INTO prodotto (nome, descrizione, prezzo, quantita, sconto, img) VALUES (?, ?, ?, ?, ?, ?)");
