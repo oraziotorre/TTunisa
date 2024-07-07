@@ -8,17 +8,20 @@ function confermaParametri() {
 
 
     if (password.length < 8) {
-        alert("La password non rispetta il numero minimo di caratteri");
+        document.getElementById("error").style.display="block";
+        document.getElementById("error").innerHTML="Password troppo corta";
         return false;
     }
 
     if (resultEmail == false) {
-        alert("L'email non rispecchia il formato corretto.Riprovare");
+        document.getElementById("error").style.display="block";
+        document.getElementById("error").innerHTML="Formato Errato";
         return false;
     }
 
     if (resultPassword == false) {
-        alert("La password non rispecchia il formato corretto.Riprovare");
+        document.getElementById("error").style.display="block";
+        document.getElementById("error").innerHTML="Formato Errato";
         return false;
     }
     return true;
