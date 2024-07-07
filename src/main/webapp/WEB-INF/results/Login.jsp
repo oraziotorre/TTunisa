@@ -37,17 +37,17 @@
              <button>create</button>
              <p class="message">Already registered? <a href="#">Sign In</a></p>
          </form> -->
-        <form class="login-form" method="post" action="login">
+        <form class="login-form" onsubmit="return login()">
             <label for="email">Indirizzo email</label><br>
             <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
             <label for="password"><b>Password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Login</button>
             <p class="message">Non registrato? <a href="registration">Crea un account</a></p>
+            <p id="error"></p>
         </form>
     </div>
 </div>
-
 
 <script src="js/login.js"></script>
 </body>
