@@ -55,20 +55,6 @@
             font-weight: bold;
         }
 
-        .ordine-header a {
-            text-decoration: none;
-            color: #0056b3;
-            font-size: 0.9em;
-            background: #e0f7ff;
-            padding: 0.5em 1em;
-            border-radius: 0.3em;
-            transition: background 0.3s ease;
-        }
-
-        .ordine-header a:hover {
-            background: #b0e0e6;
-        }
-
         .dettagli-ordine {
             display: flex;
             flex-direction: row;
@@ -170,7 +156,6 @@
         <div class="ordine-header">
             <!-- Vedi poi tu come fare qua ci vuole un ciclo -->
             <p>Numero Ordine:1</p>
-            <a href="#">Vedi ordine</a>
         </div>
         <div class="dettagli-ordine">
             <div>
@@ -206,7 +191,6 @@
         <div class="ordine-header">
             <!-- Vedi poi tu come fare qua ci vuole un ciclo -->
             <p>Numero Ordine</p>
-            <a href="#">Vedi Ordine</a>
         </div>
         <div class="dettagli-ordine">
             <div>
