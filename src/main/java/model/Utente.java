@@ -7,8 +7,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class Utente {
 
+    private int ID;
     private String nome, cognome, email, password;
-
     private Double saldo;
     private boolean amministratore;
 
@@ -44,17 +44,7 @@ public class Utente {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        /*try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-1");
-            digest.reset();
-            digest.update(password.getBytes(StandardCharsets.UTF_8));
-            this.password = String.format("%040x", new BigInteger(1, digest.digest()));
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }*/
-        this.password = password;
-    }
+    public void setPassword(String password) {this.password = password;}
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -69,7 +59,9 @@ public class Utente {
         this.amministratore = amministratore;
     }
 
+    public int getID() {return ID;}
 
+    public void setID(int ID) {this.ID = ID;}
 }
 
 

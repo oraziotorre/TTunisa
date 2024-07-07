@@ -1,4 +1,4 @@
-<%@ page import="model.HeadersBean" %>
+<%@ page import="robadatogliereallafine.HeadersBean" %>
 <%@ page import="java.util.List" %>
 <html>
 <head>

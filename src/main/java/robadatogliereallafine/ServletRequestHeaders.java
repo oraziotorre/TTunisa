@@ -1,26 +1,13 @@
-package controller;
+package robadatogliereallafine;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import model.Utente;
-import model.UtenteDAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Collections;
 import java.util.Enumeration;
-import java.util.List;
-
-import model.ConPool;
-import model.HeadersBean;
 
 @WebServlet(name = "TestMVC", urlPatterns = {"/testMVC", "/test"})
 public class ServletRequestHeaders extends HttpServlet {

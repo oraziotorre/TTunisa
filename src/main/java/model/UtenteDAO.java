@@ -17,6 +17,7 @@ public class UtenteDAO extends HttpServlet {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Utente utente = new Utente();
+                utente.setID(rs.getInt(1));
                 utente.setNome(rs.getString(2));
                 utente.setCognome(rs.getString(3));
                 utente.setSaldo(rs.getDouble(4));
@@ -41,6 +42,7 @@ public class UtenteDAO extends HttpServlet {
             ps.setString(2, toHash(password));
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                utente.setID(rs.getInt(1));
                 utente.setNome(rs.getString(2));
                 utente.setCognome(rs.getString(3));
                 utente.setSaldo(rs.getDouble(4));

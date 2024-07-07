@@ -42,8 +42,6 @@ CREATE TABLE ordine
     ordine_ID  INT AUTO_INCREMENT PRIMARY KEY,
     prezzo_tot DECIMAL(10, 2) NOT NULL,
     data       DATE           NOT NULL,
-    cap        VARCHAR(5)     NOT NULL,
-    indirizzo  VARCHAR(25)    NOT NULL,
 	scontrino JSON,
     utente_ID  INT,
 	FOREIGN KEY (utente_ID) REFERENCES utente(utente_ID)

@@ -43,7 +43,7 @@
 
                 </a>
                 <div class="dropdown-content">
-                    <a href="#ordini">Ordini</a>
+                    <a href="common/order_history">Ordini</a>
                     <% if (session != null && session.getAttribute("isAdmin") != null) {%>
                     <a href="admin?action=prodotti">Gestione Prodotti</a>
                     <a href="admin?action=utenti">Gestione Utenti</a>
