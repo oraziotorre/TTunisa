@@ -15,7 +15,10 @@
         </a>
     </div>
     <div class="search-bar">
-        <input type="text" placeholder="Cerca prodotti">
+        <form class="register-form" method="get" action="search">
+            <input type="text" name="query" placeholder="Cerca prodotti" required>
+            <button type="submit" class="cerca">Cerca</button>
+        </form>
     </div>
     <div class="user-options">
         <div class="login-container">

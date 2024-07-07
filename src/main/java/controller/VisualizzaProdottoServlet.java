@@ -10,20 +10,18 @@ import model.Prodotto;
 import model.ProdottoDAO;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-@WebServlet("/search")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/product")
+public class VisualizzaProdottoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String query = request.getParameter("query");
-        ArrayList<Prodotto> prodotti = ProdottoDAO.findBySearch(query);
-        request.setAttribute("query", query);
-        request.setAttribute("listaProdotti", prodotti);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Ricerca_Prodotti.jsp");
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        Prodotto p = ProdottoDAO.findProduct(ID);
+        request.setAttribute("Prodotto",p);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Product.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -31,5 +29,4 @@ public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
-
 }

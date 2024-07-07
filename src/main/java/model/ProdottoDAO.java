@@ -67,7 +67,8 @@ public class ProdottoDAO {
 
         ArrayList<Prodotto> p = new ArrayList<Prodotto>();
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE UPPER(nome) LIKE ? OR UPPER(descizione) LIKE ?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE nome LIKE ? OR descrizione LIKE ?");
+            search = "%" + search + "%"; // Aggiungi i caratteri jolly
             ps.setString(1, search);
             ps.setString(2, search);
 

@@ -1,3 +1,5 @@
+<%@ page import="model.ProdottoDAO" %>
+<%@ page import="model.Prodotto" %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -6,30 +8,29 @@
     <title>Pagina Prodotto</title>
     <link href="css/product.css" rel="stylesheet" type="text/css">
 </head>
+<% Prodotto p = (Prodotto) request.getAttribute("Prodotto");%>
 <body>
 <%@include file="header.jsp" %>
 <%@include file="nav.jsp" %>
 <div class="product-page">
     <div class="infos">
-        <p>Pagina prodotto / Caratteristiche del prodotto</p>
+        <p>Prodotti / <%=p.getNome()%></p>
     </div>
     <div class="product-container">
         <div class="product-image">
-            <img src="images/imageNA.png" alt="Product Image">
+            <img src="<%=p.getImg()%>" alt="images/imageNA.png">
         </div>
         <div class="product-details">
-            <h1>Prodotto Da Inserire</h1>
+            <h1><%=p.getNome()%></h1>
             <div class="price">
-                <span class="prezzo">Prezzo Da Inserire</span>
+                <span class="prezzo">$<%=p.getPrezzo()%></span>
             </div>
 
             <label for="quantity">Quantita'</label>
-            <input type="number" id="quantity" min="1" max="99" value="1">
+            <input type="number" id="quantity" min="1" max="<%=p.getQuantita()%>" value="1">
             <br>
-            <!-- Qui quando aggiungiamo dobbiamo fare ajax e ricordare di modificare il carrello e il numero in alto a destra -->
             <button id="add-to-cart">Aggiungi al carrello</button>
-            <p>Descrizione Futura Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique, turpis vel
-                hendrerit viverra, justo metus dignissim turpis, et ultrices tellus magna vel mi.</p>
+            <p><%=p.getDescrizione()%></p>
         </div>
     </div>
 </div>

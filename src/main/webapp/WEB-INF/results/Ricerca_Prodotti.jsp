@@ -1,15 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: franc
-  Date: 06/07/2024
-  Time: 18:05
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.Prodotto" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ricerca Prodotto qua ci vuole il nome della barra di ricerca o della categoria</title>
+    <title>ricerca <%=request.getAttribute("query")%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/ricerca_prodotti.css" rel="stylesheet" type="text/css">
 
@@ -96,70 +91,24 @@
 
     </style>
 </head>
+<% ArrayList<Prodotto> listaProdotti = (ArrayList<Prodotto>) request.getAttribute("listaProdotti");%>
 <body>
 <%@include file="header.jsp" %>
 <%@include file="nav.jsp" %>
 <div class="container">
     <div class="nome_ricerca">
-        <p>Nome Ricerca</p>
+        <p>Ricerca: <%=request.getAttribute("query")%></p>
     </div>
     <!-- ciclo for per ciascun item che ha un riscontro questo scritto sotto sono solo esempi -->
+    <% for (Prodotto p : listaProdotti) { %>
     <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
+        <a href="product?ID=<%=p.getID()%>">
+            <img src="<%=p.getImg()%>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
         </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
+        <p class="nome"><%=p.getNome()%></p>
+        <p class="prezzo"><%=p.getPrezzo()%></p>
     </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
-    <div class="product-search">
-        <a href="#pagina del prodotto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Non Disponibile"><br>
-        </a>
-        <p class="nome">Nome del Prodotto</p>
-        <p class="prezzo">$ Prezzo Prodotto</p>
-    </div>
+    <%}%>
 </div>
 <%@include file="footer.jsp" %>
 </body>
