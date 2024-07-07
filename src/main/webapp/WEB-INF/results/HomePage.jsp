@@ -100,7 +100,6 @@ To change this template use File | Settings | File Templates.
             <button>Aggiungi al carrello</button>
         </div>
     </div>
-
 </div>
 <%@include file="footer.jsp" %>
 
