@@ -59,7 +59,7 @@ body {
     font-size: 1em;
     font-family: "Roboto", sans-serif;
     padding-bottom: 0;
-    margin-bottom: 0.05em; /* riduce il margine inferiore */
+    margin-bottom: 0.05em;
 }
 
 .product-search .prezzo {
