@@ -7,10 +7,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Prodotto;
+import model.ProdottoDAO;
 import model.Utente;
 import model.UtenteDAO;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
@@ -19,6 +22,8 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        ArrayList<Prodotto> listaProdottiScontati = ProdottoDAO.doRetriveProdottoScontato();
+        request.setAttribute("listaProdottiScontati", listaProdottiScontati);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
         dispatcher.forward(request, response);
     }

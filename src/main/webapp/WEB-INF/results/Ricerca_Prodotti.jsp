@@ -4,7 +4,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><%=request.getAttribute("query")%></title>
+    <title><%=request.getAttribute("query")%>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/ricerca_prodotti.css" rel="stylesheet" type="text/css">
 </head>
@@ -14,7 +15,8 @@
 <%@include file="nav.jsp" %>
 <div class="container">
     <div class="nome_ricerca">
-        <p>Ricerca: <%=request.getAttribute("query")%></p>
+        <p>Ricerca: <%=request.getAttribute("query")%>
+        </p>
     </div>
     <!-- ciclo for per ciascun item che ha un riscontro questo scritto sotto sono solo esempi -->
     <% for (Prodotto p : listaProdotti) { %>
@@ -22,12 +24,16 @@
         <a href="product?ID=<%=p.getID()%>">
             <img src="<%=p.getImg()%>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
         </a>
-        <p class="nome"><%=p.getNome()%></p>
-        <% if(p.getSconto()==0){%>
-            <p class="prezzo">$<%=String.format("%.2f",p.getPrezzo())%></p>
-        <%}else{%>
-            <p class="barred-prezzo">$<%=String.format("%.2f",p.getPrezzo())%></p>
-            <p class="prezzo">$<%=String.format("%.2f", p.getPrezzo()-(p.getPrezzo()/100*p.getSconto()))%></p>
+        <p class="nome"><%=p.getNome()%>
+        </p>
+        <% if (p.getSconto() == 0) {%>
+        <p class="prezzo">$<%=String.format("%.2f", p.getPrezzo())%>
+        </p>
+        <%} else {%>
+        <p class="barred-prezzo">$<%=String.format("%.2f", p.getPrezzo())%>
+        </p>
+        <p class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%>
+        </p>
         <%}%>
     </div>
     <%}%>

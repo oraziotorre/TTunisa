@@ -130,7 +130,7 @@ public class ProdottoDAO {
                 prodotto.setPrezzo(rs.getDouble(4));
                 prodotto.setQuantita(rs.getInt(5));
                 prodotto.setSconto(rs.getInt(6));
-                prodotto.setSconto(rs.getInt(7));
+                prodotto.setCategoria(rs.getString(7));
                 prodotto.setImg(rs.getString(8));
             }
             return prodotto;

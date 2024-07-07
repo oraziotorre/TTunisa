@@ -38,7 +38,7 @@
                     <img src="images/user-icon2.png" alt="Utente">
                     <div class="utente-info">
                         <span class="utente-nome"><%= utente.getNome() + " " + utente.getCognome()%></span>
-                        <span class="utente-saldo">$ <%=String.format("%.2f",utente.getSaldo())%></span>
+                        <span class="utente-saldo">$ <%=String.format("%.2f", utente.getSaldo())%></span>
                     </div>
 
                 </a>

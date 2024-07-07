@@ -19,7 +19,7 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        if(request.getParameter("category")!=null){
+        if (request.getParameter("category") != null) {
             //RICERCA PER CATEGORIA
             String category = request.getParameter("category");
             ArrayList<Prodotto> prodotti = ProdottoDAO.doRetrieveByCategory(category);
@@ -28,7 +28,7 @@ public class SearchServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Ricerca_Prodotti.jsp");
             dispatcher.forward(request, response);
 
-        }else {
+        } else {
             if (request.getParameter("query") != null) {
                 //RICERCA PER QUERY
                 String query = request.getParameter("query");

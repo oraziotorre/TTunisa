@@ -8,11 +8,11 @@
 <ul>
     <!-- Qui dopo dobbiamo fare i link per ciascun catalogo tipo Home alla homepage e gli altri alle categorie -->
     <li><a href="search">Tutti i Prodotti</a></li>
-    <li><a href="search?category=tavoli">Tavoli</a></li>
-    <li><a href="search?category=racchette">Racchette</a></li>
-    <li><a href="search?category=palline">Palline</a></li>
-    <li><a href="search?category=abbigliamento">Abbigliamento</a></li>
-    <li><a href="search?category=altro">Altro</a></li>
+    <li><a href="search?category=Tavoli">Tavoli</a></li>
+    <li><a href="search?category=Racchette">Racchette</a></li>
+    <li><a href="search?category=Palline">Palline</a></li>
+    <li><a href="search?category=Abbigliamento">Abbigliamento</a></li>
+    <li><a href="search?category=Altro">Altro</a></li>
     <li><a href="search?query=offerte">Offerte</a></li>
 </ul>
 </body>

@@ -37,9 +37,10 @@
                 </div>
             </div>
             <!-- Qui ci vuole al posto di value 1 la quantità effettiva -->
-            <input type="number" id="quantity" name="quantity" min="1" max="9" value="2" onchange="updateTotalPrice(this)">
+            <input type="number" id="quantity" name="quantity" min="1" max="9" value="2"
+                   onchange="updateTotalPrice(this)">
             <p class="prezzo_totale">$ 55.00</p>
-            <button class="bidone" onclick="#funzione per rimuovere item dal cart"> <img src="${pageContext.request.contextPath}\images\bin-icon.webp"> </button>
+            <button class="bidone" onclick=""> <img src="${pageContext.request.contextPath}\images\bin-icon.webp"></button>
         </div>
     </div>
     <div class="cart_pieno_check">

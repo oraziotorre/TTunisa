@@ -18,9 +18,15 @@
             <button onclick="redirectTo(null)">Home Page</button>
         </div>
     </div>
-    <div class="filtro">
-        <input type="text" placeholder="Nome Prodotti">
-    </div>
+    <form method="post" action="admin?action=prodotti">
+        <div class="filtro">
+            <div class="bottoni">
+                <button onclick="redirectTo('admin?action=prodotti')">Tutti</button>
+            </div>
+            <input type="text" name="query" placeholder="Nome Prodotti" onsubmit="redirectTo('admin?action=prodotti')"
+                   required>
+        </div>
+    </form>
     <div class="prodotto-list">
         <% for (Prodotto p : listaProdotti) { %>
         <div class="prodotto">
@@ -31,7 +37,7 @@
                 <p class="stock">Quantita' : <%=p.getQuantita()%>
                 </p>
             </div>
-            <p class="prezzo">Prezzo: $<%=String.format("%.2f",p.getPrezzo())%>
+            <p class="prezzo">Prezzo: $<%=String.format("%.2f", p.getPrezzo())%>
             </p>
             <p class="stock">Sconto: <%=p.getSconto()%>%
             </p>
