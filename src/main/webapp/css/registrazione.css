@@ -22,7 +22,7 @@ body {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 80%; /* 500px */
+    max-width: 40.25em; /* 500px */
     margin: 4em auto 3em;
     padding: 2.8em; /* 45px */
     text-align: center;

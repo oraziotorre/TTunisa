@@ -21,18 +21,17 @@ body {
     margin: 2em auto 0;
     padding: 2em;
 }
-
 .nome_ricerca {
     display: block;
     width: 100%;
     height: auto;
+
 }
 
 .nome_ricerca p {
-    font-size: 2em;
-    color: black;
-    font-weight: bold;
     font-family: "Roboto", sans-serif;
+    font-size: 1.7em;
+    font-weight: bold;
 }
 
 .product-search {

@@ -15,8 +15,12 @@
 <%@include file="nav.jsp" %>
 <div class="container">
     <div class="nome_ricerca">
-        <p>Ricerca: <%=request.getAttribute("query")%>
-        </p>
+        <p>
+         <% if(listaProdotti.size() == 0) {%>
+            <%="nessun risultato per \""+request.getAttribute("query")+"\""%>
+         <%}else {%>
+            <%=request.getAttribute("query")%>
+            <%}%></p>
     </div>
     <!-- ciclo for per ciascun item che ha un riscontro questo scritto sotto sono solo esempi -->
     <% for (Prodotto p : listaProdotti) { %>

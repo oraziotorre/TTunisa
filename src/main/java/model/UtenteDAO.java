@@ -38,7 +38,7 @@ public class UtenteDAO extends HttpServlet {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email = ? AND pass = ?");
             ps.setString(1, email);
-            ps.setString(2, password);
+            ps.setString(2, toHash(password));
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 utente.setNome(rs.getString(2));

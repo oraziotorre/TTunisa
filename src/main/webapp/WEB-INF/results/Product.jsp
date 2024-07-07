@@ -14,8 +14,7 @@
 <%@include file="nav.jsp" %>
 <div class="product-page">
     <div class="infos">
-        <p>Prodotti / <%=p.getNome()%>
-        </p>
+        <p><%=p.getCategoria()%> / <%=p.getNome()%></p>
     </div>
     <div class="product-container">
         <div class="product-image">
