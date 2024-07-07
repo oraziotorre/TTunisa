@@ -152,10 +152,10 @@ button {
     color: #CA0000;
     padding: 0.5em 1em;
     margin-top: 0.5em;
-    font-size: 1em;
+    font-size: 0.8em;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
-    width: 75%;
+    width: 80%;
     border-radius: 5%;
 }
 
