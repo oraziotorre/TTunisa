@@ -3,90 +3,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Ripielogo utenti</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/lista_utenti.css" rel="stylesheet" type="text/css">
+    <title>Riepilogo utenti</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Roboto", sans-serif;
-        }
-
-        .utenti {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 80%;
-            margin: 4em auto 0;
-        }
-
-        .utenti td, .utenti th {
-            border: 1px solid #ddd;
-            padding: 0.2em;
-            text-align: center;
-        }
-
-        .utenti th {
-            padding-top: 0.5em;
-            padding-bottom: 0.5em;
-            text-align: center;
-            background-color: #0056b3;
-            color: white;
-        }
-
-        button {
-            padding: 1em 2em;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 4%;
-            transition: background-color 0.3s ease;
-            margin: 1em;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .admin-buttons {
-            padding: 0;
-            margin: auto;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .admin-buttons .toggle {
-            padding: 0.5em;
-            border-radius: 10%;
-            width: 4em;
-            height: 2em;
-            color: white;
-            font-size: 1em;
-            font-family: "Roboto", sans-serif;
-        }
-
-        .admin-buttons .toggle.admin {
-            background-color: red;
-        }
-
-        .admin-buttons .toggle.non-admin {
-            background-color: green;
-        }
-
-        .admin-buttons .toggle.admin:hover {
-            background-color: #CA0000;
-        }
-
-        .admin-buttons .toggle.non-admin:hover {
-            background-color: darkgreen;
-        }
-    </style>
 </head>
 <% ArrayList<Utente> listaUtenti = (ArrayList<Utente>) request.getAttribute("listaUtenti"); %>
 <body>
