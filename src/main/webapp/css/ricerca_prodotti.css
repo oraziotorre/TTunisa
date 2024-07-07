@@ -17,6 +17,7 @@ body {
     align-items: center;
     width: 90%;
     height: auto;
+    min-height: 20em;
     margin: 2em auto 0;
     padding: 2em;
 }

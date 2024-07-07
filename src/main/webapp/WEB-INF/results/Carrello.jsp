@@ -27,7 +27,7 @@
     <div class="cart_pieno_items">
         <h3>Il mio carrello</h3>
         <!-- Qua ci va un ciclo for in futuro per prelevare ciascun oggetto -->
-        <div class="product">
+        <div class="prodotto">
             <div class="img_details">
                 <img src="images/imageNA.png" alt="Tibhar Scarpe Falcon">
                 <div class="product-details">
@@ -66,7 +66,7 @@
         var prezzoTotale = quantità * prezzo;
 
         // Trova l'elemento che mostra il prezzo totale e aggiornalo
-        var totalPriceElement = input.closest('.product').querySelector('.prezzo_totale');
+        var totalPriceElement = input.closest('.prodotto').querySelector('.prezzo_totale');
         totalPriceElement.textContent = ' $ ' + prezzoTotale.toFixed(2);
     }
 </script>

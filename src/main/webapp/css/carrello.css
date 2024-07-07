@@ -116,7 +116,7 @@ body {
     margin-left: 0.5em;
 }
 
-.product {
+.prodotto {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -125,7 +125,7 @@ body {
     border-bottom: #0056b3 1px solid;
 }
 
-.product:first-of-type {
+.prodotto:first-of-type {
     border-top: #0056b3 1px solid;
 }
 
@@ -200,12 +200,12 @@ body {
     background-color: #0056b3;
 }
 
-.product img {
+.prodotto img {
     width: 2em;
     height: 2em;
 }
 
-.product button {
+.prodotto button {
     border: none;
     background-color: white;
     width: 2em;
@@ -229,7 +229,7 @@ body {
     margin-right: 1em;
 }
 
-.product .bidone{
+.prodotto .bidone{
     margin-right: 2em;
     cursor: pointer;
 }
