@@ -14,23 +14,26 @@
 <%@include file="nav.jsp" %>
 <div class="product-page">
     <div class="infos">
-        <p>Prodotti / <%=p.getNome()%></p>
+        <p>Prodotti / <%=p.getNome()%>
+        </p>
     </div>
     <div class="product-container">
         <div class="product-image">
             <img src="<%=p.getImg()%>" alt="images/imageNA.png">
         </div>
         <div class="product-details">
-            <h1><%=p.getNome()%></h1>
+            <h1><%=p.getNome()%>
+            </h1>
             <div class="price">
-                <span class="prezzo">$<%=String.format("%.2f",p.getPrezzo())%></span>
+                <span class="prezzo">$<%=String.format("%.2f", p.getPrezzo())%></span>
             </div>
 
             <label for="quantity">Quantita'</label>
             <input type="number" id="quantity" min="1" max="<%=p.getQuantita()%>" value="1">
             <br>
             <button id="add-to-cart">Aggiungi al carrello</button>
-            <p><%=p.getDescrizione()%></p>
+            <p><%=p.getDescrizione()%>
+            </p>
         </div>
     </div>
 </div>

@@ -21,30 +21,36 @@
             <div class="row">
                 <div class="detail">
                     <label for="nome">Nome Prodotto</label>
-                    <input type="text" placeholder="Nome Prodotto " name="Nome" id="nome" value="<%=prodotto.getNome()%>" required>
+                    <input type="text" placeholder="Nome Prodotto " name="Nome" id="nome"
+                           value="<%=prodotto.getNome()%>" required>
                 </div>
                 <div class="detail">
                     <label for="prezzo">Prezzo</label>
-                    <input type="number" placeholder="Prezzo $" name="Prezzo" id="prezzo" step="0.01" value="<%=prodotto.getPrezzo()%>" required>
+                    <input type="number" placeholder="Prezzo $" name="Prezzo" id="prezzo" step="0.01"
+                           value="<%=prodotto.getPrezzo()%>" required>
                 </div>
             </div>
             <div class="row">
                 <div class="detail">
                     <label for="quantita">Quantita'</label>
-                    <input type="number" min="1" max="99" placeholder="Quantita' " name="Quantita" id="quantita" value="<%=prodotto.getQuantita()%>" required>
+                    <input type="number" min="1" max="99" placeholder="Quantita' " name="Quantita" id="quantita"
+                           value="<%=prodotto.getQuantita()%>" required>
                 </div>
                 <div class="detail">
                     <label for="sconto">Sconto</label>
-                    <input type="number" min="0" max="100" placeholder="Sconto " name="Sconto" id="sconto" value="<%=prodotto.getSconto()%>" required>
+                    <input type="number" min="0" max="100" placeholder="Sconto " name="Sconto" id="sconto"
+                           value="<%=prodotto.getSconto()%>" required>
                 </div>
                 <div class="detail">
                     <label for="categoria">Categoria</label>
-                    <input type="text" placeholder="Categoria" name="Categoria" id="categoria" value="<%=prodotto.getCategoria()%>" required>
+                    <input type="text" placeholder="Categoria" name="Categoria" id="categoria"
+                           value="<%=prodotto.getCategoria()%>" required>
                 </div>
             </div>
             <div class="detail">
                 <label for="descrizione">Descrizione</label>
-                <textarea cols="30" rows="5" placeholder="Descrizione " name="Descrizione" id="descrizione" required><%=prodotto.getDescrizione()%></textarea>
+                <textarea cols="30" rows="5" placeholder="Descrizione " name="Descrizione" id="descrizione"
+                          required><%=prodotto.getDescrizione()%></textarea>
             </div>
             <div class="detail">
                 <button type="submit" id="submit" class="prod">Inserisci</button>
@@ -53,7 +59,7 @@
         <div class="immagine">
             <img src="<%=prodotto.getImg()%>" alt="Prodotto" id="previewImage">
             <label for="imageSelect">Cambia Immagine</label>
-            <input type="text" id="imageSelect"  value="<%=prodotto.getImg()%>" name="Img" required>
+            <input type="text" id="imageSelect" value="<%=prodotto.getImg()%>" name="Img" required>
         </div>
     </div>
 </form>

@@ -30,12 +30,11 @@ CREATE TABLE prodotto
     nome        VARCHAR(100)   NOT NULL,
     descrizione VARCHAR(300)   NOT NULL,
     prezzo      DECIMAL(10, 2) NOT NULL,
-    quantita    int       NOT NULL,
+    quantita    int            NOT NULL,
     sconto      INT CHECK (sconto >= 0 AND sconto <= 100),
-    categoria        ENUM('tavoli', 'racchette', 'palline', 'abbigliamento', 'altro')   NOT NULL,
+    categoria   ENUM('tavoli', 'racchette', 'palline', 'abbigliamento', 'altro') NOT NULL,
     img         VARCHAR(1000)  NOT NULL
 );
-
 
 
 -- Creazione della tabella "ordine"
@@ -47,6 +46,6 @@ CREATE TABLE ordine
     cap        VARCHAR(5)     NOT NULL,
     indirizzo  VARCHAR(25)    NOT NULL,
     utente_ID  INT,
-    scontrino JSON
+    scontrino  JSON
 );
 

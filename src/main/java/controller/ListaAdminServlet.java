@@ -26,12 +26,22 @@ public class ListaAdminServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } else {
             if (request.getParameter("action").equals("prodotti")) {
-                ArrayList<Prodotto> listaProdotti = ProdottoDAO.doRetriveProdotto();
-                request.setAttribute("listaProdotti", listaProdotti);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaProdotti.jsp");
-                dispatcher.forward(request, response);
-
+                //LISTA PRODOTTI
+                if (request.getParameter("query") == null) {
+                    ArrayList<Prodotto> listaProdotti = ProdottoDAO.doRetriveProdotto();
+                    request.setAttribute("listaProdotti", listaProdotti);
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaProdotti.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    //LISTA PRODOTTI FILTRATA
+                    String query = request.getParameter("query");
+                    ArrayList<Prodotto> listaProdotti = ProdottoDAO.doRetrieveBySearch(query);
+                    request.setAttribute("listaProdotti", listaProdotti);
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaProdotti.jsp");
+                    dispatcher.forward(request, response);
+                }
             } else if (request.getParameter("action").equals("utenti")) {
+                //LISTA UTENTI
                 ArrayList<Utente> listaUtenti = UtenteDAO.doRetriveUtente();
                 request.setAttribute("listaUtenti", listaUtenti);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaUtenti.jsp");

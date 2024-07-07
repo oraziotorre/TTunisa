@@ -1,4 +1,5 @@
-<%--
+<%@ page import="model.Prodotto" %>
+<%@ page import="java.util.ArrayList" %><%--
 Created by IntelliJ IDEA.
 User: UTENTE
 Date: 23/06/2024
@@ -11,6 +12,8 @@ To change this template use File | Settings | File Templates.
     <title>home</title>
     <link href="css/homepage.css" type="text/css" rel="stylesheet">
 </head>
+<% ArrayList<Prodotto> listaProdottiVenduti = (ArrayList<Prodotto>) request.getAttribute("listaProdottiScontati");%>
+<% ArrayList<Prodotto> listaProdottiScontati = (ArrayList<Prodotto>) request.getAttribute("listaProdottiScontati");%>
 <body>
 <%@ include file="header.jsp" %>
 <%@ include file="nav.jsp" %>
@@ -31,74 +34,46 @@ To change this template use File | Settings | File Templates.
     <h1>OGGETTI PIU' VENDUTI</h1>
     <div class="lista">
         <!-- dopo scegliamo noi gli items dopo qui e per ciascuno aggiungiamo un link che porta a quella pagina -->
+        <%
+            int count = 0;
+            for (Prodotto p : listaProdottiVenduti) {
+                if (count >= 5) break;
+        %>
         <div class="oggetto">
-            <a href="Product.jsp">
-                <img src="images\\imageNA.png" alt="Oggetto 1">
+            <a href="product?ID=<%= p.getID() %>">
+                <img src="<%= p.getImg() %>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
             </a>
-            <p>Oggetto 1</p>
-            <strong>Prezzo 100$</strong>
+            <p><%= p.getNome() %></p>
+            <strong>$<%=String.format("%.2f",p.getPrezzo()) %></strong>
             <button>Aggiungi al carrello</button>
         </div>
-        <div class="oggetto">
-            <img src="images\\imageNA.png" alt="Oggetto 2">
-            <p>Oggetto 2</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
-        <div class="oggetto">
-            <img src="images/imageNA.png" alt="Oggetto 3">
-            <p>Oggetto 3</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
-        <div class="oggetto">
-            <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Oggetto 4">
-            <p>Oggetto 4</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
-        <div class="oggetto">
-            <img src="images\\imageNA.png" alt="Oggetto 5">
-            <p>Oggetto 5</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
+        <%
+                count++;
+            }
+        %>
     </div>
 
 
     <h1>IN OFFERTA</h1>
     <!-- Stessa cosa qui aggiungiamo noi i più venduti -->
     <div class="lista">
+        <%
+            count = 0;
+            for (Prodotto p : listaProdottiScontati) {
+                if (count >= 5) break;
+        %>
         <div class="oggetto">
-            <img src="images\\imageNA.png" alt="Oggetto 5">
-            <p>Oggetto 5</p>
-            <strong>Prezzo 100$</strong>
+            <a href="product?ID=<%= p.getID() %>">
+                <img src="<%= p.getImg() %>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
+            </a>
+            <p><%= p.getNome() %></p>
+            <strong>$<%=String.format("%.2f",p.getPrezzo()) %></strong>
             <button>Aggiungi al carrello</button>
         </div>
-        <div class="oggetto">
-            <img src="images\\imageNA.png" alt="Oggetto 6">
-            <p>Oggetto 6</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
-        <div class="oggetto">
-            <img src="images\\imageNA.png" alt="Oggetto 7">
-            <p>Oggetto 7</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
-        <div class="oggetto">
-            <img src="images\\imageNA.png" alt="Oggetto 8">
-            <p>Oggetto 8</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
-        <div class="oggetto">
-            <img src="images\\imageNA.png" alt="Oggetto 9">
-            <p>Oggetto 9</p>
-            <strong>Prezzo 100$</strong>
-            <button>Aggiungi al carrello</button>
-        </div>
+        <%
+                count++;
+            }
+        %>
     </div>
 </div>
 <%@include file="footer.jsp" %>

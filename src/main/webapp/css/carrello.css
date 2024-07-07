@@ -229,7 +229,7 @@ body {
     margin-right: 1em;
 }
 
-.prodotto .bidone{
+.prodotto .bidone {
     margin-right: 2em;
     cursor: pointer;
 }
@@ -240,7 +240,7 @@ input[type=number] {
     text-align: center;
 }
 
-.prezzo_totale{
+.prezzo_totale {
     font-family: "Roboto", sans-serif;
     font-size: 1em;
     font-weight: bold;
