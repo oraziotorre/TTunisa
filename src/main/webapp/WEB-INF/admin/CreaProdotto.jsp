@@ -36,6 +36,10 @@
                     <label for="sconto">Sconto</label>
                     <input type="number" min="0" max="100" placeholder="Sconto" name="Sconto" id="sconto" required>
                 </div>
+                <div class="detail">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" placeholder="Categoria" name="Categoria" id="categoria" required>
+                </div>
             </div>
             <div class="detail">
                 <label for="descrizione">Descrizione</label>

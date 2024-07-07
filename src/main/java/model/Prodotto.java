@@ -3,8 +3,12 @@ package model;
 public class Prodotto {
 
     private int ID, quantita, sconto;
-    private String nome, descrizione, img;
+    private String nome, descrizione, categoria, img;
     private double prezzo;
+
+    public String getCategoria() {return categoria;}
+
+    public void setCategoria(String categoria) {this.categoria = categoria;}
 
     public int getID() {
         return ID;
@@ -42,9 +46,7 @@ public class Prodotto {
         return descrizione;
     }
 
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
+    public void setDescrizione(String descrizione) {this.descrizione = descrizione;}
 
     public double getPrezzo() {
         return prezzo;

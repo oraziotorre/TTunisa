@@ -7,12 +7,13 @@
 <body>
 <ul>
     <!-- Qui dopo dobbiamo fare i link per ciascun catalogo tipo Home alla homepage e gli altri alle categorie -->
-    <li><a href="home">Tutti i Prodotti</a></li>
-    <li><a href="#news">Racchette</a></li>
-    <li><a href="#contact">Tavoli</a></li>
-    <li><a href="#about">Accessori</a></li>
-    <li><a href="#ciao">Offerte speciali</a></li>
-
+    <li><a href="search">Tutti i Prodotti</a></li>
+    <li><a href="search?category=tavoli">Tavoli</a></li>
+    <li><a href="search?category=racchette">Racchette</a></li>
+    <li><a href="search?category=palline">Palline</a></li>
+    <li><a href="search?category=abbigliamento">Abbigliamento</a></li>
+    <li><a href="search?category=altro">Altro</a></li>
+    <li><a href="search?query=offerte">Offerte</a></li>
 </ul>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>ricerca <%=request.getAttribute("query")%></title>
+    <title><%=request.getAttribute("query")%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/ricerca_prodotti.css" rel="stylesheet" type="text/css">
 </head>

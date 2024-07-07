@@ -25,6 +25,7 @@ public class NewProdottoServlet extends HttpServlet {
         int quantita = Integer.parseInt(request.getParameter("Quantita"));
         double prezzo = Double.parseDouble(request.getParameter("Prezzo"));
         int sconto = Integer.parseInt(request.getParameter("Sconto"));
+        String categoria = request.getParameter("Categoria");
         String img = request.getParameter("Img");
 
         Prodotto p = new Prodotto();
@@ -33,6 +34,7 @@ public class NewProdottoServlet extends HttpServlet {
         p.setQuantita(quantita);
         p.setDescrizione(descrizione);
         p.setSconto(sconto);
+        p.setCategoria(categoria);
         p.setImg(img);
 
         ProdottoDAO.addProdotto(p);

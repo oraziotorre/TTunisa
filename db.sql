@@ -30,16 +30,13 @@ CREATE TABLE prodotto
     nome        VARCHAR(100)   NOT NULL,
     descrizione VARCHAR(300)   NOT NULL,
     prezzo      DECIMAL(10, 2) NOT NULL,
-    quantita    int,
+    quantita    int       NOT NULL,
     sconto      INT CHECK (sconto >= 0 AND sconto <= 100),
+    categoria        ENUM('tavoli', 'racchette', 'palline', 'abbigliamento', 'altro')   NOT NULL,
     img         VARCHAR(1000)  NOT NULL
 );
 
--- Creazione della tabella "categoria"
-CREATE TABLE categoria
-(
-    tipo VARCHAR(25) PRIMARY KEY
-);
+
 
 -- Creazione della tabella "ordine"
 CREATE TABLE ordine
@@ -50,27 +47,6 @@ CREATE TABLE ordine
     cap        VARCHAR(5)     NOT NULL,
     indirizzo  VARCHAR(25)    NOT NULL,
     utente_ID  INT,
-    FOREIGN KEY (utente_ID) REFERENCES utente (utente_ID)
+    scontrino JSON
 );
 
--- Creazione della tabella di associazione tra prodotto e ordine
-CREATE TABLE ordine_prod
-(
-    ordine_ID       INT,
-    prodotto_ID     INT,
-    quantita_ordine INT NOT NULL,
-    FOREIGN KEY (prodotto_ID) REFERENCES prodotto (prodotto_id),
-    FOREIGN KEY (ordine_ID) REFERENCES ordine (ordine_ID),
-    PRIMARY KEY (ordine_ID, prodotto_ID)
-);
-
-
--- Creazione della tabella di associazione tra prodotto e categoria
-CREATE TABLE cat_prod
-(
-    prodotto_ID INT,
-    cat_Tipo    VARCHAR(25),
-    FOREIGN KEY (prodotto_ID) REFERENCES prodotto (prodotto_ID),
-    FOREIGN KEY (cat_Tipo) REFERENCES categoria (tipo),
-    PRIMARY KEY (prodotto_ID, cat_Tipo)
-);

@@ -24,7 +24,31 @@ public class ProdottoDAO {
                 prodotto.setPrezzo(rs.getDouble(4));
                 prodotto.setQuantita(rs.getInt(5));
                 prodotto.setSconto(rs.getInt(6));
-                prodotto.setImg(rs.getString(7));
+                prodotto.setCategoria(rs.getString(7));
+                prodotto.setImg(rs.getString(8));
+                p.add(prodotto);
+            }
+            return p;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Prodotto> doRetriveProdottoScontato() {
+        ArrayList<Prodotto> p = new ArrayList<Prodotto>();
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE sconto != 0 ORDER BY sconto desc");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Prodotto prodotto = new Prodotto();
+                prodotto.setID(rs.getInt(1));
+                prodotto.setNome(rs.getString(2));
+                prodotto.setDescrizione(rs.getString(3));
+                prodotto.setPrezzo(rs.getDouble(4));
+                prodotto.setQuantita(rs.getInt(5));
+                prodotto.setSconto(rs.getInt(6));
+                prodotto.setCategoria(rs.getString(7));
+                prodotto.setImg(rs.getString(8));
                 p.add(prodotto);
             }
             return p;
@@ -34,15 +58,12 @@ public class ProdottoDAO {
     }
 
 
-    public static ArrayList<Prodotto> findByCategory(String tipo) {
+    public static ArrayList<Prodotto> doRetrieveByCategory(String category) {
 
         ArrayList<Prodotto> p = new ArrayList<Prodotto>();
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT p.prodotto_ID, p.nome, p.descrizione, p.prezzo, p.quantita, p.sconto, p.img" +
-                    "FROM cat_prod cp " +
-                    "JOIN prodotto p ON cp.prodotto_ID = p.prodotto_ID " +
-                    "WHERE cp.cat_Tipo = ?");
-            ps.setString(1, tipo);
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE categoria = ?");
+            ps.setString(1, category);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -53,7 +74,8 @@ public class ProdottoDAO {
                 prodotto.setPrezzo(rs.getDouble(4));
                 prodotto.setQuantita(rs.getInt(5));
                 prodotto.setSconto(rs.getInt(6));
-                prodotto.setImg(rs.getString(7));
+                prodotto.setCategoria(rs.getString(7));
+                prodotto.setImg(rs.getString(8));
                 p.add(prodotto);
             }
             return p;
@@ -63,7 +85,7 @@ public class ProdottoDAO {
 
     }
 
-    public static ArrayList<Prodotto> findBySearch(String search) {
+    public static ArrayList<Prodotto> doRetrieveBySearch(String search) {
 
         ArrayList<Prodotto> p = new ArrayList<Prodotto>();
         try (Connection con = ConPool.getConnection()) {
@@ -81,7 +103,8 @@ public class ProdottoDAO {
                 prodotto.setPrezzo(rs.getDouble(4));
                 prodotto.setQuantita(rs.getInt(5));
                 prodotto.setSconto(rs.getInt(6));
-                prodotto.setImg(rs.getString(7));
+                prodotto.setCategoria(rs.getString(7));
+                prodotto.setImg(rs.getString(8));
                 p.add(prodotto);
             }
             return p;
@@ -107,7 +130,8 @@ public class ProdottoDAO {
                 prodotto.setPrezzo(rs.getDouble(4));
                 prodotto.setQuantita(rs.getInt(5));
                 prodotto.setSconto(rs.getInt(6));
-                prodotto.setImg(rs.getString(7));
+                prodotto.setSconto(rs.getInt(7));
+                prodotto.setImg(rs.getString(8));
             }
             return prodotto;
         } catch (SQLException e) {
@@ -119,14 +143,14 @@ public class ProdottoDAO {
     public static void addProdotto(Prodotto prodotto) {
 
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("INSERT INTO prodotto (nome, descrizione, prezzo, quantita, sconto, img) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO prodotto (nome, descrizione, prezzo, quantita, sconto, categoria, img) VALUES (?, ?, ?, ?, ?, ?, ?)");
             ps.setString(1, prodotto.getNome());
             ps.setString(2, prodotto.getDescrizione());
             ps.setDouble(3, prodotto.getPrezzo());
             ps.setInt(4, prodotto.getQuantita());
             ps.setInt(5, prodotto.getSconto());
-            ps.setString(6, prodotto.getImg());
-
+            ps.setString(6, prodotto.getCategoria());
+            ps.setString(7, prodotto.getImg());
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -156,14 +180,15 @@ public class ProdottoDAO {
     public static void modifyProdotto(Prodotto prodotto) {
 
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("UPDATE prodotto SET nome = ?, descrizione = ?, prezzo = ?, quantita = ?, sconto = ?, img = ? WHERE prodotto_ID = ?");
+            PreparedStatement ps = con.prepareStatement("UPDATE prodotto SET nome = ?, descrizione = ?, prezzo = ?, quantita = ?, sconto = ?, categoria =?, img = ? WHERE prodotto_ID = ?");
             ps.setString(1, prodotto.getNome());
             ps.setString(2, prodotto.getDescrizione());
             ps.setDouble(3, prodotto.getPrezzo());
             ps.setInt(4, prodotto.getQuantita());
             ps.setInt(5, prodotto.getSconto());
-            ps.setString(6, prodotto.getImg());
-            ps.setInt(7, prodotto.getID());
+            ps.setString(6, prodotto.getCategoria());
+            ps.setString(7, prodotto.getImg());
+            ps.setInt(8, prodotto.getID());
             int rowsDeleted = ps.executeUpdate();
 
             if (rowsDeleted == 0) {
