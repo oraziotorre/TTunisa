@@ -39,8 +39,8 @@ body {
 
 .product-image img {
     max-width: 100%; /* Larghezza massima dell'immagine */
-    height: auto;
-    width: auto;
+    height: 20em;
+    width: 20em;
     border: #0056b3 0.1rem solid;
     padding: 0.5rem; /* Padding intorno all'immagine */
 }
