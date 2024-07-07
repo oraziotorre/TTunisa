@@ -114,6 +114,32 @@ public class ProdottoDAO {
 
     }
 
+    public static ArrayList<Prodotto> doRetrieveOrderByAcquisti() {
+
+        ArrayList<Prodotto> p = new ArrayList<Prodotto>();
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto ORDER BY numero_acquisti desc");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Prodotto prodotto = new Prodotto();
+                prodotto.setID(rs.getInt(1));
+                prodotto.setNome(rs.getString(2));
+                prodotto.setDescrizione(rs.getString(3));
+                prodotto.setPrezzo(rs.getDouble(4));
+                prodotto.setQuantita(rs.getInt(5));
+                prodotto.setSconto(rs.getInt(6));
+                prodotto.setCategoria(rs.getString(7));
+                prodotto.setImg(rs.getString(8));
+                p.add(prodotto);
+            }
+            return p;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
     public static Prodotto findProduct(int ID) {
 
         try (Connection con = ConPool.getConnection()) {
@@ -189,10 +215,29 @@ public class ProdottoDAO {
             ps.setString(6, prodotto.getCategoria());
             ps.setString(7, prodotto.getImg());
             ps.setInt(8, prodotto.getID());
-            int rowsDeleted = ps.executeUpdate();
+            int rows = ps.executeUpdate();
 
-            if (rowsDeleted == 0) {
+            if (rows == 0) {
                 throw new RuntimeException("Failed to update product with ID: " + prodotto.getID() + ". Product not found.");
+            }
+
+            //con.commit(); // Nel caso in cui non è impostato l'autocommit
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static void updateAcquisti(int ID) {
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("UPDATE prodotto SET numero_acquisti = numero_acquisti+1 WHERE prodotto_ID = ?");
+            ps.setInt(1, ID);
+            int rows = ps.executeUpdate();
+
+            if (rows == 0) {
+                throw new RuntimeException("Failed to update product with ID: " + ID + ". Product not found.");
             }
 
             //con.commit(); // Nel caso in cui non è impostato l'autocommit

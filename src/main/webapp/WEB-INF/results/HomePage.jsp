@@ -12,7 +12,7 @@ To change this template use File | Settings | File Templates.
     <title>home</title>
     <link href="css/homepage.css" type="text/css" rel="stylesheet">
 </head>
-<% ArrayList<Prodotto> listaProdottiVenduti = (ArrayList<Prodotto>) request.getAttribute("listaProdottiScontati");%>
+<% ArrayList<Prodotto> listaProdottiVenduti = (ArrayList<Prodotto>) request.getAttribute("listaProdottiVenduti");%>
 <% ArrayList<Prodotto> listaProdottiScontati = (ArrayList<Prodotto>) request.getAttribute("listaProdottiScontati");%>
 <body>
 <%@ include file="header.jsp" %>

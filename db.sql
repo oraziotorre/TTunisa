@@ -30,7 +30,8 @@ CREATE TABLE prodotto
     quantita    int       NOT NULL,
     sconto      INT CHECK (sconto >= 0 AND sconto <= 100),
     categoria        ENUM('tavoli', 'racchette', 'palline', 'abbigliamento', 'altro')   NOT NULL,
-    img         VARCHAR(1000)  NOT NULL
+    img         VARCHAR(1000)  NOT NULL,
+    numero_acquisti INT DEFAULT 0
 );
 
 

@@ -22,6 +22,8 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        ArrayList<Prodotto> listaProdottiVenduti = ProdottoDAO.doRetrieveOrderByAcquisti();
+        request.setAttribute("listaProdottiVenduti", listaProdottiVenduti);
         ArrayList<Prodotto> listaProdottiScontati = ProdottoDAO.doRetriveProdottoScontato();
         request.setAttribute("listaProdottiScontati", listaProdottiScontati);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
