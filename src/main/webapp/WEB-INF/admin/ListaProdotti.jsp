@@ -31,7 +31,7 @@
                 <p class="stock">Quantita' : <%=p.getQuantita()%>
                 </p>
             </div>
-            <p class="prezzo">Prezzo: $<%=p.getPrezzo()%>
+            <p class="prezzo">Prezzo: $<%=String.format("%.2f",p.getPrezzo())%>
             </p>
             <p class="stock">Sconto: <%=p.getSconto()%>%
             </p>

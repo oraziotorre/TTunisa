@@ -38,14 +38,14 @@
                     <img src="images/user-icon2.png" alt="Utente">
                     <div class="utente-info">
                         <span class="utente-nome"><%= utente.getNome() + " " + utente.getCognome()%></span>
-                        <span class="utente-saldo">$ <%= utente.getSaldo()%></span>
+                        <span class="utente-saldo">$ <%=String.format("%.2f",utente.getSaldo())%></span>
                     </div>
 
                 </a>
                 <div class="dropdown-content">
                     <a href="#profilo">Profilo</a>
                     <a href="#ordini">Ordini</a>
-                    <% if (session != null && session.getAttribute("admin") != null) {%>
+                    <% if (session != null && session.getAttribute("isAdmin") != null) {%>
                     <a href="admin?action=prodotti">Gestione Prodotti</a>
                     <a href="admin?action=utenti">Gestione Utenti</a>
                     <%}%>
