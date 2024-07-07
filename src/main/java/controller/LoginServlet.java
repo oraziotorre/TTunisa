@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath());
             } else if (u.isAmministratore()) {
                 session.setAttribute("Utente", u); // Salva l'oggetto Utente amministratore nella sessione
-                session.setAttribute("admin", true);
+                session.setAttribute("isAdmin", true);
                 response.sendRedirect(request.getContextPath());
             }
         } else if (request.getParameter("action").equals("logout")) {

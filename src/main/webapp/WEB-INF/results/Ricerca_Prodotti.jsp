@@ -23,7 +23,12 @@
             <img src="<%=p.getImg()%>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
         </a>
         <p class="nome"><%=p.getNome()%></p>
-        <p class="prezzo"><%=p.getPrezzo()%></p>
+        <% if(p.getSconto()==0){%>
+            <p class="prezzo">$<%=String.format("%.2f",p.getPrezzo())%></p>
+        <%}else{%>
+            <p class="barred-prezzo">$<%=String.format("%.2f",p.getPrezzo())%></p>
+            <p class="prezzo">$<%=String.format("%.2f", p.getPrezzo()-(p.getPrezzo()/100*p.getSconto()))%></p>
+        <%}%>
     </div>
     <%}%>
 </div>
