@@ -23,7 +23,7 @@
         <div class="product-details">
             <h1><%=p.getNome()%></h1>
             <div class="price">
-                <span class="prezzo">$<%=p.getPrezzo()%></span>
+                <span class="prezzo">$<%=String.format("%.2f",p.getPrezzo())%></span>
             </div>
 
             <label for="quantity">Quantita'</label>
