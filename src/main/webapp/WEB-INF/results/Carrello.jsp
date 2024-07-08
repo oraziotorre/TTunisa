@@ -74,7 +74,8 @@
             <button onclick="location.href='cart?action=checkout';">Checkout</button>
         </div>
         <% } else { %>
-        <div class="checkout-button">
+        <div class="accedi-button">
+            <p class="accedi-p">Si prega di effettuare l'accesso per eseguire il pagamento</p>
             <button onclick="location.href='login';">Accedi</button>
         </div>
         <% } %>

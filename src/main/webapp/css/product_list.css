@@ -14,7 +14,7 @@ body {
     max-width: 80%;
     width: 80%;
     height: auto;
-    padding: 2em;
+    padding: 2vw;
     margin: 0 auto 0;
 }
 
@@ -24,20 +24,27 @@ body {
     align-items: center;
 }
 
+.header h1{
+    font-size: 2.8vw;
+    color: black;
+    font-family: "Roboto", sans-serif;
+}
+
 .bottoni {
     display: flex;
     flex-direction: row;
 }
 
 .bottoni button {
-    padding: 1em 2em;
+    padding: 1vw 2vw;
     border: none;
     background-color: #007bff;
     color: white;
     cursor: pointer;
     border-radius: 4%;
     transition: background-color 0.3s ease;
-    margin: 1em;
+    margin: 1vw;
+    font-size: 1vw;
 }
 
 button:hover {
@@ -47,33 +54,61 @@ button:hover {
 .filtro {
     display: flex;
     align-items: center;
-    margin-top: 1.5em;
+    margin-top: 1.5vw;
+    font-size: 1vw;
+
 }
 
 .filtro input {
-    padding: 1em;
+    padding: 1vw;
     width: 30%;
-    border: 1px solid #ccc;
+    border: 0.1vw solid #ccc;
     border-radius: 4%;
+    height: 3vw;
+    font-size: 0.8vw;
+}
+
+.stock{
+    font-size: 1vw;
+    color: grey;
+    font-family: "Roboto", sans-serif;
+}
+
+.prezzo{
+    font-size: 1vw;
+    color: black;
+    font-family: "Roboto", sans-serif;
+}
+
+.sconto{
+    font-size: 1vw;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+}
+
+.filtro input:focus{
+    outline: none;
+    border:0.1vw solid black;
 }
 
 
 .prodotto-list {
-    margin-top: 1.8em;
+    margin-top: 1.8vw;
 }
 
 .prodotto {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 1em;
-    border-bottom: 1px solid #0056b3;
+    padding: 1vw;
+    border-bottom: 0.1vw solid #0056b3;
 }
 
 .prodotto img {
-    width: 15%;
-    height: 15%;
-    margin-right: 2em;
+    width: 15vw;
+    height: 15vw;
+    margin-right: 2vw;
 }
 
 .info-prodotto {
@@ -85,23 +120,26 @@ button:hover {
 .nome-prodotto {
     font-weight: bold;
     font-family: "Roboto", sans-serif;
-    font-size: 1.5em;
+    font-size: 1.5vw;
 }
 
 .prezzo {
     font-weight: bold;
-    margin-right: 2em;
+    margin-right: 2vw;
 }
 
 .modifica {
-    padding: 0.5em 1em;
+    padding: 0.5vw 1vw;
     border: none;
     background-color: #007bff;
     color: white;
     cursor: pointer;
     border-radius: 2%;
     transition: background-color 0.3s ease;
-    margin: 1em;
+    margin: 1vw;
+    font-size: 1.1vw;
+    width: 8vw;
+    height: 3vw;
 }
 
 .modifica:hover {
@@ -109,12 +147,17 @@ button:hover {
 }
 
 .cancella {
-    padding: 0.5em 1em;
+    padding: 0.5vw 1vw;
     border: none;
     background-color: #666666;
     color: white;
     cursor: pointer;
     border-radius: 2%;
-    margin: 1em;
+    margin: 1vw;
+    font-size: 1.1vw;
+    width: 8vw;
+    height: 3vw;
 }
+
+
 

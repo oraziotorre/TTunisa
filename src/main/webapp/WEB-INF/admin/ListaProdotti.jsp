@@ -38,7 +38,7 @@
             </div>
             <p class="prezzo">Prezzo: $<%=String.format("%.2f", p.getPrezzo())%>
             </p>
-            <p class="stock">Sconto: <%=p.getSconto()%>%
+            <p class="sconto">Sconto: <%=p.getSconto()%>%
             </p>
             <button onclick=modifyProduct(<%=p.getID()%>) class="modifica">Modifica</button>
             <button onclick=deleteProduct(<%=p.getID()%>) class="cancella">Cancella</button>

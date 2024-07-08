@@ -122,7 +122,7 @@ body {
     align-items: center;
     padding: 1vw;
     width: 100%;
-    border-bottom: #0056b3 1px solid;
+    border-bottom: #0056b3 0.1vw solid;
 }
 
 .prodotto:first-of-type {
@@ -136,6 +136,23 @@ body {
     align-items: flex-start;
     padding: 0;
     margin: 0;
+}
+
+.prodotto input[type="number"]{
+    font-size: 1vw;
+    border: #666666 0.1vw solid;
+    padding: 1vw;
+    width: 10vw;
+    height: 2vw;
+    text-align: left;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.prodotto input[type="number"]:focus{
+    outline: none;
+    border: black 0.1vw solid;
 }
 
 .product-details .nome {
@@ -200,17 +217,63 @@ body {
     background-color: #0056b3;
 }
 
+.accedi-button{
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.accedi-button .accedi-p{
+    font-size: 1.2vw;
+    color: black;
+    text-align: center;
+}
+
+.accedi-button button{
+    margin: 0.5vw 0;
+    padding: 1vw;
+    width: 80%;
+    height: 3vw;
+    font-size: 1vw;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: #06083d;
+    border: #003A82;
+    transition: background-color 0.3s ease;
+    border-radius: 4%;
+}
+
+.accedi-button button:hover {
+    background-color: #0056b3;
+}
+
+
 .prodotto img {
     width: 2vw;
     height: 2vw;
 }
 
-.prodotto button {
+.prodotto .bidone {
     border: none;
     background-color: white;
     width: 2vw;
     height: 2vw;
+    margin:auto;
+    cursor: pointer;
+    position: relative;
 }
+
+.bidone img{
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    top:-0.5vw;
+}
+
 
 .img_details {
     display: flex;
@@ -229,20 +292,12 @@ body {
     margin-right: 1vw;
 }
 
-.prodotto .quantita{
-    width: 5vw;
-}
-
-.prodotto .bidone {
-
-    margin-right: 2vw;
-    cursor: pointer;
-}
 
 input[type=number] {
-    width: 3vw;
+    width: 5vw;
     padding: 0.5vw;
     text-align: center;
+    margin-right: 2vw;
 }
 
 .prezzo_totale {
@@ -250,4 +305,5 @@ input[type=number] {
     font-size: 1vw;
     font-weight: bold;
     color: #0056b3;
+    margin-right: 2vw;
 }

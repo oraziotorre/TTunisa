@@ -10,26 +10,28 @@ body {
 }
 
 .container {
-    margin: 2em auto;
-    padding: 2em;
+    margin: 2vw auto;
+    padding: 2vw;
     width: 90%;
     background: white;
-    border: solid 1px #ddd;
+    border: solid 0.1vw #ddd;
     border-radius: 2%;
-    box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.3vw 0.5vw rgba(0, 0, 0, 0.1);
+    min-height: 20vw;
+    height: auto;
 }
 
 h3 {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.5vw;
     color: #0056b3;
 }
 
 .ordine {
-    padding: 2em;
-    margin: 2em 0;
-    border: solid 1px #ddd;
-    border-radius: 0.5em;
+    padding: 2vw;
+    margin: 2vw 0;
+    border: solid 0.1vw #ddd;
+    border-radius: 2%;
     background: #fafafa;
 }
 
@@ -38,13 +40,13 @@ h3 {
     justify-content: space-between;
     align-items: center;
     background: white;
-    padding: 1em;
-    border-radius: 8px;
+    padding: 1vw;
+    border-radius: 0.5vw;
 }
 
 .ordine-header p {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.2vw;
     font-weight: bold;
 }
 
@@ -53,19 +55,19 @@ h3 {
     flex-direction: row;
     justify-content: left;
     align-items: flex-start;
-    margin-top: 1em;
+    margin-top: 1vw;
     text-align: left;
 }
 
 .dettagli-ordine div {
     width: 20%;
     text-align: left;
-    padding: 0.5em;
+    padding: 0.5vw;
 }
 
 .dettagli-ordine p {
-    margin: 0.5em 0;
-    font-size: 0.95em;
+    margin: 0.5vw 0;
+    font-size: 0.95vw;
     color: #555;
 }
 
@@ -83,49 +85,49 @@ h3 {
 
 .prodotto {
     width: 15%;
-    margin: 0.25em;
+    margin: 0.25vw;
     text-align: center;
     height: auto;
     background: #fff;
-    border: solid 1px #ddd;
-    border-radius: 0.5em;
-    padding: 1em;
+    border: solid 0.1vw #ddd;
+    border-radius: 0.5vw;
+    padding: 1vw;
     transition: box-shadow 0.3s ease;
 }
 
 .prodotto:hover {
-    box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.3vw 0.5vw rgba(0, 0, 0, 0.1);
 }
 
 .prodotto img {
-    width: 10em;
-    height: 10em;
-    border-radius: 0.2em;
-    margin-bottom: 0.5em;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 0.2vw;
+    margin-bottom: 0.5vw;
 }
 
 .prodotto p {
-    margin: 0.5em 0;
-    font-size: 0.9em;
+    margin: 0.5vw 0;
+    font-size: 0.9vw;
     color: #333;
     font-weight: bold;
 }
 
 .prodotto span {
     display: block;
-    font-size: 0.85em;
+    font-size: 0.85vw;
     color: #777;
 }
 
 .bottone-ritorno {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 1em;
+    margin-bottom: 1vw;
 }
 
 .bottone-ritorno button {
-    padding: 0.5em 1em;
-    font-size: 1em;
+    padding: 0.5vw 1vw;
+    font-size: 1vw;
     cursor: pointer;
     background-color: #0056b3;
     color: white;
