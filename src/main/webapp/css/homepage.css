@@ -19,9 +19,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5em auto 2em;
+    margin: 5vw auto 2vw;
     width: 70%;
-    height: 70vh;
+    height: 70vw;
     position: relative;
 }
 
@@ -40,8 +40,8 @@ body {
     width: 80vw;
     height: 60vw;
     transition: opacity 0.5s ease;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.8vw;
+    box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
 }
 
 .pulsante {
@@ -65,8 +65,8 @@ body {
 }
 
 button {
-    padding: 0.8em 0.2em;
-    font-size: 3em;
+    padding: 0.8vw 0.2vw;
+    font-size: 3vw;
     cursor: pointer;
     background-color: transparent;
     color: white;
@@ -81,16 +81,16 @@ button {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 2em 0;
+    padding: 2vw 0;
 }
 
 .catalogo h1 {
-    margin-bottom: 1em;
+    margin-bottom: 1vw;
     text-align: center;
-    font-size: 30px;
+    font-size: 2vw;
     font-family: "Roboto", sans-serif;
     background-color: #003A82;
-    padding: 0.4em;
+    padding: 0.4vw;
     color: white;
     width: 100%;
 }
@@ -103,8 +103,8 @@ button {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 1em;
-    margin-bottom: 6em;
+    padding: 1vw;
+    margin-bottom: 6vw;
 }
 
 .oggetto {
@@ -113,20 +113,26 @@ button {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 1em;
-    margin: 0.6em;
+    padding: 1vw;
+    margin: 0.6vw;
     transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    margin-bottom: 1em;
+    margin-bottom: 1vw;
     width: 18%;
-    border-radius: 10px;
+    border-radius: 0.7vw;
     background-color: white;
-    box-shadow: 0 0.2em 0.3em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2vw 0.3vw rgba(0, 0, 0, 0.1);
 }
 
 .oggetto img {
-    width: 10em;
-    height: 10em;
-    margin-bottom: 0.5em;
+    width: 10vw;
+    height: 10vw;
+    margin-bottom: 0.5vw;
+}
+
+.oggetto .nome{
+    font-size: 1vw;
+    color: black;
+    font-family: "Roboto", sans-serif;
 }
 
 .oggetto .barred-prezzo{
@@ -141,7 +147,7 @@ button {
 }
 
 .oggetto:hover {
-    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1);
     background-color: rgba(128, 128, 128, 0.1);
 }
 
@@ -155,11 +161,11 @@ button {
 
 .oggetto button {
     background-color: transparent;
-    border: 2px solid #CA0000;
+    border: 0.1vw solid #CA0000;
     color: #CA0000;
-    padding: 0.5em 1em;
-    margin-top: 0.5em;
-    font-size: 0.8em;
+    padding: 0.5vw 1vw;
+    margin-top: 0.5vw;
+    font-size: 0.8vw;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
     width: 80%;

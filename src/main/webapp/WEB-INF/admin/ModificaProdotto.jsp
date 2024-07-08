@@ -43,8 +43,13 @@
                 </div>
                 <div class="detail">
                     <label for="categoria">Categoria</label>
-                    <input type="text" placeholder="Categoria" name="Categoria" id="categoria"
-                           value="<%=prodotto.getCategoria()%>" required>
+                    <select placeholder="Categoria" name="Categoria" id="categoria" required>
+                        <option>racchette</option>
+                        <option>tavoli</option>
+                        <option>palline</option>
+                        <option>abbigliamento</option>
+                        <option>altro</option>
+                    </select>
                 </div>
             </div>
             <div class="detail">

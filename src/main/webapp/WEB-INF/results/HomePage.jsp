@@ -42,7 +42,7 @@ To change this template use File | Settings | File Templates.
             <a href="product?ID=<%= p.getID() %>">
                 <img src="<%= p.getImg() %>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
             </a>
-            <p><%= p.getNome() %></p>
+            <p class="nome"><%= p.getNome() %></p>
             <% if (p.getSconto() == 0) {%>
             <strong class="prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></strong>
             <%} else {%>
@@ -70,7 +70,7 @@ To change this template use File | Settings | File Templates.
             <a href="product?ID=<%= p.getID() %>">
                 <img src="<%= p.getImg() %>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
             </a>
-            <p><%= p.getNome() %></p>
+            <p class="nome"><%= p.getNome() %></p>
             <% if (p.getSconto() == 0) {%>
             <strong class="prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></strong>
             <%} else {%>

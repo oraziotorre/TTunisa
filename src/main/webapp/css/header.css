@@ -58,6 +58,11 @@ body {
     border-radius: 0.25vw;
 }
 
+.search-bar input[type="text"]:focus {
+    border: 0.1vw solid black;
+    outline: none;
+}
+
 .user-options {
     display: flex;
     align-items: center;
@@ -103,8 +108,10 @@ body {
 
 .utente-nome {
     margin-right: 0.5vw;
+    font-size: 1vw;
     color: black;
 }
+
 
 .utente-saldo {
     font-size: 0.8vw;
@@ -182,8 +189,10 @@ body {
 }
 
 .login-dropdown span {
+    font-size: 1vw;
     margin-right: 0.5vw;
     cursor: pointer;
+    font-family: "Roboto", sans-serif;
 }
 
 .dropdown {
