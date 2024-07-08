@@ -156,6 +156,7 @@
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");%>
 <body>
 <%@ include file="header.jsp" %>
+<%@include file="nav.jsp" %>
 <div class="container">
     <h3>Ordini</h3>
     <%for(Ordine ordine:listaOrdini){%>

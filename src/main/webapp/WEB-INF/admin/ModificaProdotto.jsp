@@ -1,4 +1,5 @@
 <%@ page import="model.Prodotto" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,12 +44,12 @@
                 </div>
                 <div class="detail">
                     <label for="categoria">Categoria</label>
-                    <select placeholder="Categoria" name="Categoria" id="categoria" required>
-                        <option>racchette</option>
-                        <option>tavoli</option>
-                        <option>palline</option>
-                        <option>abbigliamento</option>
-                        <option>altro</option>
+                    <select name="Categoria" id="categoria" required>
+                        <option value="racchette" <%= "racchette".equals(prodotto.getCategoria()) ? "selected" : "" %>>racchette</option>
+                        <option value="tavoli" <%= "tavoli".equals(prodotto.getCategoria()) ? "selected" : "" %>>tavoli</option>
+                        <option value="palline" <%= "palline".equals(prodotto.getCategoria()) ? "selected" : "" %>>palline</option>
+                        <option value="abbigliamento" <%= "abbigliamento".equals(prodotto.getCategoria()) ? "selected" : "" %>>abbigliamento</option>
+                        <option value="altro" <%= "altro".equals(prodotto.getCategoria()) ? "selected" : "" %>>altro</option>
                     </select>
                 </div>
             </div>
