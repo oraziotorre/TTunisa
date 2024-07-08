@@ -44,7 +44,7 @@ public class Registrazione_CheckServlet extends HttpServlet {
             u.setPassword(password);
             u.setAmministratore(false);
 
-            if (!UtenteDAO.isNewEmail(u.getEmail())) {
+            if (!UtenteDAO.isNewUser(u)) {
                 jsonResponse.put("status","error");
                 jsonResponse.put("message","Account già esistente");
             } else {

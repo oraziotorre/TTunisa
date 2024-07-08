@@ -8,7 +8,7 @@ function register() {
     var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
 
-    if (emailRGX.test(email) || passwordRGX.test(password) || nome.trim() === "" || cognome.trim() === "") {
+    if (!emailRGX.test(email) || !passwordRGX.test(password) || nome.trim() === "" || cognome.trim() === "") {
         document.getElementById("error").innerHTML = "Formato non corretto o campi vuoti.";
         document.getElementById("error").style.display = "block";
         return false; // Ferma la sottomissione del form
@@ -25,7 +25,6 @@ function register() {
                 document.getElementById("error").innerHTML = response.message;
                 document.getElementById("error").style.display = "block";
             } else {
-                // Redirect to success page or handle success as needed
                 window.location.href = "login";
             }
         }
