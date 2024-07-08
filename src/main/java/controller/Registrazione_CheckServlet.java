@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-@WebServlet("/registrazione-check")
+@WebServlet("/register-check")
 public class Registrazione_CheckServlet extends HttpServlet {
 
     @Override

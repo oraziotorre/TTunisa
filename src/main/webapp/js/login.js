@@ -1,13 +1,13 @@
-
 function login() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+
 
     // Validazione degli input lato client
     var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
 
-    if (emailRGX.test(email) || passwordRGX.test(password)) {
+    if (!passwordRGX.test(password)) {
         document.getElementById("error").innerHTML = "Formato non corretto";
         document.getElementById("error").style.display = "block";
         return false;

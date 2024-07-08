@@ -23,9 +23,7 @@
     </div>
     -->
     <div class="search-bar">
-        <form class="register-form" method="get" action="search">
-            <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="redirectTo('search')" required>
-        </form>
+        <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="redirectTo('search')" required>
     </div>
     <div class="user-options">
         <div class="login-container">
