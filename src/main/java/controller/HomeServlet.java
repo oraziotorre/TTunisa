@@ -7,10 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Prodotto;
-import model.ProdottoDAO;
-import model.Utente;
-import model.UtenteDAO;
+import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +18,12 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Setta il carrello al primo accesso
+        Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
+        if (carrello == null) {
+            carrello = new Carrello();
+            request.getSession().setAttribute("carrello", carrello);
+        }
 
         ArrayList<Prodotto> listaProdottiVenduti = ProdottoDAO.doRetrieveOrderByAcquisti();
         request.setAttribute("listaProdottiVenduti", listaProdottiVenduti);

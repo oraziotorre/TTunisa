@@ -2,6 +2,12 @@ let inTransition = false;
 const immagini = ['images/homeimg1.jpg', 'images/homeimg2.jpg', 'images/homeimg3.jpg'];
 let indiceImmagine = 0;
 
+function redirectTo(url) {
+    if (url == null)
+        url = "${pageContext.request.contextPath}/"
+    window.location.href = url;
+}
+
 function cambiaImmagine() {
     if (inTransition) return;
     inTransition = true;
@@ -16,5 +22,22 @@ function cambiaImmagine() {
         inTransition = false;
     }, 500);
 }
+
+/*
+NEL CASO SERVISSE
+function increaseItemCount() {
+    // Seleziona l'elemento con classe 'cart-icon'
+    var cartIcon = document.querySelector('.cart-icon');
+
+    // Ottieni l'attuale valore di data-item-count e convertilo in un numero intero
+    var currentCount = parseInt(cartIcon.getAttribute('data-item-count'));
+
+    // Incrementa il valore
+    var newCount = currentCount + 1;
+
+    // Aggiorna il valore di data-item-count nell'HTML
+    cartIcon.setAttribute('data-item-count', newCount);
+
+}*/
 
 setInterval(cambiaImmagine, 5000);

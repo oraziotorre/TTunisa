@@ -26,11 +26,15 @@
             <div class="price">
                 <span class="prezzo">$<%=String.format("%.2f", p.getPrezzo())%></span>
             </div>
+            <form action="cart" method="get">
+                <input type="hidden" name="action" value="additem">
+                <input type="hidden" name="ID" value="<%= p.getID() %>">
 
-            <label for="quantity">Quantita'</label>
-            <input type="number" id="quantity" min="1" max="<%=p.getQuantita()%>" value="1">
-            <br>
-            <button id="add-to-cart">Aggiungi al carrello</button>
+                <label for="quantity">Quantita'</label>
+                <input type="number" id="quantity" name="quantita" min="1" max="<%= p.getQuantita() %>" value="1">
+                <br>
+                <button type="submit">Aggiungi al carrello</button>
+            </form>
             <p><%=p.getDescrizione()%>
             </p>
         </div>

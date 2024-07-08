@@ -23,8 +23,7 @@
             <div class="bottoni">
                 <button onclick="redirectTo('admin?action=prodotti')">Tutti</button>
             </div>
-            <input type="text" name="query" placeholder="Nome Prodotti" onsubmit="redirectTo('admin?action=prodotti')"
-                   required>
+            <input type="text" name="query" placeholder="Nome Prodotti" onsubmit="redirectTo('admin?action=prodotti')" required>
         </div>
     </form>
     <div class="prodotto-list">

@@ -20,7 +20,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
         Boolean isAdmin = (Boolean) httpServletRequest.getSession().getAttribute("isAdmin");
         String path = httpServletRequest.getServletPath();
         if (path.contains("admin") && (isAdmin == null || !isAdmin)) {
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath());
             return;
         }
 

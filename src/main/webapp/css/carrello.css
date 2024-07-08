@@ -229,6 +229,10 @@ body {
     margin-right: 1em;
 }
 
+.prodotto .quantita{
+    width: 5em;
+}
+
 .prodotto .bidone {
     margin-right: 2em;
     cursor: pointer;

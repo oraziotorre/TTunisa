@@ -14,7 +14,7 @@ import model.Utente;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/common/order_history")
+@WebServlet("/order_history")
 public class StoricoOrdiniServlet extends HttpServlet {
 
     @Override

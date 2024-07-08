@@ -137,7 +137,7 @@ body {
 
 /* Per un numero di articoli nel carrello */
 .cart-icon::after {
-    content: "0";
+    content: attr(data-item-count); /* Utilizza l'attributo data per il conteggio */
     position: absolute;
     top: -0.5vw;
     right: -0.5vw;

@@ -155,11 +155,9 @@
 <% ArrayList<Ordine> listaOrdini = (ArrayList<Ordine>) request.getAttribute("listaOrdini");
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");%>
 <body>
+<%@ include file="header.jsp" %>
 <div class="container">
     <h3>Ordini</h3>
-    <div class="bottone-ritorno">
-        <button>HomePage</button>
-    </div>
     <%for(Ordine ordine:listaOrdini){%>
     <div class="ordine">
         <div class="ordine-header">

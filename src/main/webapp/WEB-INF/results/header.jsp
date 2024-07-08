@@ -1,4 +1,5 @@
 <%@ page import="model.Utente" %>
+<%@ page import="model.Carrello" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,6 +8,11 @@
     <title>TT Saturn</title>
     <link rel="stylesheet" href="css\header.css">
 </head>
+<%
+    Carrello carrelloHeader = (Carrello) request.getSession().getAttribute("carrello");
+    ArrayList<Prodotto> listaProdottiCarrelloHeader = (ArrayList<Prodotto>) carrelloHeader.getProdotti();
+    int countProdotti = listaProdottiCarrelloHeader.size();
+%>
 <body>
 <div class="header">
     <div class="logo">
@@ -23,7 +29,9 @@
     </div>
     -->
     <div class="search-bar">
-        <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="redirectTo('search')" required>
+        <form method="get" action="search">
+            <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href = 'search';" required>
+        </form>
     </div>
     <div class="user-options">
         <div class="login-container">
@@ -41,7 +49,7 @@
 
                 </a>
                 <div class="dropdown-content">
-                    <a href="common/order_history">Ordini</a>
+                    <a href="order_history">Ordini</a>
                     <% if (session != null && session.getAttribute("isAdmin") != null) {%>
                     <a href="admin?action=prodotti">Gestione Prodotti</a>
                     <a href="admin?action=utenti">Gestione Utenti</a>
@@ -56,12 +64,19 @@
             </a>
             <% } %>
         </div>
-        <div class="cart-icon">
+        <div class="cart-icon" data-item-count="<%=countProdotti%>">
             <a href="cart">
                 <img src="images\cart.png" alt="Carrello">
             </a>
         </div>
     </div>
 </div>
+<script>
+    function redirectTo(url) {
+    if (url == null)
+        url = "${pageContext.request.contextPath}/"
+    window.location.href = url;
+}
+</script>
 </body>
 </html>

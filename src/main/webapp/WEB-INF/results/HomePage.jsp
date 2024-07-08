@@ -45,7 +45,7 @@ To change this template use File | Settings | File Templates.
             </a>
             <p><%= p.getNome() %></p>
             <strong>$<%=String.format("%.2f",p.getPrezzo()) %></strong>
-            <button>Aggiungi al carrello</button>
+            <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello</button>
         </div>
         <%
                 count++;
@@ -55,11 +55,11 @@ To change this template use File | Settings | File Templates.
 
 
     <h1>IN OFFERTA</h1>
-    <!-- Stessa cosa qui aggiungiamo noi i più venduti -->
     <div class="lista">
         <%
             count = 0;
             for (Prodotto p : listaProdottiScontati) {
+                p.setQuantita(1);//aggiunta di un elemento al carrello
                 if (count >= 5) break;
         %>
         <div class="oggetto">
@@ -68,7 +68,7 @@ To change this template use File | Settings | File Templates.
             </a>
             <p><%= p.getNome() %></p>
             <strong>$<%=String.format("%.2f",p.getPrezzo()) %></strong>
-            <button>Aggiungi al carrello</button>
+            <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello</button>
         </div>
         <%
                 count++;
