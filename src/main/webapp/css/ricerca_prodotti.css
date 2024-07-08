@@ -17,9 +17,9 @@ body {
     align-items: center;
     width: 90%;
     height: auto;
-    min-height: 20em;
-    margin: 2em auto 0;
-    padding: 2em;
+    min-height: 20vw;
+    margin: 2vw auto 0;
+    padding: 2vw;
 }
 .nome_ricerca {
     display: block;
@@ -30,41 +30,42 @@ body {
 
 .nome_ricerca p {
     font-family: "Roboto", sans-serif;
-    font-size: 1.7em;
+    font-size: 1.7vw;
     font-weight: bold;
 }
+
 
 .product-search {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2em 2em 0 2em;
-    padding: 2em;
+    margin: 2vw 2vw 0 2vw;
+    padding: 2vw;
     cursor: pointer;
     width: 20%;
     height: auto;
 }
 
 .product-search img {
-    height: 12em;
-    width: 12em;
-    padding: 1em;
+    height: 12vw;
+    width: 12vw;
+    padding: 1vw;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .product-search .nome {
     text-decoration: none;
     color: black;
-    font-size: 1em;
+    font-size: 1vw;
     font-family: "Roboto", sans-serif;
     padding-bottom: 0;
-    margin-bottom: 0.05em;
+    margin-bottom: 0.05vw;
 }
 
 .product-search .prezzo {
     margin-top: 0;
-    font-size: 1.2em;
+    font-size: 1.2vw;
     font-weight: bold;
     color: #003A82;
     transition: transfom 0.3s ease;
