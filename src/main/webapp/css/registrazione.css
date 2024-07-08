@@ -22,7 +22,7 @@ body {
     z-index: 1;
     background: #FFFFFF;
     width: 30%;
-    height: auto;
+    height: 35vw; /*Anche qui auto non va auto*/
     margin: 4vw auto 3vw;
     padding: 2.8vw;
     text-align: center;

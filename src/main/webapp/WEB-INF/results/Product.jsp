@@ -24,7 +24,12 @@
             <h1><%=p.getNome()%>
             </h1>
             <div class="price">
+                <% if (p.getSconto() == 0) {%>
                 <span class="prezzo">$<%=String.format("%.2f", p.getPrezzo())%></span>
+                <%}else {%>
+                <p class="barred-prezzo">$<%=String.format("%.2f", p.getPrezzo())%></p>
+                <span class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%></span>
+                <%}%>
             </div>
             <form action="cart" method="get">
                 <input type="hidden" name="action" value="additem">

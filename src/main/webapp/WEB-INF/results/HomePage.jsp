@@ -44,7 +44,12 @@ To change this template use File | Settings | File Templates.
                 <img src="<%= p.getImg() %>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
             </a>
             <p><%= p.getNome() %></p>
-            <strong>$<%=String.format("%.2f",p.getPrezzo()) %></strong>
+            <% if (p.getSconto() == 0) {%>
+            <strong class="prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></strong>
+            <%} else {%>
+            <p class="barred-prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></p>
+            <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%></strong>
+            <%}%>
             <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello</button>
         </div>
         <%
@@ -67,8 +72,14 @@ To change this template use File | Settings | File Templates.
                 <img src="<%= p.getImg() %>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
             </a>
             <p><%= p.getNome() %></p>
-            <strong>$<%=String.format("%.2f",p.getPrezzo()) %></strong>
+            <% if (p.getSconto() == 0) {%>
+            <strong class="prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></strong>
+            <%} else {%>
+            <p class="barred-prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></p>
+            <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%></strong>
+            <%}%>
             <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello</button>
+
         </div>
         <%
                 count++;

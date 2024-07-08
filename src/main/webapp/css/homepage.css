@@ -129,7 +129,14 @@ button {
     margin-bottom: 0.5em;
 }
 
-.oggetto strong {
+.oggetto .barred-prezzo{
+    font-size: 0.8vw;
+    color: grey;
+    text-decoration: grey line-through;
+}
+
+.oggetto .prezzo {
+    font-size: 1vw;
     color: #003A82;
 }
 
@@ -164,3 +171,6 @@ button {
     color: white;
     border-color: #E4112A;
 }
+
+
+
