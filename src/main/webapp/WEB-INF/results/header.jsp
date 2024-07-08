@@ -69,7 +69,7 @@
             <% } %>
         </div>
         <div class="cart-icon" data-item-count="<%=countProdotti%>">
-            <a href="cart">
+            <a class="cart-access" href="cart">
                 <img src="images\cart.png" alt="Carrello">
             </a>
         </div>

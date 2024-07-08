@@ -45,11 +45,19 @@
                 <div class="detail">
                     <label for="categoria">Categoria</label>
                     <select name="Categoria" id="categoria" required>
-                        <option value="racchette" <%= "racchette".equals(prodotto.getCategoria()) ? "selected" : "" %>>racchette</option>
-                        <option value="tavoli" <%= "tavoli".equals(prodotto.getCategoria()) ? "selected" : "" %>>tavoli</option>
-                        <option value="palline" <%= "palline".equals(prodotto.getCategoria()) ? "selected" : "" %>>palline</option>
-                        <option value="abbigliamento" <%= "abbigliamento".equals(prodotto.getCategoria()) ? "selected" : "" %>>abbigliamento</option>
-                        <option value="altro" <%= "altro".equals(prodotto.getCategoria()) ? "selected" : "" %>>altro</option>
+                        <!-- In breve se nessuna di queste viene selezionata allora sceglie precedente -->
+                        <%
+                            String categoria = prodotto.getCategoria();
+                            boolean isPredefinedCategory = categoria.equals("racchette") || categoria.equals("tavoli") ||
+                                    categoria.equals("palline") || categoria.equals("abbigliamento") ||
+                                    categoria.equals("altro");
+                        %>
+                        <option value="<%= categoria %>" <%= isPredefinedCategory ? "" : "selected" %>>precedente</option>
+                        <option value="racchette" <%= "racchette".equals(categoria) ? "selected" : "" %>>racchette</option>
+                        <option value="tavoli" <%= "tavoli".equals(categoria) ? "selected" : "" %>>tavoli</option>
+                        <option value="palline" <%= "palline".equals(categoria) ? "selected" : "" %>>palline</option>
+                        <option value="abbigliamento" <%= "abbigliamento".equals(categoria) ? "selected" : "" %>>abbigliamento</option>
+                        <option value="altro" <%= "altro".equals(categoria) ? "selected" : "" %>>altro</option>
                     </select>
                 </div>
             </div>

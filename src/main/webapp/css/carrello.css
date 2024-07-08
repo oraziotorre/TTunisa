@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 2em auto 6em;
+    margin: 2vw auto 6vw;
     width: 80%;
     max-width: 80%;
     height: auto;
@@ -21,12 +21,12 @@ body {
 
 .cart_vuoto h3 {
     font-family: "Roboto", sans-serif;
-    font-size: 1.3em;
+    font-size: 1.3vw;
     font-style: italic;
     color: #0056b3;
     text-align: left;
-    padding: 0.5em;
-    margin-left: 0.5em;
+    padding: 0.5vw;
+    margin-left: 0.5vw;
 }
 
 .cart_items_vuoto {
@@ -34,20 +34,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10em 5em;
-    border-bottom: #0056b3 1px solid;
-    border-top: #0056b3 1px solid;
+    padding: 10vw 5vw;
+    border-bottom: #0056b3 0.1vw solid;
+    border-top: #0056b3 0.1vw solid;
 }
 
 .cart_items_vuoto p {
-    font-size: 2em;
+    font-size: 2vw;
     color: black;
     text-align: center;
     font-family: "Roboto", sans-serif;
 }
 
 .cart_items_vuoto a {
-    font-size: 1em;
+    font-size: 1vw;
     color: black;
     text-align: center;
     font-family: "Roboto", sans-serif;
@@ -67,7 +67,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 2em auto 6em;
+    margin: 2vw auto 6vw;
     width: 90%;
     max-width: 90%;
     height: auto;
@@ -81,17 +81,17 @@ body {
     width: 60%;
     max-width: 60%;
     height: auto;
-    margin-right: 2em;
+    margin-right: 2vw;
 }
 
 .cart_pieno_items h3 {
     font-family: "Roboto", sans-serif;
-    font-size: 1.3em;
+    font-size: 1.3vw;
     font-style: italic;
     color: #0056b3;
     text-align: left;
-    padding: 0.5em;
-    margin-left: 0.5em;
+    padding: 0.5vw;
+    margin-left: 0.5vw;
 }
 
 .cart_pieno_check {
@@ -108,25 +108,25 @@ body {
 
 .cart_pieno_check h3 {
     font-family: "Roboto", sans-serif;
-    font-size: 1.3em;
+    font-size: 1.3vw;
     font-style: italic;
     color: #0056b3;
     text-align: left;
-    padding: 0.5em;
-    margin-left: 0.5em;
+    padding: 0.5vw;
+    margin-left: 0.5vw;
 }
 
 .prodotto {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 1vw;
     width: 100%;
     border-bottom: #0056b3 1px solid;
 }
 
 .prodotto:first-of-type {
-    border-top: #0056b3 1px solid;
+    border-top: #0056b3 0.1vw solid;
 }
 
 .product-details {
@@ -139,7 +139,7 @@ body {
 }
 
 .product-details .nome {
-    font-size: 1em;
+    font-size: 1vw;
     margin: 0;
     font-weight: bold;
     font-family: "Roboto", sans-serif;
@@ -147,16 +147,16 @@ body {
 }
 
 .product-details .prezzo {
-    font-size: 0.8em;
+    font-size: 0.8vw;
     font-family: "Roboto", sans-serif;
     margin: 0;
     color: #666666;
 }
 
 .summary {
-    padding: 1em;
+    padding: 1vw;
     width: 100%;
-    border-top: #0056b3 solid 1px;
+    border-top: #0056b3 solid 0.1vw;
 }
 
 .summary h3 {
@@ -164,12 +164,12 @@ body {
 }
 
 .summary div {
-    margin: 1em 0;
+    margin: 1vw 0;
 }
 
 .summary p {
-    margin: 0.5em 0;
-    font-size: 1em;
+    margin: 0.5vw 0;
+    font-size: 1vw;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
 }
@@ -185,9 +185,9 @@ body {
 }
 
 .checkout-button button {
-    margin: 0.5em 0;
-    padding: 0.5em;
-    font-size: 1em;
+    margin: 0.5vw 0;
+    padding: 0.5vw;
+    font-size: 1vw;
     cursor: pointer;
     border: none;
     color: white;
@@ -201,15 +201,15 @@ body {
 }
 
 .prodotto img {
-    width: 2em;
-    height: 2em;
+    width: 2vw;
+    height: 2vw;
 }
 
 .prodotto button {
     border: none;
     background-color: white;
-    width: 2em;
-    height: 2em;
+    width: 2vw;
+    height: 2vw;
 }
 
 .img_details {
@@ -224,29 +224,30 @@ body {
 }
 
 .img_details img {
-    width: 10em;
-    height: 10em;
-    margin-right: 1em;
+    width: 10vw;
+    height: 10vw;
+    margin-right: 1vw;
 }
 
 .prodotto .quantita{
-    width: 5em;
+    width: 5vw;
 }
 
 .prodotto .bidone {
-    margin-right: 2em;
+
+    margin-right: 2vw;
     cursor: pointer;
 }
 
 input[type=number] {
-    width: 3em;
-    padding: 0.5em;
+    width: 3vw;
+    padding: 0.5vw;
     text-align: center;
 }
 
 .prezzo_totale {
     font-family: "Roboto", sans-serif;
-    font-size: 1em;
+    font-size: 1vw;
     font-weight: bold;
     color: #0056b3;
 }
