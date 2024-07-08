@@ -56,7 +56,7 @@
             </div>
             <input class="quantita" type="number" id="quantity_<%= p.getID() %>" name="quantity" min="1" max="99" value="<%= p.getQuantita()%>" onchange="updateTotalPrice(this, <%= prezzo %>)">
             <p class="prezzo_totale">$ <%=String.format("%.2f", prezzo * p.getQuantita())%></p>
-            <button class="bidone" onclick=""> <img src="${pageContext.request.contextPath}\images\bin-icon.webp"></button>
+            <button class="bidone" onclick="redirectTo('cart?action=removeitem&ID=<%=p.getID()%>')"> <img src="${pageContext.request.contextPath}\images\bin-icon.webp"></button>
         </div>
         <% } %>
     </div>
@@ -83,6 +83,12 @@
 <% } %>
 
 <script>
+    function redirectTo(url) {
+        if (url == null)
+            url = "${pageContext.request.contextPath}/"
+        window.location.href = url;
+    }
+
     function updateTotalPrice(input, prezzo) {
         var quantita = parseInt(input.value, 10);
         var prezzoTotale = quantita * prezzo;

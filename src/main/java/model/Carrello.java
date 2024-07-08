@@ -23,13 +23,7 @@ public class Carrello {
     }
 
     public void removeProdotto(int ID) {
-        for (Prodotto prodotto : prodottiCarrello) {
-            if (prodotto.getID() == ID) {
-                setNumOrdered(ID, 0);
-                return;
-            }
-        }
-
+        prodottiCarrello.removeIf(prodotto -> prodotto.getID() == ID);
     }
 
     public void setNumOrdered(int ID, int n) {

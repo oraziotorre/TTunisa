@@ -45,9 +45,7 @@ public class CartServlet extends HttpServlet {
         if (action.equals("removeitem")) {
             int ID = Integer.parseInt(request.getParameter("ID"));
             cart.removeProdotto(ID);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Carrello.jsp");
-            dispatcher.forward(request, response);
-
+            response.sendRedirect(request.getContextPath() + "/cart");
         }
 
     }
