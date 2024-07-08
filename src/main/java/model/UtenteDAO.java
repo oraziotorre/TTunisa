@@ -90,23 +90,6 @@ public class UtenteDAO extends HttpServlet {
         return true;
     }
 
-    public static boolean isNewUser(Utente u){
-        try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email=?  and nome=? and cognome=?");
-            ps.setString(1, u.getEmail());
-
-            ps.setString(2,u.getNome());
-            ps.setString(3,u.getCognome());
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return false;
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return true;
-    }
 
     private static String toHash(String password) {
         String hashString = null;

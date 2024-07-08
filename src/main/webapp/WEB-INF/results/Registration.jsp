@@ -33,7 +33,7 @@
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button type="submit" id="submit" class="cart">Registrati</button>
             <p class="message">Sei già registrato? <a href="login">Accedi</a></p>
-            <p id="error"></p>
+            <p id="errore">Ciao</p>
         </form>
     </div>
 </div>

@@ -76,8 +76,8 @@ body {
     font-weight: bold;
 }
 
-#error{
+#errore{
     color: red;
     font-size: 0.8em;
-    display: none;
+    display: block;
 }

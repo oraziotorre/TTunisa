@@ -26,16 +26,6 @@ public class Registrazione_CheckServlet extends HttpServlet {
 
         JSONObject jsonResponse = new JSONObject();
 
-        if (nome == null || nome.isEmpty() ||
-                cognome == null || cognome.isEmpty() ||
-                email == null || email.isEmpty() ||
-                password == null || password.isEmpty()) {
-
-            jsonResponse.put("status", "error");
-            jsonResponse.put("message", "Formato sbagliato");
-        }
-
-         else{
             Utente u = new Utente();
             u.setNome(nome);
             u.setCognome(cognome);
@@ -44,15 +34,14 @@ public class Registrazione_CheckServlet extends HttpServlet {
             u.setPassword(password);
             u.setAmministratore(false);
 
-            if (!UtenteDAO.isNewUser(u)) {
+            if (!UtenteDAO.isNewEmail(u.getEmail())) {
                 jsonResponse.put("status","error");
                 jsonResponse.put("message","Account già esistente");
             } else {
                 UtenteDAO.doRegistration(u);
                 jsonResponse.put("status","success");
-                response.sendRedirect(request.getContextPath() + "/login");
             }
-        }
+
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

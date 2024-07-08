@@ -10,7 +10,6 @@ function register() {
 
     if (!emailRGX.test(email) || !passwordRGX.test(password) || nome.trim() === "" || cognome.trim() === "") {
         document.getElementById("error").innerHTML = "Formato non corretto o campi vuoti.";
-        document.getElementById("error").style.display = "block";
         return false; // Ferma la sottomissione del form
     }
 
@@ -23,7 +22,6 @@ function register() {
             var response = JSON.parse(xhr.responseText);
             if (response.status == "error") {
                 document.getElementById("error").innerHTML = response.message;
-                document.getElementById("error").style.display = "block";
             } else {
                 window.location.href = "login";
             }
