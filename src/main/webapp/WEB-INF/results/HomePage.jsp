@@ -1,5 +1,4 @@
-<%@ page import="model.Prodotto" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%--
 Created by IntelliJ IDEA.
 User: UTENTE
 Date: 23/06/2024

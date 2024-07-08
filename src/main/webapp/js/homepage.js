@@ -1,5 +1,5 @@
 let inTransition = false;
-const immagini = ['images/homeimg1.jpg', 'images/homeimg2.jpg', 'images/homeimg3.jpg'];
+const immagini = ['images/homeimg1.jpg', 'images/homeimg.jpg', 'images/homeimg2.jpg', 'images/homeimg3.jpg'];
 let indiceImmagine = 0;
 
 function redirectTo(url) {

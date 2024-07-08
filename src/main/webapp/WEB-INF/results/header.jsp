@@ -3,6 +3,8 @@
 <%@ page import="model.Carrello" %>
 <%@ page import="model.Prodotto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="model.Prodotto" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
     <meta charset="UTF-8">
