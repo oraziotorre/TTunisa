@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="css\login.css">
     <title>Utente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <% String x = " ";
         if (request.getAttribute("parametri") != null) {
             x = "Email o password errati!";
