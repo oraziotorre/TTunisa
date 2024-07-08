@@ -21,11 +21,10 @@ public class Login_CheckServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String email = request.getParameter("Email");
         String password = request.getParameter("Password");
-
         Utente u = UtenteDAO.doLogin(email, password);
-
         JSONObject jsonResponse = new JSONObject();
 
         if (u == null) {
@@ -40,7 +39,6 @@ public class Login_CheckServlet extends HttpServlet {
             }
 
             jsonResponse.put("status", "success");
-            // Puoi aggiungere altri dati al JSON se necessario
         }
 
         response.setContentType("application/json");

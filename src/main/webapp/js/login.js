@@ -1,28 +1,4 @@
 
-function confermaParametri() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var resultEmail = emailRGX.test(email);
-    var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
-    var resultPassword = passwordRGX.test(password);
-
-    if (resultEmail == false) {
-        document.getElementById("error").innerHTML ="Formato non corretto";
-        document.getElementById("error").style.display="block";
-        return false;
-    }
-
-    if (resultPassword == false) {
-        document.getElementById("error").innerHTML ="Formato non corretto";
-        document.getElementById("error").style.display="block";
-        return false;
-    }
-
-
-    return true;
-}
-
 function login() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
@@ -31,7 +7,7 @@ function login() {
     var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
 
-    if (!emailRGX.test(email) || !passwordRGX.test(password)) {
+    if (emailRGX.test(email) || passwordRGX.test(password)) {
         document.getElementById("error").innerHTML = "Formato non corretto";
         document.getElementById("error").style.display = "block";
         return false;

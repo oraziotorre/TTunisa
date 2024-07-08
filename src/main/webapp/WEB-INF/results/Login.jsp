@@ -44,7 +44,7 @@
             <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
             <label for="password"><b>Password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
-            <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Login</button>
+            <button type="submit" id="submit" class="cart">Login</button>
             <p class="message">Non registrato? <a href="registration">Crea un account</a></p>
             <p id="error"></p>
         </form>

@@ -22,7 +22,7 @@
          </form> -->
 
         <!-- Memorizziamo un nuovo utente molto semplicemente -->
-        <form class="register-form" method="post" action="#">
+        <form class="register-form"  onsubmit="return register()">
             <label for="nome">Nome</label><br>
             <input type="text" placeholder="Inserisci Nome" name="Nome" id="nome" required><br>
             <label for="cognome">Cognome</label><br>
@@ -31,7 +31,7 @@
             <input type="email" placeholder="Inserisci Email" name="Email" id="email" required><br>
             <label for="password"><b>Password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
-            <button onclick="confermaParametri()" type="submit" id="submit" class="cart">Registrati</button>
+            <button type="submit" id="submit" class="cart">Registrati</button>
             <p class="message">Sei già registrato? <a href="login">Accedi</a></p>
             <p id="error"></p>
         </form>
