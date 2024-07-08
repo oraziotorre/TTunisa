@@ -9,7 +9,7 @@ function register() {
     var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
 
     if (!emailRGX.test(email) || !passwordRGX.test(password) || nome.trim() === "" || cognome.trim() === "") {
-        document.getElementById("error").innerHTML = "Formato non corretto o campi vuoti.";
+        document.getElementById("errore").innerHTML = "Formato non corretto o campi vuoti.";
         return false; // Ferma la sottomissione del form
     }
 
@@ -21,7 +21,7 @@ function register() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             if (response.status == "error") {
-                document.getElementById("error").innerHTML = response.message;
+                document.getElementById("errore").innerHTML = response.message;
             } else {
                 window.location.href = "login";
             }
