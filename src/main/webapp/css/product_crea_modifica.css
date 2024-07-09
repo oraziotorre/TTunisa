@@ -142,10 +142,11 @@ body {
     padding: 1vw;
     font-size: 0.6vw;
     margin: auto;
-    width: 2vw;
+    width: 4vw;
     height: 1vw;
     text-align: center;
     border: black 0.1vw solid;
+    cursor: pointer;
 }
 
 .detail textarea {
@@ -183,8 +184,8 @@ body {
 }
 
 .immagine img {
-    width: 50%;
-    height: 50%;
+    width: 15vw;
+    height: 15vw;
     margin: auto;
     text-align: center;
     padding: 1vw;
