@@ -20,9 +20,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2vw auto 2vw;
+    margin: auto;
     width: 70%;
-    height: 60vh;
+    height: auto;
     position: relative;
 }
 
@@ -39,7 +39,7 @@ body {
     max-width: 100%;
     max-height: 100%;
     width: 80vw;
-    height: 60vh;
+    height: 35vw;
     transition: opacity 0.5s ease;
     border-radius: 0.8vw;
     box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
