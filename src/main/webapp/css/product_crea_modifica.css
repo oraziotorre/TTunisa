@@ -1,3 +1,23 @@
+:root {
+    --primary-bg-color: #5a6268;
+    --hover-bg-color: #666666;
+    --primary-font-color: white;
+    --border-color: black;
+    --font-family-primary: Arial, sans-serif;
+    --font-family-secondary: "Roboto", sans-serif;
+    --input-border-color: grey;
+    --input-focus-border-color: black;
+    --error-color: #CA0000;
+    --max-width: 1200px;
+    --padding: 1em;
+    --input-width-large: 20em;
+    --input-width-medium: 10em;
+    --input-width-small: 5em;
+    --button-bg-color: #4CAF50;
+    --button-hover-bg-color: #45a049;
+    --button-font-color: white;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,207 +25,120 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family-primary);
     background-color: white;
 }
 
 .back {
-    padding: 0.6vw;
-    margin: 2vw 0 0.5vw 4vw;
-    background-color: #5a6268;
-    color: white;
-    border: black solid 0.1vw;
+    padding: var(--padding);
+    margin: 2em 0 0.5em 4em;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-font-color);
+    border: solid 0.1em var(--border-color);
     text-align: center;
-    font-size: 1.2vw;
+    font-size: 1.2em;
+    cursor: pointer;
 }
 
 .back:hover {
-    background-color: #666666;
+    background-color: var(--hover-bg-color);
 }
 
-.tag {
-    width: 90%;
-    max-width: 90%;
-    height: auto;
-    margin: 5vw auto 1vw;
-}
-
-.tag h2 {
-    text-align: left;
-    padding: 0.5vw;
-    font-size: 2vw;
+.tag, .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 2em auto;
+    padding: var(--padding);
 }
 
 .container {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 90%;
-    max-width: 90%;
-    height: auto;
-    margin: 0.5vw auto 5vw;
-    border-top: black dashed 0.2vw;
-    border-bottom: black dashed 0.2vw;
-}
-
-
-.summary {
-    width: 50%;
-    max-width: 50%;
-    margin: auto;
-    margin-left: 2vw;
-    padding: 2vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1em;
+    border-top: dashed 0.2em var(--border-color);
+    border-bottom: dashed 0.2em var(--border-color);
 }
 
 .detail {
+    flex: 1 1 calc(50% - 1em);
     display: flex;
     flex-direction: column;
-    padding: 0.3vw;
-    margin: 0.5vw;
-    font-family: "Roboto", sans-serif;
-    font-size: 1vw;
+    margin-bottom: 1em;
+    font-family: var(--font-family-secondary);
 }
 
 .detail label {
-    padding: 0.5vw;
-    font-size: 1vw;
-    font-family: "Roboto", sans-serif;
+    padding: 0.5em 0;
+    font-size: 1em;
     font-style: italic;
-    color: #CA0000;
+    color: var(--error-color);
 }
 
-.detail input {
-    padding: 0.2vw;
-    font-family: Arial, sans-serif;
-    font-size: 0.8vw;
-    border: grey 0.1vw solid;
-}
-
-.detail input:focus{
-    border: black solid 0.1vw;
-    outline: none;
-}
-
+.detail input,
+.detail select,
 .detail textarea {
-    border: #666666 0.1vw solid;
+    padding: 0.5em;
+    font-family: var(--font-family-primary);
+    font-size: 1em;
+    border: solid 0.1em var(--input-border-color);
 }
-.detail textarea:focus{
-    border: black 0.1vw solid;
+
+.detail input:focus,
+.detail select:focus,
+.detail textarea:focus {
+    border: solid 0.1em var(--input-focus-border-color);
     outline: none;
 }
 
-.detail select {
-    border: #666666 0.1vw solid;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-.detail select:focus{
-    border: black 0.1vw solid;
-    outline: none;
+.detail input[type="text"],
+.detail select,
+.detail textarea {
+    width: var(--input-width-large);
 }
 
-#nome{
-    width: 14vw;
-    height: 2vw;
+.detail input[type="number"] {
+    width: var(--input-width-medium);
 }
 
-#prezzo{
-    width: 14vw;
-    height: 2vw;
-}
-
-#quantita{
-    width: 10vw;
-    height: 2vw;
-}
-
-#sconto{
-    width: 10vw;
-    height: 2vw;
-}
-
-#categoria{
-    padding: 0.2vw;
-    font-family: Arial, sans-serif;
-    width: 10vw;
-    height: 2vw;
-    font-size: 0.8vw;
-}
-
-#submit{
-    padding: 1vw;
-    font-size: 0.6vw;
-    margin: auto;
-    width: 4vw;
-    height: 1vw;
+#submit {
+    padding: 0.8em 1.5em;
+    font-size: 1em;
+    margin: 1em auto;
+    width: auto;
     text-align: center;
-    border: black 0.1vw solid;
+    color: var(--button-font-color);
+    background-color: var(--button-bg-color);
+    border: none;
+    border-radius: 0.3em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.detail textarea {
-    padding: 0.2vw;
-    font-family: Arial, sans-serif;
-    font-size: 0.8vw;
-    width: 14vw;
-    height: 10vw;
+#submit:hover {
+    background-color: var(--button-hover-bg-color);
 }
-
-.row {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.row .detail {
-    flex: 1;
-    margin-right: 1vw;
-}
-
-.row .detail:last-child {
-    margin-right: 0;
-}
-
 
 .immagine {
-    width: 50%;
-    max-width: 50%;
-    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin: var(--padding) auto;
 }
 
 .immagine img {
-    width: 15vw;
-    height: 15vw;
-    margin: auto;
-    text-align: center;
-    padding: 1vw;
+    width: 30em;
+    height: 30em;
+    margin: var(--padding) auto;
 }
 
-.immagine label{
-    font-size: 0.8vw;
-    font-family: Arial, sans-serif;
-    color: black;
+.immagine input {
+    width: 10em;
+    padding: 0.5em;
+    font-size: 1em;
+    border: solid 0.1em var(--input-border-color);
 }
 
-.immagine input{
-    width: 8vw;
-    height: 2vw;
-    font-size: 1vw;
-    padding: 0.5vw;
-    border: #666666 solid 0.1vw;
-}
-
-.immagine input:focus{
+.immagine input:focus {
+    border: solid 0.1em var(--input-focus-border-color);
     outline: none;
-    border: black solid 0.1vw;
 }

@@ -14,8 +14,8 @@ body {
     display: flex;
     justify-content: space-around;
     background-color: #003A82; /* Colore di sfondo del footer */
-    padding: 0.8vw;
-    margin: 4vw auto 0;
+    padding: 0.8em;
+    margin: 4em auto 0;
     width: 100%;
     height: auto;
     flex-shrink: 0;
@@ -24,26 +24,26 @@ body {
 
 .column {
     flex: 1;
-    padding: 1.2vw;
+    padding: 1.2em;
     color: white;
     text-align: center;
 }
 
 
 .column p {
-    margin: 0.5vw 0;
-    line-height: 0.8vw;
-    font-size: 0.8vw;
+    margin: 0.5em 0;
+    line-height: 0.8em;
+    font-size: 0.8em;
 }
 
 .column h2 {
-    margin: 0.5vw 0;
-    line-height: 0.8vw;
-    font-size: 1.2vw;
+    margin: 0.5em 0;
+    line-height: 0.8em;
+    font-size: 1.2em;
 }
 
 .column img {
-    width: 1vw;
-    height: 1vw;
+    width: 1em;
+    height: 1em;
     background-color: #003A82;
 }

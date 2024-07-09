@@ -44,20 +44,13 @@
                 </div>
                 <div class="detail">
                     <label for="categoria">Categoria</label>
-                    <select name="Categoria" id="categoria" required>
-                        <!-- In breve se nessuna di queste viene selezionata allora sceglie precedente -->
-                        <%
-                            String categoria = prodotto.getCategoria();
-                            boolean isPredefinedCategory = categoria.equals("racchette") || categoria.equals("tavoli") ||
-                                    categoria.equals("palline") || categoria.equals("abbigliamento") ||
-                                    categoria.equals("altro");
-                        %>
-                        <option value="<%= categoria %>" <%= isPredefinedCategory ? "" : "selected" %>>precedente</option>
-                        <option value="racchette" <%= "racchette".equals(categoria) ? "selected" : "" %>>racchette</option>
-                        <option value="tavoli" <%= "tavoli".equals(categoria) ? "selected" : "" %>>tavoli</option>
-                        <option value="palline" <%= "palline".equals(categoria) ? "selected" : "" %>>palline</option>
-                        <option value="abbigliamento" <%= "abbigliamento".equals(categoria) ? "selected" : "" %>>abbigliamento</option>
-                        <option value="altro" <%= "altro".equals(categoria) ? "selected" : "" %>>altro</option>
+                    <select placeholder="Categoria" name="Categoria" id="categoria" required>
+                        <option><%=prodotto.getCategoria()%></option>
+                        <option>racchette</option>
+                        <option>tavoli</option>
+                        <option>palline</option>
+                        <option>abbigliamento</option>
+                        <option>altro</option>
                     </select>
                 </div>
             </div>
@@ -72,7 +65,7 @@
         </div>
         <div class="immagine">
             <img src="<%=prodotto.getImg()%>" alt="Prodotto" id="previewImage">
-            <label for="imageSelect">Cambia Immagine Prod</label>
+            <label for="imageSelect">Cambia Immagine</label>
             <input type="text" id="imageSelect" value="<%=prodotto.getImg()%>" name="Img" required>
         </div>
     </div>
