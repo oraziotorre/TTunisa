@@ -109,6 +109,25 @@ public class UtenteDAO extends HttpServlet {
         }
     }
 
+    public static void setNewStatus(int ID, boolean statusNuovo) {
+
+        try (Connection con = ConPool.getConnection();
+             PreparedStatement ps = con.prepareStatement("UPDATE utente SET amministratore = ? WHERE utente_ID = ?")) {
+
+            ps.setBoolean(1, statusNuovo);
+            ps.setInt(2, ID);
+
+            int rowsUpdated = ps.executeUpdate();
+
+            if (rowsUpdated != 1) {
+                throw new SQLException("Non è stato possibile aggiornare il saldo dell'utente.");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Errore durante l'aggiornamento del saldo dell'utente.", e);
+        }
+    }
+
     private static String toHash(String password) {
         String hashString = null;
         try {

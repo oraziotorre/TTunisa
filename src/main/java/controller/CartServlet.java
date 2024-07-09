@@ -18,6 +18,7 @@ public class CartServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
+        //cart.validazioneProdotti();   //Funzione per capire se i prodotti presenti nel carrello sono presenti nel db
 
         if (action == null) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Carrello.jsp");

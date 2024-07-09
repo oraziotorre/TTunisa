@@ -34,7 +34,7 @@
     -->
     <div class="search-bar">
         <form method="get" action="search">
-            <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="redirectTo('search');"
+            <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href ='search';"
                    required>
         </form>
     </div>
@@ -76,12 +76,5 @@
         </div>
     </div>
 </div>
-<script>
-    function redirectTo(url) {
-        if (url == null)
-            url = "${pageContext.request.contextPath}/"
-        window.location.href = url;
-    }
-</script>
 </body>
 </html>

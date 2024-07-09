@@ -61,7 +61,7 @@
                        value="<%= p.getQuantita()%>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
                 <p class="prezzo_totale">$ <%=String.format("%.2f", prezzo * p.getQuantita())%>
                 </p>
-                <button type="button" class="bidone" onclick="redirectTo('cart?action=removeitem&ID=<%=p.getID()%>')"><img
+                <button type="button" class="bidone" onclick="window.location.href ='cart?action=removeitem&ID=<%=p.getID()%>'"><img
                         src="${pageContext.request.contextPath}\images\bin-icon.webp"></button>
             </div>
             <% } %>
@@ -141,7 +141,7 @@
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                // Puoi gestire la risposta del server qui, se necessario
+                // Togliere
             }
         };
         xhr.send("action=updateitem&ID=" + productID + "&quantita=" + quantity);

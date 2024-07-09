@@ -42,10 +42,16 @@ public class ListaAdminServlet extends HttpServlet {
                 }
             } else if (request.getParameter("action").equals("utenti")) {
                 //LISTA UTENTI
-                ArrayList<Utente> listaUtenti = UtenteDAO.doRetriveUtente();
-                request.setAttribute("listaUtenti", listaUtenti);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaUtenti.jsp");
-                dispatcher.forward(request, response);
+                if (request.getParameter("ID") == null) {
+                    ArrayList<Utente> listaUtenti = UtenteDAO.doRetriveUtente();
+                    request.setAttribute("listaUtenti", listaUtenti);
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaUtenti.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    int ID = Integer.parseInt(request.getParameter("ID"));
+                    boolean status = Boolean.parseBoolean(request.getParameter("status"));
+                    UtenteDAO.setNewStatus(ID,status);
+                }
             }
         }
     }

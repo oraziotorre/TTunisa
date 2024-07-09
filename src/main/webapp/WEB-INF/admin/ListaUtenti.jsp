@@ -9,10 +9,13 @@
     <title>Riepilogo utenti</title>
 
 </head>
-<% ArrayList<Utente> listaUtenti = (ArrayList<Utente>) request.getAttribute("listaUtenti"); %>
+<%
+    ArrayList<Utente> listaUtenti = (ArrayList<Utente>) request.getAttribute("listaUtenti");
+    Utente utenteLoggato = (Utente) request.getSession().getAttribute("Utente");
+%>
 <body>
 <div class="container">
-    <button onclick="redirectTo('home')">Home Page</button>
+    <button onclick="window.location.href ='${pageContext.request.contextPath}'">Home Page</button>
     <table class="utenti">
         <tr>
             <th>Nome</th>
@@ -28,34 +31,31 @@
             <td><%= ut.getCognome() %>
             </td>
             <td><%= ut.getEmail() %>
-            </td>
-            <td><%= ut.isAmministratore() %>
-            </td>
             <td>
                 <div class="admin-buttons">
-                    <button class="toggle <%= ut.isAmministratore() ? "admin" : "non-admin" %>"
-                            onclick="toggleAdminStatus(this, '<%= ut.getEmail() %>')">
-                        <%= ut.isAmministratore() ? "No" : "Si" %>
+                    <button class="toggle <%= ut.isAmministratore() ? "non-admin" : "admin" %>"
+                            <% if(utenteLoggato.getID()!=ut.getID()){%>
+                            onclick="toggleAdminStatus(this, '<%= ut.getID() %>')"
+                            <%}%>>
+                        <%= ut.isAmministratore() ? "Si" : "No" %>
                     </button>
                 </div>
             </td>
         </tr>
-        <% } %>
+        <%}%>
     </table>
 </div>
 
 <script>
-    function redirectTo(url) {
-        window.location.href = url;
-    }
-
-    function toggleAdminStatus(button, email) {
+    function toggleAdminStatus(button, ID) {
         const isAdmin = button.classList.contains('admin');
-        const newStatus = !isAdmin;
 
-        // Example of server request simulation
-        // Make an actual server request here
-        console.log("Toggle admin status for email: " + email + " to " + newStatus);
+        //AJAX per aggiornare lo status dell'utente
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "admin", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("action=utenti&ID=" + ID + "&status=" + isAdmin);
+        /////////////////////////////////////////
 
         if (isAdmin) {
             button.classList.remove('admin');

@@ -52,7 +52,7 @@ To change this template use File | Settings | File Templates.
                 <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%>
                 </strong>
                 <%}%>
-                <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello
+                <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=<%=p.getID()%>'">Aggiungi al carrello
                 </button>
             </div>
             <%
@@ -85,7 +85,7 @@ To change this template use File | Settings | File Templates.
                 <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%>
                 </strong>
                 <%}%>
-                <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello
+                <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=<%=p.getID()%>'">Aggiungi al carrello
                 </button>
 
             </div>

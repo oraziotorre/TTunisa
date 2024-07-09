@@ -25,7 +25,7 @@ function login() {
                 document.getElementById("error").style.display = "block";
             } else {
                 // Redirect to success page or handle success as needed
-                window.location.href = "home";
+                window.location.href = "${pageContext.request.contextPath}";
             }
         }
     };
