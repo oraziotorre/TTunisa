@@ -72,7 +72,7 @@
         </div>
         <div class="immagine">
             <img src="<%=prodotto.getImg()%>" alt="Prodotto" id="previewImage">
-            <label for="imageSelect">Cambia Immagine</label>
+            <label for="imageSelect">Cambia Immagine Prod</label>
             <input type="text" id="imageSelect" value="<%=prodotto.getImg()%>" name="Img" required>
         </div>
     </div>
