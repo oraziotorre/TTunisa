@@ -61,7 +61,7 @@
                        value="<%= p.getQuantita()%>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
                 <p class="prezzo_totale">$ <%=String.format("%.2f", prezzo * p.getQuantita())%>
                 </p>
-                <button class="bidone" onclick="redirectTo('cart?action=removeitem&ID=<%=p.getID()%>')"><img
+                <button type="button" class="bidone" onclick="redirectTo('cart?action=removeitem&ID=<%=p.getID()%>')"><img
                         src="${pageContext.request.contextPath}\images\bin-icon.webp"></button>
             </div>
             <% } %>
@@ -74,15 +74,13 @@
                 <p>Iva <span id="iva">$ <%=String.format("%.2f", iva)%></span></p>
                 <p>Totale <span id="totale">$ <%=String.format("%.2f", totale)%></span></p>
             </div>
-            <!-- Qui bisogna fare una funzione e vedere se la somma totale è maggiore del nostro conto corrente se si quando si preme
-                 checkout si da un errore -->
             <div class="checkout-button">
                 <button type="submit" name="action" value="checkout">Checkout</button>
             </div>
             <% } else { %>
             <div class="accedi-button">
                 <p class="accedi-p">Si prega di effettuare l'accesso per eseguire il pagamento</p>
-                <button onclick="location.href='login';">Accedi</button>
+                <button type="button" onclick="location.href='login';">Accedi</button>
             </div>
             <% } %>
         </div>
