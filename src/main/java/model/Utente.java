@@ -44,7 +44,9 @@ public class Utente {
         this.email = email;
     }
 
-    public void setPassword(String password) {this.password = password;}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -59,9 +61,13 @@ public class Utente {
         this.amministratore = amministratore;
     }
 
-    public int getID() {return ID;}
+    public int getID() {
+        return ID;
+    }
 
-    public void setID(int ID) {this.ID = ID;}
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 }
 
 

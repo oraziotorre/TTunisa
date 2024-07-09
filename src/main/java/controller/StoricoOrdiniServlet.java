@@ -22,7 +22,7 @@ public class StoricoOrdiniServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Utente utenteAttuale = (Utente) session.getAttribute("Utente");
-        ArrayList<Ordine> ordini= OrdineDAO.doRetriveOrdine(utenteAttuale.getID());
+        ArrayList<Ordine> ordini = OrdineDAO.doRetriveOrdine(utenteAttuale.getID());
         request.setAttribute("listaOrdini", ordini);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/StoricoOrdini.jsp");
         dispatcher.forward(request, response);

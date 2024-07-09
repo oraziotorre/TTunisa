@@ -33,7 +33,7 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-.utenti td{
+.utenti td {
     font-size: 1em;
     font-family: Arial, sans-serif;
 }
@@ -47,7 +47,7 @@ button {
     border-radius: 4%;
     transition: background-color 0.3s ease;
     margin: 1em;
-    font-size:1.2em;
+    font-size: 1.2em;
 }
 
 button:hover {

@@ -1,5 +1,5 @@
 <%@ page import="model.Prodotto" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +45,8 @@
                 <div class="detail">
                     <label for="categoria">Categoria</label>
                     <select placeholder="Categoria" name="Categoria" id="categoria" required>
-                        <option><%=prodotto.getCategoria()%></option>
+                        <option><%=prodotto.getCategoria()%>
+                        </option>
                         <option>racchette</option>
                         <option>tavoli</option>
                         <option>palline</option>

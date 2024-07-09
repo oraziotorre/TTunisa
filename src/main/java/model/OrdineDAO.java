@@ -1,7 +1,10 @@
 package model;
 
 import jakarta.servlet.annotation.WebServlet;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,18 +12,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 @WebServlet(name = "OrdineDAO", value = "/OrdineDAO")
 public class OrdineDAO {
 
-    
+
     public static ArrayList<Ordine> doRetriveOrdine(int ID_utente) {
         ArrayList<Ordine> o = new ArrayList<Ordine>();
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM ordine WHERE utente_ID = ?");
-            ps.setInt(1,ID_utente);
+            ps.setInt(1, ID_utente);
             ResultSet rs = ps.executeQuery();
-            
+
             while (rs.next()) {
                 Ordine ordine = new Ordine();
                 ordine.setOrdine_ID(rs.getInt(1));
@@ -38,7 +42,36 @@ public class OrdineDAO {
             throw new RuntimeException(e);
         }
     }
-    
-    
-    
+
+
+    public static void addOrdine(Ordine ordine) {
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (prezzo_tot, data, scontrino, utente_ID) VALUES (?, ?, ?, ?)");
+            ps.setDouble(1, ordine.getPrezzo_tot());
+            GregorianCalendar data = ordine.getData();
+            ps.setDate(2, new java.sql.Date(data.getTimeInMillis()));
+            ps.setString(3, ordine.getScontrino());
+            ps.setInt(4, ordine.getUtente_ID());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static List<Prodotto> scontrinoToProdotti(String json) {
+        Gson gson = new Gson();
+        Type productListType = new TypeToken<List<Prodotto>>() {
+        }.getType();
+        return gson.fromJson(json, productListType);
+    }
+
+
+    public static String prodottiToScontrino(List<Prodotto> prodotti) {
+        Gson gson = new Gson();
+        return gson.toJson(prodotti);
+    }
+
+
 }

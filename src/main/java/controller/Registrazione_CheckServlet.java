@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 @WebServlet("/register-check")
 public class Registrazione_CheckServlet extends HttpServlet {
 
@@ -26,21 +27,21 @@ public class Registrazione_CheckServlet extends HttpServlet {
 
         JSONObject jsonResponse = new JSONObject();
 
-            Utente u = new Utente();
-            u.setNome(nome);
-            u.setCognome(cognome);
-            u.setSaldo(1000.00); // Imposta un saldo iniziale
-            u.setEmail(email);
-            u.setPassword(password);
-            u.setAmministratore(false);
+        Utente u = new Utente();
+        u.setNome(nome);
+        u.setCognome(cognome);
+        u.setSaldo(1000.00); // Imposta un saldo iniziale
+        u.setEmail(email);
+        u.setPassword(password);
+        u.setAmministratore(false);
 
-            if (!UtenteDAO.isNewEmail(u.getEmail())) {
-                jsonResponse.put("status","error");
-                jsonResponse.put("message","Account già esistente");
-            } else {
-                UtenteDAO.doRegistration(u);
-                jsonResponse.put("status","success");
-            }
+        if (!UtenteDAO.isNewEmail(u.getEmail())) {
+            jsonResponse.put("status", "error");
+            jsonResponse.put("message", "Account già esistente");
+        } else {
+            UtenteDAO.doRegistration(u);
+            jsonResponse.put("status", "success");
+        }
 
 
         response.setContentType("application/json");

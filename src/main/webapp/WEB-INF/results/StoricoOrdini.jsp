@@ -18,39 +18,40 @@
 <%@include file="nav.jsp" %>
 <div class="container">
     <h3>Ordini</h3>
-    <%for(Ordine ordine:listaOrdini){%>
+    <%for (Ordine ordine : listaOrdini) {%>
     <div class="ordine">
         <div class="ordine-header">
             <!-- Vedi poi tu come fare qua ci vuole un ciclo -->
-            <p>Numero Ordine:1</p>
+            <p>Codice Ordine : #<%=ordine.getOrdine_ID()%>
+            </p>
         </div>
         <div class="dettagli-ordine">
             <div>
                 <p>Data Ordine</p>
-                <p><%=sdf.format(ordine.getData().getTime())%></p>
+                <p><%=sdf.format(ordine.getData().getTime())%>
+                </p>
             </div>
             <div>
-                <p>Costo Totale</p>
-                <p><%=ordine.getPrezzo_tot()%>></p>
+                <p>Spesa Totale</p>
+                <p>$<%=String.format("%.2f", ordine.getPrezzo_tot())%>
+                </p>
             </div>
         </div>
-        <!--           QUI INSERIRE LOGICA SCONTRINO            -->
         <div class="lista-prodotti">
+            <%
+                ArrayList<Prodotto> prodottiOrdine = (ArrayList<Prodotto>) OrdineDAO.scontrinoToProdotti(ordine.getScontrino());
+                for (Prodotto prodotto : prodottiOrdine) {%>
             <div class="prodotto">
-                <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Prod">
-                <p>Nome Prodotto</p>
-                <span>Prezzo Singolo</span>
+                <img src="<%=prodotto.getImg()%>" alt="Prod">
+                <p><%=prodotto.getNome()%>
+                </p>
+                <% if (prodotto.getSconto() == 0) { %>
+                <span>$<%=String.format("%.2f", prodotto.getPrezzo())%> x <%=prodotto.getQuantita()%></span>
+                <%} else { %>
+                <span>$<%=String.format("%.2f", prodotto.getPrezzo() - (prodotto.getPrezzo() / 100 * prodotto.getSconto()))%> x <%=prodotto.getQuantita()%></span>
+                <%}%>
             </div>
-            <div class="prodotto">
-                <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Prod">
-                <p>Nome Prodotto</p>
-                <span>Prezzo Singolo</span>
-            </div>
-            <div class="prodotto">
-                <img src="${pageContext.request.contextPath}\images\imageNA.png" alt="Prod">
-                <p>Nome Prodotto</p>
-                <span>Prezzo Singolo</span>
-            </div>
+            <%}%>
         </div>
     </div>
     <%}%>

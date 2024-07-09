@@ -14,19 +14,22 @@
 <% Prodotto p = (Prodotto) request.getAttribute("Prodotto");%>
 <div class="product-page">
     <div class="infos">
-        <p><%=p.getCategoria()%> / <%=p.getNome()%></p>
+        <p><%=p.getCategoria()%> / <%=p.getNome()%>
+        </p>
     </div>
     <div class="product-container">
         <div class="product-image">
             <img src="<%=p.getImg()%>" alt="Immagine Prodotto">
         </div>
         <div class="product-details">
-            <h1 class="nome-prodotto"><%=p.getNome()%></h1>
+            <h1 class="nome-prodotto"><%=p.getNome()%>
+            </h1>
             <div class="price">
                 <% if (p.getSconto() == 0) { %>
                 <span class="prezzo">$<%= String.format("%.2f", p.getPrezzo()) %></span>
                 <% } else { %>
-                <p class="barred-prezzo">$<%= String.format("%.2f", p.getPrezzo()) %></p>
+                <p class="barred-prezzo">$<%= String.format("%.2f", p.getPrezzo()) %>
+                </p>
                 <span class="prezzo">$<%= String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto())) %></span>
                 <% } %>
             </div>
@@ -38,10 +41,11 @@
                 <br>
                 <button type="submit">Aggiungi al carrello</button>
             </form>
-            <p class="descrizione"><%= p.getDescrizione() %></p>
+            <p class="descrizione"><%= p.getDescrizione() %>
+            </p>
         </div>
     </div>
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 </body>
 </html>

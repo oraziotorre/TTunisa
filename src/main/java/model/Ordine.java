@@ -1,7 +1,6 @@
 package model;
 
-import netscape.javascript.JSObject;
-
+import java.sql.Date;
 import java.util.GregorianCalendar;
 
 public class Ordine {

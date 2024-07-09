@@ -138,7 +138,7 @@ body {
     margin: 0;
 }
 
-.prodotto input[type="number"]{
+.prodotto input[type="number"] {
     font-size: 1em;
     border: #666666 0.1em solid;
     padding: 1em;
@@ -150,7 +150,7 @@ body {
     appearance: none;
 }
 
-.prodotto input[type="number"]:focus{
+.prodotto input[type="number"]:focus {
     outline: none;
     border: black 0.1em solid;
 }
@@ -217,7 +217,7 @@ body {
     background-color: #0056b3;
 }
 
-.accedi-button{
+.accedi-button {
     margin: auto;
     align-items: center;
     justify-content: center;
@@ -226,13 +226,13 @@ body {
     width: 100%;
 }
 
-.accedi-button .accedi-p{
+.accedi-button .accedi-p {
     font-size: 1.2em;
     color: black;
     text-align: center;
 }
 
-.accedi-button button{
+.accedi-button button {
     margin: 0.5em 0;
     padding: 1em;
     width: 80%;
@@ -262,16 +262,16 @@ body {
     background-color: white;
     width: 2em;
     height: 2em;
-    margin:auto;
+    margin: auto;
     cursor: pointer;
     position: relative;
 }
 
-.bidone img{
+.bidone img {
     position: absolute;
     width: 2em;
     height: 2em;
-    top:-0.5em;
+    top: -0.5em;
 }
 
 

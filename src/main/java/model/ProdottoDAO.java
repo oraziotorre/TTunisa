@@ -229,6 +229,38 @@ public class ProdottoDAO {
 
     }
 
+    public static int getQuantitaDisponibile(Prodotto p) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT quantita FROM prodotto WHERE prodotto_ID = ?");
+            ps.setInt(1, p.getID());
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                int quantitaDisponibile = rs.getInt("quantita");
+                return quantitaDisponibile;
+            } else {
+                throw new RuntimeException("Prodotto non trovato");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateQuantitaDisponibile(Prodotto p, int nuovaQuantita) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("UPDATE prodotto SET quantita = ? WHERE prodotto_ID = ?");
+            ps.setInt(1, nuovaQuantita);
+            ps.setInt(2, p.getID());
+            int rows = ps.executeUpdate();
+
+            if (rows == 0) {
+                throw new RuntimeException("Impossibile aggiornare la quantità");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void updateAcquisti(int ID) {
 
         try (Connection con = ConPool.getConnection()) {

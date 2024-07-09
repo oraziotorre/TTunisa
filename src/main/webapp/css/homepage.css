@@ -130,13 +130,13 @@ button {
     margin-bottom: 0.5em;
 }
 
-.oggetto .nome{
+.oggetto .nome {
     font-size: 1em;
     color: black;
     font-family: "Roboto", sans-serif;
 }
 
-.oggetto .barred-prezzo{
+.oggetto .barred-prezzo {
     font-size: 0.8em;
     color: grey;
     text-decoration: grey line-through;

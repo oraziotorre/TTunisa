@@ -15,7 +15,7 @@
 <%
     Carrello carrelloHeader = (Carrello) request.getSession().getAttribute("carrello");
     ArrayList<Prodotto> listaProdottiCarrelloHeader = (ArrayList<Prodotto>) carrelloHeader.getProdotti();
-    int countProdotti = listaProdottiCarrelloHeader.size();
+    int countProdotti = carrelloHeader.getSizeCarrello();
 %>
 <body>
 <div class="header">
@@ -34,7 +34,8 @@
     -->
     <div class="search-bar">
         <form method="get" action="search">
-            <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href = 'search';" required>
+            <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="redirectTo('search');"
+                   required>
         </form>
     </div>
     <div class="user-options">
@@ -77,10 +78,10 @@
 </div>
 <script>
     function redirectTo(url) {
-    if (url == null)
-        url = "${pageContext.request.contextPath}/"
-    window.location.href = url;
-}
+        if (url == null)
+            url = "${pageContext.request.contextPath}/"
+        window.location.href = url;
+    }
 </script>
 </body>
 </html>

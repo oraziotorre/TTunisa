@@ -28,63 +28,73 @@ To change this template use File | Settings | File Templates.
             <button onclick="cambiaImmagine()">></button>
         </div>
     </div>
-<div class="catalogo">
-    <h1>OGGETTI PIU' VENDUTI</h1>
-    <div class="lista">
-        <!-- dopo scegliamo noi gli items dopo qui e per ciascuno aggiungiamo un link che porta a quella pagina -->
-        <%
-            int count = 0;
-            for (Prodotto p : listaProdottiVenduti) {
-                if (count >= 5) break;
-        %>
-        <div class="oggetto">
-            <a href="product?ID=<%= p.getID() %>">
-                <img src="<%= p.getImg() %>" alt="Immagine Prodotto"><br>
-            </a>
-            <p class="nome"><%= p.getNome() %></p>
-            <% if (p.getSconto() == 0) {%>
-            <strong class="prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></strong>
-            <%} else {%>
-            <p class="barred-prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></p>
-            <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%></strong>
-            <%}%>
-            <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello</button>
+    <div class="catalogo">
+        <h1>OGGETTI PIU' VENDUTI</h1>
+        <div class="lista">
+            <!-- dopo scegliamo noi gli items dopo qui e per ciascuno aggiungiamo un link che porta a quella pagina -->
+            <%
+                int count = 0;
+                for (Prodotto p : listaProdottiVenduti) {
+                    if (count >= 5) break;
+            %>
+            <div class="oggetto">
+                <a href="product?ID=<%= p.getID() %>">
+                    <img src="<%= p.getImg() %>" alt="Immagine Prodotto"><br>
+                </a>
+                <p class="nome"><%= p.getNome() %>
+                </p>
+                <% if (p.getSconto() == 0) {%>
+                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
+                </strong>
+                <%} else {%>
+                <p class="barred-prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
+                </p>
+                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%>
+                </strong>
+                <%}%>
+                <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello
+                </button>
+            </div>
+            <%
+                    count++;
+                }
+            %>
         </div>
-        <%
-                count++;
-            }
-        %>
-    </div>
 
 
-    <h1>IN OFFERTA</h1>
-    <div class="lista">
-        <%
-            count = 0;
-            for (Prodotto p : listaProdottiScontati) {
-                p.setQuantita(1);//aggiunta di un elemento al carrello
-                if (count >= 5) break;
-        %>
-        <div class="oggetto">
-            <a href="product?ID=<%= p.getID() %>">
-                <img src="<%= p.getImg() %>" alt="Immagine Prodotto"><br>
-            </a>
-            <p class="nome"><%= p.getNome() %></p>
-            <% if (p.getSconto() == 0) {%>
-            <strong class="prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></strong>
-            <%} else {%>
-            <p class="barred-prezzo">$<%=String.format("%.2f",p.getPrezzo()) %></p>
-            <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%></strong>
-            <%}%>
-            <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello</button>
+        <h1>IN OFFERTA</h1>
+        <div class="lista">
+            <%
+                count = 0;
+                for (Prodotto p : listaProdottiScontati) {
+                    p.setQuantita(1);//aggiunta di un elemento al carrello
+                    if (count >= 5) break;
+            %>
+            <div class="oggetto">
+                <a href="product?ID=<%= p.getID() %>">
+                    <img src="<%= p.getImg() %>" alt="Immagine Prodotto"><br>
+                </a>
+                <p class="nome"><%= p.getNome() %>
+                </p>
+                <% if (p.getSconto() == 0) {%>
+                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
+                </strong>
+                <%} else {%>
+                <p class="barred-prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
+                </p>
+                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%>
+                </strong>
+                <%}%>
+                <button onclick="redirectTo('cart?action=additem&quantita=1&ID=<%=p.getID()%>')">Aggiungi al carrello
+                </button>
 
+            </div>
+            <%
+                    count++;
+                }
+            %>
         </div>
-        <%
-                count++;
-            }
-        %>
     </div>
-</div>
 </div>
 <%@include file="footer.jsp" %>
 

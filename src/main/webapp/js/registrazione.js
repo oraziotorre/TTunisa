@@ -1,8 +1,8 @@
 function register() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
-    var nome =document.getElementById('nome').value;
-    var cognome=document.getElementById('cognome').value;
+    var nome = document.getElementById('nome').value;
+    var cognome = document.getElementById('cognome').value;
 
     // Validazione degli input lato client
     var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -18,11 +18,11 @@ function register() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'register-check', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             if (response.status == "error") {
-                document.getElementById("error").style.display ="block";
+                document.getElementById("error").style.display = "block";
                 document.getElementById("error").innerHTML = "Ciao";
             } else {
                 // Redirect to success page or handle success as needed

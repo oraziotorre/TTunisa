@@ -22,7 +22,7 @@
          </form> -->
 
         <!-- Memorizziamo un nuovo utente molto semplicemente -->
-        <form class="register-form"  onsubmit="return register()">
+        <form class="register-form" onsubmit="return register()">
             <label for="nome">Nome</label><br>
             <input type="text" placeholder="Inserisci Nome" name="Nome" id="nome" required><br>
             <label for="cognome">Cognome</label><br>
