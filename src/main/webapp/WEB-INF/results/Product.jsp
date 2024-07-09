@@ -18,7 +18,7 @@
     </div>
     <div class="product-container">
         <div class="product-image">
-            <img src="<%=p.getImg()%>" alt="images/imageNA.png">
+            <img src="<%=p.getImg()%>" alt="Immagine Prodotto">
         </div>
         <div class="product-details">
             <h1 class="nome-prodotto"><%=p.getNome()%></h1>

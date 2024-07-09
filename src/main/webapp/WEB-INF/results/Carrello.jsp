@@ -47,7 +47,7 @@
         %>
         <div class="prodotto">
             <div class="img_details">
-                <img src="<%=p.getImg()%>" alt="images/imageNA.png">
+                <img src="<%=p.getImg()%>" alt="Immagine Prodotto">
                 <div class="product-details">
                     <p class="nome"><%=p.getNome()%></p>
                     <!-- Qui ci va il prezzo del singolo oggetto nello span -->

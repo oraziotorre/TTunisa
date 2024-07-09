@@ -26,7 +26,7 @@
     <% for (Prodotto p : listaProdotti) { %>
     <div class="product-search">
         <a href="product?ID=<%=p.getID()%>">
-            <img src="<%=p.getImg()%>" alt="${pageContext.request.contextPath}\images\imageNA.png"><br>
+            <img src="<%=p.getImg()%>" alt="Immagine Prodotto"><br>
         </a>
         <p class="nome"><%=p.getNome()%>
         </p>
