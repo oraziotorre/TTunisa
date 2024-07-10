@@ -109,7 +109,7 @@ public class UtenteDAO extends HttpServlet {
         }
     }
 
-    public static void setNewStatus(int ID, boolean statusNuovo) {
+    public static synchronized void setNewStatus(int ID, boolean statusNuovo) {
 
         try (Connection con = ConPool.getConnection();
              PreparedStatement ps = con.prepareStatement("UPDATE utente SET amministratore = ? WHERE utente_ID = ?")) {

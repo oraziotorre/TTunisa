@@ -68,13 +68,13 @@
             <% } %>
         </div>
         <div class="cart_pieno_check">
-            <% if (request.getSession().getAttribute("Utente") != null) { %>
             <h3>Riepilogo ordine</h3>
             <div class="summary">
                 <p>Subtotale <span id="subtotale">$ <%=String.format("%.2f", subtotale)%></span></p>
                 <p>Iva <span id="iva">$ <%=String.format("%.2f", iva)%></span></p>
                 <p>Totale <span id="totale">$ <%=String.format("%.2f", totale)%></span></p>
             </div>
+            <% if (request.getSession().getAttribute("Utente") != null) { %>
             <div class="checkout-button">
                 <button type="submit" name="action" value="checkout">Checkout</button>
             </div>

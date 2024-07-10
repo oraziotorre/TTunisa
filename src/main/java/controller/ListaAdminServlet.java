@@ -48,6 +48,7 @@ public class ListaAdminServlet extends HttpServlet {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaUtenti.jsp");
                     dispatcher.forward(request, response);
                 } else {
+                    //AJAX
                     int ID = Integer.parseInt(request.getParameter("ID"));
                     boolean status = Boolean.parseBoolean(request.getParameter("status"));
                     UtenteDAO.setNewStatus(ID, status);

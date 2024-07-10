@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -34,14 +34,20 @@
                         <p class="nome">${prodotto.nome}</p>
                         <c:choose>
                             <c:when test="${prodotto.sconto == 0}">
-                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></strong>
+                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo}"
+                                                                          pattern="0.00"/></strong>
                             </c:when>
                             <c:otherwise>
-                                <p class="barred-prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></p>
-                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}" pattern="0.00"/></strong>
+                                <p class="barred-prezzo">$<fmt:formatNumber value="${prodotto.prezzo}"
+                                                                            pattern="0.00"/></p>
+                                <strong class="prezzo">$<fmt:formatNumber
+                                        value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}"
+                                        pattern="0.00"/></strong>
                             </c:otherwise>
                         </c:choose>
-                        <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=${prodotto.ID}'">Aggiungi al carrello</button>
+                        <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=${prodotto.ID}'">
+                            Aggiungi al carrello
+                        </button>
                     </div>
                 </c:if>
             </c:forEach>
@@ -58,14 +64,20 @@
                         <p class="nome">${prodotto.nome}</p>
                         <c:choose>
                             <c:when test="${prodotto.sconto == 0}">
-                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></strong>
+                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo}"
+                                                                          pattern="0.00"/></strong>
                             </c:when>
                             <c:otherwise>
-                                <p class="barred-prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></p>
-                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}" pattern="0.00"/></strong>
+                                <p class="barred-prezzo">$<fmt:formatNumber value="${prodotto.prezzo}"
+                                                                            pattern="0.00"/></p>
+                                <strong class="prezzo">$<fmt:formatNumber
+                                        value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}"
+                                        pattern="0.00"/></strong>
                             </c:otherwise>
                         </c:choose>
-                        <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=${prodotto.ID}'">Aggiungi al carrello</button>
+                        <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=${prodotto.ID}'">
+                            Aggiungi al carrello
+                        </button>
                     </div>
                 </c:if>
             </c:forEach>
@@ -74,6 +86,44 @@
 </div>
 <%@ include file="footer.jsp" %>
 
-<script src="js/homepage.js"></script>
+<script>
+    let inTransition = false;
+    const immagini = ['images/homeImg1.png', 'images/homeImg2.jpg', 'images/homeImg3.jpg', 'images/homeImg4.jpg'];
+    let indiceImmagine = 0;
+
+    function cambiaImmagine() {
+        if (inTransition) return;
+        inTransition = true;
+
+        let immagine = document.getElementById('immagine_grande');
+        immagine.style.opacity = 0;
+
+        setTimeout(() => {
+            indiceImmagine = (indiceImmagine + 1) % immagini.length;
+            immagine.src = immagini[indiceImmagine];
+            immagine.style.opacity = 1;
+            inTransition = false;
+        }, 500);
+    }
+
+    /*
+    NEL CASO SERVISSE
+    function increaseItemCount() {
+        // Seleziona l'elemento con classe 'cart-icon'
+        var cartIcon = document.querySelector('.cart-icon');
+
+        // Ottieni l'attuale valore di data-item-count e convertilo in un numero intero
+        var currentCount = parseInt(cartIcon.getAttribute('data-item-count'));
+
+        // Incrementa il valore
+        var newCount = currentCount + 1;
+
+        // Aggiorna il valore di data-item-count nell'HTML
+        cartIcon.setAttribute('data-item-count', newCount);
+
+    }*/
+
+    setInterval(cambiaImmagine, 5000);
+</script>
 </body>
 </html>

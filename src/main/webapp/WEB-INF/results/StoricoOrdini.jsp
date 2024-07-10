@@ -25,7 +25,7 @@
             <div class="dettagli-ordine">
                 <div>
                     <p>Data Ordine</p>
-                    <p><fmt:formatDate value="${ordine.data.time}" pattern="dd/MM/yyyy" /></p>
+                    <p><fmt:formatDate value="${ordine.data.time}" pattern="dd/MM/yyyy"/></p>
                 </div>
                 <div>
                     <p>Spesa Totale</p>
@@ -40,10 +40,13 @@
                         <p>${prodotto.nome}</p>
                         <c:choose>
                             <c:when test="${prodotto.sconto == 0}">
-                                <span>$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/> x ${prodotto.quantita}</span>
+                                <span>$<fmt:formatNumber value="${prodotto.prezzo}"
+                                                         pattern="0.00"/> x ${prodotto.quantita}</span>
                             </c:when>
                             <c:otherwise>
-                                <span>$<fmt:formatNumber value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}" pattern="0.00"/> x ${prodotto.quantita}</span>
+                                <span>$<fmt:formatNumber
+                                        value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}"
+                                        pattern="0.00"/> x ${prodotto.quantita}</span>
                             </c:otherwise>
                         </c:choose>
                     </div>
