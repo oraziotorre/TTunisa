@@ -60,18 +60,4 @@ public class OrdineDAO {
 
     }
 
-    public static List<Prodotto> scontrinoToProdotti(String json) {
-        Gson gson = new Gson();
-        Type productListType = new TypeToken<List<Prodotto>>() {
-        }.getType();
-        return gson.fromJson(json, productListType);
-    }
-
-
-    public static String prodottiToScontrino(List<Prodotto> prodotti) {
-        Gson gson = new Gson();
-        return gson.toJson(prodotti);
-    }
-
-
 }

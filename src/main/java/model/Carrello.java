@@ -84,7 +84,7 @@ public class Carrello {
             }
         }
         Ordine ordine = new Ordine();
-        String scontrino = OrdineDAO.prodottiToScontrino(this.getProdotti());
+        String scontrino = JsonConverter.prodottiToScontrino(this.getProdotti());
         ordine.setScontrino(scontrino);
         ordine.setUtente_ID(utenteLoggato.getID());
 

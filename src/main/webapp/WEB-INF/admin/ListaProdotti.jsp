@@ -23,7 +23,8 @@
             <div class="bottoni">
                 <button onclick="window.location.href ='admin?action=prodotti'">Tutti</button>
             </div>
-            <input type="text" name="query" placeholder="Nome Prodotti" onsubmit="window.location.href ='admin?action=prodotti'"
+            <input type="text" name="query" placeholder="Nome Prodotti"
+                   onsubmit="window.location.href ='admin?action=prodotti'"
                    required>
         </div>
     </form>

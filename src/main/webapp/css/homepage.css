@@ -181,7 +181,7 @@ button {
     border-color: #E4112A;
 }
 
-@media screen and (max-width: 980px){
+@media screen and (max-width: 980px) {
     .immagine img {
         border-radius: 0.7em;
         box-shadow: 0 0.15em 0.3em rgba(0, 0, 0, 0.1);
@@ -222,7 +222,7 @@ button {
     }
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 750px) {
     .immagine img {
         border-radius: 0.6em;
         box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1);
@@ -263,7 +263,7 @@ button {
     }
 }
 
-@media screen and (max-width: 540px){
+@media screen and (max-width: 540px) {
     .immagine img {
         border-radius: 0.5em;
         box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);

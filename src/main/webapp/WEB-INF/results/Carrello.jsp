@@ -61,7 +61,8 @@
                        value="<%= p.getQuantita()%>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
                 <p class="prezzo_totale">$ <%=String.format("%.2f", prezzo * p.getQuantita())%>
                 </p>
-                <button type="button" class="bidone" onclick="window.location.href ='cart?action=removeitem&ID=<%=p.getID()%>'"><img
+                <button type="button" class="bidone"
+                        onclick="window.location.href ='cart?action=removeitem&ID=<%=p.getID()%>'"><img
                         src="${pageContext.request.contextPath}\images\bin-icon.webp"></button>
             </div>
             <% } %>

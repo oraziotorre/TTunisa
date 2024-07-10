@@ -34,7 +34,7 @@
             <td>
                 <div class="admin-buttons">
                     <button class="toggle <%= ut.isAmministratore() ? "non-admin" : "admin" %>"
-                            <% if(utenteLoggato.getID()!=ut.getID()){%>
+                            <% if (utenteLoggato.getID() != ut.getID()) {%>
                             onclick="toggleAdminStatus(this, '<%= ut.getID() %>')"
                             <%}%>>
                         <%= ut.isAmministratore() ? "Si" : "No" %>

@@ -1,18 +1,12 @@
-<%--
-Created by IntelliJ IDEA.
-User: UTENTE
-Date: 23/06/2024
-Time: 15:46
-To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <html>
 <head>
     <title>home</title>
     <link href="css/homepage.css" type="text/css" rel="stylesheet">
 </head>
-<% ArrayList<Prodotto> listaProdottiVenduti = (ArrayList<Prodotto>) request.getAttribute("listaProdottiVenduti");%>
-<% ArrayList<Prodotto> listaProdottiScontati = (ArrayList<Prodotto>) request.getAttribute("listaProdottiScontati");%>
 <body>
 <%@ include file="header.jsp" %>
 <%@ include file="nav.jsp" %>
@@ -31,72 +25,54 @@ To change this template use File | Settings | File Templates.
     <div class="catalogo">
         <h1>OGGETTI PIU' VENDUTI</h1>
         <div class="lista">
-            <!-- dopo scegliamo noi gli items dopo qui e per ciascuno aggiungiamo un link che porta a quella pagina -->
-            <%
-                int count = 0;
-                for (Prodotto p : listaProdottiVenduti) {
-                    if (count >= 5) break;
-            %>
-            <div class="oggetto">
-                <a href="product?ID=<%= p.getID() %>">
-                    <img src="<%= p.getImg() %>" alt="Immagine Prodotto"><br>
-                </a>
-                <p class="nome"><%= p.getNome() %>
-                </p>
-                <% if (p.getSconto() == 0) {%>
-                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
-                </strong>
-                <%} else {%>
-                <p class="barred-prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
-                </p>
-                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%>
-                </strong>
-                <%}%>
-                <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=<%=p.getID()%>'">Aggiungi al carrello
-                </button>
-            </div>
-            <%
-                    count++;
-                }
-            %>
+            <c:forEach var="prodotto" items="${listaProdottiVenduti}" varStatus="status">
+                <c:if test="${status.index < 5}">
+                    <div class="oggetto">
+                        <a href="product?ID=${prodotto.ID}">
+                            <img src="${prodotto.img}" alt="Immagine Prodotto"><br>
+                        </a>
+                        <p class="nome">${prodotto.nome}</p>
+                        <c:choose>
+                            <c:when test="${prodotto.sconto == 0}">
+                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></strong>
+                            </c:when>
+                            <c:otherwise>
+                                <p class="barred-prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></p>
+                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}" pattern="0.00"/></strong>
+                            </c:otherwise>
+                        </c:choose>
+                        <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=${prodotto.ID}'">Aggiungi al carrello</button>
+                    </div>
+                </c:if>
+            </c:forEach>
         </div>
-
 
         <h1>IN OFFERTA</h1>
         <div class="lista">
-            <%
-                count = 0;
-                for (Prodotto p : listaProdottiScontati) {
-                    p.setQuantita(1);//aggiunta di un elemento al carrello
-                    if (count >= 5) break;
-            %>
-            <div class="oggetto">
-                <a href="product?ID=<%= p.getID() %>">
-                    <img src="<%= p.getImg() %>" alt="Immagine Prodotto"><br>
-                </a>
-                <p class="nome"><%= p.getNome() %>
-                </p>
-                <% if (p.getSconto() == 0) {%>
-                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
-                </strong>
-                <%} else {%>
-                <p class="barred-prezzo">$<%=String.format("%.2f", p.getPrezzo()) %>
-                </p>
-                <strong class="prezzo">$<%=String.format("%.2f", p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto()))%>
-                </strong>
-                <%}%>
-                <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=<%=p.getID()%>'">Aggiungi al carrello
-                </button>
-
-            </div>
-            <%
-                    count++;
-                }
-            %>
+            <c:forEach var="prodotto" items="${listaProdottiScontati}" varStatus="status">
+                <c:if test="${status.index < 5}">
+                    <div class="oggetto">
+                        <a href="product?ID=${prodotto.ID}">
+                            <img src="${prodotto.img}" alt="Immagine Prodotto"><br>
+                        </a>
+                        <p class="nome">${prodotto.nome}</p>
+                        <c:choose>
+                            <c:when test="${prodotto.sconto == 0}">
+                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></strong>
+                            </c:when>
+                            <c:otherwise>
+                                <p class="barred-prezzo">$<fmt:formatNumber value="${prodotto.prezzo}" pattern="0.00"/></p>
+                                <strong class="prezzo">$<fmt:formatNumber value="${prodotto.prezzo - (prodotto.prezzo / 100 * prodotto.sconto)}" pattern="0.00"/></strong>
+                            </c:otherwise>
+                        </c:choose>
+                        <button onclick="window.location.href ='cart?action=additem&quantita=1&ID=${prodotto.ID}'">Aggiungi al carrello</button>
+                    </div>
+                </c:if>
+            </c:forEach>
         </div>
     </div>
 </div>
-<%@include file="footer.jsp" %>
+<%@ include file="footer.jsp" %>
 
 <script src="js/homepage.js"></script>
 </body>

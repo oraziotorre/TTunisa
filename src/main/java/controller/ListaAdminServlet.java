@@ -50,7 +50,7 @@ public class ListaAdminServlet extends HttpServlet {
                 } else {
                     int ID = Integer.parseInt(request.getParameter("ID"));
                     boolean status = Boolean.parseBoolean(request.getParameter("status"));
-                    UtenteDAO.setNewStatus(ID,status);
+                    UtenteDAO.setNewStatus(ID, status);
                 }
             }
         }
