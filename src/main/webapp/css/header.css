@@ -146,7 +146,14 @@ body {
 
 .dropdown:hover span, .dropdown:hover img {
     color: #0056b3;
+}
+
+.dropdown:hover img{
     background-color: #0056b3;
+}
+
+.dropdown:hover .utente-saldo{
+    color: limegreen;
 }
 
 .dropdown-content a:hover {
