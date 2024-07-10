@@ -99,6 +99,7 @@ h3 {
 }
 
 .prodotto img {
+    margin: auto;
     width: 10em;
     height: 10em;
     border-radius: 0.2em;

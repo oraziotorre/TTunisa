@@ -16,42 +16,35 @@ body {
     background-color: #fff;
     box-shadow: 0 0.15em 0.25em rgba(0, 0, 0, 0.1);
     width: 100%;
+    height: auto;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+    width: 20%;
+    height: 100%;
 }
 
 .logo img {
-    width: 15em;
-    height: auto; /* Modifica per mantenere il rapporto di aspetto */
-    margin-left: 1.5em;
-}
-
-.logo span {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #000;
-    margin-left: 1em; /* Aggiunto margine per separare il testo dal logo */
+    width: 80%;
+    height: auto;
 }
 
 .search-bar {
-    flex-grow: 1;
-    margin: 0 1em; /* Aggiunto margine per separare la barra di ricerca dagli altri elementi */
-    text-align: center;
+    flex: 1;
+    margin: 0 1em;
 }
 
 .search-bar form {
     padding: 0.7em;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .search-bar input {
-    width: 60%;
+    width: 100%;
+    max-width: 25em;
     padding: 0.7em;
     font-size: 1em;
     border: 0.1em solid #ccc;
@@ -66,25 +59,17 @@ body {
 .user-options {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Mantiene gli elementi a destra */
-    gap: 1em; /* Spazio tra elementi */
-    margin-right: 2em;
 }
 
-.login-container {
+.login-access, .login-dropdown {
     display: flex;
     align-items: center;
-}
-
-.login-access {
-    color: rgb(128, 128, 128);
+    margin-left: 1em;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin-right: 0; /* Rimosso margine destro */
+    color: rgb(128, 128, 128);
 }
 
-.login-access img {
+.login-access img, .login-dropdown img {
     background: grey;
     border-radius: 50%;
     border: none;
@@ -94,39 +79,11 @@ body {
     width: 2em;
     height: 2em;
     margin-right: 0.5em;
-
 }
 
-.login-access span {
+.login-access span, .login-dropdown span {
     font-size: 1.2em;
-    margin-right: 1em;
     cursor: pointer;
-}
-
-.utente-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.utente-nome {
-    margin-right: 0.5em;
-    font-size: 1em;
-    color: black;
-}
-
-.utente-saldo {
-    font-size: 0.8em;
-    color: limegreen;
-}
-
-.login-access:hover img {
-    background-color: #0056b3;
-}
-
-.login-access:hover span {
-    color: #0056b3;
 }
 
 .cart-icon {
@@ -139,24 +96,18 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-left: 0; /* Rimosso margine sinistro */
-    margin-right: 0; /* Rimosso margine destro */
+    margin-left: 1em;
 }
 
 .cart-icon img {
     width: 2em;
     height: 2em;
-    filter: invert(1); /* Cambia da nero in bianco */
+    filter: invert(1);
     margin: auto;
 }
 
-.cart-icon:hover {
-    background-color: #0056b3;
-}
-
-/* Per un numero di articoli nel carrello */
 .cart-icon::after {
-    content: attr(data-item-count); /* Utilizza l'attributo data per il conteggio */
+    content: attr(data-item-count);
     position: absolute;
     top: -0.5em;
     right: -0.5em;
@@ -170,33 +121,6 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 0.90em;
-}
-
-.login-dropdown {
-    color: rgb(128, 128, 128);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin-right: 1em;
-}
-
-.login-dropdown img {
-    background: grey;
-    border-radius: 50%;
-    border: none;
-    font-size: 1em;
-    cursor: pointer;
-    color: #000;
-    width: 2em;
-    height: 2em;
-    margin-right: 0.5em;
-}
-
-.login-dropdown span {
-    font-size: 1em;
-    margin-right: 0.5em;
-    cursor: pointer;
-    font-family: "Roboto", sans-serif;
 }
 
 .dropdown {
@@ -220,11 +144,8 @@ body {
     display: block;
 }
 
-.dropdown:hover span {
+.dropdown:hover span, .dropdown:hover img {
     color: #0056b3;
-}
-
-.dropdown:hover img {
     background-color: #0056b3;
 }
 
@@ -240,33 +161,79 @@ body {
     display: block;
 }
 
-.login-dropdown {
+.utente-info {
     display: flex;
-    align-items: center;
-    margin-right: 1em;
-    text-decoration: none;
-    color: rgb(128, 128, 128);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.login-dropdown:hover .utente-saldo {
+.utente-nome {
+    margin-right: 0.5em;
+    font-size: 1em;
+    color: black;
+}
+
+.utente-saldo {
+    font-size: 0.8em;
     color: limegreen;
 }
 
-.dropdown:hover .utente-saldo {
-    color: limegreen; /* Il colore rimane verde */
+@media screen and (max-width: 980px) {
+    .header {
+        padding: 0.7em 1em;
+    }
+    .search-bar {
+        flex: 1;
+        margin: 0;
+    }
+    .search-bar input {
+        width: 100%;
+        max-width: 25em;
+        padding: 0.7em;
+        font-size: 1em;
+        border: 0.1em solid #ccc;
+        border-radius: 0.25em;
+        margin: auto;
+    }
 }
 
-.dropdown-content a {
-    font-size: 1em;
-    color: black;
-    font-family: "Roboto", sans-serif;
+@media screen and (max-width: 750px) {
+    .header {
+        padding: 0.5em 0.75em;
+        flex-direction: column;
+    }
+    .search-bar {
+        flex: 1;
+        margin: 0;
+    }
+    .search-bar input {
+        width: 100%;
+        max-width: 25em;
+        padding: 0.7em;
+        font-size: 1em;
+        border: 0.1em solid #ccc;
+        border-radius: 0.25em;
+        margin: auto;
+    }
 }
 
-.cart-access {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
+@media screen and (max-width: 540px) {
+    .header {
+        flex-direction: column;
+        padding: 0.5em 0.5em;
+    }
+    .search-bar {
+        flex: 1;
+        margin: 0;
+    }
+    .search-bar input {
+        width: 100%;
+        max-width: 25em;
+        padding: 0.7em;
+        font-size: 1em;
+        border: 0.1em solid #ccc;
+        border-radius: 0.25em;
+        margin: auto;
+    }
 }
-

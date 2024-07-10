@@ -12,6 +12,7 @@ body {
 }
 
 .homepage {
+    height: auto;
     width: 100%;
     margin: 0;
 }
@@ -127,8 +128,8 @@ button {
 }
 
 .oggetto img {
-    width: 10em;
-    height: 10em;
+    width: 100%;
+    height: 100%;
     margin-bottom: 0.5em;
 }
 
@@ -172,6 +173,7 @@ button {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
     width: 80%;
+    height: 30%;
     border-radius: 5%;
 }
 
@@ -183,24 +185,70 @@ button {
 
 @media screen and (max-width: 980px) {
     .immagine img {
-        border-radius: 0.7em;
-        box-shadow: 0 0.15em 0.3em rgba(0, 0, 0, 0.1);
+        border-radius: 0.5em;
+        box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);
     }
 
     button {
-        padding: 0.7em 0.15em;
-        font-size: 2.5em;
+        padding: 0.5em 0.05em;
+        font-size: 1.2em;
     }
 
     .catalogo h1 {
-        padding: 0.3em;
+        padding: 0.6em;
         font-size: 1.6em;
     }
 
+
     .oggetto {
-        padding: 0.9em;
-        margin: 0.5em;
-        border-radius: 0.6em;
+        padding: 1.2em;
+        margin: 0.3em;
+        border-radius: 0.4em;
+        width: 40%;
+        height: auto;
+    }
+
+    .oggetto .nome {
+        font-size: 0.9em;
+    }
+
+    .oggetto .barred-prezzo {
+        font-size: 0.6em;
+    }
+
+    .oggetto .prezzo {
+        font-size: 0.8em;
+    }
+
+    .oggetto button {
+        padding: 0.3em 0.7em;
+        margin-top: 0.2em;
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 750px) {
+    .immagine img {
+        border-radius: 0.5em;
+        box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        padding: 0.5em 0.05em;
+        font-size: 1.5em;
+    }
+
+    .catalogo h1 {
+        padding: 0.6em;
+        font-size: 2em;
+    }
+
+
+    .oggetto {
+        padding: 0.7em;
+        margin: 0.3em;
+        border-radius: 0.4em;
+        width: 45%;
+        height: auto;
     }
 
     .oggetto .nome {
@@ -217,54 +265,14 @@ button {
 
     .oggetto button {
         padding: 0.4em 0.9em;
-        margin-top: 0.4em;
-        font-size: 0.7em;
+        margin-top: 0.2em;
+        font-size: 1.2em;
     }
 }
-
-@media screen and (max-width: 750px) {
-    .immagine img {
-        border-radius: 0.6em;
-        box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1);
-    }
-
-    button {
-        padding: 0.6em 0.1em;
-        font-size: 2em;
-    }
-
-    .catalogo h1 {
-        padding: 0.2em;
-        font-size: 1.4em;
-    }
-
-    .oggetto {
-        padding: 0.8em;
-        margin: 0.4em;
-        border-radius: 0.5em;
-    }
-
-    .oggetto .nome {
-        font-size: 0.8em;
-    }
-
-    .oggetto .barred-prezzo {
-        font-size: 0.6em;
-    }
-
-    .oggetto .prezzo {
-        font-size: 0.8em;
-    }
-
-    .oggetto button {
-        padding: 0.3em 0.8em;
-        margin-top: 0.3em;
-        font-size: 0.6em;
-    }
-}
-
 @media screen and (max-width: 540px) {
     .immagine img {
+        width: 20em;
+        height: 12em;
         border-radius: 0.5em;
         box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);
     }
@@ -275,31 +283,34 @@ button {
     }
 
     .catalogo h1 {
-        padding: 0.1em;
-        font-size: 1.2em;
+        padding: 0.6em;
+        font-size: 2em;
     }
+
 
     .oggetto {
         padding: 0.7em;
         margin: 0.3em;
         border-radius: 0.4em;
+        width: 45%;
+        height: auto;
     }
 
     .oggetto .nome {
-        font-size: 0.7em;
+        font-size: 0.9em;
     }
 
     .oggetto .barred-prezzo {
-        font-size: 0.5em;
-    }
-
-    .oggetto .prezzo {
         font-size: 0.7em;
     }
 
+    .oggetto .prezzo {
+        font-size: 0.9em;
+    }
+
     .oggetto button {
-        padding: 0.2em 0.7em;
+        padding: 0.4em 0.9em;
         margin-top: 0.2em;
-        font-size: 0.5em;
+        font-size: 0.9em;
     }
 }
