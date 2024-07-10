@@ -21,7 +21,7 @@ public class GestioneProdottoServlet extends HttpServlet {
 
         String action = request.getParameter("action");
 
-        if (action == null || action.equals("add")) {
+        if (action == null ||action.isEmpty()|| action.equals("add")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/CreaProdotto.jsp");
             dispatcher.forward(request, response);
         }

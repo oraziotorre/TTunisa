@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="catalogo">
-        <h1>OGGETTI PIU' VENDUTI</h1>
+        <h1>ARTICOLI PIU' VENDUTI</h1>
         <div class="lista">
             <c:forEach var="prodotto" items="${listaProdottiVenduti}" varStatus="status">
                 <c:if test="${status.index < 5}">

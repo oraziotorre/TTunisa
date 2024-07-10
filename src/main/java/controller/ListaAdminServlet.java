@@ -21,11 +21,13 @@ public class ListaAdminServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        if (request.getParameter("action") == null) {
+        String action = request.getParameter("action");
+        
+        if (action == null || action.isEmpty()) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
             dispatcher.forward(request, response);
         } else {
-            if (request.getParameter("action").equals("prodotti")) {
+            if (action.equals("prodotti")) {
                 //LISTA PRODOTTI
                 if (request.getParameter("query") == null) {
                     ArrayList<Prodotto> listaProdotti = ProdottoDAO.doRetriveProdotto();
@@ -40,7 +42,7 @@ public class ListaAdminServlet extends HttpServlet {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaProdotti.jsp");
                     dispatcher.forward(request, response);
                 }
-            } else if (request.getParameter("action").equals("utenti")) {
+            } else if (action.equals("utenti")) {
                 //LISTA UTENTI
                 if (request.getParameter("ID") == null) {
                     ArrayList<Utente> listaUtenti = UtenteDAO.doRetriveUtente();

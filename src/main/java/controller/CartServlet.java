@@ -32,7 +32,7 @@ public class CartServlet extends HttpServlet {
                     session.setAttribute("carrello", new Carrello());
                     response.sendRedirect("order_history");
                 } else {
-                    ////ERRORE QUANTITA NON DISPONIBILE
+                    ////ERRORE CHECKOUT
                     response.sendRedirect("cart");
                 }
             }

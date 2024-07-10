@@ -18,14 +18,25 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Utente u = UtenteDAO.doLogin(request.getParameter("Email"), request.getParameter("Password"));
 
+        // Get the session and user login details
+        HttpSession session = request.getSession();
+        String email = request.getParameter("Email");
+        String password = request.getParameter("Password");
+        Utente user = UtenteDAO.doLogin(email, password);
+
+        // Check if the request is an Ajax request
         boolean isAjax = "XMLHttpRequest".equals(request.getHeader("X-Requested-With"));
 
-        if (request.getParameter("action") == null) {
-            if (u == null) {
+        // Check if the action parameter is present and handle login or logout accordingly
+        String action = request.getParameter("action");
+
+        if (action == null) {
+            // Handle login
+            if (user == null) {
+                // User authentication failed
                 if (isAjax) {
+                    // Send JSON response for Ajax request
                     response.setContentType("application/json");
                     PrintWriter out = response.getWriter();
                     JSONObject json = new JSONObject();
@@ -33,17 +44,22 @@ public class LoginServlet extends HttpServlet {
                     out.print(json.toString());
                     out.flush();
                 } else {
-                    RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
-                    rs.include(request, response);
+                    // Forward to login page for standard request
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
+                    dispatcher.include(request, response);
                 }
             } else {
-                session.setAttribute("Utente", u);
+                // User authentication succeeded
+                session.setAttribute("Utente", user);
                 String redirectUrl = request.getContextPath();
-                if (u.isAmministratore()) {
+
+                // Check if the user is an admin
+                if (user.isAmministratore()) {
                     session.setAttribute("isAdmin", true);
                 }
 
                 if (isAjax) {
+                    // Send JSON response for Ajax request
                     response.setContentType("application/json");
                     PrintWriter out = response.getWriter();
                     JSONObject json = new JSONObject();
@@ -52,10 +68,12 @@ public class LoginServlet extends HttpServlet {
                     out.print(json.toString());
                     out.flush();
                 } else {
+                    // Redirect to home page for standard request
                     response.sendRedirect(redirectUrl);
                 }
             }
-        } else if (request.getParameter("action").equals("logout")) {
+        } else if ("logout".equals(action)) {
+            // Handle logout
             session.invalidate();
             response.sendRedirect(request.getContextPath());
         }

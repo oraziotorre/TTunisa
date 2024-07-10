@@ -51,12 +51,12 @@ public class RegistrationServlet extends HttpServlet {
 
         // Crea un nuovo oggetto Utente
         Utente u = new Utente();
-        u.setNome(nome);
-        u.setCognome(cognome);
+        u.setNome(nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase());
+        u.setCognome(cognome.substring(0, 1).toUpperCase() + cognome.substring(1).toLowerCase());
         u.setSaldo(1000.00); // Imposta un saldo iniziale
         u.setEmail(email);
         u.setPassword(password);
-        u.setAmministratore(false); // Suppongo che l'utente non sia un amministratore
+        u.setAmministratore(false); // l'utente non è un amministratore
 
         // Verifica se l'email è già presente nel database
         if (!UtenteDAO.isNewEmail(u.getEmail())) {

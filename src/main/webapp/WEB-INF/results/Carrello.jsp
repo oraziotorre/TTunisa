@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <input class="quantita" type="number" id="quantity_<%= p.getID() %>" name="quantity_<%= p.getID() %>"
-                       min="1" max="<%=model.ProdottoDAO.getQuantitaDisponibile(p)%>"
+                       min="1" max="<%=model.ProdottoDAO.findProduct(p.getID()).getQuantita()%>"
                        value="<%= p.getQuantita()%>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
                 <p class="prezzo_totale">$ <%=String.format("%.2f", prezzo * p.getQuantita())%>
                 </p>

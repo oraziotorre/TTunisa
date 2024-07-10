@@ -22,7 +22,6 @@
             <th>Cognome</th>
             <th>Email</th>
             <th>Amministratore</th>
-            <th>Switch</th>
         </tr>
         <% for (Utente ut : listaUtenti) { %>
         <tr>

@@ -73,23 +73,29 @@ public class Carrello {
 
 
     public boolean checkout(Utente utenteLoggato) {
+
         for (Prodotto prodotto : this.prodottiCarrello) {
-            int quantitaDisponibile = ProdottoDAO.getQuantitaDisponibile(prodotto);
-            if (prodotto.getQuantita() < quantitaDisponibile) {
+            int quantitaDisponibile = ProdottoDAO.findProduct(prodotto.getID()).getQuantita();
+            if (prodotto.getQuantita() <= quantitaDisponibile) {
                 int nuovaQuantita = quantitaDisponibile - prodotto.getQuantita();
                 ProdottoDAO.updateQuantitaDisponibile(prodotto, nuovaQuantita);
             } else {
                 return false;
-                //GESTIRE CASO ERRORE
+                //CASO ERRORE 1 (Quantita' di un prodotto non disponibile)
             }
         }
+        double prezzoTotCarrello = this.getPrezzoTotale();
+        double prezzoTot = prezzoTotCarrello + (prezzoTotCarrello * 0.22);   //aggiungo l'IVA al prezzo totale del carrello
+
+        if(utenteLoggato.getSaldo()<prezzoTot)
+            return false; //CASO ERRORE 2 (saldo non sufficiente)
+
         Ordine ordine = new Ordine();
         String scontrino = JsonConverter.prodottiToScontrino(this.getProdotti());
         ordine.setScontrino(scontrino);
         ordine.setUtente_ID(utenteLoggato.getID());
 
-        double prezzoTotCarrello = this.getPrezzoTotale();
-        double prezzoTot = prezzoTotCarrello + (prezzoTotCarrello * 0.22);   //aggiungo l'IVA al prezzo totale del carrello
+
         utenteLoggato.setSaldo(utenteLoggato.getSaldo() - prezzoTot);
         UtenteDAO.updateSaldo(utenteLoggato, utenteLoggato.getSaldo());
         ordine.setPrezzo_tot(prezzoTot);

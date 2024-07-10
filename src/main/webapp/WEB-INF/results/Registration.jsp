@@ -51,15 +51,37 @@
         // Validazione degli input lato client
         var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
+        var nameRGX = /^[a-zA-Z]+$/;
 
-        if (!passwordRGX.test(password) || !emailRGX.test(email) ||
-            nome.trim() === '' || cognome.trim() === '') {
-            document.getElementById("error").innerHTML = "Formato non corretto o campi vuoti";
+        var errorMessage = "";
+
+        if (!nameRGX.test(nome)) {
+            errorMessage += "Il campo nome può contenere solo lettere<br>";
+        }
+
+        if (!nameRGX.test(cognome)) {
+            errorMessage += "Il campo cognome può contenere solo lettere<br>";
+        }
+
+        if (!emailRGX.test(email)) {
+            errorMessage += "Formato email non corretto.<br>";
+        }
+
+        if (!passwordRGX.test(password)) {
+            errorMessage += "Il campo password contiene caratteri non consentiti.<br>";
+        }
+
+        if (password.length < 8) {
+            errorMessage += "La password deve contenere almeno 8 caratteri.<br>";
+        }
+
+        if (errorMessage !== "") {
+            document.getElementById("error").innerHTML = errorMessage;
             document.getElementById("error").style.display = "block";
             return false;
         }
 
-        // Invio della richiesta AJAX
+        // Invio della richiesta AJAX per vedere se l'email è già presente
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'registrazione', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
