@@ -29,10 +29,20 @@ body {
     height: auto;
 }
 
+.search-bar-infos{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    flex-direction: row;
+}
+
 .search-bar {
     flex: 1;
     margin: 0 1em;
 }
+
 
 .search-bar form {
     padding: 0.7em;
@@ -211,9 +221,10 @@ body {
         flex-direction: column;
     }
     .search-bar {
-        flex: 1;
+        width: 80%;
         margin: 0;
     }
+
     .search-bar input {
         width: 100%;
         max-width: 25em;
@@ -231,7 +242,7 @@ body {
         padding: 0.5em 0.5em;
     }
     .search-bar {
-        flex: 1;
+        width: 80%;
         margin: 0;
     }
     .search-bar input {

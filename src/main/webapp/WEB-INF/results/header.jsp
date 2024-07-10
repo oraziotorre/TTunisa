@@ -24,43 +24,45 @@
             <img src="images/logo.png" alt="TT Saturn Logo">
         </a>
     </div>
-    <div class="search-bar">
-        <form method="get" action="search">
-            <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href ='search';" required>
-        </form>
-    </div>
-    <div class="user-options">
-        <%
-            Utente utente = (Utente) request.getSession().getAttribute("Utente");
-            if (utente != null) {
-        %>
-        <div class="dropdown">
-            <a class="login-dropdown">
-                <img src="images/user-icon2.png" alt="Utente">
-                <div class="utente-info">
-                    <span class="utente-nome"><%= utente.getNome() + " " + utente.getCognome()%></span>
-                    <span class="utente-saldo">$ <%=String.format("%.2f", utente.getSaldo())%></span>
-                </div>
-            </a>
-            <div class="dropdown-content">
-                <a href="order_history">Ordini</a>
-                <% if (session != null && session.getAttribute("isAdmin") != null) {%>
-                <a href="admin?action=prodotti">Gestione Prodotti</a>
-                <a href="admin?action=utenti">Gestione Utenti</a>
-                <%}%>
-                <a href="login?action=logout">Logout</a>
-            </div>
+    <div class ="search-bar-infos">
+        <div class="search-bar">
+            <form method="get" action="search">
+                <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href ='search';" required>
+            </form>
         </div>
-        <% } else { %>
-        <a class="login-access" href="login">
-            <img src="images/user-icon2.png" alt="Login">
-            <span>Accedi</span>
-        </a>
-        <% } %>
-        <div class="cart-icon" data-item-count="<%=countProdotti%>">
-            <a class="cart-access" href="cart">
-                <img src="images\cart.png" alt="Carrello">
+        <div class="user-options">
+            <%
+                Utente utente = (Utente) request.getSession().getAttribute("Utente");
+                if (utente != null) {
+            %>
+            <div class="dropdown">
+                <a class="login-dropdown">
+                    <img src="images/user-icon2.png" alt="Utente">
+                    <div class="utente-info">
+                        <span class="utente-nome"><%= utente.getNome() + " " + utente.getCognome()%></span>
+                        <span class="utente-saldo">$ <%=String.format("%.2f", utente.getSaldo())%></span>
+                    </div>
+                </a>
+                <div class="dropdown-content">
+                    <a href="order_history">Ordini</a>
+                    <% if (session != null && session.getAttribute("isAdmin") != null) {%>
+                    <a href="admin?action=prodotti">Gestione Prodotti</a>
+                    <a href="admin?action=utenti">Gestione Utenti</a>
+                    <%}%>
+                    <a href="login?action=logout">Logout</a>
+                </div>
+            </div>
+            <% } else { %>
+            <a class="login-access" href="login">
+                <img src="images/user-icon2.png" alt="Login">
+                <span>Accedi</span>
             </a>
+            <% } %>
+            <div class="cart-icon" data-item-count="<%=countProdotti%>">
+                <a class="cart-access" href="cart">
+                    <img src="images\cart.png" alt="Carrello">
+                </a>
+            </div>
         </div>
     </div>
 </div>
