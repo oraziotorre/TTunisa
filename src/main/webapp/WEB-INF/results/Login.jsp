@@ -45,7 +45,7 @@
             <label for="password"><b>Password</b></label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button type="submit" id="submit" class="cart" >Login</button>
-            <p class="message">Non registrato? <a href="registration">Crea un account</a></p>
+            <p class="message">Non registrato? <a href="registrazione">Crea un account</a></p>
             <p id="error"></p>
         </form>
     </div>

@@ -22,17 +22,17 @@
          </form> -->
 
         <!-- Memorizziamo un nuovo utente molto semplicemente -->
-        <form class="register-form" onsubmit="registration">
+        <form class="registration-form" onsubmit="verifyRegistration(event)">
             <label for="nome">Nome</label><br>
-            <input type="text" placeholder="Inserisci Nome" name="Nome" id="nome" required><br>
+            <input type="text" placeholder="Inserisci il nome" name="Nome" id="nome" required><br>
             <label for="cognome">Cognome</label><br>
-            <input type="text" placeholder="Inserisci Cognome" name="Cognome" id="cognome" required><br>
-            <label for="email"><b>Indirizzo email</b></label><br>
-            <input type="email" placeholder="Inserisci Email" name="Email" id="email" required><br>
-            <label for="password"><b>Password</b></label><br>
+            <input type="text" placeholder="Inserisci il cognome" name="Cognome" id="cognome" required><br>
+            <label for="email">Email</label><br>
+            <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
+            <label for="password">Password</label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button type="submit" id="submit" class="cart">Registrati</button>
-            <p class="message">Sei già registrato? <a href="login">Accedi</a></p>
+            <p class="message">Già registrato? <a href="login">Accedi</a></p>
             <p id="error"></p>
         </form>
     </div>
@@ -40,43 +40,50 @@
 
 
 <script>
+    function verifyRegistration(event) {
+        event.preventDefault(); // Previene l'invio predefinito del form
 
-    function register() {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
         var nome = document.getElementById('nome').value;
         var cognome = document.getElementById('cognome').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
         // Validazione degli input lato client
         var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
 
-        if (!emailRGX.test(email) || !passwordRGX.test(password)) {
-            document.getElementById("error").innerHTML = "Formato non corretto";
+        if (!passwordRGX.test(password) || !emailRGX.test(email) ||
+            nome.trim() === '' || cognome.trim() === '') {
+            document.getElementById("error").innerHTML = "Formato non corretto o campi vuoti";
             document.getElementById("error").style.display = "block";
             return false;
         }
 
         // Invio della richiesta AJAX
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'register-check', true);
+        xhr.open('POST', 'registrazione', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var response = JSON.parse(xhr.responseText);
-                if (response.status == "error") {
+                if (!response.success) {
+                    document.getElementById("error").innerHTML = response.message;
                     document.getElementById("error").style.display = "block";
-                    document.getElementById("error").innerHTML = "Ciao";
                 } else {
-                    // Redirect to success page or handle success as needed
-                    window.location.href = "login";
+                    window.location.href = response.redirect;
                 }
             }
         };
-        xhr.send('Email=' + encodeURIComponent(email) + '&Password=' + encodeURIComponent(password) + '&Nome=' + encodeURIComponent(nome) + '&Cognome=' + encodeURIComponent(cognome));
 
-        return false; // Evita il comportamento predefinito del form di inviare la richiesta
+
+        xhr.send('Nome=' + encodeURIComponent(nome) + '&Cognome=' + encodeURIComponent(cognome) +
+            '&Email=' + encodeURIComponent(email) + '&Password=' + encodeURIComponent(password));
+        return false; // Previene l'invio predefinito del form
     }
+
+    document.querySelector('.registration-form').addEventListener('submit', verifyRegistration);
 </script>
 
 </body>
