@@ -91,7 +91,7 @@ public class Carrello {
             return false; //CASO ERRORE 2 (saldo non sufficiente)
 
         Ordine ordine = new Ordine();
-        String scontrino = JsonConverter.prodottiToScontrino(this.getProdotti());
+        String scontrino = Utilities.prodottiToScontrino(this.getProdotti());
         ordine.setScontrino(scontrino);
         ordine.setUtente_ID(utenteLoggato.getID());
 

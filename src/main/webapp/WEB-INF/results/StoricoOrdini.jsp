@@ -1,6 +1,3 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.GregorianCalendar" %>
-<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="model.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -33,7 +30,7 @@
                 </div>
             </div>
             <div class="lista-prodotti">
-                <c:set var="prodottiOrdine" value="${JsonConverter.scontrinoToProdotti(ordine.scontrino)}"/>
+                <c:set var="prodottiOrdine" value="${Utilities.scontrinoToProdotti(ordine.scontrino)}"/>
                 <c:forEach var="prodotto" items="${prodottiOrdine}">
                     <div class="prodotto">
                         <img src="${prodotto.img}" alt="Prod">

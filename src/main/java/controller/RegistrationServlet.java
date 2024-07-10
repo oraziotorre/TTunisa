@@ -51,8 +51,8 @@ public class RegistrationServlet extends HttpServlet {
 
         // Crea un nuovo oggetto Utente
         Utente u = new Utente();
-        u.setNome(nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase());
-        u.setCognome(cognome.substring(0, 1).toUpperCase() + cognome.substring(1).toLowerCase());
+        u.setNome(nome);
+        u.setCognome(cognome);
         u.setSaldo(1000.00); // Imposta un saldo iniziale
         u.setEmail(email);
         u.setPassword(password);

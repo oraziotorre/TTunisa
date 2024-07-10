@@ -39,7 +39,7 @@ public class UtenteDAO extends HttpServlet {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email = ? AND pass = ?");
             ps.setString(1, email);
-            ps.setString(2, toHash(password));
+            ps.setString(2, Utilities.toHash(password));
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 utente.setID(rs.getInt(1));
@@ -62,10 +62,10 @@ public class UtenteDAO extends HttpServlet {
 
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("INSERT INTO utente (nome, cognome, email, pass, saldo, amministratore) VALUES (?, ?, ?, ?, ?, ?)");
-            ps.setString(1, utente.getNome());
-            ps.setString(2, utente.getCognome());
+            ps.setString(1, utente.getNome().substring(0, 1).toUpperCase() + utente.getNome().substring(1).toLowerCase());
+            ps.setString(2, utente.getCognome().substring(0, 1).toUpperCase() + utente.getCognome().substring(1).toLowerCase());
             ps.setString(3, utente.getEmail());
-            ps.setString(4, toHash(utente.getPassword()));
+            ps.setString(4, Utilities.toHash(utente.getPassword()));
             ps.setDouble(5, utente.getSaldo());
             ps.setBoolean(6, utente.isAmministratore());
 
@@ -128,20 +128,7 @@ public class UtenteDAO extends HttpServlet {
         }
     }
 
-    private static String toHash(String password) {
-        String hashString = null;
-        try {
-            java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
-            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            hashString = "";
-            for (int i = 0; i < hash.length; i++) {
-                hashString += Integer.toHexString((hash[i] & 0xFF) | 0x100).substring(1, 3);
-            }
-        } catch (java.security.NoSuchAlgorithmException e) {
-            System.out.println(e);
-        }
-        return hashString;
-    }
+
 
 
 }
