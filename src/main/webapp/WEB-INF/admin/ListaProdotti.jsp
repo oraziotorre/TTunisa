@@ -38,12 +38,16 @@
                 <p class="stock">Quantita' : <%=p.getQuantita()%>
                 </p>
             </div>
-            <p class="prezzo">Prezzo: $<%=String.format("%.2f", p.getPrezzo())%>
-            </p>
-            <p class="sconto">Sconto: <%=p.getSconto()%>%
-            </p>
-            <button onclick=modifyProduct(<%=p.getID()%>) class="modifica">Modifica</button>
-            <button onclick=deleteProduct(<%=p.getID()%>) class="cancella">Cancella</button>
+            <div class="prezzo-sconto">
+                <p class="prezzo">Prezzo: $<%=String.format("%.2f", p.getPrezzo())%>
+                </p>
+                <p class="sconto">Sconto: <%=p.getSconto()%>%
+                </p>
+            </div>
+            <div class="delete-modify">
+                <button onclick=modifyProduct(<%=p.getID()%>) class="modifica">Modifica</button>
+                <button onclick=deleteProduct(<%=p.getID()%>) class="cancella">Cancella</button>
+            </div>
         </div>
         <%}%>
     </div>
