@@ -10,7 +10,7 @@
 
 <%@ include file="header.jsp" %>
 <%@ include file="nav.jsp" %>
-<div class="login-page">
+<div class="registration-page">
 
     <div class="form">
         <!-- <form class="register-form">
