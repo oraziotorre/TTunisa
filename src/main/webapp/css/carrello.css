@@ -311,7 +311,7 @@ input[type=number] {
 
 @media screen and (max-width: 1200px) {
     .cart_pieno {
-        flex-direction: column-reverse;
+        flex-direction: column;
         width: 100%;
     }
     .cart_pieno_items, .cart_pieno_check {
