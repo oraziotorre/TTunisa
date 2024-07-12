@@ -96,13 +96,16 @@ button:hover {
     .utenti {
         width: 100%;
     }
+
     .utenti th, .utenti td {
         font-size: 0.9em;
     }
+
     .admin-buttons .toggle {
         width: 6em;
         height: 2.5em;
         font-size: 0.8em;
+    }
 }
 
 @media screen and (max-width: 540px) {
@@ -111,6 +114,7 @@ button:hover {
         height: 3em;
     }
 }
+
 
 
 
