@@ -77,13 +77,14 @@ h3 {
 }
 
 .lista-prodotti {
+    margin: 0 auto 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
 
 .prodotto {
-    width: 15%;
+    width: 30%;
     margin: 0.25em;
     text-align: center;
     height: auto;
@@ -99,7 +100,7 @@ h3 {
 }
 
 .prodotto img {
-    margin: auto;
+    margin:  0 auto 0;
     width: 10em;
     height: 10em;
     border-radius: 0.2em;
@@ -139,4 +140,54 @@ h3 {
 .bottone-ritorno button:hover {
     background-color: #004494;
 
+}
+@media screen and (max-width: 980px) {
+    .container {
+        padding: 1em;
+    }
+    .prodotto {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .ordine {
+        padding: 1em;
+    }
+    .dettagli-ordine div {
+        width: 50%;
+        padding: 0.5em;
+    }
+
+    .prodotto {
+        width: 45%;
+    }
+
+    .prodotto img{
+        width: 8em;
+        height: 8em;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .ordine {
+        padding: 0.5em;
+    }
+    .dettagli-ordine div {
+        width: 100%;
+        padding: 0.5em;
+    }
+    .lista-prodotti {
+        justify-content: center;
+    }
+    .prodotto {
+        width: 80%;
+    }
+    .prodotto img {
+        width: 7.5em;
+        height: 7.5em;
+    }
+    .bottone-ritorno {
+        justify-content: center;
+    }
 }

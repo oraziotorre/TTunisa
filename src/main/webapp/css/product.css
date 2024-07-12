@@ -16,13 +16,14 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    align-items: center;
+    text-align: center;
 }
 
 .infos {
     margin-bottom: 1.5em;
     font-size: 1.2em;
     color: #666;
-    text-align: center;
 }
 
 .product-container {
@@ -48,10 +49,11 @@ body {
     padding: 1.5em;
     background-color: white;
     flex: 1;
+    text-align: left;
 }
 
 .product-details h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 1em;
     padding: 1em 0;
 }
@@ -110,7 +112,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-bottom: 1em;
-    align-self: center;
 }
 
 button:hover {
@@ -127,4 +128,103 @@ button:hover {
 label {
     font-size: 1.2em;
     color: black;
+}
+
+@media screen and (max-width: 980px) {
+    .product-page {
+        width: 90%;
+        padding: 1.5em;
+        align-items: center;
+        text-align: center;
+    }
+    .product-container {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+    }
+    .product-image {
+        margin-right: 0;
+        margin-bottom: 1em;
+    }
+    .product-details {
+        text-align: left;
+    }
+    .product-details h1 {
+        font-size: 2em;
+        word-wrap: normal;
+    }
+    .price {
+        margin-bottom: 1.5em;
+    }
+    input[type="number"] {
+        width: 60%;
+    }
+    button {
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .infos {
+        font-size: 1em;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-details{
+        text-align: center;
+    }
+
+    .product-details h1 {
+        margin: 0;
+        margin-bottom: 0.5em;
+        padding: 0.2em;
+        font-size: 2em;
+    }
+    .barred-prezzo, .prezzo {
+        font-size: 1.5em;
+        margin: 0.6em;
+    }
+    input[type="number"] {
+        width: 80%;
+    }
+    button {
+        padding: 0.6em 1.2em;
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .product-page {
+        width: 100%;
+        padding: 1em;
+    }
+    .infos {
+        font-size: 0.9em;
+    }
+    .product-image img {
+        width: 15em;
+        height: 15em;
+    }
+    .product-details h1 {
+        margin-bottom: 0.5em;
+        padding: 0.2em;
+        font-size: 1.8em;
+    }
+    .barred-prezzo, .prezzo {
+        font-size: 1.2em;
+        margin: 0.6em;
+    }
+    input[type="number"] {
+        width: 100%;
+    }
+    button {
+        padding: 0.5em 1em;
+        font-size: 0.8em;
+    }
 }
