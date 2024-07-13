@@ -44,16 +44,16 @@ public class LoginServlet extends HttpServlet {
                     out.print(json.toString());
                     out.flush();
                 } else {
-                    // Forward to login page for standard request
+
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
                     dispatcher.include(request, response);
                 }
             } else {
-                // User authentication succeeded
+
                 session.setAttribute("Utente", user);
                 String redirectUrl = request.getContextPath();
 
-                // Check if the user is an admin
+
                 if (user.isAmministratore()) {
                     session.setAttribute("isAdmin", true);
                 }
@@ -68,12 +68,12 @@ public class LoginServlet extends HttpServlet {
                     out.print(json.toString());
                     out.flush();
                 } else {
-                    // Redirect to home page for standard request
+
                     response.sendRedirect(redirectUrl);
                 }
             }
         } else if ("logout".equals(action)) {
-            // Handle logout
+
             session.invalidate();
             response.sendRedirect(request.getContextPath());
         }

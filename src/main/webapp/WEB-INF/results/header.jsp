@@ -44,6 +44,7 @@
                     </div>
                 </a>
                 <div class="dropdown-content">
+                    <a href="profilo">Profilo</a>
                     <a href="order_history">Ordini</a>
                     <% if (session != null && session.getAttribute("isAdmin") != null) {%>
                     <a href="admin?action=prodotti">Gestione Prodotti</a>
