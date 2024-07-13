@@ -55,7 +55,7 @@ body {
 .saldo {
     font-size: 1.2em;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     margin-bottom: 1.25em;
 }
 

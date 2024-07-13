@@ -31,7 +31,7 @@
         <input type="password" id="password" name="password" value="********">
     </div>
     <div class="saldo">
-        Saldo: <em>38.00$</em>
+        <input  class="saldo" type="number" step="any" value="10">
     </div>
     <div class="bottoni">
         <button class="cancella">Annulla</button>
