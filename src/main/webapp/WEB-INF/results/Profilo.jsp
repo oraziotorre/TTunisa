@@ -33,7 +33,7 @@
             <label for="password">Nuova Password</label>
             <input type="password" id="password" name="password">
         </div>
-        <input type="hidden" id="id" name="ID" value="<%= user.getID()%>">
+        <input type="hidden" id="id" name="id" value="<%= user.getID()%>">
         <input type="hidden" id="saldo" name="saldo" value="<%= user.getSaldo()%>">
         <input type="hidden" id="amministratore" name="amministratore" value="<%= user.isAmministratore()%>">
         <button class="saldo">RICARICA SALDO</button>

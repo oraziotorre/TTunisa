@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Utente;
 import model.UtenteDAO;
+import model.Utilities;
 
 import java.io.IOException;
 
@@ -19,14 +20,18 @@ public class UpdateProfilo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Utente u = new Utente();
-        u.setID(Integer.parseInt(request.getParameter("id")));
+        int id = Integer.parseInt(request.getParameter("id"));
+        u.setID(id);
         u.setNome(request.getParameter("firstName"));
         u.setCognome(request.getParameter("lastName"));
         u.setEmail(request.getParameter("email"));
-        u.setPassword(request.getParameter("password"));
-        u.setSaldo(Double.valueOf(request.getParameter("saldo")));
+        u.setPassword(Utilities.toHash(String.valueOf(request.getParameter("password"))));
         u.setAmministratore(Boolean.parseBoolean(request.getParameter("amministratore")));
-        UtenteDAO.updateUser(u);
+        u.setSaldo(Double.valueOf(request.getParameter("saldo")));
+        UtenteDAO.updateUser(u,id);
+
+        HttpSession session = request.getSession();
+        session.setAttribute("Utente", u);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
         dispatcher.forward(request, response);

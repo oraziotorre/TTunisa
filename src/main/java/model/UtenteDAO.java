@@ -128,16 +128,15 @@ public class UtenteDAO extends HttpServlet {
         }
     }
 
-    public static void updateUser(Utente u) {
+    public static void updateUser(Utente u, int id) {
         try (Connection con = ConPool.getConnection();
-             PreparedStatement ps = con.prepareStatement("UPDATE utente SET nome = ?, cognome=?, email = ?, pass = ?  WHERE utente_ID = ?")) {
+             PreparedStatement ps = con.prepareStatement("UPDATE utente SET nome = ?, cognome = ?, email = ?, pass = ?   WHERE utente_ID = ?")) {
 
             ps.setString(1, u.getNome());
             ps.setString(2, u.getCognome());
-            ps.setString(3,u.getEmail());
-            ps.setString(4,u.getPassword());
-            ps.setInt(5,u.getID());
-            ps.executeUpdate();
+            ps.setString(3, u.getEmail());
+            ps.setString(4, u.getPassword());
+            ps.setInt(5, id);
 
             int rowsUpdated = ps.executeUpdate();
 
@@ -149,6 +148,7 @@ public class UtenteDAO extends HttpServlet {
             throw new RuntimeException("Errore durante l'aggiornamento dell'utente.", e);
         }
     }
+
 
 
 }
