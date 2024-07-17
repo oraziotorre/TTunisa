@@ -94,6 +94,12 @@ body {
     margin-right: 0.625em;
 }
 
+#error{
+    font-size: 0.8em;
+    text-align: center;
+    color: red;
+}
+
 @media screen and (max-width: 980px) {
     .container {
         padding: 1em;
@@ -110,6 +116,10 @@ body {
 
     .bottoni button {
         padding: 0.6em 1.1em;
+    }
+
+    #error{
+        font-size: 0.7em;
     }
 }
 
@@ -129,6 +139,10 @@ body {
 
     .bottoni button {
         padding: 0.55em 1em;
+    }
+
+    #error{
+        font-size: 0.65em;
     }
 }
 
@@ -158,5 +172,9 @@ body {
     .bottoni button.cancella {
         margin-right: 0;
         margin-bottom: 0.625em;
+    }
+
+    #error{
+        font-size: 0.6em;
     }
 }

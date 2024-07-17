@@ -27,7 +27,9 @@ public class UpdateProfilo extends HttpServlet {
         u.setSaldo(Double.valueOf(request.getParameter("saldo")));
         u.setAmministratore(Boolean.parseBoolean(request.getParameter("amministratore")));
         UtenteDAO.updateUser(u);
-        response.sendRedirect(request.getContextPath());
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override

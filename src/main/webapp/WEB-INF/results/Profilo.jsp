@@ -9,7 +9,6 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<%@ include file="nav.jsp" %>
 
 <% Utente user = (Utente) request.getSession().getAttribute("Utente");
 %>
@@ -17,7 +16,7 @@
     <div class="header">
         <h2>Informazioni Personali</h2>
     </div>
-    <form method="post" action="update-profilo" id="formProfilo">
+    <form method="post" id="formProfilo" action="update-profilo" onsubmit="return verifyProfile()">
         <div class="gruppo-form">
             <label for="firstName">Nome</label>
             <input type="text" id="firstName" name="firstName" value="<%= user.getNome()%>"}>
@@ -32,16 +31,16 @@
         </div>
         <div class="gruppo-form">
             <label for="password">Nuova Password</label>
-            <input type="password" id="password" name="password" value="">
-        </div>
-        <button class="saldo">RICARICA SALDO</button>
-        <div class="bottoni">
-            <button class="cancella" onclick="window.location.href='home.jsp'"></button>
-            <button class="salva" type="submit" onclick=" return verifyProfile()">Salva</button>
+            <input type="password" id="password" name="password">
         </div>
         <input type="hidden" id="id" name="ID" value="<%= user.getID()%>">
         <input type="hidden" id="saldo" name="saldo" value="<%= user.getSaldo()%>">
         <input type="hidden" id="amministratore" name="amministratore" value="<%= user.isAmministratore()%>">
+        <button class="saldo">RICARICA SALDO</button>
+        <div class="bottoni">
+            <button class="cancella" onclick="window.location.href='home'; return false;">Annulla</button>
+            <button class="salva" type="submit">Salva</button>
+        </div>
     </form>
     <p id="error"></p>
 </div>
@@ -65,6 +64,7 @@ function verifyProfile() {
     }
 
     else{
+
         return true;
     }
 }
