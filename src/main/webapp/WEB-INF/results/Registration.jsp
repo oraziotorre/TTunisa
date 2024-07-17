@@ -22,7 +22,7 @@
          </form> -->
 
         <!-- Memorizziamo un nuovo utente molto semplicemente -->
-        <form class="registration-form" onsubmit="verifyRegistration(event)">
+        <form class="registration-form" onsubmit="verifyRegistration()">
             <label for="nome">Nome</label><br>
             <input type="text" placeholder="Inserisci il nome" name="Nome" id="nome" required><br>
             <label for="cognome">Cognome</label><br>
@@ -56,11 +56,11 @@
         var errorMessage = "";
 
         if (!nameRGX.test(nome)) {
-            errorMessage += "Il campo nome può contenere solo lettere<br>";
+            errorMessage += "Il campo nome puo' contenere solo lettere<br>";
         }
 
         if (!nameRGX.test(cognome)) {
-            errorMessage += "Il campo cognome può contenere solo lettere<br>";
+            errorMessage += "Il campo cognome puo' contenere solo lettere<br>";
         }
 
         if (!emailRGX.test(email)) {

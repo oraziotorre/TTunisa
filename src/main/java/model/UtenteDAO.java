@@ -128,15 +128,15 @@ public class UtenteDAO extends HttpServlet {
         }
     }
 
-    public static void updateUser(Utente u, int id) {
+    public static void updateUser(Utente u) {
         try (Connection con = ConPool.getConnection();
              PreparedStatement ps = con.prepareStatement("UPDATE utente SET nome = ?, cognome = ?, email = ?, pass = ?   WHERE utente_ID = ?")) {
 
             ps.setString(1, u.getNome());
             ps.setString(2, u.getCognome());
             ps.setString(3, u.getEmail());
-            ps.setString(4, Utilities.toHash(u.getPassword()));
-            ps.setInt(5, id);
+            ps.setString(4, u.getPassword());
+            ps.setInt(5, u.getID());
 
             int rowsUpdated = ps.executeUpdate();
 
