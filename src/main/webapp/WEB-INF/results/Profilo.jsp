@@ -52,12 +52,14 @@ function verifyProfile() {
 
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    var nome = document.getElementById('firstName').value;
+    var cognome = document.getElementById('lastName').value;
 
 
     var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
 
-    if (!passwordRGX.test(password) || !emailRGX.test(email)) {
+    if (!passwordRGX.test(password) || !emailRGX.test(email) || password.trim() == "" || email.trim == "" || nome.trim() == "" || cognome.trim() == ""){
         document.getElementById("error").innerHTML = "Formato non corretto";
         document.getElementById("error").style.display = "block";
         return false;
