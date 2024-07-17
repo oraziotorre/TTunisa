@@ -128,7 +128,27 @@ public class UtenteDAO extends HttpServlet {
         }
     }
 
+    public static void updateUser(Utente u) {
+        try (Connection con = ConPool.getConnection();
+             PreparedStatement ps = con.prepareStatement("UPDATE utente SET nome = ?, cognome=?, email = ?, pass = ?  WHERE utente_ID = ?")) {
 
+            ps.setString(1, u.getNome());
+            ps.setString(2, u.getCognome());
+            ps.setString(3,u.getEmail());
+            ps.setString(4,u.getPassword());
+            ps.setInt(5,u.getID());
+            ps.executeUpdate();
+
+            int rowsUpdated = ps.executeUpdate();
+
+            if (rowsUpdated != 1) {
+                throw new SQLException("Non è stato possibile aggiornare l'utente.");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Errore durante l'aggiornamento dell'utente.", e);
+        }
+    }
 
 
 }

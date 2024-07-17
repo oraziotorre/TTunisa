@@ -22,7 +22,9 @@
             <img src="${prodotto.img}" alt="Immagine Prodotto">
         </div>
         <div class="product-details">
-            <h1 class="nome-prodotto">${prodotto.nome}</h1>
+            <div class="product-nome">
+                <h1 class="nome-prodotto">${prodotto.nome}</h1>
+            </div>
             <div class="price">
                 <c:choose>
                     <c:when test="${prodotto.sconto == 0}">
@@ -46,14 +48,13 @@
                     </form>
                 </c:when>
                 <c:otherwise>
-                    <p>Prodotto non disponibile</p>
+                    <p class="non-disponibile">Prodotto non disponibile</p>
                 </c:otherwise>
             </c:choose>
             <p class="descrizione">${prodotto.descrizione}</p>
         </div>
     </div>
 </div>
-
 <%@include file="footer.jsp" %>
 </body>
 </html>

@@ -52,10 +52,18 @@ body {
     text-align: left;
 }
 
-.product-details h1 {
-    font-size: 2.5em;
+.product-nome{
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    justify-content:flex-start;
+    align-items: flex-end;
+}
+
+.product-nome h1 {
+    font-size: 2em;
     margin-bottom: 1em;
-    padding: 1em 0;
+    word-wrap: break-word;
 }
 
 .price {
@@ -78,7 +86,6 @@ body {
 }
 
 label {
-    display: block;
     margin-bottom: 0.5em;
     font-weight: bold;
 }
@@ -118,6 +125,13 @@ button:hover {
     background-color: #0056b3;
 }
 
+.non-disponibile{
+    font-size: 1.2em;
+    color: #CA0000;
+    font-family: "Roboto", sans-serif;
+    padding: 0.1em;
+}
+
 .descrizione {
     font-size: 0.8em;
     color: grey;
@@ -150,7 +164,7 @@ label {
         text-align: left;
     }
     .product-details h1 {
-        font-size: 2em;
+        font-size: 1.8em;
         word-wrap: normal;
     }
     .price {
@@ -184,8 +198,8 @@ label {
         margin: 0;
         margin-bottom: 0.5em;
         padding: 0.2em;
-        font-size: 2em;
     }
+
     .barred-prezzo, .prezzo {
         font-size: 1.5em;
         margin: 0.6em;
@@ -214,7 +228,7 @@ label {
     .product-details h1 {
         margin-bottom: 0.5em;
         padding: 0.2em;
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
     .barred-prezzo, .prezzo {
         font-size: 1.2em;
