@@ -19,7 +19,7 @@
     <form method="post" id="formProfilo" action="update-profilo" onsubmit="return verifyProfile()">
         <div class="gruppo-form">
             <label for="firstName">Nome</label>
-            <input type="text" id="firstName" name="firstName" value="<%= user.getNome()%>" } required>
+            <input type="text" id="firstName" name="firstName" value="<%= user.getNome()%>"  required>
         </div>
         <div class="gruppo-form">
             <label for="lastName">Cognome</label>
@@ -64,23 +64,23 @@
         var errorMessage = "";
 
         if (!nameRGX.test(nome)) {
-            errorMessage += "Il campo nome puo' contenere solo lettere<br>";
+            errorMessage = "Il campo nome puo' contenere solo lettere<br>";
         }
 
         if (!nameRGX.test(cognome)) {
-            errorMessage += "Il campo cognome puo' contenere solo lettere<br>";
+            errorMessage = "Il campo cognome puo' contenere solo lettere<br>";
         }
 
         if (!emailRGX.test(email)) {
-            errorMessage += "Formato email non corretto.<br>";
+            errorMessage = "Formato email non corretto.<br>";
         }
 
         if (!passwordRGX.test(password)) {
-            errorMessage += "Il campo password contiene caratteri non consentiti.<br>";
+            errorMessage = "Il campo password contiene caratteri non consentiti.<br>";
         }
 
         if (password.length > 0 && password.length < 8) {
-            errorMessage += "La password deve contenere almeno 8 caratteri.<br>";
+            errorMessage = "La password deve contenere almeno 8 caratteri.<br>";
         }
 
         if (errorMessage !== "") {
