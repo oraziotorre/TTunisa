@@ -20,7 +20,7 @@
 <body>
 <div class="header">
     <div class="logo">
-        <a href="${pageContext.request.contextPath}/">
+        <a href="<%=request.getContextPath()%>">
             <img src="images/logo.png" alt="TT Saturn Logo">
         </a>
     </div>

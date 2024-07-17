@@ -15,7 +15,7 @@
         <h1>Prodotti</h1>
         <div class="bottoni">
             <button onclick="window.location.href ='admin/product-management'">Aggiungi Prodotto</button>
-            <button onclick="window.location.href ='${pageContext.request.contextPath}'">Home Page</button>
+            <button onclick="window.location.href ='<%=request.getContextPath()%>'">Home Page</button>
         </div>
     </div>
     <form method="post" action="admin?action=prodotti">

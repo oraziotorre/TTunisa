@@ -25,7 +25,7 @@ public class UpdateProfilo extends HttpServlet {
         u.setNome(request.getParameter("firstName"));
         u.setCognome(request.getParameter("lastName"));
         u.setEmail(request.getParameter("email"));
-        u.setPassword(Utilities.toHash(String.valueOf(request.getParameter("password"))));
+        u.setPassword(request.getParameter("password"));
         u.setAmministratore(Boolean.parseBoolean(request.getParameter("amministratore")));
         u.setSaldo(Double.valueOf(request.getParameter("saldo")));
         UtenteDAO.updateUser(u,id);

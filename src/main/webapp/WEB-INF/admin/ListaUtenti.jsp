@@ -15,7 +15,7 @@
 %>
 <body>
 <div class="container">
-    <button onclick="window.location.href ='${pageContext.request.contextPath}'">Home Page</button>
+    <button onclick="window.location.href ='<%=request.getContextPath()%>'">Home Page</button>
     <table class="utenti">
         <tr>
             <th>Nome</th>

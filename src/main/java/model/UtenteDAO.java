@@ -135,7 +135,7 @@ public class UtenteDAO extends HttpServlet {
             ps.setString(1, u.getNome());
             ps.setString(2, u.getCognome());
             ps.setString(3, u.getEmail());
-            ps.setString(4, u.getPassword());
+            ps.setString(4, Utilities.toHash(u.getPassword()));
             ps.setInt(5, id);
 
             int rowsUpdated = ps.executeUpdate();
