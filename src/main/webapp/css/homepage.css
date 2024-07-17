@@ -228,6 +228,7 @@ button {
 
 
 }
+
 @media screen and (max-width: 750px) {
     .immagine img {
         border-radius: 0.5em;
@@ -271,6 +272,7 @@ button {
         font-size: 1.2em;
     }
 }
+
 @media screen and (max-width: 540px) {
     .immagine img {
         width: 20em;

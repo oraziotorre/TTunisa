@@ -29,7 +29,7 @@ body {
     height: auto;
 }
 
-.search-bar-infos{
+.search-bar-infos {
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -159,11 +159,11 @@ body {
     color: #0056b3;
 }
 
-.dropdown:hover img{
+.dropdown:hover img {
     background-color: #0056b3;
 }
 
-.dropdown:hover .utente-saldo{
+.dropdown:hover .utente-saldo {
     color: limegreen;
 }
 
@@ -201,10 +201,12 @@ body {
     .header {
         padding: 0.7em 1em;
     }
+
     .search-bar {
         flex: 1;
         margin: 0;
     }
+
     .search-bar input {
         width: 100%;
         max-width: 25em;
@@ -221,6 +223,7 @@ body {
         padding: 0.5em 0.75em;
         flex-direction: column;
     }
+
     .search-bar {
         width: 80%;
         margin: 0;
@@ -242,10 +245,12 @@ body {
         flex-direction: column;
         padding: 0.5em 0.5em;
     }
+
     .search-bar {
         width: 80%;
         margin: 0;
     }
+
     .search-bar input {
         width: 100%;
         max-width: 25em;

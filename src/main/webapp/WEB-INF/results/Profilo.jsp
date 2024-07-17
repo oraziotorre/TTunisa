@@ -19,7 +19,7 @@
     <form method="post" id="formProfilo" action="update-profilo" onsubmit="return verifyProfile()">
         <div class="gruppo-form">
             <label for="firstName">Nome</label>
-            <input type="text" id="firstName" name="firstName" value="<%= user.getNome()%>"} required>
+            <input type="text" id="firstName" name="firstName" value="<%= user.getNome()%>" } required>
         </div>
         <div class="gruppo-form">
             <label for="lastName">Cognome</label>
@@ -33,9 +33,13 @@
             <label for="password">Nuova Password</label>
             <input type="password" id="password" name="password">
         </div>
-        <button type="button" class="saldo" onclick="window.location.href ='update-profilo?action=newsaldo'">RICARICA SALDO</button>
+        <button type="button" class="saldo" onclick="window.location.href ='update-profilo?action=newsaldo'">RICARICA
+            SALDO
+        </button>
         <div class="bottoni">
-            <button type="button" class="cancella" onclick="window.location.href='<%=request.getContextPath()%>';">Annulla</button>
+            <button type="button" class="cancella" onclick="window.location.href='<%=request.getContextPath()%>';">
+                Annulla
+            </button>
             <button class="salva" type="submit">Salva</button>
         </div>
     </form>
@@ -45,46 +49,46 @@
 </html>
 
 <script>
-function verifyProfile() {
+    function verifyProfile() {
 
-    var nome = document.getElementById('firstName').value;
-    var cognome = document.getElementById('lastName').value;
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+        var nome = document.getElementById('firstName').value;
+        var cognome = document.getElementById('lastName').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
-    // Validazione degli input lato client
-    var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
-    var nameRGX = /^[a-zA-Z]+$/;
+        // Validazione degli input lato client
+        var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
+        var nameRGX = /^[a-zA-Z]+$/;
 
-    var errorMessage = "";
+        var errorMessage = "";
 
-    if (!nameRGX.test(nome)) {
-        errorMessage += "Il campo nome puo' contenere solo lettere<br>";
+        if (!nameRGX.test(nome)) {
+            errorMessage += "Il campo nome puo' contenere solo lettere<br>";
+        }
+
+        if (!nameRGX.test(cognome)) {
+            errorMessage += "Il campo cognome puo' contenere solo lettere<br>";
+        }
+
+        if (!emailRGX.test(email)) {
+            errorMessage += "Formato email non corretto.<br>";
+        }
+
+        if (!passwordRGX.test(password)) {
+            errorMessage += "Il campo password contiene caratteri non consentiti.<br>";
+        }
+
+        if (password.length > 0 && password.length < 8) {
+            errorMessage += "La password deve contenere almeno 8 caratteri.<br>";
+        }
+
+        if (errorMessage !== "") {
+            document.getElementById("error").innerHTML = errorMessage;
+            document.getElementById("error").style.display = "block";
+            return false;
+        } else
+            return true
     }
-
-    if (!nameRGX.test(cognome)) {
-        errorMessage += "Il campo cognome puo' contenere solo lettere<br>";
-    }
-
-    if (!emailRGX.test(email)) {
-        errorMessage += "Formato email non corretto.<br>";
-    }
-
-    if (!passwordRGX.test(password)) {
-        errorMessage += "Il campo password contiene caratteri non consentiti.<br>";
-    }
-
-    if (password.length>0 && password.length < 8) {
-        errorMessage += "La password deve contenere almeno 8 caratteri.<br>";
-    }
-
-    if (errorMessage !== "") {
-        document.getElementById("error").innerHTML = errorMessage;
-        document.getElementById("error").style.display = "block";
-        return false;
-    }else
-        return true
-}
 
 </script>

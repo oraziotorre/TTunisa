@@ -87,7 +87,7 @@ public class Carrello {
         double prezzoTotCarrello = this.getPrezzoTotale();
         double prezzoTot = prezzoTotCarrello + (prezzoTotCarrello * 0.22);   //aggiungo l'IVA al prezzo totale del carrello
 
-        if(utenteLoggato.getSaldo()<prezzoTot)
+        if (utenteLoggato.getSaldo() < prezzoTot)
             return false; //CASO ERRORE 2 (saldo non sufficiente)
 
         Ordine ordine = new Ordine();

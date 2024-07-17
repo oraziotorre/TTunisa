@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             margin: 8em auto;
             padding: 1.4em;
@@ -21,10 +22,12 @@
             border-radius: 0.3em;
             box-shadow: 0 0 0.6em rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             font-size: 2em;
             margin-bottom: 1.5em;
         }
+
         p {
             font-size: 1.2em;
             line-height: 1.6em;
@@ -35,10 +38,12 @@
                 margin: 6em auto;
                 padding: 1em;
             }
+
             h1 {
                 font-size: 1.8em;
                 margin-bottom: 1em;
             }
+
             p {
                 font-size: 1.1em;
             }
@@ -49,10 +54,12 @@
                 margin: 4em auto;
                 padding: 0.8em;
             }
+
             h1 {
                 font-size: 1.5em;
                 margin-bottom: 0.8em;
             }
+
             p {
                 font-size: 1em;
             }
@@ -63,10 +70,12 @@
                 margin: 3em auto;
                 padding: 0.6em;
             }
+
             h1 {
                 font-size: 1.2em;
                 margin-bottom: 0.6em;
             }
+
             p {
                 font-size: 0.9em;
             }

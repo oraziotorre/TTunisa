@@ -94,7 +94,7 @@ body {
     margin-right: 0.625em;
 }
 
-#error{
+#error {
     font-size: 0.8em;
     text-align: center;
     color: red;
@@ -118,7 +118,7 @@ body {
         padding: 0.6em 1.1em;
     }
 
-    #error{
+    #error {
         font-size: 0.7em;
     }
 }
@@ -141,7 +141,7 @@ body {
         padding: 0.55em 1em;
     }
 
-    #error{
+    #error {
         font-size: 0.65em;
     }
 }
@@ -174,7 +174,7 @@ body {
         margin-bottom: 0.625em;
     }
 
-    #error{
+    #error {
         font-size: 0.6em;
     }
 }

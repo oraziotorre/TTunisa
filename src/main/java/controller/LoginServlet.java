@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
         Utente u = UtenteDAO.doLogin(request.getParameter("Email"), request.getParameter("Password"));
         if (request.getParameter("action") == null) {
             if (u == null) {
+                request.setAttribute("errore", true);
                 RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
                 rs.include(request, response);
 

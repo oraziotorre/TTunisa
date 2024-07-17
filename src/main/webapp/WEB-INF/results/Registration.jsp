@@ -79,30 +79,8 @@
             document.getElementById("error").innerHTML = errorMessage;
             document.getElementById("error").style.display = "block";
             return false;
-        }
-
-        // Invio della richiesta AJAX per vedere se l'email è già presente
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'registrazione', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var response = JSON.parse(xhr.responseText);
-                if (!response.success) {
-                    document.getElementById("error").innerHTML = response.message;
-                    document.getElementById("error").style.display = "block";
-                } else {
-                    window.location.href = response.redirect;
-                }
-            }
-        };
-
-
-        xhr.send('Nome=' + encodeURIComponent(nome) + '&Cognome=' + encodeURIComponent(cognome) +
-            '&Email=' + encodeURIComponent(email) + '&Password=' + encodeURIComponent(password));
-        return false; // Previene l'invio predefinito del form
+        } else
+            return true
     }
 
     document.querySelector('.registration-form').addEventListener('submit', verifyRegistration);

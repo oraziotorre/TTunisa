@@ -23,7 +23,7 @@ public class CartServlet extends HttpServlet {
         if (action == null || action.isEmpty()) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Carrello.jsp");
             dispatcher.forward(request, response);
-        }else {
+        } else {
             if (action.equals("checkout")) {
 
                 HttpSession session = request.getSession();

@@ -22,18 +22,17 @@ public class UpdateProfilo extends HttpServlet {
 
         HttpSession session = request.getSession();
         Utente u = (Utente) session.getAttribute("Utente");
-        String action=request.getParameter("action");
+        String action = request.getParameter("action");
 
-        if(action!=null&&action.equals("newsaldo"))
-        {
-            UtenteDAO.updateSaldo(u,1000);
+        if (action != null && action.equals("newsaldo")) {
+            UtenteDAO.updateSaldo(u, 1000);
             u.setSaldo(1000.0);
-        }else{
+        } else {
 
             u.setNome(request.getParameter("firstName"));
             u.setCognome(request.getParameter("lastName"));
             u.setEmail(request.getParameter("email"));
-            if(request.getParameter("password")!=null&&!request.getParameter("password").isEmpty())
+            if (request.getParameter("password") != null && !request.getParameter("password").isEmpty())
                 u.setPassword(Utilities.toHash(request.getParameter("password")));
 
             UtenteDAO.updateUser(u);

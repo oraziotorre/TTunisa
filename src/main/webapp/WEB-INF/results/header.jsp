@@ -24,10 +24,11 @@
             <img src="images/logo.png" alt="TT Saturn Logo">
         </a>
     </div>
-    <div class ="search-bar-infos">
+    <div class="search-bar-infos">
         <div class="search-bar">
             <form method="get" action="search">
-                <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href ='search';" required>
+                <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href ='search';"
+                       required>
             </form>
         </div>
         <div class="user-options">

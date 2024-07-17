@@ -314,11 +314,13 @@ input[type=number] {
         flex-direction: column;
         width: 100%;
     }
+
     .cart_pieno_items, .cart_pieno_check {
         width: 100%;
         max-width: 100%;
         margin: 0;
     }
+
     .cart_pieno_items {
         margin-bottom: 2em;
     }
@@ -329,24 +331,30 @@ input[type=number] {
         width: 100%;
         padding: 1em;
     }
+
     .cart_items_vuoto {
         padding: 5em 2em;
     }
+
     .cart_items_vuoto p {
         font-size: 1.5em;
     }
+
     .prodotto {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .img_details {
         width: 100%;
         margin-bottom: 1em;
     }
+
     .prodotto input[type="number"], .prezzo_totale {
         width: 100%;
         text-align: left;
     }
+
     .bidone {
         align-self: flex-end;
     }
@@ -356,17 +364,21 @@ input[type=number] {
     .cart_items_vuoto {
         padding: 2em 1em;
     }
+
     .cart_items_vuoto p {
         font-size: 1.2em;
     }
+
     .prodotto img {
         width: 1.5em;
         height: 1.5em;
     }
+
     .img_details img {
         width: 8em;
         height: 8em;
     }
+
     .checkout-button button, .accedi-button button {
         width: 100%;
     }
