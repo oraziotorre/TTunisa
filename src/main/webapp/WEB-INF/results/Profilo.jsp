@@ -7,13 +7,13 @@
     <link href="css/profilo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-<!-- Fai tu qui orazio per passare i valori dell'utente -->
-
+<%@ include file="header.jsp" %>
+<%@ include file="nav.jsp" %>
 <div class="container">
     <div class="header">
         <h2>Informazioni Personali</h2>
     </div>
+    <!-- Considera il controllo per obbligare l'inserimento di dati effettivi e non nulli o password errate -->
     <div class="gruppo-form">
         <label for="firstName">Nome</label>
         <input type="text" id="firstName" name="firstName" value="Denis">
@@ -27,12 +27,10 @@
         <input type="email" id="email" name="email" value="denis.holland@company.com">
     </div>
     <div class="gruppo-form">
-        <label for="password">Password</label>
+        <label for="password">Nuova Password</label>
         <input type="password" id="password" name="password" value="********">
     </div>
-    <div class="saldo">
-        <input  class="saldo" type="number" step="any" value="10">
-    </div>
+    <button class="saldo">RICARICA SALDO</button>
     <div class="bottoni">
         <button class="cancella">Annulla</button>
         <button class="salva">Salva</button>

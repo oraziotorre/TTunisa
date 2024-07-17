@@ -1,10 +1,13 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creazione/Modifica Prodotto</title>
-    <link href="${pageContext.request.contextPath}/css/product_crea_modifica.css" type="text/css" rel="stylesheet">
+    <c:url value="/css/product_crea_modifica.css" var="cssCreaProdotto"/>
+    <c:url value="/images/imageNA.png" var="imageNA"/>
+    <link href="${cssCreaProdotto}" type="text/css" rel="stylesheet">
 </head>
 <body>
 
@@ -57,9 +60,9 @@
             </div>
         </div>
         <div class="immagine">
-            <img src="${pageContext.request.contextPath}/images/imageNA.png" alt="Prodotto" id="previewImage">
+            <img src="${imageNA}" alt="Prodotto" id="previewImage">
             <label for="imageSelect">Cambia Immagine</label>
-            <input type="text" id="imageSelect" value="${pageContext.request.contextPath}/images/imageNA.png"
+            <input type="text" id="imageSelect" value="${imageNA}"
                    name="Img" required>
         </div>
     </div>
@@ -76,7 +79,7 @@
         var previewImage = document.getElementById('previewImage');
 
         if (imageUrl.trim() === '') {
-            previewImage.src = '${pageContext.request.contextPath}/images/imageNA.png'; // Immagine predefinita
+            previewImage.src = '${imageNA}'; // Immagine predefinita
             previewImage.alt = 'Inserisci un URL per visualizzare l\'immagine'; // Testo alternativo
         } else {
             previewImage.src = imageUrl;

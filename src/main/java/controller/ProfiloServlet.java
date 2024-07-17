@@ -8,12 +8,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Carrello;
-import model.Prodotto;
-import model.ProdottoDAO;
-import model.Utente;
+import model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/profilo")
 public class ProfiloServlet extends HttpServlet {
@@ -21,8 +19,14 @@ public class ProfiloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Profilo.jsp");
-        dispatcher.forward(request, response);
+        HttpSession session = request.getSession();
+        Utente utenteAttuale = (Utente) session.getAttribute("Utente");
+        if (utenteAttuale != null) {
+            //////AGGIUNGI LA LOGICA PER PASSARE I DATI EMODIFICARLI
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Profilo.jsp");
+            dispatcher.forward(request, response);
+        } else
+            response.sendRedirect(request.getContextPath());
     }
 
     @Override

@@ -1,5 +1,6 @@
 <%@ page import="model.Prodotto" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +9,12 @@
     <title>Prodotti Database</title>
     <link href="css/product_list.css" type="text/css" rel="stylesheet">
 </head>
-<% ArrayList<Prodotto> listaProdotti = (ArrayList<Prodotto>) request.getAttribute("listaProdotti");%>
 <body>
 <div class="container">
     <div class="header">
         <h1>Prodotti</h1>
         <div class="bottoni">
-            <button onclick="window.location.href ='admin/product-management'">+ Aggiungi Prodotto</button>
+            <button onclick="window.location.href ='admin/product-management'">Aggiungi Prodotto</button>
             <button onclick="window.location.href ='${pageContext.request.contextPath}'">Home Page</button>
         </div>
     </div>
@@ -23,36 +23,29 @@
             <div class="bottoni">
                 <button onclick="window.location.href ='admin?action=prodotti'">Tutti</button>
             </div>
-            <input type="text" name="query" placeholder="Nome Prodotti"
-                   onsubmit="window.location.href ='admin?action=prodotti'"
-                   required>
+            <input type="text" name="query" placeholder="Nome Prodotti" required>
         </div>
     </form>
     <div class="prodotto-list">
-        <% for (Prodotto p : listaProdotti) { %>
-        <div class="prodotto">
-            <img src=<%=p.getImg()%> alt="Product">
-            <div class="info-prodotto">
-                <p class="nome-prodotto"><%=p.getNome()%>
-                </p>
-                <p class="stock">Quantita' : <%=p.getQuantita()%>
-                </p>
+        <c:forEach var="p" items="${listaProdotti}">
+            <div class="prodotto">
+                <img src="${p.img}" alt="Product">
+                <div class="info-prodotto">
+                    <p class="nome-prodotto">${p.nome}</p>
+                    <p class="stock">Quantita' : ${p.quantita}</p>
+                </div>
+                <div class="prezzo-sconto">
+                    <p class="prezzo">Prezzo: $<c:out value="${p.prezzo}" /></p>
+                    <p class="sconto">Sconto: ${p.sconto}%</p>
+                </div>
+                <div class="delete-modify">
+                    <button onclick="modifyProduct(${p.ID})" class="modifica">Modifica</button>
+                    <button onclick="deleteProduct(${p.ID})" class="cancella">Cancella</button>
+                </div>
             </div>
-            <div class="prezzo-sconto">
-                <p class="prezzo">Prezzo: $<%=String.format("%.2f", p.getPrezzo())%>
-                </p>
-                <p class="sconto">Sconto: <%=p.getSconto()%>%
-                </p>
-            </div>
-            <div class="delete-modify">
-                <button onclick=modifyProduct(<%=p.getID()%>) class="modifica">Modifica</button>
-                <button onclick=deleteProduct(<%=p.getID()%>) class="cancella">Cancella</button>
-            </div>
-        </div>
-        <%}%>
+        </c:forEach>
     </div>
 </div>
-
 
 <script>
 

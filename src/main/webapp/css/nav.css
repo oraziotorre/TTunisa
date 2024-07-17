@@ -37,7 +37,7 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: grey;
+    background-color: #00408F;
 }
 
 .active {

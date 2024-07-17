@@ -1,77 +1,75 @@
 <%@ page import="model.Prodotto" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creazione/Modifica Prodotto</title>
-    <link href="${pageContext.request.contextPath}/css/product_crea_modifica.css" type="text/css" rel="stylesheet">
+    <c:url value="/css/product_crea_modifica.css" var="cssModificaProdotto"/>
+    <link href="${cssModificaProdotto}" type="text/css" rel="stylesheet">
 </head>
-<% Prodotto prodotto = (Prodotto) request.getAttribute("Prodotto");%>
 <body>
-
 <button class="back" onclick="goBack()">Ritorna Indietro</button>
 <div class="tag">
     <h2>PAGINA MODIFICA PRODOTTO</h2>
 </div>
 <form method="post" action="mod_product">
-    <input type="hidden" name="ID" value="<%=prodotto.getID()%>">
+    <input type="hidden" name="ID" value="${prodotto.ID}">
     <div class="container">
         <div class="summary">
             <div class="row">
                 <div class="detail">
                     <label for="nome">Nome Prodotto</label>
-                    <input type="text" placeholder="Nome Prodotto " name="Nome" id="nome"
-                           value="<%=prodotto.getNome()%>" required>
+                    <input type="text" placeholder="Nome Prodotto" name="Nome" id="nome"
+                           value="${prodotto.nome}" required>
                 </div>
                 <div class="detail">
                     <label for="prezzo">Prezzo</label>
                     <input type="number" placeholder="Prezzo $" name="Prezzo" id="prezzo" step="0.01"
-                           value="<%=prodotto.getPrezzo()%>" required>
+                           value="${prodotto.prezzo}" required>
                 </div>
             </div>
             <div class="row">
                 <div class="detail">
                     <label for="quantita">Quantita'</label>
-                    <input type="number" min="1" max="99" placeholder="Quantita' " name="Quantita" id="quantita"
-                           value="<%=prodotto.getQuantita()%>" required>
+                    <input type="number" min="1" max="99" placeholder="Quantita'" name="Quantita" id="quantita"
+                           value="${prodotto.quantita}" required>
                 </div>
                 <div class="detail">
                     <label for="sconto">Sconto</label>
-                    <input type="number" min="0" max="100" placeholder="Sconto " name="Sconto" id="sconto"
-                           value="<%=prodotto.getSconto()%>" required>
+                    <input type="number" min="0" max="100" placeholder="Sconto" name="Sconto" id="sconto"
+                           value="${prodotto.sconto}" required>
                 </div>
                 <div class="detail">
                     <label for="categoria">Categoria</label>
                     <select placeholder="Categoria" name="Categoria" id="categoria" required>
-                        <option><%=prodotto.getCategoria()%>
-                        </option>
-                        <option>racchette</option>
-                        <option>tavoli</option>
-                        <option>palline</option>
-                        <option>abbigliamento</option>
-                        <option>altro</option>
+                        <option value="${prodotto.categoria}">${prodotto.categoria}</option>
+                        <option value="racchette">racchette</option>
+                        <option value="tavoli">tavoli</option>
+                        <option value="palline">palline</option>
+                        <option value="abbigliamento">abbigliamento</option>
+                        <option value="altro">altro</option>
                     </select>
                 </div>
             </div>
             <div class="detail">
                 <label for="descrizione">Descrizione</label>
-                <textarea cols="30" rows="5" placeholder="Descrizione " name="Descrizione" id="descrizione"
-                          required><%=prodotto.getDescrizione()%></textarea>
+                <textarea cols="30" rows="5" placeholder="Descrizione" name="Descrizione" id="descrizione"
+                          required>${prodotto.descrizione}</textarea>
             </div>
             <div class="detail">
                 <button type="submit" id="submit" class="prod">Inserisci</button>
             </div>
         </div>
         <div class="immagine">
-            <img src="<%=prodotto.getImg()%>" alt="Prodotto" id="previewImage">
+            <img src="${prodotto.img}" alt="Prodotto" id="previewImage">
             <label for="imageSelect">Cambia Immagine</label>
-            <input type="text" id="imageSelect" value="<%=prodotto.getImg()%>" name="Img" required>
+            <input type="text" id="imageSelect" value="${prodotto.img}" name="Img" required>
         </div>
     </div>
 </form>
-
 <script>
 
     function goBack() {
@@ -83,7 +81,6 @@
         var previewImage = document.getElementById('previewImage');
 
         if (imageUrl.trim() === '') {
-            previewImage.src = '${pageContext.request.contextPath}/images/imageNA.png'; // Immagine predefinita
             previewImage.alt = 'Inserisci un URL per visualizzare l\'immagine'; // Testo alternativo
         } else {
             previewImage.src = imageUrl;

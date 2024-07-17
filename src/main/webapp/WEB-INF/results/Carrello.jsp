@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -16,7 +17,7 @@
 <%@include file="header.jsp" %>
 <%@include file="nav.jsp" %>
 
-<!--Orazio devi fare del js per sta roba ovvero appena carica la pagina già calcola il prezzo totale ecc-->
+<!--PROBLEMA: MANCATO AVVISO QUANDO L'ORDINE NON E' VALIDO-->
 <% if (listaProdottiCarrello.size() == 0) { %>
 <div class="cart_vuoto">
     <h3>Il mio carrello</h3>
@@ -57,13 +58,13 @@
                     </div>
                 </div>
                 <input class="quantita" type="number" id="quantity_<%= p.getID() %>" name="quantity_<%= p.getID() %>"
-                       min="1" max="<%=model.ProdottoDAO.findProduct(p.getID()).getQuantita()%>"
+                       min="1" max="99"
                        value="<%= p.getQuantita()%>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
                 <p class="prezzo_totale">$ <%=String.format("%.2f", prezzo * p.getQuantita())%>
                 </p>
                 <button type="button" class="bidone"
                         onclick="window.location.href ='cart?action=removeitem&ID=<%=p.getID()%>'"><img
-                        src="${pageContext.request.contextPath}\images\bin-icon.webp"></button>
+                        src="images/bin-icon.webp"></button>
             </div>
             <% } %>
         </div>

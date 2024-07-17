@@ -18,12 +18,6 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Setta il carrello al primo accesso
-        Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
-        if (carrello == null) {
-            carrello = new Carrello();
-            request.getSession().setAttribute("carrello", carrello);
-        }
 
         ArrayList<Prodotto> listaProdottiVenduti = ProdottoDAO.doRetrieveOrderByAcquisti();
         request.setAttribute("listaProdottiVenduti", listaProdottiVenduti);
@@ -31,6 +25,7 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("listaProdottiScontati", listaProdottiScontati);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/HomePage.jsp");
         dispatcher.forward(request, response);
+
     }
 
     @Override

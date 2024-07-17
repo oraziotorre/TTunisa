@@ -29,7 +29,7 @@ public class GestioneProdottoServlet extends HttpServlet {
         if (action.equals("modify")) {
             int ID = Integer.parseInt(request.getParameter("ID"));
             Prodotto p = ProdottoDAO.findProduct(ID);
-            request.setAttribute("Prodotto", p);
+            request.setAttribute("prodotto", p);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ModificaProdotto.jsp");
             dispatcher.forward(request, response);
         }

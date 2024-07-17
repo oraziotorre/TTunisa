@@ -35,7 +35,7 @@ public class ListaAdminServlet extends HttpServlet {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/ListaProdotti.jsp");
                     dispatcher.forward(request, response);
                 } else {
-                    //LISTA PRODOTTI FILTRATA
+                    //LISTA PRODOTTI FILTRATA------------------QUI AJAX
                     String query = request.getParameter("query");
                     ArrayList<Prodotto> listaProdotti = ProdottoDAO.doRetrieveBySearch(query);
                     request.setAttribute("listaProdotti", listaProdotti);

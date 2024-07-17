@@ -53,10 +53,26 @@ body {
 }
 
 .saldo {
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 1.25em;
+    padding: 0.8em 1.5em;
+    font-size: 1em;
+    margin: 1em auto;
+    width: auto;
+    text-align: center;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none; /* Rimuove il bordo di focus */
+}
+
+.saldo:hover {
+    background-color: #45a049; /* Cambia colore al passaggio del mouse */
+}
+
+.saldo:active {
+    background-color: #367c39; /* Cambia colore al clic */
 }
 
 .bottoni {

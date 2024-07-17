@@ -120,11 +120,11 @@ public class UtenteDAO extends HttpServlet {
             int rowsUpdated = ps.executeUpdate();
 
             if (rowsUpdated != 1) {
-                throw new SQLException("Non è stato possibile aggiornare il saldo dell'utente.");
+                throw new SQLException("Non è stato possibile aggiornare lo status dell'utente.");
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException("Errore durante l'aggiornamento del saldo dell'utente.", e);
+            throw new RuntimeException("Errore durante l'aggiornamento lo status dell'utente.", e);
         }
     }
 
