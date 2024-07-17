@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css\login.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>Utente</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,17 +16,52 @@
         <form method="POST" class="login-form" onsubmit="return verifyLogin()" action="login">
             <label for="email">Indirizzo email</label><br>
             <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
-            <label for="password"><b>Password</b></label><br>
+            <label for="password">Password</label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button type="submit" id="submit" class="cart">Login</button>
             <p class="message">Non registrato? <a href="registration">Crea un account</a></p>
-            <c:choose>
-                <c:when test="${errore}">
-                    <p>Email o password errate</p>
-                </c:when>
-            </c:choose>
+            <c:if test="${not empty errore}">
+                <p id="error"></p>
+            </c:if>
         </form>
     </div>
 </div>
+
+<script>
+    function verifyLogin() {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        // Validazione degli input lato client
+        var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var passwordRGX = /^[a-zA-Z0-9!@#$%^&*]*$/;
+
+        var errorMessage = "";
+
+        if (!emailRGX.test(email)) {
+            errorMessage = "Formato email non corretto.<br>";
+        }
+
+        if (!passwordRGX.test(password)) {
+            errorMessage = "Il campo password contiene caratteri non consentiti.<br>";
+        }
+ /*
+        if (password.length < 8) {
+            errorMessage = "La password deve contenere almeno 8 caratteri.<br>";
+        }
+*/
+        if (email.trim() === "" || password.trim() === "") {
+            errorMessage = "Non ci possono essere campi vuoti.<br>";
+        }
+
+        if (errorMessage !== "") {
+            document.getElementById("error").innerHTML = errorMessage;
+            document.getElementById("error").style.display = "block";
+            return false;
+        }
+
+        return true;
+    }
+</script>
 </body>
 </html>

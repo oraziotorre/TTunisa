@@ -1,6 +1,6 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="model.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -9,86 +9,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/carrello.css" rel="stylesheet" type="text/css">
 </head>
-<%
-    Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
-    ArrayList<Prodotto> listaProdottiCarrello = (ArrayList<Prodotto>) carrello.getProdotti();
-%>
 <body>
 <%@include file="header.jsp" %>
 <%@include file="nav.jsp" %>
 
-<!--PROBLEMA: MANCATO AVVISO QUANDO L'ORDINE NON E' VALIDO-->
-<% if (listaProdottiCarrello.size() == 0) { %>
+<%
+    Carrello carrello = (Carrello) session.getAttribute("carrello");
+    ArrayList<Prodotto> listaProdottiCarrello = (ArrayList<Prodotto>) carrello.getProdotti();
+
+    double subtotale = 0.0;
+    boolean isUtenteAutenticato = session.getAttribute("Utente") != null;
+    double saldoUtente = isUtenteAutenticato ? ((Utente) session.getAttribute("Utente")).getSaldo() : 0.0;
+
+    for (Prodotto p : listaProdottiCarrello) {
+        double prezzo = p.getPrezzo();
+        if (p.getSconto() != 0) {
+            prezzo -= (prezzo / 100 * p.getSconto());
+        }
+        subtotale += prezzo * p.getQuantita();
+    }
+
+    double iva = subtotale * 0.22;
+    double totale = subtotale + iva;
+%>
+
+
+<%
+    if (listaProdottiCarrello.isEmpty()) {
+%>
 <div class="cart_vuoto">
     <h3>Il mio carrello</h3>
     <div class="cart_items_vuoto">
         <p>Carrello Vuoto</p>
-        <a href="<%=request.getContextPath()%>">Continua la Navigazione</a>
+        <a href="<%= request.getContextPath() %>">Continua la Navigazione</a>
     </div>
 </div>
-<% } else { %>
-<form id="cartForm" action="cart" method="post">
+<%
+} else {
+%>
+<form id="cartForm" action="cart" method="post" onsubmit="return calcolaErr()">
     <div class="cart_pieno">
         <div class="cart_pieno_items">
             <h3>Il mio carrello</h3>
-            <% double subtotale = 0.0;
+            <%
                 for (Prodotto p : listaProdottiCarrello) {
                     double prezzo = p.getPrezzo();
-                    if (p.getSconto() != 0)
-                        prezzo = p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto());
-                    subtotale += prezzo * p.getQuantita();
-                }
-                double iva = subtotale * 0.22; // Esempio di calcolo dell'IVA al 22%
-                double totale = subtotale + iva;
-            %>
-            <% for (Prodotto p : listaProdottiCarrello) {
-                double prezzo = p.getPrezzo();
-                if (p.getSconto() != 0)
-                    prezzo = p.getPrezzo() - (p.getPrezzo() / 100 * p.getSconto());
+                    if (p.getSconto() != 0) {
+                        prezzo -= (prezzo / 100 * p.getSconto());
+                    }
+                    double prezzoTotale = prezzo * p.getQuantita();
             %>
             <div class="prodotto">
                 <div class="img_details">
-                    <img src="<%=p.getImg()%>" alt="Immagine Prodotto">
+                    <img src="<%= p.getImg() %>" alt="Immagine Prodotto">
                     <div class="product-details">
-                        <p class="nome"><%=p.getNome()%>
-                        </p>
-                        <!-- Qui ci va il prezzo del singolo oggetto nello span -->
-                        <p class="prezzo">$ <%=String.format("%.2f", prezzo)%>
-                        </p>
+                        <p class="nome"><%= p.getNome() %></p>
+                        <p class="prezzo">$ <%= String.format("%.2f", prezzo) %></p>
                     </div>
                 </div>
-                <input class="quantita" type="number" id="quantity_<%= p.getID() %>" name="quantity_<%= p.getID() %>"
-                       min="1" max="99"
-                       value="<%= p.getQuantita()%>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
-                <p class="prezzo_totale">$ <%=String.format("%.2f", prezzo * p.getQuantita())%>
-                </p>
-                <button type="button" class="bidone"
-                        onclick="window.location.href ='cart?action=removeitem&ID=<%=p.getID()%>'"><img
-                        src="images/bin-icon.webp"></button>
+                <input class="quantita" type="number" id="quantity_<%= p.getID() %>" name="quantity_<%= p.getID() %>" min="1" max="99"
+                       value="<%= p.getQuantita() %>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
+                <p class="prezzo_totale">$ <%= String.format("%.2f", prezzoTotale) %></p>
+                <button type="button" class="bidone" onclick="window.location.href ='cart?action=removeitem&ID=<%= p.getID() %>'">
+                    <img src="images/bin-icon.webp">
+                </button>
             </div>
-            <% } %>
+            <%
+                }
+            %>
         </div>
         <div class="cart_pieno_check">
             <h3>Riepilogo ordine</h3>
             <div class="summary">
-                <p>Subtotale <span id="subtotale">$ <%=String.format("%.2f", subtotale)%></span></p>
-                <p>Iva <span id="iva">$ <%=String.format("%.2f", iva)%></span></p>
-                <p>Totale <span id="totale">$ <%=String.format("%.2f", totale)%></span></p>
+                <p>Subtotale <span id="subtotale">$ <%= String.format("%.2f", subtotale) %></span></p>
+                <p>Iva <span id="iva">$ <%= String.format("%.2f", iva) %></span></p>
+                <p>Totale <span id="totale">$ <%= String.format("%.2f", totale) %></span></p>
             </div>
-            <% if (request.getSession().getAttribute("Utente") != null) { %>
+            <%
+                if (isUtenteAutenticato) {
+            %>
             <div class="checkout-button">
                 <button type="submit" name="action" value="checkout">Checkout</button>
             </div>
-            <% } else { %>
+            <%
+            } else {
+            %>
             <div class="accedi-button">
                 <p class="accedi-p">Si prega di effettuare l'accesso per eseguire il pagamento</p>
                 <button type="button" onclick="location.href='login';">Accedi</button>
             </div>
-            <% } %>
+            <%
+                }
+            %>
+            <p id="errore"></p>
         </div>
     </div>
 </form>
-<% } %>
+<%
+    }
+%>
+
 <script>
     function updateQuantity(input, productID, prezzo) {
         updatePriceDisplay(input, prezzo);
@@ -107,14 +127,12 @@
     function recalculateTotals() {
         var listaProdottiCarrello = document.querySelectorAll('.prodotto');
         var subtotale = 0.0;
-        var quantitaTotale = 0;
 
         listaProdottiCarrello.forEach(function (item) {
             var prezzoUnitario = parseFloat(item.querySelector('.prezzo').textContent.replace('$ ', ''));
             var quantitaProdotto = parseInt(item.querySelector('.quantita').value, 10);
             var prezzoTotaleProdotto = prezzoUnitario * quantitaProdotto;
             subtotale += prezzoTotaleProdotto;
-            quantitaTotale += quantitaProdotto;
         });
 
         var iva = subtotale * 0.22;
@@ -147,6 +165,23 @@
             }
         };
         xhr.send("action=updateitem&ID=" + productID + "&quantita=" + quantity);
+    }
+
+    function calcolaErr() {
+        var saldoUtente = <%= saldoUtente %>;
+        var costoTotale = <%= totale %>;
+
+        if (isNaN(saldoUtente)) {
+            // Non autenticato, il controllo del saldo non è necessario
+            return true;
+        }
+
+        if (saldoUtente < costoTotale) {
+            document.getElementById("errore").textContent = "Il saldo non è sufficiente";
+            return false;
+        }
+
+        return true;
     }
 </script>
 

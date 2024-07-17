@@ -83,6 +83,10 @@
             errorMessage = "La password deve contenere almeno 8 caratteri.<br>";
         }
 
+        if(password.trim() == "" || email.trim() == "" || cognome.trim() == "" || nome.trim() ==""){
+            errorMessage = "Non ci possono essere campi vuoti.<br>"
+        }
+
         if (errorMessage !== "") {
             document.getElementById("error").innerHTML = errorMessage;
             document.getElementById("error").style.display = "block";

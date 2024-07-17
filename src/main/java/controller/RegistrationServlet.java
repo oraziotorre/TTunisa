@@ -11,7 +11,6 @@ import model.Utente;
 import model.UtenteDAO;
 
 import java.io.IOException;
-
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
@@ -27,7 +26,7 @@ public class RegistrationServlet extends HttpServlet {
                 cognome == null || cognome.isEmpty() ||
                 email == null || email.isEmpty() ||
                 password == null || password.isEmpty()) {
-
+            request.setAttribute("controllo", "Non ci possono essere campi vuoti.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Registration.jsp");
             dispatcher.forward(request, response);
             return;
@@ -41,24 +40,20 @@ public class RegistrationServlet extends HttpServlet {
         u.setEmail(email);
         u.setPassword(password);
         u.setAmministratore(false); // Suppongo che l'utente non sia un amministratore
+
         // Verifica se l'email è già presente nel database
         if (!UtenteDAO.isNewEmail(u.getEmail())) {
-            request.setAttribute("controllo", "Email già presente");
+            request.setAttribute("controllo", "Email già presente.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Registration.jsp");
             dispatcher.forward(request, response);
-        }
-        else {
+        } else {
             UtenteDAO.doRegistration(u);
             response.sendRedirect(request.getContextPath() + "/login");
         }
-
-
-
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
-
 }

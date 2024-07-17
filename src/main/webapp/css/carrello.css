@@ -309,6 +309,19 @@ input[type=number] {
 }
 
 
+
+#errore{
+    color: #CA0000;
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-style: italic;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
 @media screen and (max-width: 1200px) {
     .cart_pieno {
         flex-direction: column;

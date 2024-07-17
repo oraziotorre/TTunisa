@@ -1,6 +1,7 @@
 package controller;
 
-import model.*;
+import model.Utente;
+import model.UtenteDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,12 +9,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.json.JSONObject;
-
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -21,31 +18,33 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Utente u = UtenteDAO.doLogin(request.getParameter("Email"), request.getParameter("Password"));
-        if (request.getParameter("action") == null) {
+        String action = request.getParameter("action");
+
+        if (action == null) {
+            String email = request.getParameter("Email");
+            String password = request.getParameter("Password");
+            Utente u = UtenteDAO.doLogin(email, password);
+
             if (u == null) {
                 request.setAttribute("errore", true);
                 RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
-                rs.include(request, response);
-
-            } else if (!u.isAmministratore()) {
-                session.setAttribute("Utente", u); // Salva l'oggetto Utente nella sessione
-                request.getSession();
-                response.sendRedirect(request.getContextPath());
-            } else if (u.isAmministratore()) {
-                session.setAttribute("Utente", u); // Salva l'oggetto Utente amministratore nella sessione
-                session.setAttribute("isAdmin", true);
+                rs.forward(request, response);
+            } else {
+                session.setAttribute("Utente", u);
+                if (u.isAmministratore()) {
+                    session.setAttribute("isAdmin", true);
+                }
                 response.sendRedirect(request.getContextPath());
             }
-        } else if (request.getParameter("action").equals("logout")) {
+        } else if (action.equals("logout")) {
             session.invalidate();
             response.sendRedirect(request.getContextPath());
         }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
 }
+

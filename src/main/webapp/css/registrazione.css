@@ -82,7 +82,7 @@ body {
 
 #error {
     color: red;
-    display: none;
+    display: block;
     font-size: 0.6em;
 }
 

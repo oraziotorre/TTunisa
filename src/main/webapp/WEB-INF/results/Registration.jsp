@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css\registrazione.css">
+    <link rel="stylesheet" href="css/registrazione.css">
     <title>Registrazione</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +13,8 @@
 <div class="registration-page">
 
     <div class="form">
-        <!-- <form class="register-form">
-             <input type="text" placeholder="name"/>
-             <input type="password" placeholder="password"/>
-             <input type="text" placeholder="email address"/>
-             <button>create</button>
-             <p class="message">Already registered? <a href="#">Sign In</a></p>
-         </form> -->
-
-        <!-- Memorizziamo un nuovo utente molto semplicemente -->
-        <form class="registration-form" action="registration">
+        <% String stringa = (String) request.getAttribute("controllo"); %>
+        <form class="registration-form" onsubmit="return verifyRegistration()" method="post" action="registration">
             <label for="nome">Nome</label><br>
             <input type="text" placeholder="Inserisci il nome" name="Nome" id="nome" required><br>
             <label for="cognome">Cognome</label><br>
@@ -33,16 +25,15 @@
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button type="submit" id="submit" class="cart">Registrati</button>
             <p class="message">Già registrato? <a href="login">Accedi</a></p>
-            <p id="error"></p>
+            <c:if test="${not empty controllo}">
+                <p id="error">${controllo}</p>
+            </c:if>
         </form>
     </div>
 </div>
 
-
 <script>
-    function verifyRegistration(event) {
-        event.preventDefault(); // Previene l'invio predefinito del form
-
+    function verifyRegistration() {
         var nome = document.getElementById('nome').value;
         var cognome = document.getElementById('cognome').value;
         var email = document.getElementById('email').value;
@@ -56,35 +47,36 @@
         var errorMessage = "";
 
         if (!nameRGX.test(nome)) {
-            errorMessage += "Il campo nome puo' contenere solo lettere<br>";
+            errorMessage = "Il campo nome può contenere solo lettere.<br>";
         }
 
         if (!nameRGX.test(cognome)) {
-            errorMessage += "Il campo cognome puo' contenere solo lettere<br>";
+            errorMessage = "Il campo cognome può contenere solo lettere.<br>";
         }
 
         if (!emailRGX.test(email)) {
-            errorMessage += "Formato email non corretto.<br>";
+            errorMessage = "Formato email non corretto.<br>";
         }
 
         if (!passwordRGX.test(password)) {
-            errorMessage += "Il campo password contiene caratteri non consentiti.<br>";
+            errorMessage = "Il campo password contiene caratteri non consentiti.<br>";
         }
 
         if (password.length < 8) {
-            errorMessage += "La password deve contenere almeno 8 caratteri.<br>";
+            errorMessage = "La password deve contenere almeno 8 caratteri.<br>";
+        }
+
+        if (nome.trim() === "" || cognome.trim() === "" || email.trim() === "" || password.trim() === "") {
+            errorMessage = "Non ci possono essere campi vuoti.<br>";
         }
 
         if (errorMessage !== "") {
             document.getElementById("error").innerHTML = errorMessage;
-            document.getElementById("error").style.display = "block";
             return false;
-        } else
-            return true
+        }
+
+        return true;
     }
-
-    document.querySelector('.registration-form').addEventListener('submit', verifyRegistration);
 </script>
-
 </body>
 </html>
