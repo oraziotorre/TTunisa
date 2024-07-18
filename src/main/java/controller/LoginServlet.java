@@ -29,7 +29,6 @@ public class LoginServlet extends HttpServlet {
                 rs.include(request, response);
             }
             else if (u == null && flag.equals("true")){
-                flag = null;
                 request.setAttribute("errore","Non è stato individuato l'utente");
                 RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
                 rs.include(request, response);
