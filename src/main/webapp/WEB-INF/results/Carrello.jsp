@@ -192,11 +192,11 @@
             if (requestedQuantity > availableQuantity) {
                 // Aggiungi un messaggio di errore specifico per il prodotto
                 document.getElementById("errore").innerHTML = "La quantità richiesta per " + item.nome + " non è al momento disponibile";
-                formIsValid = false;
+                return false;
             }
         });
 
-        return formIsValid;
+        return true;
     }
 </script>
 
