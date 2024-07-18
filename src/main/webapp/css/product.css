@@ -10,7 +10,7 @@ body {
 }
 
 .product-page {
-    width: 80%;
+    width: 90%;
     padding: 2em;
     background-color: white;
     display: flex;
@@ -53,17 +53,20 @@ body {
 }
 
 .product-nome {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     word-wrap: break-word;
-    justify-content: flex-start;
-    align-items: flex-end;
+    text-align: left;
+    margin-bottom: 1em
 }
 
 .product-nome h1 {
     font-size: 2em;
-    margin-bottom: 1em;
+
+    margin:0 ;
     word-wrap: break-word;
+    flex-wrap: wrap;
+    white-space: normal;
+    line-height: 1.2em;
 }
 
 .price {
@@ -74,7 +77,6 @@ body {
     font-size: 1.5em;
     color: grey;
     text-decoration: line-through;
-    padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
 
@@ -107,6 +109,7 @@ input[type="number"] {
 input[type="number"]:focus {
     border: 0.1em solid black;
     outline: none;
+    width: 5em;
 }
 
 button {
@@ -177,7 +180,7 @@ label {
     }
 
     input[type="number"] {
-        width: 60%;
+        width: 4em;
     }
 
     button {

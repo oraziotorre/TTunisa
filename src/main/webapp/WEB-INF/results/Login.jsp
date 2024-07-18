@@ -11,18 +11,21 @@
 <%@ include file="header.jsp" %>
 <%@ include file="nav.jsp" %>
 <div class="login-page">
-
+<% String errormsg = (String) request.getAttribute("errore"); %>
     <div class="form">
         <form method="POST" class="login-form" onsubmit="return verifyLogin()" action="login">
+            <input type="hidden" name="flag" id="flag" value="true">
             <label for="email">Indirizzo email</label><br>
             <input type="email" placeholder="Inserisci l'email" name="Email" id="email" required><br>
             <label for="password">Password</label><br>
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button type="submit" id="submit" class="cart">Login</button>
             <p class="message">Non registrato? <a href="registration">Crea un account</a></p>
-            <c:if test="${not empty errore}">
-                <p id="error"></p>
-            </c:if>
+
+
+            <% if (errormsg != null) { %>
+            <p id="error"><%= errormsg %></p>
+            <% } %>
         </form>
     </div>
 </div>
