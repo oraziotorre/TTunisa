@@ -170,18 +170,33 @@
     function calcolaErr() {
         var saldoUtente = <%= saldoUtente %>;
         var costoTotale = <%= totale %>;
+        var listaProdottiCarrello = JSON.parse('<%= new org.json.JSONArray(listaProdottiCarrello).toString() %>');
+        var formIsValid = true;
 
-        if (isNaN(saldoUtente)) {
-            // Non autenticato, il controllo del saldo non è necessario
-            return true;
-        }
+        console.log("saldoUtente:", saldoUtente);
+        console.log("costoTotale:", costoTotale);
+        console.log("listaProdottiCarrello:", listaProdottiCarrello);
+
+        document.getElementById("errore").innerHTML = "";
 
         if (saldoUtente < costoTotale) {
-            document.getElementById("errore").textContent = "Il saldo non è sufficiente";
+            document.getElementById("errore").innerHTML = "Il saldo non è sufficiente";
             return false;
         }
 
-        return true;
+        listaProdottiCarrello.forEach(function (item) {
+            var productID = item.id;
+            var availableQuantity = item.quantita;
+            var requestedQuantity = parseInt(document.getElementById('quantity_' + productID).value, 10);
+
+            if (requestedQuantity > availableQuantity) {
+                // Aggiungi un messaggio di errore specifico per il prodotto
+                document.getElementById("errore").innerHTML = "La quantità richiesta per " + item.nome + " non è al momento disponibile";
+                formIsValid = false;
+            }
+        });
+
+        return formIsValid;
     }
 </script>
 
