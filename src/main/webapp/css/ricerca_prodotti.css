@@ -95,6 +95,7 @@ body {
     .container {
         width: 100%;
         padding: 1.5em;
+        margin-bottom: 7em;
     }
 
     .product-search {

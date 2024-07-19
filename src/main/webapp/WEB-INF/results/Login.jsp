@@ -29,7 +29,7 @@
         </form>
     </div>
 </div>
-
+<%@include file="footer.jsp" %>
 <script>
     function verifyLogin() {
         var email = document.getElementById('email').value;

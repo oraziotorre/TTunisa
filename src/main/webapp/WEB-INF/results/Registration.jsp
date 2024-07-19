@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <link rel="stylesheet" href="css/registrazione.css">
@@ -10,6 +11,7 @@
 
 <%@ include file="header.jsp" %>
 <%@ include file="nav.jsp" %>
+<% String errormsg = (String) request.getAttribute("errore"); %>
 <div class="registration-page">
 
     <div class="form">
@@ -25,13 +27,14 @@
             <input type="password" placeholder="Inserisci la password" name="Password" id="password" required><br>
             <button type="submit" id="submit" class="cart">Registrati</button>
             <p class="message">Già registrato? <a href="login">Accedi</a></p>
-            <c:if test="${not empty controllo}">
-                <p id="error">${controllo}</p>
-            </c:if>
+            <% if (errormsg != null) { %>
+            <p id="error"><%= errormsg %></p>
+            <% } %>
+            <p id="error"></p>
         </form>
     </div>
 </div>
-
+<%@include file="footer.jsp" %>
 <script>
     function verifyRegistration() {
         var nome = document.getElementById('nome').value;

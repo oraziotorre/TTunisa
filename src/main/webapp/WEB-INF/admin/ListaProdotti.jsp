@@ -1,6 +1,4 @@
-<%@ page import="model.Prodotto" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +16,13 @@
             <button onclick="window.location.href ='<%=request.getContextPath()%>'">Home Page</button>
         </div>
     </div>
-    <form method="post" action="admin?action=prodotti">
         <div class="filtro">
             <div class="bottoni">
-                <button onclick="window.location.href ='admin?action=prodotti'">Tutti</button>
+                <button type="button" onclick="filterProducts('')">Tutti</button>
             </div>
-            <input type="text" name="query" placeholder="Nome Prodotti" required>
+            <input type="text" name="query" id="query" placeholder="Nome Prodotti" required>
         </div>
-    </form>
-    <div class="prodotto-list">
+    <div id="productList" class="prodotto-list">
         <c:forEach var="p" items="${listaProdotti}">
             <div class="prodotto">
                 <img src="${p.img}" alt="Product">
@@ -49,18 +45,71 @@
 
 <script>
 
+    document.getElementById('query').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();  // Previeni l'invio del modulo
+            filterProducts(this.value);  // Chiama la funzione con il valore del campo
+        }
+    });
+
+    function filterProducts(query) {
+        fetch("admin?action=prodotti", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-Requested-With": "XMLHttpRequest"
+            },
+            body: new URLSearchParams({ query: query })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: `+response.status);
+                }
+                return response.json();
+            })
+            .then(products => {
+                updateProductList(products);
+            })
+            .catch(error => {
+                console.error("Error fetching products:", error);
+            });
+    }
+
+
+    function updateProductList(products) {
+        var productList = document.getElementById("productList");
+        productList.innerHTML = "";
+        products.forEach(function(item) {
+            var productDiv = document.createElement("div");
+            productDiv.className = "prodotto";
+            productDiv.innerHTML = `
+                <img src=`+item.img+`" alt="Product">
+                <div class="info-prodotto">
+                    <p class="nome-prodotto">`+item.nome+`</p>
+                    <p class="stock">Quantita' : `+item.quantita+`</p>
+                </div>
+                <div class="prezzo-sconto">
+                    <p class="prezzo">Prezzo: $`+item.prezzo+`</p>
+                    <p class="sconto">Sconto: `+item.sconto+`%</p>
+                </div>
+                <div class="delete-modify">
+                    <button onclick="modifyProduct(`+item.ID+`)" class="modifica">Modifica</button>
+                    <button onclick="deleteProduct(`+item.ID+`)" class="cancella">Cancella</button>
+                </div>
+            `;
+            productList.appendChild(productDiv);
+        });
+    }
+
     function deleteProduct(id) {
-        // Assuming 'id' is already properly formatted or encoded
         var url = 'admin/product-management?action=delete&ID=' + encodeURIComponent(id);
         window.location.href = url;
     }
 
     function modifyProduct(id) {
-        // Assuming 'id' is already properly formatted or encoded
         var url = 'admin/product-management?action=modify&ID=' + encodeURIComponent(id);
         window.location.href = url;
     }
-
 </script>
 </body>
 </html>

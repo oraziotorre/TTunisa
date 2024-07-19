@@ -43,7 +43,7 @@ public class RegistrationServlet extends HttpServlet {
 
         // Verifica se l'email è già presente nel database
         if (!UtenteDAO.isNewEmail(u.getEmail())) {
-            request.setAttribute("controllo", "Email già presente.");
+            request.setAttribute("errore", "Email già presente.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/Registration.jsp");
             dispatcher.forward(request, response);
         } else {

@@ -24,23 +24,32 @@ public class LoginServlet extends HttpServlet {
         Utente u = UtenteDAO.doLogin(request.getParameter("Email"), request.getParameter("Password"));
         String flag = request.getParameter("flag");
         if (request.getParameter("action") == null) {
-            if (u == null && flag == null){
-                RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
-                rs.include(request, response);
-            }
-            else if (u == null && flag.equals("true")){
-                request.setAttribute("errore","Non è stato individuato l'utente");
-                RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
-                rs.include(request, response);
-            }
-            else if (!u.isAmministratore()) {
-                session.setAttribute("Utente", u); // Salva l'oggetto Utente nella sessione
-                request.getSession();
-                response.sendRedirect(request.getContextPath());
-            } else if (u.isAmministratore()) {
-                session.setAttribute("Utente", u); // Salva l'oggetto Utente amministratore nella sessione
-                session.setAttribute("isAdmin", true);
-                response.sendRedirect(request.getContextPath());
+            if (u == null) {
+                //l'utente non ha loggato
+                if (flag == null) {
+                    //dati form nulli
+                    RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
+                    rs.forward(request, response);
+
+                } else if (flag.equals("true")) {
+                    //dati form errori
+                    request.setAttribute("errore", "Email o Password errati");
+                    RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
+                    rs.forward(request, response);
+                }
+            } else if (u != null) {
+                //l'utente è loggato correttamente
+                if (!u.isAmministratore()) {
+                    session.setAttribute("Utente", u); // Salva l'oggetto Utente nella sessione
+                    request.getSession();
+                    response.sendRedirect(request.getContextPath());
+
+                } else if (u.isAmministratore()) {
+                    session.setAttribute("Utente", u); // Salva l'oggetto Utente amministratore nella sessione
+                    session.setAttribute("isAdmin", true);
+                    response.sendRedirect(request.getContextPath());
+
+                }
             }
         } else if (request.getParameter("action").equals("logout")) {
             session.invalidate();

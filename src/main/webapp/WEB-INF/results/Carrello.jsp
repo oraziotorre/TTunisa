@@ -12,8 +12,8 @@
 <body>
 <%@include file="header.jsp" %>
 <%@include file="nav.jsp" %>
-
 <%
+    String errormsg = (String) request.getAttribute("errore");
     Carrello carrello = (Carrello) session.getAttribute("carrello");
     ArrayList<Prodotto> listaProdottiCarrello = (ArrayList<Prodotto>) carrello.getProdotti();
 
@@ -47,7 +47,7 @@
 <%
 } else {
 %>
-<form id="cartForm" action="cart" method="post" onsubmit="return calcolaErr()">
+<form id="cartForm" action="cart" method="post">
     <div class="cart_pieno">
         <div class="cart_pieno_items">
             <h3>Il mio carrello</h3>
@@ -91,6 +91,10 @@
             <div class="checkout-button">
                 <button type="submit" name="action" value="checkout">Checkout</button>
             </div>
+            <% if (errormsg != null) { %>
+            <p id="errore"><%= errormsg %></p>
+            <% } %>
+
             <%
             } else {
             %>
@@ -101,13 +105,13 @@
             <%
                 }
             %>
-            <p id="errore"></p>
         </div>
     </div>
 </form>
 <%
     }
 %>
+
 
 <script>
     function updateQuantity(input, productID, prezzo) {
@@ -159,45 +163,10 @@
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "cart", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                // Togliere
-            }
-        };
         xhr.send("action=updateitem&ID=" + productID + "&quantita=" + quantity);
     }
 
-    function calcolaErr() {
-        var saldoUtente = <%= saldoUtente %>;
-        var costoTotale = <%= totale %>;
-        var listaProdottiCarrello = JSON.parse('<%= new org.json.JSONArray(listaProdottiCarrello).toString() %>');
-        var formIsValid = true;
 
-        console.log("saldoUtente:", saldoUtente);
-        console.log("costoTotale:", costoTotale);
-        console.log("listaProdottiCarrello:", listaProdottiCarrello);
-
-        document.getElementById("errore").innerHTML = "";
-
-        if (saldoUtente < costoTotale) {
-            document.getElementById("errore").innerHTML = "Il saldo non è sufficiente";
-            return false;
-        }
-
-        listaProdottiCarrello.forEach(function (item) {
-            var productID = item.id;
-            var availableQuantity = item.quantita;
-            var requestedQuantity = parseInt(document.getElementById('quantity_' + productID).value, 10);
-
-            if (requestedQuantity > availableQuantity) {
-                // Aggiungi un messaggio di errore specifico per il prodotto
-                document.getElementById("errore").innerHTML = "La quantità richiesta per " + item.nome + " non è al momento disponibile";
-                return false;
-            }
-        });
-
-        return true;
-    }
 </script>
 
 </body>

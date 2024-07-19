@@ -10,10 +10,11 @@ body {
 
 .info {
     display: flex;
+    min-height: 30vh;
     justify-content: space-around;
     background-color: #003A82; /* Colore di sfondo del footer */
     padding: 0.8em;
-    margin: 1em auto 0;
+    margin: 3em auto 0;
     width: 100%;
     height: auto;
     flex-shrink: 0;
@@ -45,6 +46,11 @@ body {
 }
 
 @media screen and (max-width: 980px) {
+
+    .info {
+        min-height: 30vh;
+    }
+
     .column {
         padding: 1em;
     }
@@ -64,6 +70,11 @@ body {
 }
 
 @media screen and (max-width: 750px) {
+
+    .info {
+        min-height: 40vh;
+    }
+
     .column {
         padding: 0.8em;
     }
@@ -83,6 +94,7 @@ body {
 }
 
 @media screen and (max-width: 540px) {
+
     .info {
         flex-direction: column;
     }

@@ -28,12 +28,21 @@ public class CartServlet extends HttpServlet {
 
                 HttpSession session = request.getSession();
                 Utente utenteLoggato = (Utente) session.getAttribute("Utente");
-                if (cart.checkout(utenteLoggato)) {
+                int erroreCheckout = cart.checkoutErrors(utenteLoggato);
+
+                if (erroreCheckout==0) {
+                    cart.checkout(utenteLoggato);
                     session.setAttribute("carrello", new Carrello());
                     response.sendRedirect("order_history");
                 } else {
-                    ////ERRORE CHECKOUT
-                    response.sendRedirect("cart");
+                    if(erroreCheckout<0){
+                        request.setAttribute("errore", "Quantità prodotto non disponibile");
+                    }
+                    else{
+                        request.setAttribute("errore", "Saldo insufficiente");
+                    }
+                    RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Carrello.jsp");
+                    rs.forward(request, response);
                 }
             }
 

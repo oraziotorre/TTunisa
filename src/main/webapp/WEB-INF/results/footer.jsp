@@ -29,7 +29,12 @@
         </p>
     </div>
     <div class="column">
-        <p>Perfavore dateci 30</p>
+        <p>PingMaster di Francesco Durante/Orazio Torre</p>
+        <p><strong>Indirizzo Negozio:</strong> Via Novara 81041 - Pannarano (BE)</p>
+        <p>Inviare i resi a questo indirizzo, NON alla sede amministrativa</p>
+        <p>----------------------------------------------</p>
+        <p><strong>Indirizzo Sede Amministrativa:</strong> Via Beluno 81040 - PizzoCalabro (CA)</p>
+        <p><strong>Partita IVA: 04884700289</strong></p>
     </div>
 </div>
 </body>
