@@ -67,11 +67,15 @@
                         <p class="prezzo">$ <%= String.format("%.2f", prezzo) %></p>
                     </div>
                 </div>
+
+                <label for="quantity_<%= p.getID() %>" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Quantità prodotto <%= p.getNome() %></label>
                 <input class="quantita" type="number" id="quantity_<%= p.getID() %>" name="quantity_<%= p.getID() %>" min="1" max="99"
                        value="<%= p.getQuantita() %>" onchange="updateQuantity(this, <%= p.getID() %>, <%= prezzo %>)">
                 <p class="prezzo_totale">$ <%= String.format("%.2f", prezzoTotale) %></p>
-                <button type="button" class="bidone" onclick="window.location.href ='cart?action=removeitem&ID=<%= p.getID() %>'">
-                    <img src="images/bin-icon.webp">
+
+                <label for="delete_<%= p.getID() %>" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Cancella prodotto <%= p.getNome() %></label>
+                <button type="button" class="bidone" id="delete_<%= p.getID() %>" onclick="window.location.href ='cart?action=removeitem&ID=<%= p.getID() %>'">
+                    <img src="images/bin-icon.webp" alt="">
                 </button>
             </div>
             <%

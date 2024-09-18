@@ -7,6 +7,7 @@
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TT Saturn</title>
@@ -27,8 +28,9 @@
     <div class="search-bar-infos">
         <div class="search-bar">
             <form method="get" action="search">
-                <input type="text" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href ='search';"
+                <input type="text" id="query" name="query" placeholder="Cerca prodotti" onsubmit="window.location.href ='search';"
                        required>
+                <label for="query" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Barra di ricerca prodotti</label>
             </form>
         </div>
         <div class="user-options">

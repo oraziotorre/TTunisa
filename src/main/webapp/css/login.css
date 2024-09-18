@@ -50,8 +50,13 @@ body {
     border-radius: 4%;
 }
 
+.form input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 2px 2px #51a7e8;
+}
+
 .form button:hover, .form button:active, .form button:focus {
-    background: rgba(128, 128, 128, 0.46);
+    background: #003A82;
 }
 
 .form button {

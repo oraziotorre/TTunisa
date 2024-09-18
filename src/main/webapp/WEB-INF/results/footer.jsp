@@ -23,9 +23,9 @@
     </div>
     <div class="column">
         <h2>I Nostri Contatti</h2>
-        <p><img src="images\phone.png"> Contattaci al seguente numero: <strong>3278456901</strong>
+        <p><img src="images\phone.png" alt=""> Contattaci al seguente numero: <strong>3278456901</strong>
         </p>
-        <p><img src="images\email.png"> Contattaci a questa email: <strong>francytorre@gmail.com</strong>
+        <p><img src="images\email.png" alt=""> Contattaci a questa email: <strong>francytorre@gmail.com</strong>
         </p>
     </div>
     <div class="column">
