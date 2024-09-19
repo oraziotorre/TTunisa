@@ -130,10 +130,10 @@ public class UtenteDAO extends HttpServlet {
 
     public static void updateUser(Utente u) {
         try (Connection con = ConPool.getConnection();
-             PreparedStatement ps = con.prepareStatement("UPDATE utente SET nome = ?, cognome = ?, email = ?, pass = ?   WHERE utente_ID = ?")) {
+             PreparedStatement ps = con.prepareStatement("UPDATE utente SET nome = ?, cognome = ?, email = ?, pass = ?  WHERE utente_ID = ?")) {
 
             ps.setString(1, u.getNome().substring(0, 1).toUpperCase() + u.getNome().substring(1).toLowerCase());
-            ps.setString(2, u.getCognome().substring(0, 1).toUpperCase() + u.getNome().substring(1).toLowerCase());
+            ps.setString(2, u.getCognome().substring(0, 1).toUpperCase() + u.getCognome().substring(1).toLowerCase());
             ps.setString(3, u.getEmail());
             ps.setString(4, u.getPassword());
             ps.setInt(5, u.getID());
