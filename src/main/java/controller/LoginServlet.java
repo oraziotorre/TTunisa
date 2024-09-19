@@ -24,19 +24,21 @@ public class LoginServlet extends HttpServlet {
         Utente u = UtenteDAO.doLogin(request.getParameter("Email"), request.getParameter("Password"));
         String flag = request.getParameter("flag");
         if (request.getParameter("action") == null) {
+
+            //Verifica se l'utente è loggato
             if (u == null) {
-                //l'utente non ha loggato
                 if (flag == null) {
                     //dati form nulli
                     RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
                     rs.forward(request, response);
 
                 } else if (flag.equals("true")) {
-                    //dati form errori
+                    //dati form errorati
                     request.setAttribute("errore", "Email o Password errati");
                     RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
                     rs.forward(request, response);
                 }
+
             } else if (u != null) {
                 //l'utente è loggato correttamente
                 if (!u.isAmministratore()) {

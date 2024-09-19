@@ -39,7 +39,7 @@ public class RegistrationServlet extends HttpServlet {
         u.setSaldo(1000.00); // Imposta un saldo iniziale
         u.setEmail(email);
         u.setPassword(password);
-        u.setAmministratore(false); // Suppongo che l'utente non sia un amministratore
+        u.setAmministratore(false);
 
         // Verifica se l'email è già presente nel database
         if (!UtenteDAO.isNewEmail(u.getEmail())) {
