@@ -49,11 +49,7 @@
         if (!passwordRGX.test(password)) {
             errorMessage = "Il campo password contiene caratteri non consentiti.<br>";
         }
- /*
-        if (password.length < 8) {
-            errorMessage = "La password deve contenere almeno 8 caratteri.<br>";
-        }
-*/
+
         if (email.trim() === "" || password.trim() === "") {
             errorMessage = "Non ci possono essere campi vuoti.<br>";
         }
